@@ -27,4 +27,55 @@ __题目描述__:
 输出: "10101"
 
 __思路__:
-先找出较短的字符串, 遍历, 设置进位符号
+设置进位符号, 从后往前遍历
+时间复杂度O(n), 空间复杂度O(n)
+
+__代码__:
+__C++__:
+```
+class Solution {
+public:
+    string addBinary(string a, string b) {
+        string result = "";
+        int i = a.size() - 1;
+        int j = b.size() - 1;
+        int carry = 0;
+        while (i >= 0 || j >= 0) {
+            int p = i >= 0 ? a[i--] - '0' : 0;
+            int q = j >= 0 ? b[j--] - '0' : 0;
+            int temp = p + q + carry;
+            result = to_string(temp % 2) + result;
+            carry = temp / 2;
+        }
+        return carry == 1 ? "1" + result : result;
+    }
+};
+```
+
+__Java__:
+```
+class Solution {
+    public String addBinary(String a, String b) {
+        StringBuilder result = new StringBuilder();
+        int i = a.length() - 1;
+        int j = b.length() - 1;
+        int carry = 0;
+        while (i >= 0 || j >= 0) {
+            int p = i >= 0 ? a.charAt(i--) - '0' : 0;
+            int q = j >= 0 ? b.charAt(j--) - '0' : 0;
+            int temp = p + q + carry;
+            result.append(temp % 2);
+            carry = temp / 2;
+        }
+        if (carry == 1) result.append(carry);
+        return result.reverse().toString();
+    }
+}
+```
+
+__Python__:
+```
+class Solution:
+    def addBinary(self, a: str, b: str) -> str:
+        return bin(int(a,2)+int(b,2))[2:]
+```
