@@ -76,27 +76,36 @@ __C++__:
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
-class Solution {
-public:
-    int maxDepth(TreeNode* root) {
-        if (!root) return 0;
-        vector<TreeNode*> stack;
-        stack.push_back(root);
-        int result = 0;
-        while (!stack.empty()) {
-            int nums = stack.size();
-            while (nums > 0) {
-                TreeNode* current = stack.at(0);
-                stack.erase(stack.begin());
-                if (current -> left) stack.push_back(current -> left);
-                if (current -> right) stack.push_back(current -> right);
-                nums--;
-            }
-            result++;
-        }
-        return result;
-    }
-};
+ /**
+  * Definition for a binary tree node.
+  * struct TreeNode {
+  *     int val;
+  *     TreeNode *left;
+  *     TreeNode *right;
+  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+  * };
+  */
+ class Solution {
+ public:
+     int maxDepth(TreeNode* root) {
+         if (!root) return 0;
+         stack<TreeNode*> s;
+         s.push(root);
+         int result = 0;
+         while (!s.empty()) {
+             int nums = s.size();
+             while (nums > 0) {
+                 TreeNode* current = s.top();
+                 s.pop();
+                 if (current -> left) s.push(current -> left);
+                 if (current -> right) s.push(current -> right);
+                 nums--;
+             }
+             result++;
+         }
+         return result;
+     }
+ };
 ```
 
 __Java__:
