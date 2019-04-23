@@ -63,7 +63,7 @@ __思路__:
 2. 可以用replace函数反复删除匹配的括号
 时间复杂度O(n), 空间复杂度O(n)
 
-__[堆栈 Stack list-wiki](https://en.wikipedia.org/wiki/Stack_(abstract_data_type))
+__[堆栈 Stack-wiki](https://en.wikipedia.org/wiki/Stack_(abstract_data_type))
 )__:
 > 堆栈（英语：stack）又称为栈或堆叠，是计算机科学中的一种抽象数据类型，只允许在有序的线性数据集合的一端（称为堆栈顶端，英语：top）进行加入数据（英语：push）和移除数据（英语：pop）的运算。
 > 按照后进先出（LIFO, Last In First Out）的原理运作。
@@ -82,7 +82,7 @@ __[堆栈 Stack list-wiki](https://en.wikipedia.org/wiki/Stack_(abstract_data_ty
 > };
 > ```
 > 另外 C++中的 STL也有stack
-> #include<stack>
+> \#include<stack>
 > 常用函数有:
 > ```
 > s.push(item);       //将item压入栈顶  
