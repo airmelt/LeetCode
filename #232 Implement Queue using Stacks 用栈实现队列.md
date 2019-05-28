@@ -118,6 +118,9 @@ class MyQueue {
 
     private Stack<Integer> stack;
     private Stack<Integer> temp;
+    private void move(Stack<Integer> a, Stack<Integer> b) {
+        while (!a.empty()) b.push(a.pop());
+    }
     /** Initialize your data structure here. */
     public MyQueue() {
         stack = new Stack<>();
@@ -131,25 +134,17 @@ class MyQueue {
 
     /** Removes the element from in front of queue and returns that element. */
     public int pop() {
-        while (!stack.empty()) {
-            temp.push(stack.pop());
-        }
+        move(stack, temp);
         int result = temp.pop();
-        while (!temp.empty()) {
-            stack.push(temp.pop());
-        }
+        move(temp, stack);
         return result;
     }
 
     /** Get the front element. */
     public int peek() {
-        while (!stack.empty()) {
-            temp.push(stack.pop());
-        }
+        move(stack, temp);
         int result = temp.peek();
-        while (!temp.empty()) {
-            stack.push(temp.pop());
-        }
+        move(temp, stack);
         return result;
     }
 
