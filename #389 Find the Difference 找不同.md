@@ -14,7 +14,7 @@ t = "abcde"
 Output:
 e
 
-Explanation:
+__Explanation:__
 'e' is the letter that was added.
 
 __题目描述__:
@@ -24,7 +24,7 @@ __题目描述__:
 
 请找出在 t 中被添加的字母。
 
-示例:
+**示例 :**
 
 输入：
 s = "abcd"
@@ -33,7 +33,7 @@ t = "abcde"
 输出：
 e
 
-解释：
+__解释：__
 'e' 是那个被添加的字母。
 
 __思路__:
