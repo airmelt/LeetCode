@@ -1,7 +1,7 @@
 __Description__:
 Given a binary search tree with non-negative values, find the minimum absolute difference between values of any two nodes.
 
-Example:
+__Example:__
 
 Input:
 ```
