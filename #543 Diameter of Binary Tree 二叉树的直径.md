@@ -39,7 +39,7 @@ __思路__:
 __代码__:
 __C++__:
 ```
-cur/**
+/**
  * Definition for a binary tree node.
  * struct TreeNode {
  *     int val;

@@ -87,6 +87,5 @@ __Python__:
 ```
 class Solution:
     def findWords(self, words: List[str]) -> List[str]:
-        l = ["qwertyuiop", "asdfghjkl", "zxcvbnm"]
-        return [word for word in words if any(all(c in row for c in word.lower()) for row in l)]
+        return [word for word in words if any(all(c in row for c in word.lower()) for row in ["qwertyuiop", "asdfghjkl", "zxcvbnm"])]
 ```

@@ -51,8 +51,10 @@ __提示：__
 0 ≤ N ≤ 30
 
 __思路__:
-参考[LeetCode #70 Climbing Stairs 爬楼梯](https://www.jianshu.com/p/8d7ceb7b7cf6)
+1. 参考[LeetCode #70 Climbing Stairs 爬楼梯](https://www.jianshu.com/p/8d7ceb7b7cf6)
 时间复杂度O(n), 空间复杂度O(1)
+2. 通项公式
+时间复杂度O(1), 空间复杂度O(1)
 
 __代码__:
 __C++__:
@@ -148,10 +150,5 @@ __Python__:
 ```
 class Solution:
     def fib(self, N: int) -> int:
-        a = 0
-        b = 1
-        while N:
-            a, b = b, a + b
-            N -= 1
-        return a
+        return int((5 ** 0.5) * 0.2 * (((1 + 5 ** 0.5) / 2) ** N - ((1 - 5 ** 0.5) / 2) ** N))
 ```

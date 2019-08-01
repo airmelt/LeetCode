@@ -64,7 +64,5 @@ __Python__:
 ```
 class Solution:
     def addDigits(self, num: int) -> int:
-        if num and num % 9 == 0:
-            return 9
-        return num % 9
+        return 9 if num and num % 9 == 0 else num % 9
 ```

@@ -93,11 +93,5 @@ __Python__:
 ```
 class Solution:
     def toHex(self, num: int) -> str:
-        if not num:
-            return "0"
-        hex, result = "0123456789abcdef", ""
-        while num and len(result) < 8:
-            result = hex[num & 0xf] + result
-            num >>= 4
-        return result
+        return hex(num)[2:] if num >= 0 else hex((1 << 32) + num)[2:]
 ```
