@@ -141,7 +141,7 @@ class Solution {
         int high = min;
         while (low <= high) {
             int mid = (low + high) / 2;
-            if (isStratsWith(strs, mid)) {
+            if (isStartsWith(strs, mid)) {
                 low = mid + 1;
             } else {
                 high = mid - 1;
@@ -150,7 +150,7 @@ class Solution {
         return strs[0].substring(0, (low + high) / 2);
     }
 
-    private boolean isStratsWith(String[] strs, int mid) {
+    private boolean isStartsWith(String[] strs, int mid) {
         String start = strs[0].substring(0, mid);
         for (int i = 0; i < strs.length; i++) {
             if (!strs[i].startsWith(start)) {

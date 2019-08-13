@@ -1,6 +1,7 @@
 __Description__:
 Given an n-ary tree, return the preorder traversal of its nodes' values.
 
+__Example:__
 For example, given a 3-ary tree:
 ![3-ary tree](https://upload-images.jianshu.io/upload_images/16639143-caf24b6dedfe7889.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 Return its preorder traversal as: [1,3,5,6,2,4].
@@ -12,6 +13,7 @@ Recursive solution is trivial, could you do it iteratively?
 __题目描述__:
 给定一个 N 叉树，返回其节点值的前序遍历。
 
+__示例 :__
 例如，给定一个 3叉树 :
 ![3叉树](https://upload-images.jianshu.io/upload_images/16639143-caf24b6dedfe7889.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 返回其前序遍历: [1,3,5,6,2,4]。
