@@ -18,7 +18,7 @@ __示例 :__
 ![3叉树](https://upload-images.jianshu.io/upload_images/16639143-caf24b6dedfe7889.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 返回其前序遍历: [1,3,5,6,2,4]。
 
-__说明: __
+__说明:__
 递归法很简单，你可以使用迭代法完成此题吗?
 
 __思路__:
