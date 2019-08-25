@@ -142,16 +142,16 @@ __Python__:
 
 class Solution:
     def findTarget(self, root: TreeNode, k: int) -> bool:
-        d = {}
-        self.result = False
+        d, result = {}, False
         def search(root):
-            if not root or self.result:
+            nonlocal result
+            if not root or result:
                 return
             if root.val in d:
-                self.result = True
-            d[k - root.val]=True
+                result = True
+            d[k - root.val] = True
             search(root.left)
             search(root.right)
         search(root)
-        return self.result
+        return result
 ```
