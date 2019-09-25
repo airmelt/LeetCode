@@ -56,16 +56,13 @@ __C++__:
 class Solution {
 public:
     int climbStairs(int n) {
-        if (n <= 3) return n;
-        int* result = new int[n + 1];
-        result[0] = 0;
-        result[1] = 1;
-        result[2] = 2;
-        result[3] = 3;
-        for (int i = 4; i < n + 1; i++) {
-            result[i] = result[i - 1] + result[i - 2];
+        int a = 0, b = 1, result = 0;
+        while (n--) {
+            result = a + b;
+            a = b;
+            b = result;
         }
-        return result[n];
+        return result;
     }
 };
 ```
@@ -90,12 +87,8 @@ class Solution {
 
 __Python__:
 ```
+from functools import reduce
 class Solution:
     def climbStairs(self, n: int) -> int:
-        a = 0
-        b = 1
-        while n:
-            a, b = b, a + b
-            n -= 1
-        return b
+        return reduce(lambda r, _: (r[1], sum(r)), range(n), (1, 1))[0]
 ```
