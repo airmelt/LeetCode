@@ -92,6 +92,5 @@ __Python__:
 ```Python
 class Solution:
     def shortestToChar(self, S: str, C: str) -> List[int]:
-        l = [i for i, c in enumerate(S) if c == C]
-        return [min([abs(i - j) for j in l]) for i in range(len(S))]
+        return [min([abs(i - j) for j in [k for k, c in enumerate(S) if c == C]]) for i in range(len(S))]
 ```
