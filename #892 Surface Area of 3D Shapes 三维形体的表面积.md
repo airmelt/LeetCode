@@ -121,5 +121,5 @@ __Python__:
 ```Python
 class Solution:
     def surfaceArea(self, grid: List[List[int]]) -> int:
-        return sum(((item << 2) + 2 for row in grid for item in row if item)) - sum(((min(row[i], row[i - 1]) << 1) for row in grid for i in range(len(row)) if i)) - sum(((min(column[j], column[j - 1]) << 1) for column in zip(*grid) for j in range(len(column)) if j))
+        return sum(((item << 2) + 2 for row in grid for item in row if item)) - sum(((min(row[i], row[i + 1]) << 1) for row in grid for i in range(len(row) - 1))) - sum(((min(column[j], column[j + 1]) << 1) for column in zip(*grid) for j in range(len(column) - 1)))
 ```
