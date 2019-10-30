@@ -38,7 +38,7 @@ class Solution {
 public:
     bool checkPerfectNumber(int num) {
         if (num < 0) return false;
-        int sum = 1, s = sqrt(num);
+        int sum = 1, s = sqrt(num); 
         if (s * s == num) sum += s--;
         while (s > 1) {
             if (!(num % s)) sum += num / s + s;
@@ -67,5 +67,5 @@ __Python__:
 ```
 class Solution:
     def checkPerfectNumber(self, num: int) -> bool:
-        return num in [6, 28, 496, 8128, 33550336]
+        return num in {6, 28, 496, 8128, 33550336}
 ```

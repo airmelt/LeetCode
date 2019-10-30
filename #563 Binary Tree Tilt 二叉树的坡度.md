@@ -6,14 +6,14 @@ The tilt of a tree node is defined as the absolute difference between the sum of
 The tilt of the whole tree is defined as the sum of all nodes' tilt.
 
 __Example:__
-Input:
+Input: 
 ```
          1
        /   \
       2     3
 ```
 Output: 1
-Explanation:
+Explanation: 
 Tilt of node 2 : 0
 Tilt of node 3 : 0
 Tilt of node 1 : |2-3| = 1
@@ -33,14 +33,14 @@ __题目描述__:
 
 __示例 :__
 
-输入:
+输入: 
 ```
          1
        /   \
       2     3
 ```
 输出: 1
-解释:
+解释: 
 结点的坡度 2 : 0
 结点的坡度 3 : 0
 结点的坡度 1 : |2-3| = 1
@@ -97,12 +97,12 @@ __Java__:
  * }
  */
 class Solution {
-
+    
     public int findTilt(TreeNode root) {
         if (root == null) return 0;
         return Math.abs(total(root.left) - total(root.right)) + findTilt(root.left) + findTilt(root.right);
     }
-
+    
     private int total(TreeNode root) {
         if (root == null) return 0;
         return total(root.left) + total(root.right) + root.val;
@@ -126,8 +126,7 @@ class Solution:
             if not root:
                 return 0
             nonlocal result
-            left = traverse(root.left)
-            right = traverse(root.right)
+            left, right = traverse(root.left), traverse(root.right)
             result += abs(left - right)
             return left + right + root.val
         traverse(root)

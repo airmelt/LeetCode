@@ -69,8 +69,7 @@ __Python__:
 from collections import Counter
 class Solution:
     def findLHS(self, nums: List[int]) -> int:
-        c = Counter(nums)
-        result = 0
+        c, result = Counter(nums), 0
         for i in c:
             if i + 1 in c:
                 result = max(result, c[i] + c[i + 1])

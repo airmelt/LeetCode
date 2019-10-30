@@ -75,9 +75,7 @@ __Python__:
 ```
 class Solution:
     def reverseVowels(self, s: str) -> str:
-        i, j = 0, len(s) - 1
-        vowel = ['a', 'e', 'i', 'o', 'u']
-        s = list(s)
+        i, j, s, vowel = 0, len(s) - 1, list(s), ('a', 'e', 'i', 'o', 'u')
         while i < j:
             while not s[i].lower() in vowel and i < j:
                 i += 1

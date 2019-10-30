@@ -65,7 +65,7 @@ __Java__:
 ```
 class Solution {
     private int[] memo;
-
+    
     public int rob(int[] nums) {
         memo = new int[nums.length];
         Arrays.fill(memo, -1);
@@ -93,8 +93,7 @@ __Python__:
 ```
 class Solution:
     def rob(self, nums: List[int]) -> int:
-        pre = 0
-        result = 0
+        pre, result = 0, 0
         for num in nums:
             pre, result = result, max(num + pre, result)
         return result

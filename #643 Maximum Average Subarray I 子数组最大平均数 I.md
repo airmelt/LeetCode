@@ -73,7 +73,6 @@ class Solution:
         result, temp = sum(nums[:k]), sum(nums[:k])
         for i in range(len(nums) - k):
             temp += nums[i + k] - nums[i]
-            if temp > result:
-                result = temp
+            result = max(result, temp)
         return result * 1.0 / k
 ```

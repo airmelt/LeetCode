@@ -77,10 +77,8 @@ __Python__:
 ```
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        result = 0
-        purchase = (1 << 31) - 1
-        for item in prices:
-            purchase = min(item, purchase)
-            result = max(item - purchase, result)
+        result, purchase = 0, (1 << 31) - 1
+        for price in prices:
+            purchase, result = min(price, purchase), max(price - purchase, result)
         return result
 ```

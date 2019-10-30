@@ -69,5 +69,5 @@ __Python__:
 ```
 class Solution:
     def isPerfectSquare(self, num: int) -> bool:
-        return (num in [i ** 2 for i in range(46341)])
+        return (num in {i ** 2 for i in range(46341)})
 ```

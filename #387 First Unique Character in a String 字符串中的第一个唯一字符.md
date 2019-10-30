@@ -61,8 +61,5 @@ __Python__:
 ```
 class Solution:
     def firstUniqChar(self, s: str) -> int:
-        for i in s:
-            if s.find(i) == s.rfind(i):
-                return s.index(i)
-        return -1
+        return [s.index(i) for i in s if s.find(i) == s.rfind(i)][0] if [s.index(i) for i in s if s.find(i) == s.rfind(i)] else -1
 ```

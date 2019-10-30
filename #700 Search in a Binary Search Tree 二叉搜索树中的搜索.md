@@ -100,11 +100,20 @@ class Solution {
 
 __Python__:
 ```
-from collections import Counter
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
 class Solution:
-    def findShortestSubArray(self, nums: List[int]) -> int:
-        c = Counter(nums)
-        d = max(c.values())
-        arr = [k for k, v in c.items() if v == d]
-        return min([len(nums) - nums[::-1].index(n) - nums.index(n) for n in arr])
+    def searchBST(self, root: TreeNode, val: int) -> TreeNode:
+        while root:
+            if root.val == val:
+                return root
+            elif root.val > val:
+                root = root.left
+            else:
+                root = root.right
 ```

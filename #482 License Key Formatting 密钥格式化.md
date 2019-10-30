@@ -97,7 +97,7 @@ class Solution {
                     num = 0;
                 }
                 sb.append((char)(S.charAt(i) >= 'a' && S.charAt(i)<='z' ? S.charAt(i) - 32 : S.charAt(i)));
-                num++;
+                num++;    
             }
         }
         return sb.reverse().toString();
@@ -109,9 +109,7 @@ __Python__:
 ```
 class Solution:
     def licenseKeyFormatting(self, S: str, K: int) -> str:
-        result = ""
-        num = 0
-        S = S.upper()
+        result, num, S = "", 0, S.upper()
         for i in range(len(S) - 1, -1, -1):
             if S[i] != '-':
                 if num == K:
@@ -119,6 +117,5 @@ class Solution:
                     num = 0
                 result += S[i]
                 num += 1
-        return result[::-1]
-
+        return result[::-1]          
 ```
