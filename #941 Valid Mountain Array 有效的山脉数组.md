@@ -7,10 +7,10 @@ A.length >= 3
 ```
 There exists some i with 0 < i < A.length - 1 such that:
 ```
-A[0] < A[1] < ... A[i-1] < A[i]
+A[0] < A[1] < ... A[i-1] < A[I]
 A[i] > A[i+1] > ... > A[A.length - 1]
 ```
-![Mountain Array](https://assets.leetcode.com/uploads/2019/10/20/hint_valid_mountain_array.png)
+![Mountain Array](https://upload-images.jianshu.io/upload_images/16639143-9252c8d688d8fd40.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 __Example:__
 Example 1:
 
@@ -38,8 +38,8 @@ __题目描述__:
 让我们回顾一下，如果 A 满足下述条件，那么它是一个山脉数组：
 
 A.length >= 3
-在 0 < i < A.length - 1 条件下，存在 i 使得：
-A[0] < A[1] < ... A[i-1] < A[i]
+在 0 < i < A.length - 1 条件下，存在 I 使得：
+A[0] < A[1] < ... A[i-1] < A[I]
 A[i] > A[i+1] > ... > A[B.length - 1]
  
 __示例 :__
@@ -72,9 +72,10 @@ __C++__:
 ```C++
 class Solution {
 public:
-    bool validMountainArray(vector<int>& A) {
+    bool validMountainArray(vector<int>& A) 
+    {
         int i = 0, j = A.size() - 1;
-        while (i < j && A[i] < A[i + 1]) i++;
+        while (i < j && A[i] < A[i + 1]) I++;
         while (i < j && A[j] < A[j - 1]) j--;
         return i == j && i && j != (A.size() - 1);
     }
@@ -86,7 +87,7 @@ __Java__:
 class Solution {
     public boolean validMountainArray(int[] A) {
         int i = 0, j = A.length - 1;
-        while (i < j && A[i] < A[i + 1]) i++;
+        while (i < j && A[i] < A[i + 1]) I++;
         while (i < j && A[j] < A[j - 1]) j--;
         return i == j && i != 0 && j != (A.length - 1);
     }
