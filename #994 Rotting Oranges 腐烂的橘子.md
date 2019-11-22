@@ -10,7 +10,7 @@ Return the minimum number of minutes that must elapse until no cell has a fresh 
 
 __Example:__
 Example 1:
-![Rotting Oranges](https://assets.leetcode.com/uploads/2019/02/16/oranges.png)
+![Rotting Oranges](https://upload-images.jianshu.io/upload_images/16639143-2c68896066b4b28f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 Input: [[2,1,1],[1,1,0],[0,1,1]]
 Output: 4
 
@@ -44,7 +44,7 @@ __题目描述__:
 
 __示例 :__
 示例 1：
-![腐烂的橘子](https://assets.leetcode.com/uploads/2019/02/16/oranges.png)
+![腐烂的橘子](https://upload-images.jianshu.io/upload_images/16639143-56224de7f36a702c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 输入：[[2,1,1],[1,1,0],[0,1,1]]
 输出：4
 
@@ -67,9 +67,8 @@ __提示：__
 grid[i][j] 仅为 0、1 或 2
 
 __思路__:
-1. 遍历橘子, 将腐烂的橘子加入队列, 并记录橘子的数量. 采用 BFS的思想遍历队列, 每次对 4个方向的橘子进行腐烂, 直到队列为空. 如果所有橘子都腐烂, 返回遍历的次数, 否则返回 -1
-2. 遍历同时记录下结点的高度和父结点, 比较 x和 y的高度和父结点即可
-时间复杂度O(n), 空间复杂度O(n)
+遍历橘子, 将腐烂的橘子加入队列, 并记录橘子的数量. 采用 BFS的思想遍历队列, 每次对 4个方向的橘子进行腐烂, 直到队列为空. 如果所有橘子都腐烂, 返回遍历的次数, 否则返回 -1
+时间复杂度O(n ^ 2), 空间复杂度O(n ^ 2)
 
 __代码__:
 __C++__:
