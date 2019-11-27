@@ -73,7 +73,7 @@ class Solution
 public:
     int bitwiseComplement(int N) 
     {
-        return N ? N ^ (2 << (int)(log(N)/log(2))) - 1 : 1;
+        return N ? N ^ (2 << (int)(log(N) / log(2))) - 1 : 1;
     }
 };
 ```
