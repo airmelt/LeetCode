@@ -55,7 +55,7 @@ __思路__:
 之后累计出现的值, 这个值代表大于这个值的个数有多少
 比如 words = ["a","aa","aaa","aaaa"]
 count对应的应该是 [0, 1, 1, 1, 1...]表示, 函数值为1, 2, 3, 4的分别有 1个, 累计值应该是 [0, 4, 3, 2, 1...] 表示大于函数值 0的有 4个, 大于函数值 1的有 3个, 以此类推
-时间复杂度O(mlgm), 空间复杂度O(1), m表示 words中字符串的长度
+时间复杂度O(nmlgm), 空间复杂度O(1), n表示 max(words, queries的长度), m表示 max(words, queries中字符串的长度)
 
 __代码__:
 __C++__:
@@ -66,10 +66,10 @@ public:
     vector<int> numSmallerByFrequency(vector<string>& queries, vector<string>& words) 
     {
         vector<int> result(queries.size(), 0), count(12, 0);
-	    for (int i = 0; i < words.size(); ++i) ++count[helper(words[i])];
-	    for (int i = 9; i >= 0; --i) count[i] += count[i + 1];
-	    for (int i = 0; i < queries.size(); ++i) result[i] = count[helper(queries[i]) + 1];
-	    return result;
+        for (int i = 0; i < words.size(); ++i) ++count[helper(words[i])];
+        for (int i = 9; i >= 0; --i) count[i] += count[i + 1];
+        for (int i = 0; i < queries.size(); ++i) result[i] = count[helper(queries[i]) + 1];
+        return result;
     }
 private:
     int helper(string s)
@@ -90,11 +90,11 @@ __Java__:
 ```Java
 class Solution {
     public int[] numSmallerByFrequency(String[] queries, String[] words) {
-	    int count[] = new int[12], result[] = new int[queries.length];
-	    for (int i = 0; i < words.length; ++i) ++count[helper(words[i])];
-	    for (int i = 9; i >= 0; --i) count[i] += count[i + 1];
+        int count[] = new int[12], result[] = new int[queries.length];
+        for (int i = 0; i < words.length; ++i) ++count[helper(words[i])];
+        for (int i = 9; i >= 0; --i) count[i] += count[i + 1];
         for (int i = 0; i < queries.length; ++i) result[i] = count[helper(queries[i]) + 1];
-	    return result;
+        return result;
     }
     
     private int helper(String word) {
