@@ -72,9 +72,11 @@ __思路__:
 __代码__:
 __C++__:
 ```C++
-class Solution {
+class Solution 
+{
 public:
-    int distanceBetweenBusStops(vector<int>& distance, int start, int destination) {
+    int distanceBetweenBusStops(vector<int>& distance, int start, int destination) 
+    {
         int clockwise = 0, sum = accumulate(distance.begin(), distance.end(), 0);
         if (start > destination) swap(start, destination);
         for (int i = start; i < destination; ++i) clockwise += distance[I];

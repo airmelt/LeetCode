@@ -5,12 +5,12 @@ You can use each character in text at most once. Return the maximum number of in
 
 __Example:__
 Example 1:
-![string 1](https://assets.leetcode.com/uploads/2019/09/05/1536_ex1_upd.JPG)
+![string 1](https://upload-images.jianshu.io/upload_images/16639143-7b25b66b59bd1335.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 Input: text = "nlaebolko"
 Output: 1
 
 Example 2:
-![string 2](https://assets.leetcode.com/uploads/2019/09/05/1536_ex2_upd.JPG)
+![string 2](https://upload-images.jianshu.io/upload_images/16639143-3c8636cd75685805.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 Input: text = "loonbalxballpoon"
 Output: 2
 
@@ -31,12 +31,12 @@ __题目描述__:
 
 __示例 :__
 示例 1：
-![字符串1](https://assets.leetcode.com/uploads/2019/09/05/1536_ex1_upd.JPG)
+![字符串1](https://upload-images.jianshu.io/upload_images/16639143-e25ca9bb32b35687.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 输入：text = "nlaebolko"
 输出：1
 
 示例 2：
-![字符串2](https://assets.leetcode.com/uploads/2019/09/05/1536_ex2_upd.JPG)
+![字符串2](https://upload-images.jianshu.io/upload_images/16639143-3c8636cd75685805.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 输入：text = "loonbalxballpoon"
 输出：2
 
@@ -57,14 +57,16 @@ balloon由 1个 'b', 1个 'a', 2个 'l', 2个 'o', 1个 'n'组成, 只要找到�
 __代码__:
 __C++__:
 ```C++
-class Solution {
+class Solution 
+{
 public:
-    int maxNumberOfBalloons(string text) {
+    int maxNumberOfBalloons(string text) 
+    {
         int count[26]{0}, index[]{0, 1, 11, 13, 14}, result = 10000;
         for (auto c : text) ++count[c - 'a'];
         count[11] /= 2;
         count[14] /= 2;
-        for (auto i : index) result = min(result, count[i]);
+        for (auto i : index) result = min(result, count[I]);
         return result;
     }
 };
@@ -78,7 +80,7 @@ class Solution {
         for (char c : text.toCharArray()) ++count[c - 'a'];
         count[11] /= 2;
         count[14] /= 2;
-        for (int i : index) result = Math.min(result, count[i]);
+        for (int i : index) result = Math.min(result, count[I]);
         return result;
     }
 }

@@ -60,9 +60,11 @@ __思路__:
 __代码__:
 __C++__:
 ```C++
-class Solution {
+class Solution 
+{
 public:
-    string dayOfTheWeek(int day, int month, int year) {
+    string dayOfTheWeek(int day, int month, int year) 
+    {
         int y = 1971, d = 0, m = 0, result = 0, count[12] ={31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
         for (; y < year; y++)
         {
