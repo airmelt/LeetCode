@@ -10,6 +10,7 @@ And then read line by line: "PAHNAPLSIIGYIR"
 Write the code that will take a string and make this conversion given a number of rows:
 
 string convert(string s, int numRows);
+__Example:__
 Example 1:
 
 Input: s = "PAYPALISHIRING", numRows = 3
@@ -41,6 +42,7 @@ E   D   H   N
 请你实现这个将字符串进行指定行数变换的函数：
 
 string convert(string s, int numRows);
+__示例 :__
 示例 1:
 
 输入: s = "LEETCODEISHIRING", numRows = 3
