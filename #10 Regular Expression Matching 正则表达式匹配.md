@@ -123,16 +123,18 @@ public:
     {
         int n = s.size(), m = p.size();
         bool dp[n + 1][m + 1];
+        for (int i = 0; i <= n; i++) for(int j = 0; j <= m; j++) dp[i][j] = false;
         dp[0][0] = true;
-        for (int i = 0; i <= n; i++)
+        for (int i = 2; i <= m; i++) if (p[i - 1] == '*') dp[0][i] = dp[0][i - 2];
+        for (int i = 1; i <= n; i++)
         {
             for (int j = 1; j <= m; j++)
             {
-                if (p[j - 1] == '*') dp[i][j] = dp[i][j - 2] || (i > 0 && s[i - 1] == p[j - 2] || p[j - 2] == '.') && dp[i - 1][j];
-                else dp[i][j] = i > 0 && (s[i - 1] == p[j - 1] || p[j - 1] == '.') && dp[i - 1][j - 1];
+                if (s[i - 1] == p[j - 1] || p[j - 1] == '.') dp[i][j] = dp[i - 1][j - 1];
+                if (p[j - 1] == '*') if (j > 1) dp[i][j] = ((p[j - 2] == s[i - 1] || p[j - 2] == '.') && dp[i - 1][j]) || dp[i][j - 2];
             }
-        }
-        return dp[m][n];
+        }   
+        return dp[n][m];
     }
 };
 ```
