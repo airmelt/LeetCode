@@ -52,12 +52,15 @@ __思路__:
 __代码__:
 __C++__:
 ```C++
-class Solution {
+class Solution 
+{
 public:
-    string multiply(string num1, string num2) {
+    string multiply(string num1, string num2) 
+    {
         int m = num1.size() - 1, n = num2.size() - 1;
         vector<int> value(m + n + 2, 0);
-        for (int i = m; i > -1; i--) for (int j = n; j > -1; j--) {
+        for (int i = m; i > -1; i--) for (int j = n; j > -1; j--) 
+        {
             int temp = (num1[i] - '0') * (num2[j] - '0');
             temp += value[i + j + 1];
             value[i + j] += temp / 10;
