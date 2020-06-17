@@ -58,9 +58,11 @@ __C++__:
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
-class Solution {
+class Solution 
+{
 public:
-    TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
+    TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) 
+    {
         if (preorder.empty()) return nullptr;
         TreeNode* root = new TreeNode(preorder.front());
         int index = 0;
