@@ -18,7 +18,7 @@ __Follow up:__
 You may only use constant extra space.
 Recursive approach is fine, you may assume implicit stack space does not count as extra space for this problem.
  
-
+__Example:__
 Example 1:
 ![binary tree](https://upload-images.jianshu.io/upload_images/16639143-7cdfba59149ec722.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 Input: root = [1,2,3,4,5,null,7]
