@@ -1,6 +1,7 @@
 __Description__:
 Given n points on a 2D plane, find the maximum number of points that lie on the same straight line.
 
+__Example:__
 Example 1:
 
 Input: [[1,1],[2,2],[3,3]]
@@ -43,6 +44,7 @@ __示例 :__
 
 输入: 4->2->1->3
 输出: 1->2->3->4
+
 示例 2:
 
 输入: -1->5->3->4->0
