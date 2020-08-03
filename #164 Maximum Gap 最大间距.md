@@ -3,6 +3,7 @@ Given an unsorted array, find the maximum difference between the successive elem
 
 Return 0 if the array contains less than 2 elements.
 
+__Example:__
 Example 1:
 
 Input: [3,6,9,1]
