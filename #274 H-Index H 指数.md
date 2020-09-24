@@ -75,9 +75,5 @@ __Python__:
 ```Python
 class Solution:
     def hIndex(self, citations: List[int]) -> int:
-        citations.sort(reverse=True)
-        result = 0
-        for i, citation in enumerate(citations):
-            result = max(result, min(citation, i + 1)) 
-        return result
+        return max((len(citations) - i for i in range(len(citations)) if sorted(citations)[i] >= len(citations) - i), default=0)
 ```
