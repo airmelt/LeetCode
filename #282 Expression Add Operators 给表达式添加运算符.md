@@ -27,7 +27,7 @@ Example 5:
 Input: num = "3456237490", target = 9191
 Output: []
  
-__Constraints: __
+__Constraints:__
 
 0 <= num.length <= 10
 num only contain digits.

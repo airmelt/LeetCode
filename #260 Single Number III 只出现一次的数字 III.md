@@ -21,7 +21,7 @@ Example 3:
 Input: nums = [0,1]
 Output: [1,0]
 
-__Constraints: __
+__Constraints:__
 
 1 <= nums.length <= 30000
  Each integer in nums will appear twice, only two integers will appear once.

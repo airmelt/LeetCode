@@ -20,7 +20,7 @@ Window position                Max
  1  3  -1  -3  5 [3  6  7]      7
 ``` 
 
-__Constraints: __
+__Constraints:__
 
 1 <= nums.length <= 10^5
 -10^4 <= nums[i] <= 10^4
