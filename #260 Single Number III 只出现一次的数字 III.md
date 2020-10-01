@@ -53,6 +53,7 @@ mask & (-mask)就可以得到最后一位 1
 
 __代码__:
 __C++__:
+```C++
 class Solution 
 {
 public:

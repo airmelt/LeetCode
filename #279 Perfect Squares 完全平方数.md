@@ -39,6 +39,7 @@ dp[i] = min(dp[i - s1], dp[i - s2], ..., dp[i - sn])
 
 __代码__:
 __C++__:
+```C++
 class Solution {
 public:
     int numSquares(int n) {

@@ -42,6 +42,7 @@ left和 right分别为 nums[i]左边和 nums[i]右边所有数的乘积
 
 __代码__:
 __C++__:
+```C++
 class Solution 
 {
 public:

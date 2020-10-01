@@ -65,6 +65,7 @@ __思路__:
 
 __代码__:
 __C++__:
+```C++
 class Solution 
 {
 public:

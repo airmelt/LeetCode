@@ -58,6 +58,7 @@ dp[i][i]表示一个数字, 就是 input中的数字
 
 __代码__:
 __C++__:
+```C++
 class Solution 
 {
 public:
