@@ -1,117 +1,136 @@
 __Description__:
-Given an integer array nums, find the sum of the elements between indices i and j (i ≤ j), inclusive.
+Given a 2D matrix matrix, find the sum of the elements inside the rectangle defined by its upper left corner (row1, col1) and lower right corner (row2, col2).
 
-**Example :**
-Given nums = [-2, 0, 3, -5, 2, -1]
+![The above rectangle (with the red border) is defined by (row1, col1) = (2, 1) and (row2, col2) = (4, 3), which contains sum = 8.](https://upload-images.jianshu.io/upload_images/16639143-9a40febb0b8d6666.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-sumRange(0, 2) -> 1
-sumRange(2, 5) -> -1
-sumRange(0, 5) -> -3
+__Example:__
+Given matrix = [
+  [3, 0, 1, 4, 2],
+  [5, 6, 3, 2, 1],
+  [1, 2, 0, 1, 5],
+  [4, 1, 0, 1, 7],
+  [1, 0, 3, 0, 5]
+]
+
+sumRegion(2, 1, 4, 3) -> 8
+sumRegion(1, 1, 2, 2) -> 11
+sumRegion(1, 2, 2, 4) -> 12
 
 __Note:__
-You may assume that the array does not change.
-There are many calls to sumRange function.
+You may assume that the matrix does not change.
+There are many calls to sumRegion function.
+You may assume that row1 ≤ row2 and col1 ≤ col2.
 
 __题目描述__:
-给定一个整数数组  nums，求出数组从索引 i 到 j  (i ≤ j) 范围内元素的总和，包含 i,  j 两点。
+给定一个二维矩阵，计算其子矩形范围内元素的总和，该子矩阵的左上角为 (row1, col1) ，右下角为 (row2, col2)。
 
-**示例 :**
+![上图子矩阵左上角 (row1, col1) = (2, 1) ，右下角(row2, col2) = (4, 3)，该子矩形内元素的总和为 8。](https://upload-images.jianshu.io/upload_images/16639143-9a40febb0b8d6666.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-给定 nums = [-2, 0, 3, -5, 2, -1]，求和函数为 sumRange()
+__示例 :__
 
-sumRange(0, 2) -> 1
-sumRange(2, 5) -> -1
-sumRange(0, 5) -> -3
+给定 matrix = [
+  [3, 0, 1, 4, 2],
+  [5, 6, 3, 2, 1],
+  [1, 2, 0, 1, 5],
+  [4, 1, 0, 1, 7],
+  [1, 0, 3, 0, 5]
+]
+
+sumRegion(2, 1, 4, 3) -> 8
+sumRegion(1, 1, 2, 2) -> 11
+sumRegion(1, 2, 2, 4) -> 12
 
 __说明:__
 
-你可以假设数组不可变。
-会多次调用 sumRange 方法。
+你可以假设矩阵不可变。
+会多次调用 sumRegion 方法。
+你可以假设 row1 ≤ row2 且 col1 ≤ col2。
 
 __思路__:
-1. 动态规划, 记录下从 0开始到 i的数组之和
-调用时返回 sum_[j] - sum_[i] + nums[i]即可
-初始化类时间复杂度O(n), 空间复杂度O(n)
-查询时间复杂度O(1), 空间复杂度O(1)
-2. [线段树 Segment_tree-wiki](https://en.wikipedia.org/wiki/Segment_tree)
-研究中, 将完成于[LeetCode #307. Range Sum Query - Mutable 区域和检索 - 数组可修改](https://leetcode-cn.com/problems/range-sum-query-mutable/)
-
+动态规划
+参考[LeetCode #303 Range Sum Query - Immutable 区域和检索 - 数组不可变](https://www.jianshu.com/p/a20ea63b10d1)
+在二维数组, dp[i + 1][j + 1]的前缀和表示为matrix[i][j]左上角元素之和
+如
+```
+  [3, 0, 1]               [3, 3, 4]
+  [5, 6, 3]      ->       [8, 14, 18] 
+  [1, 2, 0]               [9, 17, 21]
+```
+dp[i + 1][j + 1] = dp[i][j + 1] + dp[i + 1][j] + matrix[i][j] - dp[i][j]
+sumRegion(row1, col1, row2, col2) = dp[row2 + 1][col2 + 1] - dp[row2 + 1][col1] - dp[row1][col2 + 1] + dp[row1][col1]
+这个和概率论里的联合分布有点像
+时间复杂度O(1), 每次调用 sumRegion(row1, col1, row2, col2), 预处理时间复杂度O(mn), 空间复杂度O(mn)
 
 __代码__:
 __C++__:
-```
-class NumArray {
+```C++
+class NumMatrix 
+{
 private:
-    vector<int> nums;
-    vector<int> sum_;
+    vector<vector<int>> dp;
 public:
-    NumArray(vector<int>& nums) {
-        this -> nums = nums;
-        int temp = 0;
-        for (int i = 0; i < nums.size(); i++) {
-            temp += nums[i];
-            sum_.push_back(temp);
-        }
+    NumMatrix(vector<vector<int>>& matrix) 
+    {
+        if (matrix.empty() or matrix[0].empty()) return;
+        dp.resize(matrix.size() + 1);
+        for (int i = 0; i < matrix.size() + 1; i++) dp[i].resize(matrix[0].size() + 1, 0);
+        for (int i = 0; i < matrix.size(); i++) for (int j = 0; j < matrix[0].size(); j++) dp[i + 1][j + 1] = dp[i][j + 1] + dp[i + 1][j] + matrix[i][j] - dp[i][j];
     }
-
-    int sumRange(int i, int j) {
-        return sum_[j] - sum_[i] + nums[i];
+    
+    int sumRegion(int row1, int col1, int row2, int col2) 
+    {
+        return dp[row2 + 1][col2 + 1] - dp[row1][col2 + 1] - dp[row2 + 1][col1] + dp[row1][col1];
     }
 };
 
 /**
- * Your NumArray object will be instantiated and called as such:
- * NumArray* obj = new NumArray(nums);
- * int param_1 = obj->sumRange(i,j);
+ * Your NumMatrix object will be instantiated and called as such:
+ * NumMatrix* obj = new NumMatrix(matrix);
+ * int param_1 = obj->sumRegion(row1,col1,row2,col2);
  */
 ```
 
 __Java__:
-```
-class NumArray {
+```Java
+class NumMatrix {
 
-    private int[] sum_;
-    private int[] nums;
-    public NumArray(int[] nums) {
-        sum_ = new int[nums.length];
-        int temp = 0;
-        for (int i = 0; i < nums.length; i++) {
-            temp += nums[i];
-            sum_[i] = temp;
-        }
-        this.nums = nums;
+    private int[][] dp;
+
+    public NumMatrix(int[][] matrix) {
+        if (matrix.length == 0 || matrix[0].length == 0) return;
+        dp = new int[matrix.length + 1][matrix[0].length + 1];
+        for (int r = 0; r < matrix.length; r++) for (int c = 0; c < matrix[0].length; c++) dp[r + 1][c + 1] = dp[r + 1][c] + dp[r][c + 1] + matrix[r][c] - dp[r][c];
     }
 
-    public int sumRange(int i, int j) {
-        return sum_[j] - sum_[i] + nums[i];
+    public int sumRegion(int row1, int col1, int row2, int col2) {
+        return dp[row2 + 1][col2 + 1] - dp[row1][col2 + 1] - dp[row2 + 1][col1] + dp[row1][col1];
     }
 }
 
 /**
- * Your NumArray object will be instantiated and called as such:
- * NumArray obj = new NumArray(nums);
- * int param_1 = obj.sumRange(i,j);
+ * Your NumMatrix object will be instantiated and called as such:
+ * NumMatrix obj = new NumMatrix(matrix);
+ * int param_1 = obj.sumRegion(row1,col1,row2,col2);
  */
 ```
 
 __Python__:
-```
-class NumArray:
+```Python
+class NumMatrix:
 
-    def __init__(self, nums: List[int]):
-        self.nums = nums
-        temp = 0
-        sum_ = []
-        for i in nums:
-            temp += i
-            sum_.append(temp)
-        self.sum_ = sum_
+    def __init__(self, matrix: List[List[int]]):
+        if not matrix or not matrix[0]:
+            return
+        self.dp = [[0] * (len(matrix[0]) + 1) for _ in range(len(matrix) + 1)]
+        for i in range(len(matrix)):
+            for j in range(len(matrix[i])):
+                self.dp[i + 1][j + 1] = self.dp[i][j + 1] + self.dp[i + 1][j] + matrix[i][j] - self.dp[i][j]
 
-    def sumRange(self, i: int, j: int) -> int:
-        return self.sum_[j] - self.sum_[i] + self.nums[i]
+    def sumRegion(self, row1: int, col1: int, row2: int, col2: int) -> int:
+        return self.dp[row2 + 1][col2 + 1] - self.dp[row1][col2 + 1] - self.dp[row2 + 1][col1] + self.dp[row1][col1];
 
 
-# Your NumArray object will be instantiated and called as such:
-# obj = NumArray(nums)
-# param_1 = obj.sumRange(i,j)
+# Your NumMatrix object will be instantiated and called as such:
+# obj = NumMatrix(matrix)
+# param_1 = obj.sumRegion(row1,col1,row2,col2)
 ```
