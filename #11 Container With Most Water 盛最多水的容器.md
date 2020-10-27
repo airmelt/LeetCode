@@ -33,13 +33,8 @@ class Solution
 public:
     int maxArea(vector<int>& height) 
     {
-        int i = 0, j = height.size() - 1, result = 0;
-        while (i < j) 
-        {
-            result = max(result, min(height[i], height[j]) * (j - i));
-            if (height[i] > height[j]) --j;
-            else ++I;
-        }
+        int result = min(height.front(), height.back()) * (height.size() - 1);
+        for (int left = 0, right = height.size() - 1; left < right; ) result = max(result, (right - left) * (height[left] < height[right] ? height[left++] : height[right--]));
         return result;
     }
 };
@@ -49,12 +44,11 @@ __Java__:
 ```Java
 class Solution {
     public int maxArea(int[] height) {
-        int i = 0, j = height.length - 1, result = 0;
-        while (i < j) 
-        {
-            result = Math.max(result, Math.min(height[i], height[j]) * (j - i));
-            if (height[i] > height[j]) --j;
-            else ++I;
+        int left = 0, right = height.length - 1, result = 0;
+        while (left < right) {
+            result = Math.max(result, Math.min(height[left], height[right]) * (right - left));
+            if (height[left] > height[right]) --right;
+            else ++left;
         }
         return result;
     }
