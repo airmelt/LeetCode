@@ -53,7 +53,7 @@ public:
     void solveSudoku(vector<vector<char>>& board) 
     {
         bool row[9][9]{false}, col[9][9]{false}, box[9][9]{false};
-        for (int i = 0; i < 9; I++)
+        for (int i = 0; i < 9; i++)
         {
             for (int j = 0; j < 9; j++)
             {
@@ -74,7 +74,7 @@ private:
         if (j == 9)
         {
             j = 0;
-            ++I;
+            ++i;
             if (i == 9) return true;
         }
         if (board[i][j] == '.')
@@ -123,7 +123,7 @@ class Solution {
     private boolean helper(char[][]board, boolean[][]row, boolean[][]col, boolean[][]box, int i, int j){
         if (j == 9) {
             j = 0;
-            ++I;
+            ++i;
             if (i == 9) return true;
         }
         if (board[i][j] == '.') {
