@@ -59,14 +59,14 @@ __C++__:
 class Solution {
 public:
     bool wordPattern(string pattern, string str) {
-        const vector<string>& list = split(str,' ');
+        const vector<string>& list = split(str,' '); 
         if (list.size() != pattern.size()) return false;
         map<string, char> dict1;
         map<char, string> dict2;
         for (int i = 0; i < list.size(); i++) {
             const string& s = list[i];            
             if (dict1.find(s) != dict1.end()) {
-                char tmp = dict[s];
+                char tmp = dict1[s];
                 if (tmp != pattern[i]) return false;
             } else {
                 if (dict2.size() && dict2.find(pattern[i]) != dict2.end()) return false;
