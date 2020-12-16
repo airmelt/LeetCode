@@ -152,7 +152,7 @@ class Solution {
         for (int i = 0; i < 9; i++) {
             int row = 0, col = 0, box = 0;
             for (int j = 0; j < 9; j++) {
-                int r = board[i][j], c = board[j][i], b = board[(i / 3) * 3 + j / 3][(i % 3) * 3 + j % 3];
+                int r = board[i][j] - '0', c = board[j][i] - '0', b = board[(i / 3) * 3 + j / 3][(i % 3) * 3 + j % 3] - '0';
                 if (r > 0) row = helper(r, row);
                 if (c > 0) col = helper(c, col);
                 if (b > 0) box = helper(b, box);
