@@ -1,3 +1,5 @@
+# 51 N-Queens N皇后
+
 __Description__:
 The n-queens puzzle is the problem of placing n queens on an n×n chessboard such that no two queens attack each other.
 
@@ -56,6 +58,7 @@ __提示：__
 
 __思路__:
 回溯法
+
 1. 判断是否有效
 2. 做选择
 3. 回溯
@@ -65,6 +68,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -105,6 +109,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     private List<List<String>> result = new ArrayList<>();
@@ -141,6 +146,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def solveNQueens(self, n: int) -> List[List[str]]:
@@ -166,8 +172,8 @@ class Solution:
             if row == n:
                 temp = []
                 for i in range(n):
-                    temp.append(''.join(board[I]))
-                result.append(temp)
+                    temp.append(''.join(board[i]))
+                result.append(temp[:])
                 return
             for col in range(n):
                 if not is_valid(board, row, col):
