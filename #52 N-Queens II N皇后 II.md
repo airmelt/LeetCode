@@ -1,3 +1,5 @@
+# 52 N-Queens N皇后 II
+
 __Description__:
 The n-queens puzzle is the problem of placing n queens on an n×n chessboard such that no two queens attack each other.
 
@@ -57,6 +59,7 @@ __提示：__
 皇后，是国际象棋中的棋子，意味着国王的妻子。皇后只做一件事，那就是“吃子”。当她遇见可以吃的棋子时，就迅速冲上去吃掉棋子。当然，她横、竖、斜都可走一或七步，可进可退。（引用自 百度百科 - 皇后 ）
 
 __思路__:
+
 1. 参考[LeetCode #51 N-Queens N皇后](https://www.jianshu.com/p/1fab602b7523)
 时间复杂度O(n!), 空间复杂度O(n)
 2. 可以用位运算加快运算速度, 不过这里暗含条件是 n < 32
@@ -67,6 +70,7 @@ i, j分别表示主对角线(左上和右下), 次对角线(左下和右上)是�
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -97,6 +101,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     private List<List<String>> result = new ArrayList<>();
@@ -133,6 +138,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def totalNQueens(self, n: int) -> int:
