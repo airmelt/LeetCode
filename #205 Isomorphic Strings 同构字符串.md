@@ -1,3 +1,5 @@
+# 205 Isomorphic Strings 同构字符串
+
 __Description__:
 Given two strings s and t, determine if they are isomorphic.
 
@@ -45,6 +47,7 @@ __说明__:
 你可以假设 s 和 t 具有相同的长度。
 
 __思路__:
+
 1. 使用hashMap存放对应字符串
 时间复杂度O(n), 空间复杂度O(n)
 2. 使用 find()(Java为indexOf())
@@ -52,20 +55,22 @@ __思路__:
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    bool isIsomorphic(string s, string t) {
-        for (int i = 0; i < s.size(); i++) {
-            if (s.find(s[i]) != t.find(t[i])) return false;
-        }
+    bool isIsomorphic(string s, string t) 
+    {
+        for (int i = 0; i < s.size(); i++) if (s.find(s[i]) != t.find(t[i])) return false;
         return true;
     }
 };
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public boolean isIsomorphic(String s, String t) {
         for (int i = 0; i < s.length(); i++) {
@@ -77,11 +82,9 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def isIsomorphic(self, s: str, t: str) -> bool:
-        for i in range(len(s)):
-            if s.find(s[i]) != t.find(t[i]):
-                return False
-        return True
+        return all(s.find(s[i]) == t.find(t[i]) for i in range(len(s)))
 ```
