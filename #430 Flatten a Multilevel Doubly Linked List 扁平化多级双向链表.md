@@ -26,7 +26,7 @@ Explanation:
 
 The input multilevel linked list is as follows:
 
-```C
+```text
   1---2---NULL
   |
   3---NULL
@@ -41,7 +41,7 @@ How multilevel linked list is represented in test case:
 
 We use the multilevel linked list from Example 1 above:
 
-```C
+```text
  1---2---3---4---5---6--NULL
          |
          7---8---9---10--NULL
@@ -51,7 +51,7 @@ We use the multilevel linked list from Example 1 above:
 
 The serialization of each level is as follows:
 
-```C
+```text
 [1,2,3,4,5,6,null]
 [7,8,9,10,null]
 [11,12,null]
@@ -59,7 +59,7 @@ The serialization of each level is as follows:
 
 To serialize all levels together we will add nulls in each level to signify no node connects to the upper node of the previous level. The serialization becomes:
 
-```C
+```text
 [1,2,3,4,5,6,null]
 [null,null,7,8,9,10,null]
 [null,11,12,null]
@@ -67,7 +67,7 @@ To serialize all levels together we will add nulls in each level to signify no n
 
 Merging the serialization of each level and removing trailing nulls we obtain:
 
-```C
+```text
 [1,2,3,4,5,6,null,null,null,7,8,9,10,null,null,11,12]
 ```
 
@@ -102,9 +102,11 @@ __示例 :__
 
 输入的多级列表如下图所示：
 
+```text
   1---2---NULL
   |
   3---NULL
+```
 
 示例 3：
 
@@ -115,7 +117,7 @@ __示例 :__
 
 以 示例 1 为例：
 
-```C
+```text
  1---2---3---4---5---6--NULL
          |
          7---8---9---10--NULL
@@ -125,7 +127,7 @@ __示例 :__
 
 序列化其中的每一级之后：
 
-```C
+```text
 [1,2,3,4,5,6,null]
 [7,8,9,10,null]
 [11,12,null]
@@ -133,7 +135,7 @@ __示例 :__
 
 为了将每一级都序列化到一起，我们需要每一级中添加值为 null 的元素，以表示没有节点连接到上一级的上级节点。
 
-```C
+```text
 [1,2,3,4,5,6,null]
 [null,null,7,8,9,10,null]
 [null,11,12,null]
@@ -141,7 +143,7 @@ __示例 :__
 
 合并所有序列化结果，并去除末尾的 null 。
 
-```C
+```text
 [1,2,3,4,5,6,null,null,null,7,8,9,10,null,null,11,12]
 ```
 
