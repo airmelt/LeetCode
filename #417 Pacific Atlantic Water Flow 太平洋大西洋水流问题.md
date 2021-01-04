@@ -16,7 +16,7 @@ __Example:__
 
 Given the following 5x5 matrix:
 
-```C
+```text
   Pacific ~   ~   ~   ~   ~ 
        ~  1   2   2   3  (5) *
        ~  3   2   3  (4) (4) *
@@ -46,7 +46,7 @@ __示例 :__
 
 给定下面的 5x5 矩阵:
 
-```C
+```text
   太平洋 ~   ~   ~   ~   ~ 
        ~  1   2   2   3  (5) *
        ~  3   2   3  (4) (4) *
@@ -163,6 +163,6 @@ class Solution:
         for i in range(m):
             for j in range(n):
                 if a[i][j] and p[i][j]:
-                    result.append([i,j])
+                    result.append([i, j])
         return result
 ```
