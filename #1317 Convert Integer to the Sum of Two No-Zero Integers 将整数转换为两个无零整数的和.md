@@ -1,3 +1,5 @@
+# 1317 Convert Integer to the Sum of Two No-Zero Integers 将整数转换为两个无零整数的和
+
 __Description__:
 Given an integer n. No-Zero integer is a positive integer which doesn't contain any 0 in its decimal representation.
 
@@ -8,6 +10,7 @@ A + B = n
 It's guarateed that there is at least one valid solution. If there are many valid solutions you can return any of them.
 
 __Example:__
+
 Example 1:
 
 Input: n = 2
@@ -33,7 +36,7 @@ Example 5:
 
 Input: n = 1010
 Output: [11,999]
- 
+
 __Constraints:__
 
 2 <= n <= 10^4
@@ -50,6 +53,7 @@ A + B = n
 如果存在多个有效解决方案，你可以返回其中任意一个。
 
 __示例 :__
+
 示例 1：
 
 输入：n = 2
@@ -75,17 +79,19 @@ __示例 :__
 
 输入：n = 1010
 输出：[11,999]
- 
+
 __提示：__
 
 2 <= n <= 10^4
 
 __思路__:
+
 双指针遍历, 查找到第一个不包含 0的整数就返回
 时间复杂度O(nlgn), 空间复杂度O(1)
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -96,8 +102,8 @@ public:
         while (true)
         {
             if (valid(i) && valid(j)) return {i, j};
-            i++;
-            j--;
+            ++i;
+            --j;
         }
     }
 private:
@@ -114,6 +120,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int[] getNoZeroIntegers(int n) {
@@ -136,6 +143,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def getNoZeroIntegers(self, n: int) -> List[int]:

@@ -1,7 +1,10 @@
+# 532 K-diff Pairs in an Array 数组中的K-diff数对
+
 __Description__:
 Given an array of integers and an integer k, you need to find the number of unique k-diff pairs in the array. Here a k-diff pair is defined as an integer pair (i, j), where i and j are both numbers in the array and their absolute difference is k.
 
 __Example:__
+
 Example 1:
 Input: [3, 1, 4, 1, 5], k = 2
 Output: 2
@@ -27,6 +30,7 @@ __题目描述__:
 给定一个整数数组和一个整数 k, 你需要在数组里找到不同的 k-diff 数对。这里将 k-diff 数对定义为一个整数对 (i, j), 其中 i 和 j 都是数组中的数字，且两数之差的绝对值是 k.
 
 __示例 :__
+
 示例 1:
 
 输入: [3, 1, 4, 1, 5], k = 2
@@ -46,12 +50,13 @@ __示例 :__
 输出: 1
 解释: 数组中只有一个 0-diff 数对，(1, 1)。
 
-__注意: __
+__注意:__
 数对 (i, j) 和数对 (j, i) 被算作同一数对。
 数组的长度不超过10,000。
 所有输入的整数的范围在 [-1e7, 1e7]。
 
 __思路__:
+
 k < 0直接输出 0
 用一个 map计数, 保存数字和出现的次数
 当 k = 0时, 出现 2次以上的数字才被算做一次数组
@@ -60,19 +65,20 @@ k < 0直接输出 0
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    int findPairs(vector<int>& nums, int k) {
+    int findPairs(vector<int>& nums, int k) 
+    {
         if (k < 0) return 0;
         map<int, int> m;
         for (int num : nums) m[num]++;
         int result = 0;
         for (auto p : m) {
-        	if (!k) {
-                if (p.second > 1) result++;
-            }
-            else if (m.find(p.first + k) != m.end()) result++;
+            if (!k) if (p.second > 1) result++;
+            else if (m.find(p.first + k) != m.end()) ++result;
         }
         return result;
     }
@@ -80,7 +86,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public int findPairs(int[] nums, int k) {
         if (k < 0) return 0;
@@ -88,7 +95,7 @@ class Solution {
         for (int num : nums) map.put(num, map.getOrDefault(num, 0) + 1);
         int result = 0;
         for (Integer key : map.keySet()) {
-        	if (k == 0) {
+            if (k == 0) {
                 if (map.get(key) > 1) result++;
             }
             else if (map.getOrDefault(key + k, 0) != 0) result++;
@@ -99,7 +106,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def findPairs(self, nums: List[int], k: int) -> int:
         result = 0

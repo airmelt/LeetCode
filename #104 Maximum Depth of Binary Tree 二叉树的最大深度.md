@@ -1,3 +1,5 @@
+# 104 Maximum Depth of Binary Tree 二叉树的最大深度
+
 __Description__:
 Given a binary tree, find its maximum depth.
 
@@ -8,13 +10,15 @@ __Note__: A leaf is a node with no children.
 __Example__:
 
 Given binary tree [3,9,20,null,null,15,7],
-```
+
+```text
     3
    / \
   9  20
     /  \
    15   7
 ```
+
 return its depth = 3.
 
 __题目描述__:
@@ -24,19 +28,24 @@ __题目描述__:
 
 __说明__： 叶子节点是指没有子节点的节点。
 
- __示例__:
+__示例__:
+
 给定二叉树 [3,9,20,null,null,15,7]，
-```
+
+```text
     3
    / \
   9  20
     /  \
    15   7
 ```
+
 返回它的最大深度 3 。
 
 __思路__:
+
 主体思想是采用[DFS(深度优先搜索)](https://en.wikipedia.org/wiki/Depth-first_search)
+
 1. 递归, 最大深度是左右子树中的较大值, 每次递归子节点的时候 +1
 2. 迭代, 采用堆栈, 逐层扫描, 每到新的一层 +1
 时间复杂度O(n), 空间复杂度O(n), 其中 n为树中的结点数, 因为每个结点都要访问一次
@@ -48,6 +57,7 @@ __思路__:
 > 这一过程一直进行到已发现从源节点可达的所有节点为止。
 > 如果还存在未被发现的节点，则选择其中一个作为源节点并重复以上过程，整个进程反复进行直到所有节点都被访问为止。属于盲目搜索。
 > 步骤:
+>
 > 1. 首先将根节点放入堆栈中。
 > 2. 从堆栈中取出第一个节点，并检验它是否为目标。如果找到目标，则结束搜寻并回传结果。否则将它某一个尚未检验过的直接子节点加入堆栈中。
 > 3. 重复步骤2。
@@ -57,7 +67,8 @@ __思路__:
 
 __代码__:
 __C++__:
-```
+
+```C++
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -85,16 +96,20 @@ __C++__:
   *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
   * };
   */
- class Solution {
+ class Solution 
+ {
  public:
-     int maxDepth(TreeNode* root) {
+     int maxDepth(TreeNode* root) 
+     {
          if (!root) return 0;
          stack<TreeNode*> s;
          s.push(root);
          int result = 0;
-         while (!s.empty()) {
+         while (!s.empty()) 
+         {
              int nums = s.size();
-             while (nums > 0) {
+             while (nums > 0) 
+             {
                  TreeNode* current = s.top();
                  s.pop();
                  if (current -> left) s.push(current -> left);
@@ -109,7 +124,8 @@ __C++__:
 ```
 
 __Java__:
-```
+
+```Java
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -127,7 +143,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, x):

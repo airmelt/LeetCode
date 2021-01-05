@@ -1,3 +1,5 @@
+# 520 Detect Capital 检测大写字母
+
 __Description__:
 Given a word, you need to judge whether the usage of capitals in it is right or not.
 
@@ -7,8 +9,9 @@ All letters in this word are capitals, like "USA".
 All letters in this word are not capitals, like "leetcode".
 Only the first letter in this word is capital, like "Google".
 Otherwise, we define that this word doesn't use capitals in a right way.
- 
+
 __Example:__
+
 Example 1:
 Input: "USA"
 Output: True
@@ -16,7 +19,7 @@ Output: True
 Example 2:
 Input: "FlaG"
 Output: False
- 
+
 __Note:__
 The input will be a non-empty word consisting of uppercase and lowercase latin letters.
 
@@ -31,6 +34,7 @@ __题目描述__:
 否则，我们定义这个单词没有正确使用大写字母。
 
 __示例：__
+
 示例 1:
 输入: "USA"
 输出: True
@@ -43,25 +47,30 @@ __注意:__
 输入是由大写和小写拉丁字母组成的非空单词。
 
 __思路__:
+
 大写字母出现的次数, 要么等于单词长度, 要么是1
 用一个指针记录下大写字母出现的次数, 利用与的短路机制(&&前面的条件为假, 则后面的条件不执行)可以少写一点代码
 时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    bool detectCapitalUse(string word) {
+    bool detectCapitalUse(string word) 
+    {
         int count = 0;
-        for (int i = 0; i < word.size(); i++) if (isupper(word[i]) && count++ < i) return false;
+        for (int i = 0; i < word.size(); i++) if (isupper(word[i]) and count++ < i) return false;
         return count == word.size() || count <= 1;
     }
 };
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public boolean detectCapitalUse(String word) {
         int count = 0;
@@ -72,7 +81,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def detectCapitalUse(self, word: str) -> bool:
         return word.upper() == word or word.capitalize() == word or word.lower() == word

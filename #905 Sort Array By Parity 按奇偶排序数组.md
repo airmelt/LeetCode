@@ -1,15 +1,18 @@
+# 905 Sort Array By Parity 按奇偶排序数组
+
 __Description__:
 Given an array A of non-negative integers, return an array consisting of all the even elements of A, followed by all the odd elements of A.
 
 You may return any answer array that satisfies this condition.
 
 __Example:__
+
 Example 1:
 
 Input: [3,1,2,4]
 Output: [2,4,3,1]
 The outputs [4,2,3,1], [2,4,1,3], and [4,2,1,3] would also be accepted.
- 
+
 __Note:__
 
 1 <= A.length <= 5000
@@ -25,21 +28,24 @@ __示例 :__
 输入：[3,1,2,4]
 输出：[2,4,3,1]
 输出 [4,2,3,1]，[2,4,1,3] 和 [4,2,1,3] 也会被接受。
- 
+
 __提示：__
 
 1 <= A.length <= 5000
 0 <= A[i] <= 5000
 
 __思路__:
+
 1. 双指针, i指向一个不为偶数的下标, j从后往前扫描到偶数就跟 i交换数组对应的值
 2. 快速排序, 选择 A[0]作为 pivot, 偶数全部放 A[0]左边, 奇数全部放 A[0]右边, 只需要一次遍历
 时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
+
 ```C++
-class Solution {
+class Solution 
+{
 public:
     vector<int> sortArrayByParity(vector<int>& A) 
     {
@@ -52,6 +58,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int[] sortArrayByParity(int[] A) {
@@ -73,6 +80,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def sortArrayByParity(self, A: List[int]) -> List[int]:

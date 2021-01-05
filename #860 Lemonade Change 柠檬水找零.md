@@ -1,5 +1,7 @@
+# 860 Lemonade Change 柠檬水找零
+
 __Description__:
-At a lemonade stand, each lemonade costs \$5. 
+At a lemonade stand, each lemonade costs \$5.
 
 Customers are standing in a queue to buy from you, and order one at a time (in the order specified by bills).
 
@@ -10,11 +12,12 @@ Note that you don't have any change in hand at first.
 Return true if and only if you can provide every customer with correct change.
 
 __Example:__
+
 Example 1:
 
 Input: [5,5,5,10,20]
 Output: true
-Explanation: 
+Explanation:
 From the first 3 customers, we collect three \$5 bills in order.
 From the fourth customer, we collect a \$10 bill and give back a \$5.
 From the fifth customer, we give a \$10 bill and a \$5 bill.
@@ -34,12 +37,12 @@ Example 4:
 
 Input: [5,5,10,10,20]
 Output: false
-Explanation: 
+Explanation:
 From the first two customers in order, we collect two \$5 bills.
 For the next two customers in order, we collect a \$10 bill and give back a \$5 bill.
 For the last customer, we can't give change of \$15 back because we only have two \$10 bills.
 Since not every customer received correct change, the answer is false.
- 
+
 __Note:__
 
 0 <= bills.length <= 10000
@@ -57,6 +60,7 @@ __题目描述__:
 如果你能给每位顾客正确找零，返回 true ，否则返回 false 。
 
 __示例 :__
+
 示例 1：
 
 输入：[5,5,5,10,20]
@@ -86,13 +90,14 @@ __示例 :__
 对于接下来的 2 位顾客，我们收取一张 10 美元的钞票，然后返还 5 美元。
 对于最后一位顾客，我们无法退回 15 美元，因为我们现在只有两张 10 美元的钞票。
 由于不是每位顾客都得到了正确的找零，所以答案是 false。
- 
+
 __提示：__
 
 0 <= bills.length <= 10000
-bills[i] 不是 5 就是 10 或是 20 
+bills[i] 不是 5 就是 10 或是 20
 
 __思路__:
+
 整体使用贪心算法, 从 10开始找零, 不够的用 5找零(柠檬水是真的贵)
 因为一开始没有零钱, 只要第一个人没有给 5直接返回false
 设置两个变量 five和 ten代表收到的钱的数量
@@ -102,28 +107,32 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
-class Solution {
+class Solution 
+{
 public:
-    bool lemonadeChange(vector<int>& bills) {
+    bool lemonadeChange(vector<int>& bills) 
+    {
         if (bills[0] != 5) return false;
         int five = 0, ten = 0;
         for (auto bill : bills) 
         {
-            if (bill == 5) five++;
+            if (bill == 5) ++five;
             if (bill == 10) 
             {
                 if (five == 0) return false;
-                five--;
-                ten++;
+                --five;
+                ++ten;
             }
             if (bill == 20) 
             {
                 if (five > 0 && ten > 0) 
                 {
-                    five--;
-                    ten--;
-                } else if (five > 2) five -= 3;
+                    --five;
+                    --ten;
+                } 
+                else if (five > 2) five -= 3;
                 else return false;
             }
         }
@@ -133,6 +142,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public boolean lemonadeChange(int[] bills) {
@@ -159,6 +169,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def lemonadeChange(self, bills: List[int]) -> bool:

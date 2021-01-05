@@ -1,3 +1,5 @@
+# 278 First Bad Version 第一个错误的版本
+
 __Description__:
 You are a product manager and currently leading a team to develop a new product. Unfortunately, the latest version of your product fails the quality check. Since each version is developed based on the previous version, all the versions after a bad version are also bad.
 
@@ -33,20 +35,25 @@ __题目描述__:
 所以，4 是第一个错误的版本。
 
 __思路__:
+
 二分查找, 注意边界条件和溢出
 时间复杂度O(lgn), 空间复杂度O(1)
 
 __代码__:
 __C++__:
-```
+
+```C++
 // Forward declaration of isBadVersion API.
 bool isBadVersion(int version);
 
-class Solution {
+class Solution 
+{
 public:
-    int firstBadVersion(int n) {
+    int firstBadVersion(int n) 
+    {
         int low = 1;
-        while (low < n) {
+        while (low < n) 
+        {
             int mid = low + ((n - low) >> 1);
             if (isBadVersion(mid)) n = mid;
             else low = ++mid;
@@ -57,7 +64,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 /* The isBadVersion API is defined in the parent class VersionControl.
       boolean isBadVersion(int version); */
 
@@ -75,18 +83,15 @@ public class Solution extends VersionControl {
 ```
 
 __Python__:
-```
+
+```Python
 # The isBadVersion API is already defined for you.
 # @param version, an integer
 # @return a bool
 # def isBadVersion(version):
 
 class Solution:
-    def firstBadVersion(self, n):
-        """
-        :type n: int
-        :rtype: int
-        """
+    def firstBadVersion(self, n: int) -> int:
         low = 1
         while low < n:
             mid = low + ((n - low) >> 1)

@@ -1,3 +1,5 @@
+# 1046 Last Stone Weight 最后一块石头的重量
+
 __Description__:
 We have a collection of rocks, each rock has a positive integer weight.
 
@@ -8,16 +10,17 @@ If x != y, the stone of weight x is totally destroyed, and the stone of weight y
 At the end, there is at most 1 stone left.  Return the weight of this stone (or 0 if there are no stones left.)
 
 __Example:__
+
 Example 1:
 
 Input: [2,7,4,1,8,1]
 Output: 1
-Explanation: 
+Explanation:
 We combine 7 and 8 to get 1 so the array converts to [2,4,1,1,1] then,
 we combine 2 and 4 to get 2 so the array converts to [2,1,1,1] then,
 we combine 2 and 1 to get 1 so the array converts to [1,1,1] then,
 we combine 1 and 1 to get 0 so the array converts to [1] then that's the value of last stone.
- 
+
 __Note:__
 
 1 <= stones.length <= 30
@@ -38,6 +41,7 @@ __提示：__
 1 <= stones[i] <= 1000
 
 __思路__:
+
 1. 按照题目要求, 一直排序, 将最大的两个石头碰撞
 时间复杂度O(n ^ 2lgn), 空间复杂度O(1)
 2. 由于每次都是对最大的两块石头进行操作, 可以采用大顶堆
@@ -45,6 +49,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -66,6 +71,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int lastStoneWeight(int[] stones) {
@@ -82,6 +88,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def lastStoneWeight(self, stones: List[int]) -> int:

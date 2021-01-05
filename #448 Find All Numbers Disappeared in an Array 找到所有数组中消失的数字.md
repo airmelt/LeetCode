@@ -1,3 +1,5 @@
+# 448 Find All Numbers Disappeared in an Array 找到所有数组中消失的数字
+
 __Description__:
 Given an array of integers where 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once.
 
@@ -5,7 +7,7 @@ Find all the elements of [1, n] inclusive that do not appear in this array.
 
 Could you do it without extra space and in O(n) runtime? You may assume the returned list does not count as extra space.
 
-Example:
+__Example:__
 
 Input:
 [4,3,2,7,8,2,3,1]
@@ -29,28 +31,31 @@ __示例：__
 [5,6]
 
 __思路__:
+
 用出现过的数字对应下标, 将下标对应的数组元素改为负数
 遍历第二次找出所有正数
 时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    vector<int> findDisappearedNumbers(vector<int>& nums) {
+    vector<int> findDisappearedNumbers(vector<int>& nums) 
+    {
         for (int i = 0; i < nums.size(); i++) nums[abs(nums[i]) - 1] = -abs(nums[abs(nums[i]) - 1]);
         vector<int> result;
-        for (int i = 0; i < nums.size(); i++) {
-            if (nums[i] > 0) result.push_back(i + 1);
-        }
+        for (int i = 0; i < nums.size(); i++) if (nums[i] > 0) result.emplace_back(i + 1);
         return result;
     }
 };
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public List<Integer> findDisappearedNumbers(int[] nums) {
         for (int i = 0; i < nums.length; i++) nums[Math.abs(nums[i]) - 1] = -Math.abs(nums[Math.abs(nums[i]) - 1]);
@@ -64,7 +69,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def findDisappearedNumbers(self, nums: List[int]) -> List[int]:
         return list(set(range(1, len(nums) + 1))- set(nums)) if nums else []

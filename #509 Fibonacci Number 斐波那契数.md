@@ -1,3 +1,5 @@
+# 509 Fibonacci Number 斐波那契数
+
 __Description__:
 The Fibonacci numbers, commonly denoted F(n) form a sequence, called the Fibonacci sequence, such that each number is the sum of the two preceding ones, starting from 0 and 1. That is,
 
@@ -6,6 +8,7 @@ F(N) = F(N - 1) + F(N - 2), for N > 1.
 Given N, calculate F(N).
 
 __Example:__
+
 Example 1:
 Input: 2
 Output: 1
@@ -20,7 +23,7 @@ Example 3:
 Input: 4
 Output: 3
 Explanation: F(4) = F(3) + F(2) = 2 + 1 = 3.
- 
+
 __Note:__
 0 ≤ N ≤ 30.
 
@@ -32,6 +35,7 @@ F(N) = F(N - 1) + F(N - 2), 其中 N > 1.
 给定 N，计算 F(N)。
 
 __示例：__
+
 示例 1：
 输入：2
 输出：1
@@ -46,11 +50,12 @@ __示例：__
 输入：4
 输出：3
 解释：F(4) = F(3) + F(2) = 2 + 1 = 3.
- 
+
 __提示：__
 0 ≤ N ≤ 30
 
 __思路__:
+
 1. 参考[LeetCode #70 Climbing Stairs 爬楼梯](https://www.jianshu.com/p/8d7ceb7b7cf6)
 时间复杂度O(n), 空间复杂度O(1)
 2. 通项公式
@@ -58,12 +63,16 @@ __思路__:
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    int fib(int N) {
+    int fib(int N) 
+    {
         int a = 0, b = 1;
-        while (N--) {
+        while (N--) 
+        {
             int temp = a;
             a = b;
             b = temp + b;
@@ -74,7 +83,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public int fib(int N) {
         switch(N) {
@@ -147,7 +157,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def fib(self, N: int) -> int:
         return int((5 ** 0.5) * 0.2 * (((1 + 5 ** 0.5) / 2) ** N - ((1 - 5 ** 0.5) / 2) ** N))

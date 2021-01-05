@@ -1,3 +1,5 @@
+# 748 Shortest Completing Word 最短完整词
+
 __Description__:
 Find the minimum length word from a given dictionary words, which has all the letters from the string licensePlate. Such a word is said to complete the given string licensePlate
 
@@ -8,6 +10,7 @@ It is guaranteed an answer exists. If there are multiple answers, return the one
 The license plate might have the same letter occurring multiple times. For example, given a licensePlate of "PP", the word "pair" does not complete the licensePlate, but the word "supper" does.
 
 __Example:__
+
 Example 1:
 
 Input: licensePlate = "1s3 PSt", words = ["step", "steps", "stripe", "stepple"]
@@ -40,18 +43,19 @@ __题目描述__:
 牌照中可能包含多个相同的字符，比如说：对于牌照 "PP"，单词 "pair" 无法匹配，但是 "supper" 可以匹配。
 
 __示例 :__
+
 示例 1：
 
 输入：licensePlate = "1s3 PSt", words = ["step", "steps", "stripe", "stepple"]
 输出："steps"
 说明：最短完整词应该包括 "s"、"p"、"s" 以及 "t"。对于 "step" 它只包含一个 "s" 所以它不符合条件。同时在匹配过程中我们忽略牌照中的大小写。
- 
+
 示例 2：
 
 输入：licensePlate = "1s3 456", words = ["looks", "pest", "stew", "show"]
 输出："pest"
 说明：存在 3 个包含字母 "s" 且有着最短长度的完整词，但我们返回最先出现的完整词。
- 
+
 __注意：__
 
 牌照（licensePlate）的长度在区域[1, 7]中。
@@ -60,24 +64,30 @@ __注意：__
 每一个单词 words[i] 都是小写，并且长度在区间 [1, 15] 中。
 
 __思路__:
+
 先用一个长度为 26的数组存储下牌照(licensePlate)的字符的个数, 遍历每一个单词, 找到最短的单词, 满足其字符数大于牌照的字符即可
 时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    string shortestCompletingWord(string licensePlate, vector<string>& words) {
+    string shortestCompletingWord(string licensePlate, vector<string>& words) 
+    {
         string result = "";
         int count[26] = {0};
-        for (char c : licensePlate) if (isalpha(c)) count[tolower(c) - 'a']++;
-        for (string word : words) {
+        for (char c : licensePlate) if (isalpha(c)) ++count[tolower(c) - 'a'];
+        for (string word : words) 
+        {
             int temp[26] = {0};
-            for (char c : word) if (count[c - 'a']) temp[c - 'a']++;
-            for (int i = 0; i < 26; i++) {
+            for (char c : word) if (count[c - 'a']) ++temp[c - 'a'];
+            for (int i = 0; i < 26; i++) 
+            {
                 if (temp[i] < count[i]) break;
-                if (i == 25) if (!result.size() || word.size() < result.size()) result = word;
+                if (i == 25) if (!result.size() or word.size() < result.size()) result = word;
             }
         }
         return result;
@@ -86,7 +96,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public String shortestCompletingWord(String licensePlate, String[] words) {
         int count[] = new int[26];
@@ -115,7 +126,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 from collections import Counter
 class Solution:
     def shortestCompletingWord(self, licensePlate: str, words: List[str]) -> str:

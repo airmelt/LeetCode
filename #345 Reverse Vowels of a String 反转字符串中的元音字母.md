@@ -1,7 +1,10 @@
+# 345 Reverse Vowels of a String 反转字符串中的元音字母
+
 __Description__:
 Write a function that takes a string as input and reverse only the vowels of a string.
 
 **Example :**
+
 Example 1:
 Input: "hello"
 Output: "holle"
@@ -17,6 +20,7 @@ __题目描述__:
 编写一个函数，以字符串作为输入，反转该字符串中的元音字母。
 
 **示例 :**
+
 示例 1:
 输入: "hello"
 输出: "holle"
@@ -29,20 +33,25 @@ __说明:__
 元音字母不包含字母"y"。
 
 __思路__:
+
 双指针循环交换, 判断是否是元音字母即可
 时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    string reverseVowels(string s) {
+    string reverseVowels(string s) 
+    {
         int i = 0, j = s.size() - 1;
         string vowel = "aeiouAEIOU";
-        while (i < j) {
-            while (vowel.find(s[i]) == -1 && i < j) i++;
-            while (vowel.find(s[j]) == -1 && i < j) j--;
+        while (i < j) 
+        {
+            while (vowel.find(s[i]) == -1 and i < j) i++;
+            while (vowel.find(s[j]) == -1 and i < j) j--;
             swap(s[i++], s[j--]);
         }
         return s;
@@ -51,7 +60,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public String reverseVowels(String s) {
         int i = 0, j = s.length() - 1;
@@ -72,7 +82,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def reverseVowels(self, s: str) -> str:
         i, j, s, vowel = 0, len(s) - 1, list(s), ('a', 'e', 'i', 'o', 'u')

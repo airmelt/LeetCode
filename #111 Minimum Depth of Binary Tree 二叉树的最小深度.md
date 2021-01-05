@@ -1,3 +1,5 @@
+# 111 Minimum Depth of Binary Tree 二叉树的最小深度
+
 __Description__:
 Given a binary tree, find its minimum depth.
 
@@ -8,13 +10,15 @@ Note: A leaf is a node with no children.
 __Example__:
 
 Given binary tree [3,9,20,null,null,15,7],
-```
+
+```text
     3
    / \
   9  20
     /  \
    15   7
 ```
+
 return its minimum depth = 2.
 
 __题目描述__:
@@ -24,28 +28,33 @@ __题目描述__:
 
 说明: 叶子节点是指没有子节点的节点。
 
- __示例__：
+__示例__：
 
 给定二叉树 [3,9,20,null,null,15,7],
-```
+
+```text
     3
    / \
   9  20
     /  \
    15   7
 ```
+
 返回它的最小深度  2.
 
 __思路__:
+
 参考[LeetCode #104 Maximum Depth of Binary Tree 二叉树的最大深度](https://www.jianshu.com/p/8db39ff5b800)
 跟最大深度略有不同, 找到叶结点即可返回叶结点所在层数, 注意根结点不是叶结点, 所以[1, 2]应当返回 2, 而不是1.
+
 1. 递归
 2. 迭代
 时间复杂度O(n), 空间复杂度O(n), n为树中结点数
 
 __代码__:
 __C++__:
-```
+
+```C++
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -55,20 +64,24 @@ __C++__:
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
-class Solution {
+class Solution 
+{
 public:
-    int minDepth(TreeNode* root) {
+    int minDepth(TreeNode* root) 
+    {
         if (!root) return 0;
         queue<TreeNode*> q;
         q.push(root);
         int result = 0;
-        while (!q.empty()) {
+        while (!q.empty()) 
+        {
             int nums = q.size();
             result++;
-            while (nums) {
+            while (nums) 
+            {
                 TreeNode* cur = q.front();
                 q.pop();
-                if (!cur -> left && !cur -> right) return result;
+                if (!cur -> left and !cur -> right) return result;
                 if (cur -> left) q.push(cur -> left);
                 if (cur -> right) q.push(cur -> right);
                 nums--;
@@ -80,7 +93,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -102,7 +116,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, x):

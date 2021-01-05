@@ -1,3 +1,5 @@
+# 832 Flipping an Image 翻转图像
+
 __Description__:
 Given a binary matrix A, we want to flip the image horizontally, then invert it, and return the resulting image.
 
@@ -6,6 +8,7 @@ To flip an image horizontally means that each row of the image is reversed.  Fo
 To invert an image means that each 0 is replaced by 1, and each 1 is replaced by 0. For example, inverting [0, 1, 1] results in [1, 0, 0].
 
 __Example:__
+
 Example 1:
 
 Input: [[1,1,0],[1,0,1],[0,0,0]]
@@ -33,6 +36,7 @@ __题目描述__:
 反转图片的意思是图片中的 0 全部被 1 替换， 1 全部被 0 替换。例如，反转 [0, 1, 1] 的结果是 [1, 0, 0]。
 
 __示例 :__
+
 示例 1:
 
 输入: [[1,1,0],[1,0,1],[0,0,0]]
@@ -53,15 +57,19 @@ __说明：__
 0 <= A[i][j] <= 1
 
 __思路__:
+
 遍历每一行, 可以用双指针一边交换一边翻转
 时间复杂度O(n ^ 2), 空间复杂度O(1)
 
 __代码__:
 __C++__:
+
 ```C++
-class Solution {
+class Solution 
+{
 public:
-    vector<vector<int>> flipAndInvertImage(vector<vector<int>>& A) {
+    vector<vector<int>> flipAndInvertImage(vector<vector<int>>& A) 
+    {
         for (auto &row : A) 
         {
             reverse(row.begin(), row.end());
@@ -73,6 +81,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int[][] flipAndInvertImage(int[][] A) {
@@ -93,6 +102,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def flipAndInvertImage(self, A: List[List[int]]) -> List[List[int]]:

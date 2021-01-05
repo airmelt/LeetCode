@@ -1,3 +1,5 @@
+# 434 Number of Segments in a String 字符串中的单词数
+
 __Description__:
 Count the number of segments in a string, where a segment is defined to be a contiguous sequence of non-space characters.
 
@@ -19,37 +21,43 @@ __示例：__
 输出: 5
 
 __思路__:
+
 题目的含义是, 找到被空格隔开的部分的数量
 参考[stringstream的用法](https://zhuanlan.zhihu.com/p/44435521)
 时间复杂度O(n), 空间复杂度O(n)
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    int countSegments(string s) {
+    int countSegments(string s) 
+    {
         // 输入输出流
         stringstream ss(s);
         int result = 0;
         // 可以使用 cout << s << endl; 打印 s所传入的字符
-        while (ss >> s) result++;
+        while (ss >> s) ++result;
         return result;
     }
 };
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public int countSegments(String s) {
-		return s.trim().length() == 0 ? 0 : s.trim().split("\\s+").length;
+        return s.trim().length() == 0 ? 0 : s.trim().split("\\s+").length;
     }
 }
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def countSegments(self, s: str) -> int:
         return len(s.split())

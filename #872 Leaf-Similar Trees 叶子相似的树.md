@@ -1,3 +1,5 @@
+# 872 Leaf-Similar Trees 叶子相似的树
+
 __Description__:
 Consider all the leaves of a binary tree.  From left to right order, the values of those leaves form a leaf value sequence.
 
@@ -27,6 +29,7 @@ __提示：__
 给定的两颗树可能会有 1 到 100 个结点。
 
 __思路__:
+
 1. 迭代, 用栈记录
 2. 递归
 找到所有叶子的值比较大小即可
@@ -34,6 +37,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 /**
  * Definition for a binary tree node.
@@ -44,13 +48,16 @@ __C++__:
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
-class Solution {
+class Solution 
+{
 public:
-    bool leafSimilar(TreeNode* root1, TreeNode* root2) {
+    bool leafSimilar(TreeNode* root1, TreeNode* root2) 
+    {
         return leaves(root1) == leaves(root2);
     }
 private:
-    vector<int> leaves(TreeNode* root) {
+    vector<int> leaves(TreeNode* root) 
+    {
         stack<TreeNode*> s;
         s.push(root);
         vector<int> result;
@@ -58,7 +65,7 @@ private:
         {
             TreeNode* cur = s.top();
             s.pop();
-            if (!cur -> left && !cur -> right) result.push_back(cur -> val);
+            if (!cur -> left and !cur -> right) result.push_back(cur -> val);
             if (cur -> left) s.push(cur -> left);
             if (cur -> right) s.push(cur -> right);
         }
@@ -68,6 +75,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 /**
  * Definition for a binary tree node.
@@ -92,6 +100,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 # Definition for a binary tree node.
 # class TreeNode:

@@ -1,23 +1,27 @@
+# 530 Minimum Absolute Difference in BST 二叉搜索树的最小绝对差
+
 __Description__:
 Given a binary search tree with non-negative values, find the minimum absolute difference between values of any two nodes.
 
 __Example:__
 
 Input:
-```
+
+```text
    1
     \
      3
     /
    2
 ```
+
 Output:
 1
 
 Explanation:
 The minimum absolute difference is 1, which is the difference between 2 and 1 (or between 2 and 3).
- 
-__Note: __
+
+__Note:__
 There are at least two nodes in this BST.
 
 __题目描述__:
@@ -26,29 +30,33 @@ __题目描述__:
 示例 :
 
 输入:
-```
+
+```text
    1
     \
      3
     /
    2
 ```
+
 输出:
 1
 
 解释:
 最小绝对差为1，其中 2 和 1 的差的绝对值为 1（或者 2 和 3）。
 
-__注意: __
+__注意:__
 树中至少有2个节点。
 
 __思路__:
+
 二叉搜索树的中序遍历为递增的有序数组, 比较两个相邻结点差的最小值即可
 时间复杂度O(n), 空间复杂度O(n)
 
 __代码__:
 __C++__:
-```
+
+```C++
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -58,17 +66,23 @@ __C++__:
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
-class Solution {
+class Solution 
+{
 public:
-    int getMinimumDifference(TreeNode* root) {
+    int getMinimumDifference(TreeNode* root) 
+    {
         stack<TreeNode*> s;
         TreeNode* pre = NULL;
         int result = (1 << 31) - 1;
-        while (root || s.size()) {
-            if (root) {
+        while (root or s.size()) 
+        {
+            if (root) 
+            {
                 s.push(root);
                 root = root -> left;
-            } else {
+            } 
+            else 
+            {
                 root = s.top();
                 s.pop();
                 if (pre) result = min(result, abs(root -> val - pre -> val));
@@ -82,7 +96,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -111,7 +126,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, x):

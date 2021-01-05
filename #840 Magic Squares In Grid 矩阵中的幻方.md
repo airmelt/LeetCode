@@ -1,3 +1,5 @@
+# 840 Magic Squares In Grid 矩阵中的幻方
+
 __Description__:
 A 3 x 3 magic square is a 3 x 3 grid filled with distinct numbers from 1 to 9 such that each row, column, and both diagonals all have the same sum.
 
@@ -6,20 +8,29 @@ Given an grid of integers, how many 3 x 3 "magic square" subgrids are there?  
 __Example:__
 Example 1:
 
+```text
 Input: [[4,3,8,4],
         [9,5,1,9],
         [2,7,6,2]]
 Output: 1
-Explanation: 
+```
+
+Explanation:
 The following subgrid is a 3 x 3 magic square:
+
+```text
 438
 951
 276
+```
 
 while this one is not:
+
+```text
 384
 519
 762
+```
 
 In total, there is only one magic square inside the given grid.
 
@@ -36,20 +47,29 @@ __题目描述__:
 
 __示例 :__
 
+```text
 输入: [[4,3,8,4],
       [9,5,1,9],
       [2,7,6,2]]
 输出: 1
-解释: 
+```
+
+解释:
 下面的子矩阵是一个 3 x 3 的幻方：
+
+```text
 438
 951
 276
+```
 
 而这一个不是：
+
+```text
 384
 519
 762
+```
 
 总的来说，在本示例所给定的矩阵中只有一个 3 x 3 的幻方子矩阵。
 
@@ -60,30 +80,36 @@ __提示:__
 0 <= grid[i][j] <= 15
 
 __思路__:
+
 注意到幻方的正中间那个数一定是 5, 可以找到 5之后扩展为 3 ✖️ 3矩阵再判断是否为幻方
 时间复杂度O(mn), 空间复杂度O(1)
 
 __代码__:
 __C++__:
+
 ```C++
-class Solution {
+class Solution 
+{
 public:
-    int numMagicSquaresInside(vector<vector<int>>& grid) {
+    int numMagicSquaresInside(vector<vector<int>>& grid) 
+    {
         int result = 0;
-        for (int i = 1; i < grid.size() - 1; i++) for (int j = 1; j < grid[0].size() - 1; j++) if (grid[i][j] == 5) if (is_magic_square(grid, i, j)) result++;
+        for (int i = 1; i < grid.size() - 1; i++) for (int j = 1; j < grid[0].size() - 1; j++) if (grid[i][j] == 5) if (is_magic_square(grid, i, j)) ++result;
         return result;
     }
 private:
-    bool is_magic_square(vector<vector<int>>& grid, int i, int j) {
-        if (grid.size() < 3 || grid[0].size() < 3) return false;
+    bool is_magic_square(vector<vector<int>>& grid, int i, int j) 
+    {
+        if (grid.size() < 3 or grid[0].size() < 3) return false;
         if (!is_valid(grid, i, j)) return false;
-        if (grid[i - 1][j - 1] + grid[i - 1][j] + grid[i - 1][j + 1] == 15 && grid[i][j - 1] + grid[i][j] + grid[i][j + 1] == 15 && grid[i + 1][j - 1] + grid[i + 1][j] + grid[i + 1][j + 1] == 15 && grid[i - 1][j - 1] + grid[i][j - 1] + grid[i + 1][j - 1] == 15 && grid[i - 1][j] + grid[i][j] + grid[i + 1][j] == 15 && grid[i - 1][j + 1] + grid[i][j + 1] + grid[i + 1][j + 1] == 15 && grid[i - 1][j - 1] + grid[i][j] + grid[i + 1][j + 1] == 15 && grid[i + 1][j - 1] + grid[i][j] + grid[i - 1][j + 1] == 15) return true;
+        if (grid[i - 1][j - 1] + grid[i - 1][j] + grid[i - 1][j + 1] == 15 and grid[i][j - 1] + grid[i][j] + grid[i][j + 1] == 15 and grid[i + 1][j - 1] + grid[i + 1][j] + grid[i + 1][j + 1] == 15 and grid[i - 1][j - 1] + grid[i][j - 1] + grid[i + 1][j - 1] == 15 and grid[i - 1][j] + grid[i][j] + grid[i + 1][j] == 15 and grid[i - 1][j + 1] + grid[i][j + 1] + grid[i + 1][j + 1] == 15 and grid[i - 1][j - 1] + grid[i][j] + grid[i + 1][j + 1] == 15 and grid[i + 1][j - 1] + grid[i][j] + grid[i - 1][j + 1] == 15) return true;
         return false;
     }
     
-    bool is_valid(vector<vector<int>>& grid, int i, int j) {
+    bool is_valid(vector<vector<int>>& grid, int i, int j) 
+    {
         int count[16] = {0};
-        for (int r = i - 1; r < i + 2; r++) for (int c = j - 1; c < j + 2; c++) count[grid[r][c]]++;
+        for (int r = i - 1; r < i + 2; r++) for (int c = j - 1; c < j + 2; c++) ++count[grid[r][c]];
         for (int k = 1; k <= 9; k++) if (!count[k]) return false;
         return true;
     }
@@ -91,6 +117,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int numMagicSquaresInside(int[][] grid) {
@@ -116,6 +143,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def numMagicSquaresInside(self, grid: List[List[int]]) -> int:

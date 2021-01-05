@@ -1,9 +1,12 @@
+# 507 Perfect Number 完美数
+
 __Description__:
 We define the Perfect Number is a positive integer that is equal to the sum of all its positive divisors except itself.
 
 Now, given an integer n, write a function that returns true when it is a perfect number and false when it is not.
 
 __Example:__
+
 Input: 28
 Output: True
 Explanation: 28 = 1 + 2 + 4 + 7 + 14
@@ -26,6 +29,7 @@ __注意:__
 输入的数字 n 不会超过 100,000,000. (1e8)
 
 __思路__:
+
 1. 最快方法是算出几个完美数, 判断相等就行
 时间复杂度O(1), 空间复杂度O(1)
 2. 计算出所有正因子相加即可, 边界是 sqrt(num), 需要判断 num是否是完全平方数
@@ -33,14 +37,18 @@ __思路__:
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    bool checkPerfectNumber(int num) {
+    bool checkPerfectNumber(int num) 
+    {
         if (num < 0) return false;
         int sum = 1, s = sqrt(num); 
         if (s * s == num) sum += s--;
-        while (s > 1) {
+        while (s > 1) 
+        {
             if (!(num % s)) sum += num / s + s;
             s--;
         }
@@ -50,7 +58,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public boolean checkPerfectNumber(int num) {
         int sum = 1;
@@ -64,7 +73,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def checkPerfectNumber(self, num: int) -> bool:
         return num in {6, 28, 496, 8128, 33550336}

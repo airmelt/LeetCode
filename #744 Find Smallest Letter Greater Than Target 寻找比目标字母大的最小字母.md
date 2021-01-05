@@ -1,3 +1,5 @@
+# 744 Find Smallest Letter Greater Than Target 寻找比目标字母大的最小字母
+
 __Description__:
 Given a list of sorted characters letters containing only lowercase letters, and given a target letter target, find the smallest element in the list that is larger than the given target.
 
@@ -84,19 +86,23 @@ letters长度范围在[2, 10000]区间内。
 letters 仅由小写字母组成，最少包含两个不同的字母。
 目标字母target 是一个小写字母。
 
-
 __思路__:
+
 由于数组有序, 用二分查找, 注意顺序是循环的, 所以比较一下数组的最后一个元素和 target的大小来判定返回值
 时间复杂度O(lgn), 空间复杂度O(1)
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    char nextGreatestLetter(vector<char>& letters, char target) {
+    char nextGreatestLetter(vector<char>& letters, char target) 
+    {
         int i = 0, j = letters.size() - 1;
-        while (i <= j) {
+        while (i <= j) 
+        {
             int mid = i + ((j - i) >> 1);
             if (letters[mid] > target) j = mid - 1;
             else i = mid + 1;
@@ -107,7 +113,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public char nextGreatestLetter(char[] letters, char target) {
         int i = 0, j = letters.length - 1;
@@ -122,7 +129,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def nextGreatestLetter(self, letters: List[str], target: str) -> str:
         return letters[[x > target for x in letters].index(max([x > target for x in letters]))]

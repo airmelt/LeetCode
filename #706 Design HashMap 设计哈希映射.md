@@ -1,3 +1,5 @@
+# 706 Design HashMap 设计哈希映射
+
 __Description__:
 Design a HashMap without using any built-in hash table libraries.
 
@@ -9,6 +11,7 @@ remove(key) : Remove the mapping for the value key if this map contains the map
 
 __Example:__
 
+```Java
 MyHashMap hashMap = new MyHashMap();
 hashMap.put(1, 1);          
 hashMap.put(2, 2);         
@@ -18,6 +21,7 @@ hashMap.put(2, 1);          // update the existing value
 hashMap.get(2);            // returns 1 
 hashMap.remove(2);          // remove the mapping for 2
 hashMap.get(2);            // returns -1 (not found) 
+```
 
 __Note:__
 
@@ -36,6 +40,7 @@ remove(key)：如果映射中存在这个键，删除这个数值对。
 
 __示例 :__
 
+```Java
 MyHashMap hashMap = new MyHashMap();
 hashMap.put(1, 1);          
 hashMap.put(2, 2);         
@@ -45,6 +50,7 @@ hashMap.put(2, 1);         // 更新已有的值
 hashMap.get(2);            // 返回 1 
 hashMap.remove(2);         // 删除键为2的数据
 hashMap.get(2);            // 返回 -1 (未找到) 
+```
 
 __注意：__
 
@@ -53,33 +59,42 @@ __注意：__
 不要使用内建的哈希库。
 
 __思路__:
+
 哈希函数使用取余, 用拉链法解决冲突
 Java代码参考源码实现
+时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
-```
-struct Node{
+
+```C++
+struct Node
+{
     int nkey;
     int nval;
     Node* next;
     Node(int key, int val): nkey(key), nval(val), next(nullptr){}
 };
 const int len = 13;
-class MyHashMap {
+class MyHashMap 
+{
 public:
     vector <Node*> arr;
     /** Initialize your data structure here. */
-    MyHashMap() {
+    MyHashMap() 
+    {
         arr = vector<Node*> (len, new Node(-1, -1));
     }
     
     /** value will always be non-negative. */
-    void put(int key, int value) {
+    void put(int key, int value) 
+    {
         Node* p = arr[key % len];
         Node* node;
-        while (p) {
-            if (p -> nkey == key) {
+        while (p) 
+        {
+            if (p -> nkey == key) 
+            {
                 p -> nval = value;
                 return;
             }
@@ -91,9 +106,11 @@ public:
     }
     
     /** Returns the value to which the specified key is mapped, or -1 if this map contains no mapping for the key */
-    int get(int key) {
+    int get(int key) 
+    {
         Node* node = arr[key % len];
-        while (node) {
+        while (node) 
+        {
             if (node -> nkey == key) return node -> nval;
             node = node -> next;
         }
@@ -101,9 +118,11 @@ public:
     }
     
     /** Removes the mapping of the specified value key if this map contains a mapping for the key */
-    void remove(int key) {
+    void remove(int key) 
+    {
         Node* node = arr[key % len];
-        while (node) {
+        while (node) 
+        {
             if (node -> nkey == key) node -> nval = -1;
             node = node -> next;
         }
@@ -120,7 +139,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 class MyHashMap {
     private static final int DEFAULT_CAPACITY = 16;
     private static final float DEFAULT_LOAD_FACTOR = 0.75f;
@@ -295,7 +315,8 @@ class MyHashMap {
 ```
 
 __Python__:
-```
+
+```Python
 class Node:
     
     def __init__(self, key=None, val=None, next=None):

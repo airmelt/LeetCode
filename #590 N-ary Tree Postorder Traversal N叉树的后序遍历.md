@@ -1,7 +1,10 @@
+# 590 N-ary Tree Postorder Traversal N叉树的后序遍历
+
 __Description__:
 Given an n-ary tree, return the postorder traversal of its nodes' values.
 
 __Example:__
+
 For example, given a 3-ary tree:
 ![3-ary tree](https://upload-images.jianshu.io/upload_images/16639143-caf24b6dedfe7889.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 Return its postorder traversal as: [5,6,3,2,4,1].
@@ -14,6 +17,7 @@ __题目描述__:
 给定一个 N 叉树，返回其节点值的后序遍历。
 
 __示例 :__
+
 例如，给定一个 3叉树 :
 ![3叉树](https://upload-images.jianshu.io/upload_images/16639143-caf24b6dedfe7889.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 返回其后序遍历: [5,6,3,2,4,1]。
@@ -22,6 +26,7 @@ __说明:__
 递归法很简单，你可以使用迭代法完成此题吗?
 
 __思路__:
+
 1. 递归
 2. 迭代, 利用栈, 插入结点的孩子结点
 
@@ -29,7 +34,8 @@ __思路__:
 
 __代码__:
 __C++__:
-```
+
+```C++
 /*
 // Definition for a Node.
 class Node {
@@ -45,14 +51,17 @@ public:
     }
 };
 */
-class Solution {
+class Solution 
+{
 public:
-    vector<int> postorder(Node* root) {
+    vector<int> postorder(Node* root) 
+    {
         vector<int> result;
         if (!root) return result;
         stack<Node*> s;
         s.push(root);
-        while (s.size()) {
+        while (s.size()) 
+        {
             auto cur = s.top();
             s.pop();
             result.insert(result.begin(), cur -> val);
@@ -64,7 +73,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 /*
 // Definition for a Node.
 class Node {
@@ -91,7 +101,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 """
 # Definition for a Node.
 class Node:

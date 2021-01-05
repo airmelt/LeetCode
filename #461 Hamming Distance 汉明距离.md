@@ -1,3 +1,5 @@
+# 461 Hamming Distance 汉明距离
+
 __Description__:
 The Hamming distance between two integers is the number of positions at which the corresponding bits are different.
 
@@ -13,11 +15,13 @@ Input: x = 1, y = 4
 Output: 2
 
 Explanation:
-```
+
+```text
 1   (0 0 0 1)
 4   (0 1 0 0)
        ↑   ↑
 ```
+
 The above arrows point to positions where the corresponding bits are different.
 
 __题目描述__:
@@ -35,36 +39,40 @@ __示例:__
 输出: 2
 
 解释:
-```
+
+```text
 1   (0 0 0 1)
 4   (0 1 0 0)
        ↑   ↑
 ```
+
 上面的箭头指出了对应二进制位不同的位置。
 
 __思路__:
+
 先用异或, 计算 1的数量可以用 num & (num - 1)来统计
 时间复杂度O(1), 空间复杂度O(1)
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    int hammingDistance(int x, int y) {
+    int hammingDistance(int x, int y) 
+    {
         // 也可以用 bitset类
-        int result = 0, num = x ^ y;
-        while (num) {
-            num = (num - 1) & num;
-            result++;
-        }
+        int result = x == y ? 0 : 1, num = x ^ y;
+        while ((num = (num - 1) & num)) ++result;
         return result;
     }
 };
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public int hammingDistance(int x, int y) {
         return Integer.toBinaryString(x ^ y).replaceAll("0", "").length();
@@ -73,7 +81,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def hammingDistance(self, x: int, y: int) -> int:
         return bin(x ^ y).count("1")

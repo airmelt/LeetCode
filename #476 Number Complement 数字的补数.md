@@ -1,3 +1,5 @@
+# 476 Number Complement 数字的补数
+
 __Description__:
 Given a positive integer, output its complement number. The complement strategy is to flip the bits of its binary representation.
 
@@ -6,6 +8,7 @@ The given integer is guaranteed to fit within the range of a 32-bit signed integ
 You could assume no leading zero bit in the integer’s binary representation.
 
 __Example:__
+
 Example 1:
 Input: 5
 Output: 2
@@ -25,6 +28,7 @@ __注意:__
 你可以假定二进制数不包含前导零位。
 
 __示例 :__
+
 示例 1:
 
 输入: 5
@@ -38,6 +42,7 @@ __示例 :__
 解释: 1的二进制表示为1（没有前导零位），其补数为0。所以你需要输出0。
 
 __思路__:
+
 找到一个最小的大于 num的 2 ^ i - 1的正整数, 返回 2 ^ i - 1 - num即可
 实质上是取到一个mask(全1), 返回 mask ^ num
 e.g. 5 -> 0x101 -> mask = 2 ^ 3 - 1 = 0x111 -> return 010
@@ -45,12 +50,16 @@ e.g. 5 -> 0x101 -> mask = 2 ^ 3 - 1 = 0x111 -> return 010
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    int findComplement(int num) {
+    int findComplement(int num) 
+    {
         int i = 1;
-        while (i < num) {
+        while (i < num) 
+        {
             i <<= 1;
             i++;
         }
@@ -60,7 +69,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public int findComplement(int num) {
         for (int i = 0; i < 32; i++) if (num < (1 << (i + 1))) return (1 << (i + 1)) - 1 - num;
@@ -70,7 +80,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def findComplement(self, num: int) -> int:
         return num ^ int((len(bin(num)) - 2) * '1', 2)

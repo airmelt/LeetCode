@@ -1,3 +1,5 @@
+# 707 Design Linked List 设计链表
+
 __Description__:
 Design your implementation of the linked list. You can choose to use the singly linked list or the doubly linked list. A node in a singly linked list should have two attributes: val and next. val is the value of the current node, and next is a pointer/reference to the next node. If you want to use the doubly linked list, you will need one more attribute prev to indicate the previous node in the linked list. Assume all nodes in the linked list are 0-indexed.
 
@@ -11,6 +13,7 @@ deleteAtIndex(index) : Delete the index-th node in the linked list, if the ind
 
 __Example:__
 
+```Java
 MyLinkedList linkedList = new MyLinkedList();
 linkedList.addAtHead(1);
 linkedList.addAtTail(3);
@@ -18,6 +21,7 @@ linkedList.addAtIndex(1, 2);  // linked list becomes 1->2->3
 linkedList.get(1);            // returns 2
 linkedList.deleteAtIndex(1);  // now the linked list is 1->3
 linkedList.get(1);            // returns 3
+```
 
 __Note:__
 
@@ -35,9 +39,10 @@ addAtHead(val)：在链表的第一个元素之前添加一个值为 val 的�
 addAtTail(val)：将值为 val 的节点追加到链表的最后一个元素。
 addAtIndex(index,val)：在链表中的第 index 个节点之前添加值为 val  的节点。如果 index 等于链表的长度，则该节点将附加到链表的末尾。如果 index 大于链表长度，则不会插入节点。如果index小于0，则在头部插入节点。
 deleteAtIndex(index)：如果索引 index 有效，则删除链表中的第 index 个节点。
- 
+
 __示例 :__
 
+```Java
 MyLinkedList linkedList = new MyLinkedList();
 linkedList.addAtHead(1);
 linkedList.addAtTail(3);
@@ -45,7 +50,8 @@ linkedList.addAtIndex(1,2);   //链表变为1-> 2-> 3
 linkedList.get(1);            //返回2
 linkedList.deleteAtIndex(1);  //现在链表是1-> 3
 linkedList.get(1);            //返回3
- 
+```
+
 __提示：__
 
 所有val值都在 [1, 1000] 之内。
@@ -55,11 +61,14 @@ __提示：__
 __思路__:
 可以用单链表也可以用双链表解决
 注意不要断链即可
+时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
-```
-class Node {
+
+```C++
+class Node 
+{
 public:
     int val;
     Node* next;
@@ -67,20 +76,24 @@ public:
     Node(int val, Node* next, Node* pre): val(val), next(next), pre(pre) {}
 };
 
-class MyLinkedList {
+class MyLinkedList 
+{
 public:
     /** Initialize your data structure here. */
-    MyLinkedList() {
+    MyLinkedList() 
+    {
         root = nullptr;
         tail = nullptr;
         len = 0;
     }
     
     /** Get the value of the index-th node in the linked list. If the index is invalid, return -1. */
-    int get(int index) {
+    int get(int index) 
+    {
         int temp = 0;
         Node* cur = root;
-        while (cur) {
+        while (cur) 
+        {
             if (temp == index) return cur -> val;
             cur = cur -> next;
             temp++;
@@ -89,12 +102,16 @@ public:
     }
     
     /** Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list. */
-    void addAtHead(int val) {
-        if (root) {
+    void addAtHead(int val) 
+    {
+        if (root) 
+        {
             Node* node = new Node(val, root, nullptr);
             root -> pre = node;
             root = node;
-        } else {
+        } 
+        else 
+        {
             root = new Node(val, nullptr, nullptr);
             tail = root;
         }
@@ -102,12 +119,16 @@ public:
     }
     
     /** Append a node of value val to the last element of the linked list. */
-    void addAtTail(int val) {
-        if (tail) {
+    void addAtTail(int val) 
+    {
+        if (tail) 
+        {
             Node* node = new Node(val, nullptr, tail);
             tail -> next = node;
             tail = node;
-        } else {
+        } 
+        else 
+        {
             tail = new Node(val, nullptr, nullptr);
             root = tail;
         }
@@ -115,41 +136,50 @@ public:
     }
     
     /** Add a node of value val before the index-th node in the linked list. If index equals to the length of linked list, the node will be appended to the end of linked list. If index is greater than the length, the node will not be inserted. */
-    void addAtIndex(int index, int val) {
-        if (index <= 0) {
+    void addAtIndex(int index, int val) 
+    {
+        if (index <= 0) 
+        {
             addAtHead(val);
             return;
         }
-        if (index == len) {
+        if (index == len) 
+        {
             addAtTail(val);
             return;
         }
         int temp = 0;
         Node* pre = nullptr;
         Node* cur = root;
-        while (cur) {
-            if (temp == index) {
+        while (cur) 
+        {
+            if (temp == index) 
+            {
                 Node* node = new Node(val, cur, pre);
                 if (pre) pre -> next = node;
                 cur -> pre = node;
-                len++;
+                ++len;
                 return;
             }
             pre = cur;
             cur = cur -> next;
-            temp++;
+            ++temp;
         }
     }
     
     /** Delete the index-th node in the linked list, if the index is valid. */
-    void deleteAtIndex(int index) { 
-        if (auto node = getNode(index)) {
-            if (node == root) {
+    void deleteAtIndex(int index) 
+    { 
+        if (auto node = getNode(index)) 
+        {
+            if (node == root) 
+            {
                 root = root -> next;
                 if (root) root -> pre = nullptr;
                 node -> next = nullptr;
             }
-            if (node == tail) {
+            if (node == tail) 
+            {
                 tail = tail -> pre;
                 if (tail) tail -> next = nullptr;
                 node -> pre = nullptr;
@@ -157,23 +187,26 @@ public:
             if (node -> next) node -> next -> pre = node -> pre;
             if (node -> pre) node -> pre -> next = node -> next;
             delete node;
-            len--;
+            --len;
         }
     }
 private:
     Node* root;
     Node* tail;
     int len;
-    Node* getNode(int index) {
-        if (index >= len || index < 0)  
-            return nullptr;
+    Node* getNode(int index) 
+    {
+        if (index >= len or index < 0) return nullptr;
         Node* node;
         int i;
-        if (len / 2 >= index) {
+        if (len / 2 >= index) 
+        {
             i = index;
             node = root;
             while (i-- > 0) node = node -> next;
-        } else {
+        } 
+        else 
+        {
             i = len - index - 1;
             node = tail;
             while (i-- > 0) node = node -> pre;
@@ -194,7 +227,8 @@ private:
 ```
 
 __Java__:
-```
+
+```Java
 
 class MyLinkedList {
     private class Node{
@@ -290,7 +324,8 @@ class MyLinkedList {
 ```
 
 __Python__:
-```
+
+```Python
 class Node(object):
     def __init__(self, x):
         self.val = x

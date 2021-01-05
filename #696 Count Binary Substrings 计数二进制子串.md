@@ -1,9 +1,12 @@
+# 696 Count Binary Substrings 计数二进制子串
+
 __Description__:
 Give a string s, count the number of non-empty (contiguous) substrings that have the same number of 0's and 1's, and all the 0's and all the 1's in these substrings are grouped consecutively.
 
 Substrings that occur multiple times are counted the number of times they occur.
 
 __Example:__
+
 Example 1:
 
 Input: "00110011"
@@ -31,6 +34,7 @@ __题目描述__:
 重复出现的子串要计算它们出现的次数。
 
 __示例 :__
+
 示例 1 :
 
 输入: "00110011"
@@ -47,27 +51,33 @@ __示例 :__
 输出: 4
 解释: 有4个子串：“10”，“01”，“10”，“01”，它们具有相同数量的连续1和0。
 
-__注意:__ 
+__注意:__
 
 s.length 在1到50,000之间。
 s 只包含“0”或“1”字符。
 
 __思路__:
-1. 分别查找连续的 0和 1个数, 比如 0011100 -> 232, 每次拿出 2个数字的较小值累加即可 232 -> 2 + 2 = 4 
+
+1. 分别查找连续的 0和 1个数, 比如 0011100 -> 232, 每次拿出 2个数字的较小值累加即可 232 -> 2 + 2 = 4
 2. 用 last指针表示上次记录的值, cur记录出现的次数, 记录 last超过 cur的次数即可
 3. 正则表达式找到连续的 0和 1
 时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    int countBinarySubstrings(string s) {
+    int countBinarySubstrings(string s) 
+    {
         int last = 0, cur = 1, result = 0;
-        for (int i = 1; i < s.size(); i++) {
+        for (int i = 1; i < s.size(); i++) 
+        {
             if (s[i] == s[i - 1]) cur++;
-            else {
+            else 
+            {
                 last = cur;
                 cur = 1;
             }
@@ -79,7 +89,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public int countBinarySubstrings(String s) {
         int last = 0, cur = 1, result = 0;
@@ -97,7 +108,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def countBinarySubstrings(self, s: str) -> int:
         last, cur, result = 0, 1, 0

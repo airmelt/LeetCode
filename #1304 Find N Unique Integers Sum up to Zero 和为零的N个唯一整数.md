@@ -1,7 +1,10 @@
+# 1304 Find N Unique Integers Sum up to Zero 和为零的N个唯一整数
+
 __Description__:
 Given an integer n, return any array containing n unique integers such that they add up to 0.
 
 __Example:__
+
 Example 1:
 
 Input: n = 5
@@ -17,7 +20,7 @@ Example 3:
 
 Input: n = 1
 Output: [0]
- 
+
 __Constraints:__
 
 1 <= n <= 1000
@@ -26,6 +29,7 @@ __题目描述__:
 给你一个整数 n，请你返回 任意 一个由 n 个 各不相同 的整数组成的数组，并且这 n 个数相加和为 0 。
 
 __示例 :__
+
 示例 1：
 
 输入：n = 5
@@ -41,17 +45,19 @@ __示例 :__
 
 输入：n = 1
 输出：[0]
- 
+
 __提示：__
 
 1 <= n <= 1000
 
 __思路__:
+
 从 1 - n到 n - 1按照步长为 2加入到结果数组即可
 时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -66,6 +72,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int[] sumZero(int n) {
@@ -77,6 +84,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def sumZero(self, n: int) -> List[int]:

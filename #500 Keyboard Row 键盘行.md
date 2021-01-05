@@ -1,3 +1,5 @@
+# 500 Keyboard Row 键盘行
+
 __Description__:
 Given a List of words, return the words that can be typed using letters of alphabet on only one row's of American keyboard like the image below.
 ![keyboard](https://assets.leetcode.com/uploads/2018/10/12/keyboard.png)
@@ -6,7 +8,7 @@ __Example:__
 
 Input: ["Hello", "Alaska", "Dad", "Peace"]
 Output: ["Alaska", "Dad"]
- 
+
 __Note:__
 
 You may use one character in the keyboard more than once.
@@ -27,39 +29,43 @@ __注意:__
 你可以假设输入的字符串将只包含字母。
 
 __思路__:
+
 存下三行键盘的值, 依次判断单词即可
 时间复杂度O(mn), 空间复杂度O(1), m单词平均长度, n为数组中单词数
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    vector<string> findWords(vector<string>& words) {
+    vector<string> findWords(vector<string>& words) 
+    {
         vector<string> result;
-        string first = "qwertyuiop";
-        string second = "asdfghjkl";
-        string third = "zxcvbnm";
+        string first = "qwertyuiop", second = "asdfghjkl", third = "zxcvbnm";
         for (auto word : words) if (check(word, first, second, third)) result.push_back(word);
         return result;
     }
 private:
-    bool check(string s, string first, string second, string third) {
+    bool check(string s, string first, string second, string third) 
+    {
         int one = 0, two = 0, three = 0;
-        for(int i = 0; i < s.size(); i++) {
+        for(int i = 0; i < s.size(); i++) 
+        {
               if (first.find(tolower(s[i])) != string::npos) one++;
               else if (second.find(tolower(s[i])) != string::npos) two++;
               else if (third.find(tolower(s[i])) != string::npos) three++;
         }
-        if (one == s.size() || two == s.size() || three == s.size()) return true;
+        if (one == s.size() or two == s.size() or three == s.size()) return true;
         else return false;
     }
-
 };
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public String[] findWords(String[] words) {
         String first = "qwertyuiop";
@@ -84,7 +90,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def findWords(self, words: List[str]) -> List[str]:
         return [word for word in words if any(all(c in row for c in word.lower()) for row in ["qwertyuiop", "asdfghjkl", "zxcvbnm"])]

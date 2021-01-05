@@ -1,3 +1,5 @@
+# 437 Path Sum III 路径总和 III
+
 __Description__:
 You are given a binary tree in which each node contains an integer value.
 
@@ -10,7 +12,8 @@ The tree has no more than 1,000 nodes and the values are in the range -1,000,000
 __Example:__
 
 root = [10,5,-3,3,2,null,11,3,-2,null,1], sum = 8
-```
+
+```text
       10
      /  \
     5   -3
@@ -19,12 +22,14 @@ root = [10,5,-3,3,2,null,11,3,-2,null,1], sum = 8
  / \   \
 3  -2   1
 ```
+
 Return 3. The paths that sum to 8 are:
 
+```text
 1.  5 -> 3
 2.  5 -> 2 -> 1
 3. -3 -> 11
-
+```
 
 __题目描述__:
 给定一个二叉树，它的每个结点都存放着一个整数值。
@@ -38,7 +43,8 @@ __题目描述__:
 __示例：__
 
 root = [10,5,-3,3,2,null,11,3,-2,null,1], sum = 8
-```
+
+```text
       10
      /  \
     5   -3
@@ -47,20 +53,25 @@ root = [10,5,-3,3,2,null,11,3,-2,null,1], sum = 8
  / \   \
 3  -2   1
 ```
+
 返回 3。和等于 8 的路径有:
 
+```text
 1.  5 -> 3
 2.  5 -> 2 -> 1
 3.  -3 -> 11
+```
 
 __思路__:
+
 1. 深度优先搜索和层次遍历结合
 2. 双重递归
 时间复杂度O(n ^ 2), 空间复杂度O(n)
 
 __代码__:
 __C++__:
-```
+
+```C++
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -70,15 +81,19 @@ __C++__:
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
-class Solution {
+class Solution 
+{
 public:
-    int pathSum(TreeNode* root, int sum) {
+    int pathSum(TreeNode* root, int sum) 
+    {
         if (!root) return 0;
         queue<TreeNode*> q;
         q.push(root);
-        while (!q.empty()) {
+        while (!q.empty()) 
+        {
             int s = q.size();
-            for (int i = 0; i < s; i++) {
+            for (int i = 0; i < s; i++) 
+            {
                 TreeNode* cur = q.front();
                 if (cur -> left) q.push(cur -> left);
                 if (cur -> right) q.push(cur -> right);
@@ -90,7 +105,8 @@ public:
     }
 private:
     int result = 0;
-    void dfs(TreeNode* root, int sum) {
+    void dfs(TreeNode* root, int sum) 
+    {
         if (!root) return;
         sum -= root -> val;
         if (!sum) result++;
@@ -101,7 +117,8 @@ private:
 ```
 
 __Java__:
-```
+
+```Java
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -140,7 +157,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, x):

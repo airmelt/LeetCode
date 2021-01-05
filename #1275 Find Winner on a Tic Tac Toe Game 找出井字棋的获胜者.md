@@ -1,3 +1,5 @@
+# 1275 Find Winner on a Tic Tac Toe Game 找出井字棋的获胜者
+
 __Description__:
 Tic-tac-toe is played by two players A and B on a 3 x 3 grid.
 
@@ -16,12 +18,14 @@ Return the winner of the game if it exists (A or B), in case the game ends in a 
 You can assume that moves is valid (It follows the rules of Tic-Tac-Toe), the grid is initially empty and A will play first.
 
 __Example:__
+
 Example 1:
 
 Input: moves = [[0,0],[2,0],[1,1],[2,1],[2,2]]
 Output: "A"
 Explanation: "A" wins, he always plays first.
-```
+
+```text
 "X  "    "X  "    "X  "    "X  "    "X  "
 "   " -> "   " -> " X " -> " X " -> " X "
 "   "    "O  "    "O  "    "OO "    "OOX"
@@ -32,7 +36,8 @@ Example 2:
 Input: moves = [[0,0],[1,1],[0,1],[0,2],[1,0],[2,0]]
 Output: "B"
 Explanation: "B" wins.
-```
+
+```text
 "X  "    "X  "    "XX "    "XXO"    "XXO"    "XXO"
 "   " -> " O " -> " O " -> " O " -> "XO " -> "XO " 
 "   "    "   "    "   "    "   "    "   "    "O  "
@@ -43,17 +48,20 @@ Example 3:
 Input: moves = [[0,0],[1,1],[2,0],[1,0],[1,2],[2,1],[0,1],[0,2],[2,2]]
 Output: "Draw"
 Explanation: The game ends in a draw since there are no moves to make.
-```
+
+```text
 "XXO"
 "OOX"
 "XOX"
 ```
+
 Example 4:
 
 Input: moves = [[0,0],[1,1]]
 Output: "Pending"
 Explanation: The game has not finished yet.
-```
+
+```text
 "X  "
 " O "
 "   "
@@ -85,12 +93,14 @@ A 和 B 在一个 3 x 3 的网格上玩井字棋。
 你可以假设 moves 都 有效（遵循井字棋规则），网格最初是空的，A 将先行动。
 
 __示例 :__
+
 示例 1：
 
 输入：moves = [[0,0],[2,0],[1,1],[2,1],[2,2]]
 输出："A"
 解释："A" 获胜，他总是先走。
-```
+
+```text
 "X  "    "X  "    "X  "    "X  "    "X  "
 "   " -> "   " -> " X " -> " X " -> " X "
 "   "    "O  "    "O  "    "OO "    "OOX"
@@ -101,7 +111,8 @@ __示例 :__
 输入：moves = [[0,0],[1,1],[0,1],[0,2],[1,0],[2,0]]
 输出："B"
 解释："B" 获胜。
-```
+
+```text
 "X  "    "X  "    "XX "    "XXO"    "XXO"    "XXO"
 "   " -> " O " -> " O " -> " O " -> "XO " -> "XO " 
 "   "    "   "    "   "    "   "    "   "    "O  "
@@ -112,7 +123,8 @@ __示例 :__
 输入：moves = [[0,0],[1,1],[2,0],[1,0],[1,2],[2,1],[0,1],[0,2],[2,2]]
 输出："Draw"
 输出：由于没有办法再行动，游戏以平局结束。
-```
+
+```text
 "XXO"
 "OOX"
 "XOX"
@@ -123,7 +135,8 @@ __示例 :__
 输入：moves = [[0,0],[1,1]]
 输出："Pending"
 解释：游戏还没有结束。
-```
+
+```text
 "X  "
 " O "
 "   "
@@ -138,6 +151,7 @@ moves 里没有重复的元素。
 moves 遵循井字棋的规则。
 
 __思路__:
+
 1. 按照井字棋的规则填充 1或者 2, 判断是否胜利即可
 时间复杂度O(n), 空间复杂度O(1)
 2. 转化为二进制, 用 & mask判断, mask为胜利的条件
@@ -145,6 +159,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -165,23 +180,25 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public String tictactoe(int[][] moves) {
         int[][] record = new int[3][3];
-		for (int i = 0; i < moves.length; i++) record[moves[i][0]][moves[i][1]] = i % 2 == 0 ? 1 : 2;
-		if (isVictory(record, 1)) return "A";
-		if (isVictory(record, 2)) return "B";
-		return moves.length == 9 ? "Draw" : "Pending";
-	}
+        for (int i = 0; i < moves.length; i++) record[moves[i][0]][moves[i][1]] = i % 2 == 0 ? 1 : 2;
+        if (isVictory(record, 1)) return "A";
+        if (isVictory(record, 2)) return "B";
+        return moves.length == 9 ? "Draw" : "Pending";
+    }
 
-	private boolean isVictory(int[][] record, int player) {
+    private boolean isVictory(int[][] record, int player) {
         return record[0][0] == record[0][1] && record[0][1] == record[0][2] && record[0][2] == player || record[1][0] == record[1][1] && record[1][1] == record[1][2] && record[1][2] == player || record[2][0] == record[2][1] && record[2][1] == record[2][2] && record[2][2] == player || record[0][0] == record[1][0] && record[1][0] == record[2][0] && record[2][0] == player || record[0][1] == record[1][1] && record[1][1] == record[2][1] && record[2][1] == player || record[0][2] == record[1][2] && record[1][2] == record[2][2] && record[2][2] == player || record[0][0] == record[1][1] && record[1][1] == record[2][2] && record[2][2] == player || record[0][2] == record[1][1] && record[1][1] == record[2][0] && record[2][0] == player;
     }
 }
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def tictactoe(self, moves: List[List[int]]) -> str:

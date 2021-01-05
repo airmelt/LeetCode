@@ -1,7 +1,11 @@
+# 28 Implement strStr() 实现strStr()
+
 __Description__:
 Implement [strStr()](http://www.cplusplus.com/reference/cstring/strstr/).
 
 Return the index of the first occurrence of needle in haystack, or **-1** if needle is not part of haystack.
+
+**Example:**
 
 **Example 1:**
 
@@ -12,7 +16,6 @@ Return the index of the first occurrence of needle in haystack, or **-1** if n
 
 **Input:** haystack = "aaaaa", needle = "bba"
 **Output:** -1
-
 
 **Clarification:**
 
@@ -26,11 +29,11 @@ __题目描述__:
 给定一个 haystack 字符串和一个 needle 字符串，在 haystack 字符串中找出 needle 字符串出现的第一个位置 (从0开始)。如果不存在，则返回  **-1**。
 
 __示例__:
+
 **示例 1:**
 
 **输入:** haystack = "hello", needle = "ll"
 **输出:** 2
-
 
 **示例 2:**
 
@@ -44,6 +47,7 @@ __示例__:
 对于本题而言，当 `needle` 是空字符串时我们应当返回 0 。这与C语言的 [strstr()](https://baike.baidu.com/item/strstr/811469) 以及 Java的 [indexOf()](https://docs.oracle.com/javase/7/docs/api/java/lang/String.html#indexOf(java.lang.String)) 定义相符。
 
 __思路__:
+
 1. 在每一个haystack字符上遍历needle
 时间复杂度O(nm), 空间复杂度O(1), 其中n为haystack长度, m为needle长度
 2. [KMP算法](http://www.ruanyifeng.com/blog/2013/05/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm.html)
@@ -52,18 +56,22 @@ __思路__:
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
     // 求next数组
-    void ComputePrefix(string s, int next[]) {
+    void ComputePrefix(string s, int next[]) 
+    {
         int len = s.length();
         // i为字符串下标, j为最大前/后缀长度
         int i, j;
         // next数组初始一定为0, 即字符串第一个字符是没有前/后缀的
         next[0] = 0;
         // 从第二个字符开始求取next数组
-        for (i = 0, j = 1; j < len; j++) {
+        for (i = 0, j = 1; j < len; j++) 
+        {
             // 求取s[0]~s[j]相同的前/后缀长度
             /* 例子:
                "AB"
@@ -96,20 +104,23 @@ public:
                此时 next[5] = 2, j = 5, i = 2
             */
             // 每次查找不匹配, i退回next[i - 1]
-            while (i > 0 && s[i] != s[j]) i = next[i - 1];
+            while (i > 0 and s[i] != s[j]) i = next[i - 1];
             if (s[i] == s[j]) i++;
             next[j] = i;
         }
     }
-    int strStr(string haystack, string needle) {
+ private:
+ int strStr(string haystack, string needle) 
+    {
         if (!needle.length()) return 0;
         if (!haystack.length()) return -1;
         int next[needle.length()];
         ComputePrefix(needle, next);
         int j = 0;
-        for (int i = 0; i < haystack.length(); i++) {
+        for (int i = 0; i < haystack.length(); i++) 
+        {
             // 每次查找不匹配, j退回next[j - 1]
-            while (j > 0 && needle[j] != haystack[i]) j = next[j - 1];
+            while (j > 0 and needle[j] != haystack[i]) j = next[j - 1];
             if (needle[j] == haystack[i]) j++;
             if (j == needle.length()) return i - j + 1;
         }
@@ -119,7 +130,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public int strStr(String haystack, String needle) {
         return haystack.indexOf(needle);
@@ -128,7 +140,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def strStr(self, haystack: str, needle: str) -> int:
         if not needle:

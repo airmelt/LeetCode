@@ -1,7 +1,10 @@
+# 575 Distribute Candies 分糖果
+
 __Description__:
 Given an integer array with even length, where different numbers in this array represent different kinds of candies. Each number means one candy of the corresponding kind. You need to distribute these candies equally in number to brother and sister. Return the maximum number of kinds of candies the sister could gain.
 
 __Example:__
+
 Example 1:
 Input: candies = [1,1,2,2,3,3]
 Output: 3
@@ -25,6 +28,7 @@ __题目描述__:
 给定一个偶数长度的数组，其中不同的数字代表着不同种类的糖果，每一个数字代表一个糖果。你需要把这些糖果平均分给一个弟弟和一个妹妹。返回妹妹可以获得的最大糖果的种类数。
 
 __示例 :__
+
 示例 1:
 
 输入: candies = [1,1,2,2,3,3]
@@ -44,15 +48,19 @@ __注意:__
 数组中数字的大小在范围[-100,000, 100,000]内。
 
 __思路__:
+
 题意可以转化为求数组中的不同元素的个数, 转换为 set, 如果不同的元素个数大于 size / 2就直接返回 size / 2, 否则返回不同元素的个数
 时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    int distributeCandies(vector<int>& candies) {
+    int distributeCandies(vector<int>& candies) 
+    {
         bitset<200001> b;
         for (int candy : candies) b.set(candy + 100000);
         return min(b.count(), candies.size() / 2);
@@ -61,7 +69,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public int distributeCandies(int[] candies) {
         BitSet b = new BitSet(200001);
@@ -72,7 +81,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def distributeCandies(self, candies: List[int]) -> int:
         return len(set(candies)) if len(set(candies)) < len(candies) // 2 else len(candies) // 2

@@ -1,3 +1,5 @@
+# 563 Binary Tree Tilt 二叉树的坡度
+
 __Description__:
 Given a binary tree, return the tilt of the whole tree.
 
@@ -6,14 +8,17 @@ The tilt of a tree node is defined as the absolute difference between the sum of
 The tilt of the whole tree is defined as the sum of all nodes' tilt.
 
 __Example:__
-Input: 
-```
+
+Input:
+
+```text
          1
        /   \
       2     3
 ```
+
 Output: 1
-Explanation: 
+Explanation:
 Tilt of node 2 : 0
 Tilt of node 3 : 0
 Tilt of node 1 : |2-3| = 1
@@ -33,14 +38,16 @@ __题目描述__:
 
 __示例 :__
 
-输入: 
-```
+输入:
+
+```text
          1
        /   \
       2     3
 ```
+
 输出: 1
-解释: 
+解释:
 结点的坡度 2 : 0
 结点的坡度 3 : 0
 结点的坡度 1 : |2-3| = 1
@@ -52,12 +59,14 @@ __注意:__
 坡度的值不会超过32位整数的范围。
 
 __思路__:
+
 递归, 遍历每个结点求出结点的坡度
 时间复杂度O(n), 空间复杂度O(n)
 
 __代码__:
 __C++__:
-```
+
+```C++
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -67,15 +76,18 @@ __C++__:
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
-class Solution {
+class Solution 
+{
 public:
-    int findTilt(TreeNode* root) {
+    int findTilt(TreeNode* root) 
+    {
         traverse(root);
         return result;
     }
 private:
     int result = 0;
-    int traverse(TreeNode* root) {
+    int traverse(TreeNode* root) 
+    {
         if (!root) return 0;
         int left = traverse(root -> left);
         int right = traverse(root -> right);
@@ -86,7 +98,8 @@ private:
 ```
 
 __Java__:
-```
+
+```Java
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -111,7 +124,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, x):

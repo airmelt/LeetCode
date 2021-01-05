@@ -1,3 +1,5 @@
+# 412 Fizz Buzz Fizz Buzz
+
 __Description__:
 Write a program that outputs the string representation of numbers from 1 to n.
 
@@ -27,11 +29,12 @@ Return:
 ]
 
 __题目描述__:
+
 1. 如果 n 是3的倍数，输出“Fizz”；
 
 2. 如果 n 是5的倍数，输出“Buzz”；
 
-3.如果 n 同时是3和5的倍数，输出 “FizzBuzz”。
+3. 如果 n 同时是3和5的倍数，输出 “FizzBuzz”。
 
 __示例：__
 
@@ -57,17 +60,22 @@ n = 15,
 ]
 
 __思路__:
+
 利用整除, 能整除 15输出 "FizzBuzz", 其他以此类推
 时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    vector<string> fizzBuzz(int n) {
+    vector<string> fizzBuzz(int n) 
+    {
         vector<string> result;
-        for (int i = 1; i < n + 1; i++) {
+        for (int i = 1; i < n + 1; i++) 
+        {
             if (!(i % 15)) result.push_back("FizzBuzz");
             else if (!(i % 5)) result.push_back("Buzz");
             else if (!(i % 3)) result.push_back("Fizz");
@@ -79,7 +87,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public List<String> fizzBuzz(int n) {
         List<String> result = new ArrayList<>(n);
@@ -95,7 +104,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def fizzBuzz(self, n: int) -> List[str]:
         return ["Fizz" * (not i % 3) + "Buzz" * (not i % 5) or str(i) for i in range(1, n + 1)]

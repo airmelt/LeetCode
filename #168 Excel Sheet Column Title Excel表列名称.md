@@ -1,8 +1,11 @@
+# 168 Excel Sheet Column Title Excel表列名称
+
 __Description__:
 Given a positive integer, return its corresponding column title as appear in an Excel sheet.
 
 For example:
 
+```text
     1 -> A
     2 -> B
     3 -> C
@@ -11,7 +14,10 @@ For example:
     27 -> AA
     28 -> AB
     ...
+```
+
 __Example__:
+
 Example 1:
 Input: 1
 Output: "A"
@@ -29,6 +35,7 @@ __题目描述__:
 
 例如，
 
+```text
     1 -> A
     2 -> B
     3 -> C
@@ -37,7 +44,10 @@ __题目描述__:
     27 -> AA
     28 -> AB
     ...
+```
+
 __示例__:
+
 示例 1:
 输入: 1
 输出: "A"
@@ -51,17 +61,22 @@ __示例__:
 输出: "ZY"
 
 __思路__:
+
 不断取 26的余数和商即可, 注意边界条件
 时间复杂度O(logn), 空间复杂度O(1)
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    string convertToTitle(int n) {
+    string convertToTitle(int n) 
+    {
         string result = "";
-        while (n) {
+        while (n) 
+        {
             n--;
             result += n % 26 + 'A';
             n /= 26;
@@ -73,7 +88,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public String convertToTitle(int n) {
         return n == 0 ? "" : convertToTitle(--n / 26) + (char)(n % 26 + 'A');
@@ -82,11 +98,9 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def convertToTitle(self, n: int) -> str:
-        if not n:
-            return ""
-        n -= 1
-        return self.convertToTitle(n // 26) + chr(n % 26 + ord('A'))
+        return self.convertToTitle((n - 1) // 26) + chr((n - 1) % 26 + ord('A')) if n else ""
 ```

@@ -1,10 +1,14 @@
+# 620 Not Boring Movies 有趣的电影
+
 __Description__:
 X city opened a new cinema, many people would like to go to this cinema. The cinema also gives out a poster indicating the movies’ ratings and descriptions.
 Please write a SQL query to output movies with an odd numbered ID and a description that is not 'boring'. Order the result by rating.
 
 __Example:__
+
 For example, table cinema:
-```
+
+```text
 +---------+-----------+--------------+-----------+
 |   id    | movie     |  description |  rating   |
 +---------+-----------+--------------+-----------+
@@ -15,8 +19,10 @@ For example, table cinema:
 |   5     | House card|   Interesting|   9.1     |
 +---------+-----------+--------------+-----------+
 ```
+
 For the example above, the output should be:
-```
+
+```text
 +---------+-----------+--------------+-----------+
 |   id    | movie     |  description |  rating   |
 +---------+-----------+--------------+-----------+
@@ -32,7 +38,8 @@ __题目描述__:
 
 __示例 :__
 例如，下表 cinema:
-```
+
+```text
 +---------+-----------+--------------+-----------+
 |   id    | movie     |  description |  rating   |
 +---------+-----------+--------------+-----------+
@@ -43,8 +50,10 @@ __示例 :__
 |   5     | House card|   Interesting|   9.1     |
 +---------+-----------+--------------+-----------+
 ```
+
 对于上面的例子，则正确的输出是为：
-```
+
+```text
 +---------+-----------+--------------+-----------+
 |   id    | movie     |  description |  rating   |
 +---------+-----------+--------------+-----------+
@@ -54,20 +63,22 @@ __示例 :__
 ```
 
 __思路__:
+
 筛选和排序
 
 __代码__:
 __MySQL__:
-```
+
+```sql
 SELECT
-	id,
-	movie,
-	description,
-	rating
+    id,
+    movie,
+    description,
+    rating
 FROM
-	cinema
+    cinema
 WHERE
-	id & 1 AND description <> 'boring'
+    id & 1 AND description <> 'boring'
 ORDER BY
-	rating DESC
+    rating DESC
 ```

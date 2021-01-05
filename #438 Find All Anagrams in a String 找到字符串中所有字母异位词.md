@@ -1,3 +1,5 @@
+# 438 Find All Anagrams in a String 找到字符串中所有字母异位词
+
 __Description__:
 Given a string s and a non-empty string p, find all the start indices of p's anagrams in s.
 
@@ -6,6 +8,7 @@ Strings consists of lowercase English letters only and the length of both string
 The order of output does not matter.
 
 __Example:__
+
 Example 1:
 
 Input:
@@ -42,6 +45,7 @@ __说明：__
 不考虑答案输出的顺序。
 
 __示例：__
+
 示例 1:
 
 输入:
@@ -68,41 +72,43 @@ s: "abab" p: "ab"
 起始索引等于 2 的子串是 "ab", 它是 "ab" 的字母异位词。
 
 __思路__:
+
 滑动窗口
+
 1. 固定窗口大小为 p的长度, 每次移动窗口比较大小, 满足要求就加入结果
 2. 不固定窗口长度, 每次移动窗口比较 p是是否在窗口中, 满足则比较长度, 长度也符合的加入结果
 时间复杂度O(n * m), 空间复杂度O(m), n为字符串 s的长度, m为字符串 p的长度
 
 __代码__:
 __C++__:
-```
-class Solution {
-public:
-    vector<int> findAnagrams(string s, string p) {
-        vector<int> result;
-        int left = 0, right = 0;
-        unordered_map<char, int> temp;
-        unordered_map<char, int> window;
-        for (char c : p) temp[c]++;
-        int match = 0;
 
-        while (right < s.size()) {
+```C++
+class Solution 
+{
+public:
+    vector<int> findAnagrams(string s, string p) 
+    {
+        vector<int> result;
+        int left = 0, right = 0, match = 0;
+        unordered_map<char, int> count, window;
+        for (auto c : p) ++count[c];
+        while (right < s.size()) 
+        {
             char c1 = s[right];
-            if (temp.count(c1)) {
+            if (count.count(c1)) 
+            {
                 window[c1]++;
-                if (window[c1] == temp[c1])
-                    match++;
+                if (window[c1] == count[c1]) match++;
             }
             right++;
-            while (match == temp.size()) {
-                if (right - left == p.size()) {
-                    result.push_back(left);
-                }
+            while (match == count.size()) 
+            {
+                if (right - left == p.size()) result.emplace_back(left);
                 char c2 = s[left];
-                if (temp.count(c2)) {
+                if (count.count(c2)) 
+                {
                     window[c2]--;
-                    if (window[c2] < temp[c2])
-                        match--;
+                    if (window[c2] < count[c2]) match--;
                 }
                 left++;
             }
@@ -113,7 +119,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public List<Integer> findAnagrams(String s, String p) {
         List<Integer> result = new ArrayList<>();
@@ -142,7 +149,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def findAnagrams(self, s: str, p: str) -> List[int]:
         result = []

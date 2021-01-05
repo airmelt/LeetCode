@@ -1,3 +1,5 @@
+# 292 Nim Game Nim 游戏
+
 __Description__:
 You are playing the following Nim Game with your friend: There is a heap of stones on the table, each time one of you take turns to remove 1 to 3 stones. The one who removes the last stone will be the winner. You will take the first turn to remove the stones.
 
@@ -24,23 +26,28 @@ __题目描述__:
      因为无论你拿走 1 块、2 块 还是 3 块石头，最后一块石头总是会被你的朋友拿走。
 
 __思路__:
+
 实际上就是输出 n % 4 != 0, 当 n是 4的倍数时必败, 否则每次取到 4的倍数即可胜利
 可以转换为求 n & 3(0b11) != 0
 时间复杂度O(1), 空间复杂度O(1)
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    bool canWinNim(int n) {
+    bool canWinNim(int n) 
+    {
         return (n & (1 << 2) - 1) != 0;
     }
 };
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public boolean canWinNim(int n) {
         return (n & (1 << 2) - 1) != 0;
@@ -49,7 +56,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def canWinNim(self, n: int) -> bool:
         return (n & (1 << 2) - 1) != 0

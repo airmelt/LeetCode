@@ -1,3 +1,5 @@
+# 27 Remove Element 移除元素
+
 __Description__:
 Given an array *nums* and a value *val*, remove all instances of that value [**in-place**](https://en.wikipedia.org/wiki/In-place_algorithm) and return the new length.
 
@@ -6,6 +8,7 @@ Do not allocate extra space for another array, you must do this by **modifying 
 The order of elements can be changed. It doesn't matter what you leave beyond the new length.
 
 __Example__:
+
 **Example 1:**
 Given *nums* = **[3,2,2,3]**, *val* = **3**,
 
@@ -29,7 +32,8 @@ Confused why the returned value is an integer but your answer is an array?
 Note that the input array is passed in by **reference**, which means modification to the input array will be known to the caller as well.
 
 Internally you can think of this:
-```
+
+```C
 // **nums** is passed in by reference. (i.e., without making a copy)
 int len = removeElement(nums, val);
 
@@ -40,11 +44,14 @@ for (int i = 0; i < len; i++) {
 }
 ```
 
-给定一个数组 *nums *和一个值 *val*，你需要**[原地](https://baike.baidu.com/item/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95)**移除所有数值等于 *val *的元素，返回移除后数组的新长度。
+__题目描述__:
+给定一个数组 *nums*和一个值 *val*，你需要**[原地](https://baike.baidu.com/item/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95)**移除所有数值等于 *val*的元素，返回移除后数组的新长度。
 
 不要使用额外的数组空间，你必须在**[原地](https://baike.baidu.com/item/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95)修改输入数组**并在使用 O(1) 额外空间的条件下完成。
 
 元素的顺序可以改变。你不需要考虑数组中超出新长度后面的元素。
+
+__示例__:
 
 **示例 1:**
 
@@ -53,7 +60,6 @@ for (int i = 0; i < len; i++) {
 函数应该返回新的长度 **2**, 并且 *nums* 中的前两个元素均为 **2**。
 
 你不需要考虑数组中超出新长度后面的元素。
-
 
 **示例 2:**
 
@@ -72,7 +78,8 @@ for (int i = 0; i < len; i++) {
 请注意，输入数组是以**“引用”**方式传递的，这意味着在函数里修改输入数组对于调用者是可见的。
 
 你可以想象内部操作如下:
-```
+
+```C
 // **nums** 是以“引用”方式传递的。也就是说，不对实参作任何拷贝
 int len = removeElement(nums, val);
 
@@ -81,4 +88,54 @@ int len = removeElement(nums, val);
 for (int i = 0; i < len; i++) {
     print(nums[i]);
 }
+```
+
+__思路__:
+
+当数组为空的时候返回0; 维护一个长度, 遍历数组找到相同值替换.
+时间复杂度O(n), 空间复杂度O(1)
+
+__代码__:
+__C++__:
+
+```C++
+class Solution 
+{
+public:
+    int removeElement(vector<int>& nums, int val) 
+    {
+        if (!nums.size()) return 0;
+        int result = 0;
+        for (int i = 0; i < nums.size(); i++) if (nums[i] != val) nums[result++] = nums[i];
+        return result;
+    }
+};
+```
+
+__Java__:
+
+```Java
+class Solution {
+    public int removeElement(int[] nums, int val) {
+        if (nums.length == 0) return 0;
+        int result = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != val) {
+                nums[result++] = nums[i];
+            }
+        }
+        return result;
+    }
+}
+```
+
+__Python__:
+
+```Python
+class Solution:
+    def removeElement(self, nums: List[int], val: int) -> int:
+        for num in nums[:]:
+            if num == val:
+                nums.remove(num)
+        return len(nums)
 ```

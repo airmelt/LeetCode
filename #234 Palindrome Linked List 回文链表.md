@@ -1,7 +1,10 @@
+# 234 Palindrome Linked List 回文链表
+
 __Description__:
 Given a singly linked list, determine if it is a palindrome.
 
 **Example:**
+
 Example 1:
 Input: 1->2
 Output: false
@@ -17,6 +20,7 @@ __题目描述__:
 请判断一个链表是否为回文链表。
 
 **示例：**
+
 示例 1:
 输入: 1->2
 输出: false
@@ -29,13 +33,15 @@ __进阶：__
 你能否用 O(n) 时间复杂度和 O(1) 空间复杂度解决此题？
 
 __思路__:
+
 1. 用快慢指针找到链表的中点, 将中点以后的链表反转, 从开头和反转的链表比较即可
 2. 将链表里的数值取出转化为数值
 时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
-```
+
+```C++
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -44,24 +50,28 @@ __C++__:
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
-class Solution {
+class Solution 
+{
 public:
-    bool isPalindrome(ListNode* head) {
-        if (!head || !head -> next) return true;
-        ListNode* slow = head;
-        ListNode* fast = head;
-        while (fast && fast -> next) {
+    bool isPalindrome(ListNode* head) 
+    {
+        if (!head or !head -> next) return true;
+        ListNode *slow = head, *fast = head;
+        while (fast and fast -> next) 
+        {
             fast = fast -> next -> next;
             slow = slow -> next;
         }
         ListNode* mid = NULL;
-        while (slow) {
+        while (slow) 
+        {
             ListNode* p = slow -> next;
             slow -> next = mid;
             mid = slow;
             slow = p;
         }
-        while (head && mid) {
+        while (head and mid) 
+        {
             if (head -> val != mid -> val) return false;
             head = head -> next;
             mid = mid -> next;
@@ -72,7 +82,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -100,7 +111,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 # Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, x):

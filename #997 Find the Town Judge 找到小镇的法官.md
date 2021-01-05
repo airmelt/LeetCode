@@ -1,3 +1,5 @@
+# 997 Find the Town Judge 找到小镇的法官
+
 __Description__:
 In a town, there are N people labelled from 1 to N.  There is a rumor that one of these people is secretly the town judge.
 
@@ -11,6 +13,7 @@ You are given trust, an array of pairs trust[i] = [a, b] representing that the p
 If the town judge exists and can be identified, return the label of the town judge.  Otherwise, return -1.
 
 __Example:__
+
 Example 1:
 
 Input: N = 2, trust = [[1,2]]
@@ -34,7 +37,7 @@ Example 5:
 
 Input: N = 4, trust = [[1,3],[1,4],[2,3],[2,4],[4,3]]
 Output: 3
- 
+
 __Note:__
 
 1 <= N <= 1000
@@ -56,6 +59,7 @@ __题目描述__:
 如果小镇存在秘密法官并且可以确定他的身份，请返回该法官的标记。否则，返回 -1。
 
 __示例 :__
+
 示例 1：
 
 输入：N = 2, trust = [[1,2]]
@@ -80,7 +84,7 @@ __示例 :__
 
 输入：N = 4, trust = [[1,3],[1,4],[2,3],[2,4],[4,3]]
 输出：3
- 
+
 __提示：__
 
 1 <= N <= 1000
@@ -90,11 +94,13 @@ trust[i][0] != trust[i][1]
 1 <= trust[i][0], trust[i][1] <= N
 
 __思路__:
+
 遍历 trust数组, 记录出度和入度的差, 返回出度和入度差为 N - 1的人
 时间复杂度O(n), 空间复杂度O(n)
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -104,8 +110,8 @@ public:
         int count[N] = {0};
         for (auto person : trust) 
         {
-            count[person[0] - 1]--;
-            count[person[1] - 1]++;
+            --count[person[0] - 1];
+            ++count[person[1] - 1];
         }
         for (int i = 0; i < N; i++) if (count[i] == N - 1) return i + 1;
         return -1;
@@ -114,6 +120,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int findJudge(int N, int[][] trust) {
@@ -129,6 +136,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def findJudge(self, N: int, trust: List[List[int]]) -> int:

@@ -1,23 +1,26 @@
+# 717 1-bit and 2-bit Characters 1比特与2比特字符
+
 __Description__:
 We have two special characters. The first character can be represented by one bit 0. The second character can be represented by two bits (10 or 11).
 
 Now given a string represented by several bits. Return whether the last character must be a one-bit character or not. The given string will always end with a zero.
 
 __Example:__
+
 Example 1:
 
-Input: 
+Input:
 bits = [1, 0, 0]
 Output: True
-Explanation: 
+Explanation:
 The only way to decode it is two-bit character and one-bit character. So the last character is one-bit character.
 
 Example 2:
 
-Input: 
+Input:
 bits = [1, 1, 1, 0]
 Output: False
-Explanation: 
+Explanation:
 The only way to decode it is two-bit character and two-bit character. So the last character is NOT one-bit character.
 
 __Note:__
@@ -31,20 +34,21 @@ __题目描述__:
 现给一个由若干比特组成的字符串。问最后一个字符是否必定为一个一比特字符。给定的字符串总是由0结束。
 
 __示例 :__
+
 示例 1:
 
-输入: 
+输入:
 bits = [1, 0, 0]
 输出: True
-解释: 
+解释:
 唯一的编码方式是一个两比特字符和一个一比特字符。所以最后一个字符是一比特字符。
 
 示例 2:
 
-输入: 
+输入:
 bits = [1, 1, 1, 0]
 输出: False
-解释: 
+解释:
 唯一的编码方式是两比特字符和两比特字符。所以最后一个字符不是一比特字符。
 
 __注意：__
@@ -53,18 +57,23 @@ __注意：__
 bits[i] 总是0 或 1.
 
 __思路__:
+
 1. 正则表达式
 2. 遍历数组, 如果是 1, 则步进 2, 否则步进 1, 最后要到倒数第一个位置输出 true, 否则输出 false
 时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    bool isOneBitCharacter(vector<int>& bits) {
+    bool isOneBitCharacter(vector<int>& bits) 
+    {
         int start = 0;
-        while (start < bits.size() - 1) {
+        while (start < bits.size() - 1) 
+        {
             if (bits[start]) start += 2;
             else start++;
         }
@@ -74,7 +83,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public boolean isOneBitCharacter(int[] bits) {
         int start = 0;
@@ -87,7 +97,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def isOneBitCharacter(self, bits: List[int]) -> bool:
         return True if re.match('^(10|11|0)*0$', ''.join(str(bit) for bit in bits)) else False

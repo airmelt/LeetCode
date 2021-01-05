@@ -1,10 +1,12 @@
+# 874 Walking Robot Simulation 模拟行走机器人
+
 __Description__:
 A robot on an infinite grid starts at point (0, 0) and faces north.  The robot can receive one of three possible types of commands:
 
 -2: turn left 90 degrees
 -1: turn right 90 degrees
 1 <= x <= 9: move forward x units
-Some of the grid squares are obstacles. 
+Some of the grid squares are obstacles.
 
 The i-th obstacle is at grid point (obstacles[i][0], obstacles[i][1])
 
@@ -13,6 +15,7 @@ If the robot would try to move onto them, the robot stays on the previous grid s
 Return the square of the maximum Euclidean distance that the robot will be from the origin.
 
 __Example:__
+
 Example 1:
 
 Input: commands = [4,-1,3], obstacles = []
@@ -24,7 +27,7 @@ Example 2:
 Input: commands = [4,-1,4,-2,4], obstacles = [[2,4]]
 Output: 65
 Explanation: robot will be stuck at (1, 4) before turning left and going to (1, 8)
- 
+
 __Note:__
 
 0 <= commands.length <= 10000
@@ -48,6 +51,7 @@ __题目描述__:
 返回从原点到机器人的最大欧式距离的平方。
 
 __示例 :__
+
 示例 1：
 
 输入: commands = [4,-1,3], obstacles = []
@@ -59,7 +63,7 @@ __示例 :__
 输入: commands = [4,-1,4,-2,4], obstacles = [[2,4]]
 输出: 65
 解释: 机器人在左转走到 (1, 8) 之前将被困在 (1, 4) 处
- 
+
 __提示：__
 
 0 <= commands.length <= 10000
@@ -69,6 +73,7 @@ __提示：__
 答案保证小于 2 ^ 31
 
 __思路__:
+
 - 首先这个题目描述的就有点问题, 返回的是在整个运动过程中, 机器人与原点的最大的欧式距离的平方
 - 机器人会在障碍前停留直到转向
 - 机器人的移动只会是 x或者 y方向及反方向, 所以分成两个坐标考虑即可
@@ -78,10 +83,13 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
-class Solution {
+class Solution 
+{
 public:
-    int robotSim(vector<int>& commands, vector<vector<int>>& obstacles) {
+    int robotSim(vector<int>& commands, vector<vector<int>>& obstacles) 
+    {
         int dx[4] = {0, 1, 0, -1};
         int dy[4] = {1, 0, -1, 0};
         int x = 0, y = 0, direction = 0, result = 0;
@@ -110,6 +118,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int robotSim(int[] commands, int[][] obstacles) {
@@ -137,6 +146,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def robotSim(self, commands: List[int], obstacles: List[List[int]]) -> int:

@@ -1,7 +1,10 @@
+# 242 Valid Anagram 有效的字母异位词
+
 __Description__:
 Given two strings s and t , write a function to determine if t is an anagram of s.
 
 **Example :**
+
 Example 1:
 Input: s = "anagram", t = "nagaram"
 Output: true
@@ -20,6 +23,7 @@ __题目描述__:
 给定两个字符串 s 和 t ，编写一个函数来判断 t 是否是 s 的字母异位词。
 
 **示例 :**
+
 示例 1:
 输入: s = "anagram", t = "nagaram"
 输出: true
@@ -35,19 +39,24 @@ __题目描述__:
 如果输入字符串包含 unicode 字符怎么办？你能否调整你的解法来应对这种情况？
 
 __思路__:
+
 维护一个长度为 26的数组, 将 s和 t的值存入数组
 如果包含 unicode, 可以维护一个 map, 存入出现次数, 此时空间复杂度为O(n)
 时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    bool isAnagram(string s, string t) {
+    bool isAnagram(string s, string t) 
+    {
         int *a = new int[26]();
         if (s.size() != t.size()) return false;
-        for (int i = 0; i < s.size(); i++) {
+        for (int i = 0; i < s.size(); i++) 
+        {
             a[s[i] - 'a']++;
             a[t[i] - 'a']--;
         }
@@ -58,7 +67,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public boolean isAnagram(String s, String t) {
         int a[] = new int[26];
@@ -74,7 +84,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
         return sorted(s) == sorted(t)

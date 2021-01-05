@@ -1,6 +1,9 @@
+# 38 Count and Say 报数
+
 __Description__:
 The count-and-say sequence is the sequence of integers with the first five terms as following:
 
+```text
 1.     1
 2.     11
 3.     21
@@ -9,12 +12,14 @@ The count-and-say sequence is the sequence of integers with the first five terms
 1 is read off as "one 1" or 11.
 11 is read off as "two 1s" or 21.
 21 is read off as "one 2, then one 1" or 1211.
+```
 
 Given an integer n where 1 ≤ n ≤ 30, generate the nth term of the count-and-say sequence.
 
 __Note__: Each term of the sequence of integers will be represented as a string.
 
 __Example__:
+
 Example 1:
 Input: 1
 Output: "1"
@@ -26,6 +31,7 @@ Output: "1211"
 __题目描述__:
 报数序列是一个整数序列，按照其中的整数的顺序进行报数，得到下一个数。其前五项如下：
 
+```text
 1.     1
 2.     11
 3.     21
@@ -34,12 +40,14 @@ __题目描述__:
 1 被读作  "one 1"  ("一个一") , 即 11。
 11 被读作 "two 1s" ("两个一"）, 即 21。
 21 被读作 "one 2",  "one 1" （"一个二" ,  "一个一") , 即 1211。
+```
 
 给定一个正整数 n（1 ≤ n ≤ 30），输出报数序列的第 n 项。
 
 __注意__：整数顺序将表示为一个字符串。
 
- __示例__:
+__示例__:
+
 示例 1:
 输入: 1
 输出: "1"
@@ -49,8 +57,10 @@ __注意__：整数顺序将表示为一个字符串。
 输出: "1211"
 
 __思路__:
+
 首先看懂题目的意思, 这个题目比较绕, 其实是指对上一个数进行读数
 比如 "1211" -> "1" + "2" + "11" -> 一个"1" + 一个"2" + 两个"1" -> "111221"
+
 1. 由于n最大为30, 最快方法是建立一个map
 时间复杂度O(1), 空间复杂度O(n)
 2. 用递归的思想, 每次输出 n - 1
@@ -58,16 +68,21 @@ __思路__:
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    string countAndSay(int n) {
+    string countAndSay(int n) 
+    {
         if (n == 1) return "1";
         string temp = countAndSay(n - 1);
         string result = "";
-        for (int i = 0; i < temp.size(); i++) {
+        for (int i = 0; i < temp.size(); i++) 
+        {
             int count = 1;
-            while (i < temp.length() - 1 && temp[i + 1] == temp[i]) {
+            while (i < temp.length() - 1 and temp[i + 1] == temp[i]) 
+            {
                 i++;
                 count++;
             }
@@ -79,7 +94,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public String countAndSay(int n) {
         String result = "1";
@@ -104,7 +120,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def countAndSay(self, n: int) -> str:
         map = {

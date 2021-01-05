@@ -1,3 +1,5 @@
+# 1260 Shift 2D Grid 二维网格迁移
+
 __Description__:
 Given a 2D grid of size m x n and an integer k. You need to shift the grid k times.
 
@@ -9,6 +11,7 @@ Element at grid[n - 1][n - 1] becomes at grid[0][0].
 Return the 2D grid after applying shift operation k times.
 
 __Example:__
+
 Example 1:
 ![Matrix 1](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/11/16/e1-1.png)
 Input: grid = [[1,2,3],[4,5,6],[7,8,9]], k = 1
@@ -23,7 +26,7 @@ Example 3:
 
 Input: grid = [[1,2,3],[4,5,6],[7,8,9]], k = 9
 Output: [[1,2,3],[4,5,6],[7,8,9]]
- 
+
 __Constraints:__
 
 m == grid.length
@@ -44,6 +47,7 @@ __题目描述__:
 请你返回 k 次迁移操作后最终得到的 二维网格。
 
 __示例 :__
+
 示例 1：
 ![矩阵1](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/11/16/e1-1.png)
 输入：grid = [[1,2,3],[4,5,6],[7,8,9]], k = 1
@@ -58,7 +62,7 @@ __示例 :__
 
 输入：grid = [[1,2,3],[4,5,6],[7,8,9]], k = 9
 输出：[[1,2,3],[4,5,6],[7,8,9]]
- 
+
 __提示：__
 
 1 <= grid.length <= 50
@@ -67,6 +71,7 @@ __提示：__
 0 <= k <= 100
 
 __思路__:
+
 1. 展开成 1维数组, 移动之后拼接成 2维数组
 时间复杂度O(mn), 空间复杂度O(mn)
 2. 计算出结果二维数组的下标, 按下标插入
@@ -74,6 +79,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -89,6 +95,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public List<List<Integer>> shiftGrid(int[][] grid, int k) {
@@ -113,6 +120,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def shiftGrid(self, grid: List[List[int]], k: int) -> List[List[int]]:

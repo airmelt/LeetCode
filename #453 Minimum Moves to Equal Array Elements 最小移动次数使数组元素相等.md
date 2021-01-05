@@ -1,3 +1,5 @@
+# 453 Minimum Moves to Equal Array Elements 最小移动次数使数组元素相等
+
 __Description__:
 Given a non-empty integer array of size n, find the minimum number of moves required to make all array elements equal, where a move is incrementing n - 1 elements by 1.
 
@@ -31,20 +33,24 @@ __解释:__
 [1,2,3]  =>  [2,3,3]  =>  [3,4,3]  =>  [4,4,4]
 
 __思路__:
+
 假设最终所有元素均为 x, 那么最小的数加到 x用了 x - min(nums)次, 则有 n - 1次增加了 x - min(nums)
 另外, 最后所有元素增加到了 x, 可以得到方程
 增加量 = 最终元素和 - 初始元素和, 即:
-(x - min(nums)) * (n - 1) = x * n - sum(nums)
+(x - min(nums)) \* (n - 1) = x \* n - sum(nums)
 解得 x = min(nums)(1 - n) + sum(nums)
-增加次数为 x - min(nums) = sum(nums) - min(nums) * n
+增加次数为 x - min(nums) = sum(nums) - min(nums) \* n
 时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    int minMoves(vector<int>& nums) {
+    int minMoves(vector<int>& nums) 
+    {
         // *min_element(nums.begin(),nums.end()) 求最小值
         // *max_element(nums.begin(),nums.end()) 求最大值
         int result = 0, min_num = *min_element(nums.begin(),nums.end());
@@ -55,7 +61,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public int minMoves(int[] nums) {
         int result = 0, min = Arrays.stream(nums).min().getAsInt();
@@ -66,7 +73,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def minMoves(self, nums: List[int]) -> int:
         return sum(nums) - min(nums) * len(nums)

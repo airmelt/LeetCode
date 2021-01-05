@@ -1,17 +1,22 @@
+# 637 Average of Levels in Binary Tree 二叉树的层平均值
+
 __Description__:
 Given a non-empty binary tree, return the average value of the nodes on each level in the form of an array.
 
 __Example:__
+
 Example 1:
 
 Input:
-```
+
+```text
     3
    / \
   9  20
     /  \
    15   7
 ```
+
 Output: [3, 14.5, 11]
 
 Explanation:
@@ -25,16 +30,19 @@ __题目描述__:
 给定一个非空二叉树, 返回一个由每层节点平均值组成的数组.
 
 __示例 :__
+
 示例 1:
 
 输入:
-```
+
+```text
     3
    / \
   9  20
     /  \
    15   7
 ```
+
 输出: [3, 14.5, 11]
 解释:
 第0层的平均值是 3,  第1层是 14.5, 第2层是 11. 因此返回 [3, 14.5, 11].
@@ -44,13 +52,15 @@ __注意：__
 节点值的范围在32位有符号整数范围内。
 
 __思路__:
+
 参考[LeetCode #107 Binary Tree Level Order Traversal II 二叉树的层次遍历 II](https://www.jianshu.com/p/76abc4ff072f)
 将每一层的结果记录求平均值即可
 时间复杂度O(n), 空间复杂度O(n)
 
 __代码__:
 __C++__:
-```
+
+```C++
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -60,16 +70,20 @@ __C++__:
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
-class Solution {
+class Solution 
+{
 public:
-    vector<double> averageOfLevels(TreeNode* root) {
+    vector<double> averageOfLevels(TreeNode* root) 
+    {
         vector<double> result;
         queue<TreeNode*> q;
         q.push(root);
-        while (q.size()) {
+        while (q.size()) 
+        {
             double total = 0;
             int nums = q.size();
-            for (int i = 0; i < nums; i++) {
+            for (int i = 0; i < nums; i++) 
+            {
                 TreeNode* cur = q.front();
                 q.pop();
                 total += cur -> val;
@@ -84,7 +98,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -116,7 +131,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, x):

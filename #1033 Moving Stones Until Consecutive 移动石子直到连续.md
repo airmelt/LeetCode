@@ -1,3 +1,5 @@
+# 1033 Moving Stones Until Consecutive 移动石子直到连续
+
 __Description__:
 Three stones are on a number line at positions a, b, and c.
 
@@ -8,6 +10,7 @@ The game ends when you cannot make any more moves, ie. the stones are in consecu
 When the game ends, what is the minimum and maximum number of moves that you could have made?  Return the answer as an length 2 array: answer = [minimum_moves, maximum_moves]
 
 __Example:__
+
 Example 1:
 
 Input: a = 1, b = 2, c = 5
@@ -25,7 +28,7 @@ Example 3:
 Input: a = 3, b = 5, c = 1
 Output: [1,2]
 Explanation: Move the stone from 1 to 4; or move the stone from 1 to 2 to 4.
- 
+
 __Note:__
 
 1 <= a <= 100
@@ -43,6 +46,7 @@ __题目描述__:
 要使游戏结束，你可以执行的最小和最大移动次数分别是多少？ 以长度为 2 的数组形式返回答案：answer = [minimum_moves, maximum_moves]
 
 __示例 :__
+
 示例 1：
 
 输入：a = 1, b = 2, c = 5
@@ -54,7 +58,7 @@ __示例 :__
 输入：a = 4, b = 3, c = 2
 输出：[0, 0]
 解释：我们无法进行任何移动。
- 
+
 __提示：__
 
 1 <= a <= 100
@@ -63,11 +67,13 @@ __提示：__
 a != b, b != c, c != a
 
 __思路__:
+
 先按大小顺序排序a, b, c, 如果三个数连续, 不需要移动, 输出{0, 0}; 如果相邻两个数相差为 1或者 2, 则将第三个数放在后面或者插入中间, 输出{1, max - min + 2}; 否则输出{2, max - min + 2}, max - min + 2表示最大和最小值中间的间隔值
 时间复杂度O(1), 空间复杂度O(1)
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -84,6 +90,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int[] numMovesStones(int a, int b, int c) {
@@ -97,6 +104,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def numMovesStones(self, a: int, b: int, c: int) -> List[int]:

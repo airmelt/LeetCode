@@ -1,3 +1,5 @@
+# 811 Subdomain Visit Count 子域名访问计数
+
 __Description__:
 A website domain like "discuss.leetcode.com" consists of various subdomains. At the top level, we have "com", at the next level, we have "leetcode.com", and at the lowest level, "discuss.leetcode.com". When we visit a domain like "discuss.leetcode.com", we will also visit the parent domains "leetcode.com" and "com" implicitly.
 
@@ -6,25 +8,26 @@ Now, call a "count-paired domain" to be a count (representing the number of visi
 We are given a list cpdomains of count-paired domains. We would like a list of count-paired domains, (in the same format as the input, and in any order), that explicitly counts the number of visits to each subdomain.
 
 __Example:__
+
 Example 1:
-Input: 
+Input:
 ["9001 discuss.leetcode.com"]
-Output: 
+Output:
 ["9001 discuss.leetcode.com", "9001 leetcode.com", "9001 com"]
-Explanation: 
+Explanation:
 We only have one website domain: "discuss.leetcode.com". As discussed above, the subdomain "leetcode.com" and "com" will also be visited. So they will all be visited 9001 times.
 
 Example 2:
-Input: 
+Input:
 ["900 google.mail.com", "50 yahoo.com", "1 intel.mail.com", "5 wiki.org"]
-Output: 
+Output:
 ["901 mail.com","50 yahoo.com","900 google.mail.com","5 wiki.org","5 org","1 intel.mail.com","951 com"]
-Explanation: 
+Explanation:
 We will visit "google.mail.com" 900 times, "yahoo.com" 50 times, "intel.mail.com" once and "wiki.org" 5 times. For the subdomains, we will visit "mail.com" 900 + 1 = 901 times, "com" 900 + 50 + 1 = 951 times, and "org" 5 times.
 
 __Notes:__
 
-The length of cpdomains will not exceed 100. 
+The length of cpdomains will not exceed 100.
 The length of each domain name will not exceed 100.
 Each address will have either 1 or 2 "." characters.
 The input count in any count-paired domain will not exceed 10000.
@@ -38,20 +41,21 @@ __题目描述__:
 接下来会给出一组访问次数和域名组合的列表cpdomains 。要求解析出所有域名的访问次数，输出格式和输入格式相同，不限定先后顺序。
 
 __示例 :__
+
 示例 1:
-输入: 
+输入:
 ["9001 discuss.leetcode.com"]
-输出: 
+输出:
 ["9001 discuss.leetcode.com", "9001 leetcode.com", "9001 com"]
-说明: 
+说明:
 例子中仅包含一个网站域名："discuss.leetcode.com"。按照前文假设，子域名"leetcode.com"和"com"都会被访问，所以它们都被访问了9001次。
 
 示例 2
-输入: 
+输入:
 ["900 google.mail.com", "50 yahoo.com", "1 intel.mail.com", "5 wiki.org"]
-输出: 
+输出:
 ["901 mail.com","50 yahoo.com","900 google.mail.com","5 wiki.org","5 org","1 intel.mail.com","951 com"]
-说明: 
+说明:
 按照假设，会访问"google.mail.com" 900次，"yahoo.com" 50次，"intel.mail.com" 1次，"wiki.org" 5次。
 而对于父域名，会访问"mail.com" 900+1 = 901次，"com" 900 + 50 + 1 = 951次，和 "org" 5 次。
 
@@ -63,15 +67,19 @@ __注意事项：__
 输入中任意一个域名的访问次数都小于10000。
 
 __思路__:
+
 用一个 map存储域名和对应的访问次数
 时间复杂度O(n), 空间复杂度O(n)
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    vector<string> subdomainVisits(vector<string>& cpdomains) {
+    vector<string> subdomainVisits(vector<string>& cpdomains) 
+    {
         map<string, int> visit_times;
         for (auto cpdomain : cpdomains) 
         {
@@ -95,7 +103,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public List<String> subdomainVisits(String[] cpdomains) {
         Map<String, Integer> map = new HashMap<>();
@@ -117,7 +126,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def subdomainVisits(self, cpdomains: List[str]) -> List[str]:
         result = {}

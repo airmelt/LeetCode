@@ -1,3 +1,5 @@
+# 784 Letter Case Permutation 字母大小写全排列
+
 __Description__:
 Given a string S, we can transform every letter individually to be lowercase or uppercase to create another string.  Return a list of all possible strings we could create.
 
@@ -37,27 +39,34 @@ S 的长度不超过12。
 S 仅由数字和字母组成。
 
 __思路__:
+
 回溯法, 大小写转换可以使用 s[i] ^= (1 << 5), 实际上是大小写的 ascii码刚好相差 32
 时间复杂度O(2 ^ n), 空间复杂度O(1), n表示字符串的长度
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    vector<string> letterCasePermutation(string S) {
+    vector<string> letterCasePermutation(string S) 
+    {
         vector<string> result;
         traceback(result, S, 0);
         return result;
     }
 private:
-    void traceback(vector<string> &result, string s, int len) {
-        if (len == s.size()) {
+    void traceback(vector<string> &result, string s, int len) 
+    {
+        if (len == s.size()) 
+        {
             result.push_back(s);
             return;
         }
         traceback(result, s, len + 1);
-        if (s[len] > '9') {
+        if (s[len] > '9') 
+        {
             s[len] ^= (1 << 5);
             traceback(result, s, len + 1);
         }
@@ -66,7 +75,8 @@ private:
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public List<String> letterCasePermutation(String S) {
         List<String> result = new ArrayList<>();
@@ -89,7 +99,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def letterCasePermutation(self, S: str) -> List[str]:
         if not S:

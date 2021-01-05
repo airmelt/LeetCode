@@ -1,3 +1,5 @@
+# 1042 Flower Planting With No Adjacent 不邻接植花
+
 __Description__:
 You have N gardens, labelled 1 to N.  In each garden, you want to plant one of 4 types of flowers.
 
@@ -10,6 +12,7 @@ Your task is to choose a flower type for each garden such that, for any two gar
 Return any such a choice as an array answer, where answer[i] is the type of flower planted in the (i+1)-th garden.  The flower types are denoted 1, 2, 3, or 4.  It is guaranteed an answer exists.
 
 __Example:__
+
 Example 1:
 
 Input: N = 3, paths = [[1,2],[2,3],[3,1]]
@@ -24,7 +27,7 @@ Example 3:
 
 Input: N = 4, paths = [[1,2],[2,3],[3,4],[4,1],[1,3],[2,4]]
 Output: [1,2,3,4]
- 
+
 __Note:__
 
 1 <= N <= 10000
@@ -44,6 +47,7 @@ paths[i] = [x, y] 描述了花园 x 到花园 y 的双向路径。
 以数组形式返回选择的方案作为答案 answer，其中 answer[i] 为在第 (i+1) 个花园中种植的花的种类。花的种类用  1, 2, 3, 4 表示。保证存在答案。
 
 __示例 :__
+
 示例 1：
 
 输入：N = 3, paths = [[1,2],[2,3],[3,1]]
@@ -56,7 +60,7 @@ __示例 :__
 
 输入：N = 4, paths = [[1,2],[2,3],[3,4],[4,1],[1,3],[2,4]]
 输出：[1,2,3,4]
- 
+
 __提示：__
 
 1 <= N <= 10000
@@ -65,12 +69,14 @@ __提示：__
 保证存在答案。
 
 __思路__:
+
 贪心法涂色, 题目保证了每个结点最多只有 3个出度(入度)
 遍历 paths数组, 将比自己小的结点存入表格中, 然后遍历 N个结点, 找到最小的未使用过的颜色加入结果
 时间复杂度O(n), 空间复杂度O(n)
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -92,6 +98,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int[] gardenNoAdj(int N, int[][] paths) {
@@ -110,6 +117,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def gardenNoAdj(self, N: int, paths: List[List[int]]) -> List[int]:

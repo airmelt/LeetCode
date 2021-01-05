@@ -1,3 +1,5 @@
+# 733 Flood Fill 图像渲染
+
 __Description__:
 An image is represented by a 2-D array of integers, each integer representing the pixel value of the image (from 0 to 65535).
 
@@ -8,14 +10,15 @@ To perform a "flood fill", consider the starting pixel, plus any pixels connecte
 At the end, return the modified image.
 
 __Example:__
+
 Example 1:
 
-Input: 
+Input:
 image = [[1,1,1],[1,1,0],[1,0,1]]
 sr = 1, sc = 1, newColor = 2
 Output: [[2,2,2],[2,2,0],[2,0,1]]
-Explanation: 
-From the center of the image (with position (sr, sc) = (1, 1)), all pixels connected 
+Explanation:
+From the center of the image (with position (sr, sc) = (1, 1)), all pixels connected
 by a path of the same color as the starting pixel are colored with the new color.
 Note the bottom corner is not colored 2, because it is not 4-directionally connected
 to the starting pixel.
@@ -36,13 +39,14 @@ __题目描述__:
 最后返回经过上色渲染后的图像。
 
 __示例 :__
+
 示例 1:
 
-输入: 
+输入:
 image = [[1,1,1],[1,1,0],[1,0,1]]
 sr = 1, sc = 1, newColor = 2
 输出: [[2,2,2],[2,2,0],[2,0,1]]
-解析: 
+解析:
 在图像的正中间，(坐标(sr,sc)=(1,1)),
 在路径上所有符合条件的像素点的颜色都被更改成2。
 注意，右下角的像素没有更改为2，
@@ -55,28 +59,35 @@ image 和 image[0] 的长度在范围 [1, 50] 内。
 image[i][j] 和 newColor 表示的颜色值在范围 [0, 65535]内。
 
 __思路__:
+
 可以用深度/广度优先搜索
+
 1. 递归, 分别取上下左右且在数组中的元素递归修改颜色值
 2. 迭代, 用队列/栈记录点
 时间复杂度O(n ^ 2), 空间复杂度O(n ^ 2)
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int newColor) {
+    vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int newColor) 
+    {
         if (newColor == image[sr][sc]) return image;
         int directions[2][4] = {{-1, 0, 1, 0}, {0, -1, 0, 1}}, old = image[sr][sc], row = image.size(), col = image[0].size();
         queue<pair<int, int>> q;
         q.push({sr, sc});
-        while (q.size()) {
+        while (q.size()) 
+        {
             pair<int, int> cur = q.front();
             q.pop();
             image[cur.first][cur.second] = newColor;
-            for (int index = 0; index < 4; index++) {
+            for (int index = 0; index < 4; index++) 
+            {
                 int i = directions[0][index] + cur.first, j = directions[1][index] + cur.second;
-                if ((-1 < i && i < row) && (-1 < j && j < col) && (image[i][j] == old)) q.push({i, j});
+                if ((-1 < i and i < row) and (-1 < j and j < col) and (image[i][j] == old)) q.push({i, j});
             }
         }
         return image;
@@ -85,7 +96,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public int[][] floodFill(int[][] image, int sr, int sc, int newColor) {
         if (image[sr][sc] != newColor) {
@@ -102,7 +114,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def floodFill(self, image: List[List[int]], sr: int, sc: int, newColor: int) -> List[List[int]]:
         if image[sr][sc] != newColor:

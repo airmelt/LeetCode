@@ -1,3 +1,5 @@
+# 443 String Compression 压缩字符串
+
 __Description__:
 Given an array of characters, compress it in-place.
 
@@ -7,11 +9,11 @@ Every element of the array should be a character (not int) of length 1.
 
 After you are done modifying the input array in-place, return the new length of the array.
 
- 
 __Follow up:__
 Could you solve it using only O(1) extra space?
 
 __Example:__
+
 Example 1:
 
 Input:
@@ -22,7 +24,6 @@ Return 6, and the first 6 characters of the input array should be: ["a","2","b",
 
 Explanation:
 "aa" is replaced by "a2". "bb" is replaced by "b2". "ccc" is replaced by "c3".
- 
 
 Example 2:
 
@@ -34,7 +35,6 @@ Return 1, and the first 1 characters of the input array should be: ["a"]
 
 Explanation:
 Nothing is replaced.
- 
 
 Example 3:
 
@@ -47,7 +47,7 @@ Return 4, and the first 4 characters of the input array should be: ["a","b","1",
 Explanation:
 Since the character "a" does not repeat, it is not compressed. "bbbbbbbbbbbb" is replaced by "b12".
 Notice each digit has it's own entry in the array.
- 
+
 __Note:__
 
 All characters have an ASCII value in [35, 126].
@@ -66,6 +66,7 @@ __进阶：__
 你能否仅使用O(1) 空间解决问题？
 
 __示例：__
+
 示例 1：
 
 输入：
@@ -76,6 +77,7 @@ __示例：__
 
 说明：
 "aa"被"a2"替代。"bb"被"b2"替代。"ccc"被"c3"替代。
+
 示例 2：
 
 输入：
@@ -86,6 +88,7 @@ __示例：__
 
 说明：
 没有任何字符串被替代。
+
 示例 3：
 
 输入：
@@ -104,21 +107,27 @@ __注意：__
 1 <= len(chars) <= 1000。
 
 __思路__:
+
 使用一个长度指针记录返回结果, 并记录重复的值的长度
 时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    int compress(vector<char>& chars) {
+    int compress(vector<char>& chars) 
+    {
         int i = 0, j = 0, l = chars.size();
-        while (i < l && j < l) {
+        while (i < l and j < l) 
+        {
             chars[i++] = chars[j];
             int temp = j;
-            while (j < l && chars[i - 1] == chars[j]) j++;
-            if (j - temp > 1) {
+            while (j < l and chars[i - 1] == chars[j]) j++;
+            if (j - temp > 1) 
+            {
                 for (char c : to_string(j - temp)) chars[i++] = c;
             }
         }
@@ -128,7 +137,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public int compress(char[] chars) {
         int i = 0, j = 0, l = chars.length;
@@ -146,7 +156,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def compress(self, chars: List[str]) -> int:
         i, j, l = 0, 0, len(chars)

@@ -1,9 +1,12 @@
+# 1170 Compare Strings by Frequency of the Smallest Character 比较字符串最小字母出现频次
+
 __Description__:
 Let's define a function f(s) over a non-empty string s, which calculates the frequency of the smallest character in s. For example, if s = "dcce" then f(s) = 2 because the smallest character is "c" and its frequency is 2.
 
 Now, given string arrays queries and words, return an integer array answer, where each answer[i] is the number of words such that f(queries[i]) < f(W), where W is a word in words.
 
 __Example:__
+
 Example 1:
 
 Input: queries = ["cbd"], words = ["zaaaz"]
@@ -15,7 +18,7 @@ Example 2:
 Input: queries = ["bbb","cc"], words = ["a","aa","aaa","aaaa"]
 Output: [1,2]
 Explanation: On the first query only f("bbb") < f("aaaa"). On the second query both f("aaa") and f("aaaa") are both > f("cc").
- 
+
 __Constraints:__
 
 1 <= queries.length <= 2000
@@ -31,6 +34,7 @@ __题目描述__:
 现在，给你两个字符串数组待查表 queries 和词汇表 words，请你返回一个整数数组 answer 作为答案，其中每个 answer[i] 是满足 f(queries[i]) < f(W) 的词的数目，W 是词汇表 words 中的词。
 
 __示例 :__
+
 示例 1：
 
 输入：queries = ["cbd"], words = ["zaaaz"]
@@ -42,7 +46,7 @@ __示例 :__
 输入：queries = ["bbb","cc"], words = ["a","aa","aaa","aaaa"]
 输出：[1,2]
 解释：第一个查询 f("bbb") < f("aaaa")，第二个查询 f("aaa") 和 f("aaaa") 都 > f("cc")。
- 
+
 __提示：__
 
 1 <= queries.length <= 2000
@@ -51,6 +55,7 @@ __提示：__
 queries[i][j], words[i][j] 都是小写英文字母
 
 __思路__:
+
 用一张表记录 words中的函数值出现的个数, 函数的计算方法是对 words中的每个字符串进行排序, 找到最小的字符出现的次数
 之后累计出现的值, 这个值代表大于这个值的个数有多少
 比如 words = ["a","aa","aaa","aaaa"]
@@ -59,6 +64,7 @@ count对应的应该是 [0, 1, 1, 1, 1...]表示, 函数值为1, 2, 3, 4的分�
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -87,6 +93,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int[] numSmallerByFrequency(String[] queries, String[] words) {
@@ -112,6 +119,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def numSmallerByFrequency(self, queries: List[str], words: List[str]) -> List[int]:

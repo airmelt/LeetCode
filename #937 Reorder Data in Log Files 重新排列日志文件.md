@@ -1,3 +1,5 @@
+# 937 Reorder Data in Log Files 重新排列日志文件
+
 __Description__:
 You have an array of logs.  Each log is a space delimited string of words.
 
@@ -12,6 +14,7 @@ Reorder the logs so that all of the letter-logs come before any digit-log.  The
 Return the final order of the logs.
 
 __Example:__
+
 Example 1:
 
 Input: logs = ["dig1 8 1 5 1","let1 art can","dig2 3 6","let2 own kit dig","let3 art zero"]
@@ -40,7 +43,7 @@ __示例 :__
 
 输入：["a1 9 2 3 1","g1 act car","zo4 4 7","ab1 off key dog","a8 act zoo"]
 输出：["g1 act car","a8 act zoo","ab1 off key dog","a1 9 2 3 1","zo4 4 7"]
- 
+
 __提示：__
 
 0 <= logs.length <= 100
@@ -48,14 +51,17 @@ __提示：__
 logs[i] 保证有一个标识符，并且标识符后面有一个字。
 
 __思路__:
+
 注意到题目中保证, 除了第一个空格之前的, log中的其他记录均为纯数字或纯字母, 只要比较每一个 log的最后一个字符即可
 将字母的和数字的分开存放(也可以使用 map), 然后改写排序函数, 自定义排序即可
 时间复杂度O(nlgn), 空间复杂度O(n)
 
 __代码__:
 __C++__:
+
 ```C++
-class Solution {
+class Solution 
+{
 public:
     vector<string> reorderLogFiles(vector<string>& logs) 
     {
@@ -81,6 +87,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public String[] reorderLogFiles(String[] logs) {
@@ -100,6 +107,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def reorderLogFiles(self, logs: List[str]) -> List[str]:

@@ -1,3 +1,5 @@
+# 896 Monotonic Array 单调数列
+
 __Description__:
 An array is monotonic if it is either monotone increasing or monotone decreasing.
 
@@ -6,6 +8,7 @@ An array A is monotone increasing if for all i <= j, A[i] <= A[j].  An array A 
 Return true if and only if the given array A is monotonic.
 
 __Example:__
+
 Example 1:
 
 Input: [1,2,2,3]
@@ -30,7 +33,7 @@ Example 5:
 
 Input: [1,1,1]
 Output: true
- 
+
 __Note:__
 
 1 <= A.length <= 50000
@@ -44,6 +47,7 @@ __题目描述__:
 当给定的数组 A 是单调数组时返回 true，否则返回 false。
 
 __示例 :__
+
 示例 1：
 
 输入：[1,2,2,3]
@@ -68,13 +72,14 @@ __示例 :__
 
 输入：[1,1,1]
 输出：true
- 
+
 __提示：__
 
 1 <= A.length <= 50000
 -100000 <= A[i] <= 100000
 
 __思路__:
+
 1. 求一个数组是单调递增或者单调递减
 设两个指针, 分别表示严格单调递增或者严格单调递减, 如果同时出现, 表示不是单调递增或者单调递减
 时间复杂度O(n), 空间复杂度O(1)
@@ -83,8 +88,10 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
-class Solution {
+class Solution 
+{
 public:
     bool isMonotonic(vector<int>& A) 
     {
@@ -101,6 +108,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public boolean isMonotonic(int[] A) {
@@ -116,6 +124,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def isMonotonic(self, A: List[int]) -> bool:

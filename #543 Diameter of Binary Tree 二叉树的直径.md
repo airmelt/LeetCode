@@ -1,15 +1,20 @@
+# 543 Diameter of Binary Tree 二叉树的直径
+
 __Description__:
 Given a binary tree, you need to compute the length of the diameter of the tree. The diameter of a binary tree is the length of the longest path between any two nodes in a tree. This path may or may not pass through the root.
 
 __Example:__
+
 Given a binary tree
-```
+
+```text
           1
          / \
         2   3
        / \
       4   5
 ```
+
 Return 3, which is the length of the path [4,2,1,3] or [5,2,1,3].
 
 __Note:__
@@ -20,25 +25,29 @@ __题目描述__:
 
 __示例 :__
 给定二叉树
-```
+
+```text
           1
          / \
         2   3
        / \
       4   5
 ```
+
 返回 3, 它的长度是路径 [4,2,1,3] 或者 [5,2,1,3]。
 
 __注意：__
 两结点之间的路径长度是以它们之间边的数目表示。
 
 __思路__:
+
 对每个结点求左子树和右子树深度, 取左右子树深度和的最大值
 时间复杂度O(n), 空间复杂度O(n)
 
 __代码__:
 __C++__:
-```
+
+```C++
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -48,19 +57,23 @@ __C++__:
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
-class Solution {
+class Solution 
+{
 public:
-    int diameterOfBinaryTree(TreeNode* root) {
+    int diameterOfBinaryTree(TreeNode* root) 
+    {
         if (!root) return 0;
         int result = 0;
         unordered_map<TreeNode*, int> depths;
         stack<TreeNode*> s;
         s.push(root);
-        while (s.size()) {
+        while (s.size()) 
+        {
             TreeNode* cur = s.top();
-            if (cur -> left && depths.find(cur -> left) == depths.end()) s.push(cur -> left);
-            else if (cur -> right && depths.find(cur -> right) == depths.end()) s.push(cur -> right);
-            else {
+            if (cur -> left and depths.find(cur -> left) == depths.end()) s.push(cur -> left);
+            else if (cur -> right and depths.find(cur -> right) == depths.end()) s.push(cur -> right);
+            else 
+            {
                 s.pop();
                 int l = depths[cur -> left], r = depths[cur -> right];
                 depths[cur] = max(l, r) + 1;
@@ -73,7 +86,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -101,7 +115,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, x):

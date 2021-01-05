@@ -1,7 +1,10 @@
+# 680 Valid Palindrome II 验证回文字符串 Ⅱ
+
 __Description__:
 Given a non-empty string s, you may delete at most one character. Judge whether you can make it a palindrome.
 
 __Example:__
+
 Example 1:
 
 Input: "aba"
@@ -21,6 +24,7 @@ __题目描述__:
 给定一个非空字符串 s，最多删除一个字符。判断是否能成为回文字符串。
 
 __示例 :__
+
 示例 1:
 
 输入: "aba"
@@ -36,21 +40,27 @@ __注意:__
 字符串只包含从 a-z 的小写字母。字符串的最大长度是50000。
 
 __思路__:
+
 判断回文用双指针, 如果找到第一次不一样的字符, 可以左指针加一个字符或者右指针减一个字符再判断一次
 时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    bool validPalindrome(string s) {
-        for (int i = 0, j = s.size() - 1; i < j; i++, j--) if (s[i] != s[j]) return isPalindrome(s, i + 1, j) || isPalindrome(s, i, j - 1);
+    bool validPalindrome(string s) 
+    {
+        for (int i = 0, j = s.size() - 1; i < j; i++, j--) if (s[i] != s[j]) return isPalindrome(s, i + 1, j) or isPalindrome(s, i, j - 1);
         return true;
     }
 private:
-    bool isPalindrome(string s, int i, int j) {
-        while (i < j) {
+    bool isPalindrome(string s, int i, int j) 
+    {
+        while (i < j) 
+        {
             if (s[i] != s[j]) return false;
             i++;
             j--;
@@ -61,7 +71,8 @@ private:
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public boolean validPalindrome(String s) {
         for (int i = 0, j = s.length() - 1; i < j; i++, j--) if (s.charAt(i) != s.charAt(j)) return isPalindrome(s, i + 1, j) || isPalindrome(s, i, j - 1);
@@ -80,7 +91,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def validPalindrome(self, s: str) -> bool:
         if s == s[::-1]:

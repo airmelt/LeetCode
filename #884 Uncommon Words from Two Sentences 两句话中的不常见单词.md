@@ -1,13 +1,16 @@
+# 884 Uncommon Words from Two Sentences 两句话中的不常见单词
+
 __Description__:
 We are given two sentences A and B.  (A sentence is a string of space separated words.  Each word consists only of lowercase letters.)
 
 A word is uncommon if it appears exactly once in one of the sentences, and does not appear in the other sentence.
 
-Return a list of all uncommon words. 
+Return a list of all uncommon words.
 
 You may return the list in any order.
 
 __Example:__
+
 Example 1:
 
 Input: A = "this apple is sweet", B = "this apple is sour"
@@ -17,7 +20,7 @@ Example 2:
 
 Input: A = "apple apple", B = "banana"
 Output: ["banana"]
- 
+
 __Note:__
 
 0 <= A.length <= 200
@@ -34,6 +37,7 @@ __题目描述__:
 您可以按任何顺序返回列表。
 
 __示例 :__
+
 示例 1：
 
 输入：A = "this apple is sweet", B = "this apple is sour"
@@ -43,7 +47,7 @@ __示例 :__
 
 输入：A = "apple apple", B = "banana"
 输出：["banana"]
- 
+
 __提示：__
 
 0 <= A.length <= 200
@@ -51,15 +55,19 @@ __提示：__
 A 和 B 都只包含空格和小写字母。
 
 __思路__:
+
 将 A和 B加起来看作一个字符串, 按空格分开(split(" "))之后用 map记录单词和出现次数, 返回只出现一次的单词即可
 时间复杂度O(n), 空间复杂度O(n)
 
 __代码__:
 __C++__:
+
 ```C++
-class Solution {
+class Solution 
+{
 public:
-    vector<string> uncommonFromSentences(string A, string B) {
+    vector<string> uncommonFromSentences(string A, string B) 
+    {
         vector<string> result;
         A += " " + B;
         map<string, int> word_times;
@@ -70,7 +78,8 @@ public:
         return result;
     }
 private:
-    int split(const string& str, vector<string>& result, string separator = ",") {
+    int split(const string& str, vector<string>& result, string separator = ",") 
+    {
         if (str.empty())
         {
             return 0;
@@ -108,6 +117,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public String[] uncommonFromSentences(String A, String B) {
@@ -123,6 +133,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def uncommonFromSentences(self, A: str, B: str) -> List[str]:

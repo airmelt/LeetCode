@@ -1,3 +1,5 @@
+# 69 Sqrt(x) x 的平方根
+
 __Description__:
 Implement int sqrt(int x).
 
@@ -6,6 +8,7 @@ Compute and return the square root of x, where x is guaranteed to be a non-negat
 Since the return type is an integer, the decimal digits are truncated and only the integer part of the result is returned.
 
 __Example__:
+
 Example 1:
 Input: 4
 Output: 2
@@ -17,13 +20,15 @@ Explanation: The square root of 8 is 2.82842..., and since
              the decimal part is truncated, 2 is returned.
 
 __题目描述__:
+
 实现 int sqrt(int x) 函数。
 
 计算并返回 x 的平方根，其中 x 是非负整数。
 
 由于返回类型是整数，结果只保留整数的部分，小数部分将被舍去。
 
- __示例__:
+__示例__:
+
 示例 1:
 输入: 4
 输出: 2
@@ -35,6 +40,7 @@ __题目描述__:
      由于返回类型是整数，小数部分将被舍去。
 
 __思路__:
+
 1. 二分法, int最大值为2^31 - 1, 其平方根为46340
 时间复杂度O(lgn), 空间复杂度O(1)
 2. [牛顿法-wiki](https://en.wikipedia.org/wiki/Integer_square_root#Using_only_integer_division)
@@ -43,14 +49,17 @@ __思路__:
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    int mySqrt(int x) {
+    int mySqrt(int x) 
+    {
         if (x <= 1) return x;
-        int low = 0;
-        int high = 46340;
-        while (low <= high) {
+        int low = 0, high = 46340;
+        while (low <= high) 
+        {
             int mid = (low + high) / 2;
             if (mid * mid > x) high = mid - 1;
             else if (mid * mid < x) low = mid + 1;
@@ -62,12 +71,12 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public int mySqrt(int x) {
         if (x <= 1) return x;
-        int low = 0;
-        int high = 46340;
+        int low = 0, high = 46340;
         while (low <= high) {
             int mid = (low + high) / 2;
             if (mid * mid > x) high = mid - 1;
@@ -80,7 +89,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def mySqrt(self, x: int) -> int:
         if x <= 1:

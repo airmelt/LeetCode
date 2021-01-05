@@ -1,14 +1,17 @@
+# 705 Design HashSet 设计哈希集合
+
 __Description__:
 Design a HashSet without using any built-in hash table libraries.
 
 To be specific, your design should include these functions:
 
-add(value): Insert a value into the HashSet. 
+add(value): Insert a value into the HashSet.
 contains(value) : Return whether the value exists in the HashSet or not.
 remove(value): Remove a value in the HashSet. If the value does not exist in the HashSet, do nothing.
 
 __Example:__
 
+```Java
 MyHashSet hashSet = new MyHashSet();
 hashSet.add(1);         
 hashSet.add(2);         
@@ -18,6 +21,7 @@ hashSet.add(2);          
 hashSet.contains(2);    // returns true
 hashSet.remove(2);          
 hashSet.contains(2);    // returns false (already removed)
+```
 
 __Note:__
 
@@ -36,6 +40,7 @@ remove(value)：将给定值从哈希集合中删除。如果哈希集合中没�
 
 __示例 :__
 
+```Java
 MyHashSet hashSet = new MyHashSet();
 hashSet.add(1);         
 hashSet.add(2);         
@@ -45,6 +50,7 @@ hashSet.add(2);          
 hashSet.contains(2);    // 返回 true
 hashSet.remove(2);          
 hashSet.contains(2);    // 返回  false (已经被删除)
+```
 
 __注意：__
 
@@ -53,48 +59,60 @@ __注意：__
 不要使用内建的哈希集合库。
 
 __思路__:
+
 哈希函数使用取余, 用拉链法解决冲突
+时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
-```
-struct Node{
+
+```C++
+struct Node
+{
     int val;
     Node *next;
     Node(int val): val(val), next(nullptr){}
 };
 const int len = 13;
-class MyHashSet {
-    
+class MyHashSet 
+{
 public:
     vector<Node*> arr;
     /** Initialize your data structure here. */
-    MyHashSet() {
+    MyHashSet() 
+    {
         arr = vector<Node*>(len, new Node(-1));
     }
     
-    void add(int key) {
+    void add(int key) 
+    {
         Node* temp = arr[key % len];
-        if (temp -> val != -1) {
-            while (temp) {
+        if (temp -> val != -1) 
+        {
+            while (temp) 
+            {
                 if (temp -> val == key) return;
-                if (!temp -> next) {
+                if (!temp -> next) 
+                {
                     Node *node = new Node(key);
                     temp -> next = node;
                     return;
                 }
                 temp = temp -> next;
             }
-        } else {
-            temp -> val = key;
-        }
+        } 
+        else temp -> val = key;
     }
     
-    void remove(int key) {
+    void remove(int key) 
+    {
         Node* temp = arr[key % len];
-        if (temp -> val != -1) {
-            while (temp) {
-                if (temp -> val == key) {
+        if (temp -> val != -1) 
+        {
+            while (temp) 
+            {
+                if (temp -> val == key) 
+                {
                     temp -> val = -1;
                     return;
                 }
@@ -104,9 +122,11 @@ public:
     }
     
     /** Returns true if this set contains the specified element */
-    bool contains(int key) {
+    bool contains(int key) 
+    {
         Node* temp = arr[key % len];
-            while (temp) {
+            while (temp) 
+            {
                 if (temp -> val == key) return true;
                 temp = temp -> next;
             }
@@ -125,7 +145,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 class MyHashSet {
     private List<LinkedList<Integer>> list;
     private int size = 13;
@@ -169,7 +190,8 @@ class MyHashSet {
 ```
 
 __Python__:
-```
+
+```Python
 class Node:
     
     def __init__(self, val, next):

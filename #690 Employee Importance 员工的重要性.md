@@ -1,3 +1,5 @@
+# 690 Employee Importance 员工的重要性
+
 __Description__:
 You are given a data structure of employee information, which includes the employee's unique id, his importance value and his direct subordinates' id.
 
@@ -6,13 +8,13 @@ For example, employee 1 is the leader of employee 2, and employee 2 is the leade
 Now given the employee information of a company, and an employee id, you need to return the total importance value of this employee and all his subordinates.
 
 __Example:__
+
 Example 1:
 
 Input: [[1, 5, [2, 3]], [2, 3, []], [3, 3, []]], 1
 Output: 11
 Explanation:
 Employee 1 has importance value 5, and he has two direct subordinates: employee 2 and employee 3. They both have importance value 3. So the total importance value of employee 1 is 5 + 3 + 3 = 11.
- 
 
 __Note:__
 
@@ -27,6 +29,7 @@ __题目描述__:
 现在输入一个公司的所有员工信息，以及单个员工id，返回这个员工和他所有下属的重要度之和。
 
 __示例 :__
+
 示例 1:
 
 输入: [[1, 5, [2, 3]], [2, 3, []], [3, 3, []]], 1
@@ -34,20 +37,23 @@ __示例 :__
 解释:
 员工1自身的重要度是5，他有两个直系下属2和3，而且2和3的重要度均为3。因此员工1的总重要度是 5 + 3 + 3 = 11。
 
-__注意:__ 
+__注意:__
 
 一个员工最多有一个直系领导，但是可以有多个直系下属
 员工数量不超过2000。
 
 __思路__:
+
 关键是用 map存储员工的 id和对应的数据结构方便查找
+
 1. 递归, 找到所有下属求重要性之和
 2. 迭代, DFS的思想, 用队列或者栈存储员工的下属, 依次遍历
 时间复杂度O(n), 空间复杂度O(n)
 
 __代码__:
 __C++__:
-```
+
+```C++
 /*
 // Employee info
 class Employee {
@@ -61,15 +67,18 @@ public:
     vector<int> subordinates;
 };
 */
-class Solution {
+class Solution 
+{
 public:
-    int getImportance(vector<Employee*> employees, int id) {
+    int getImportance(vector<Employee*> employees, int id) 
+    {
         map<int, Employee*> m;
         for (Employee* e : employees) m[e -> id] = e;
         stack<Employee*> s;
         s.push(m[id]);
         int result = 0;
-        while (s.size()) {
+        while (s.size()) 
+        {
             Employee* e = s.top();
             s.pop();
             result += e -> importance;
@@ -81,7 +90,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 /*
 // Employee info
 class Employee {
@@ -112,7 +122,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 """
 # Employee info
 class Employee:

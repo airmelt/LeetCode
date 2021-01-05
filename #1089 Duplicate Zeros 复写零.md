@@ -1,3 +1,5 @@
+# 1089 Duplicate Zeros 复写零
+
 __Description__:
 Given a fixed length array arr of integers, duplicate each occurrence of zero, shifting the remaining elements to the right.
 
@@ -16,7 +18,7 @@ Example 2:
 Input: [1,2,3]
 Output: null
 Explanation: After calling your function, the input array is modified to: [1,2,3]
- 
+
 __Note:__
 
 1 <= arr.length <= 10000
@@ -30,6 +32,7 @@ __题目描述__:
 要求：请对输入的数组 就地 进行上述修改，不要从函数返回任何东西。
 
 __示例 :__
+
 示例 1：
 
 输入：[1,0,2,3,0,4,5,0]
@@ -41,7 +44,7 @@ __示例 :__
 输入：[1,2,3]
 输出：null
 解释：调用函数后，输入的数组将被修改为：[1,2,3]
- 
+
 __提示：__
 
 1 <= arr.length <= 10000
@@ -54,6 +57,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -62,7 +66,7 @@ public:
     {
         int zero = 0, s = arr.size();
         for (auto i : arr) if (!i) ++zero;
-        for (int i = s - 1; i > -1; --i)
+        for (int i = s - 1; i > -1; i--)
         {
             if (!arr[i])
             {
@@ -77,6 +81,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public void duplicateZeros(int[] arr) {
@@ -95,6 +100,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def duplicateZeros(self, arr: List[int]) -> None:

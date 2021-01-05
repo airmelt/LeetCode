@@ -1,3 +1,5 @@
+# 893 Groups of Special-Equivalent Strings 特殊等价字符串组
+
 __Description__:
 You are given an array A of strings.
 
@@ -10,6 +12,7 @@ Now, a group of special-equivalent strings from A is a non-empty subset S of A
 Return the number of groups of special-equivalent strings from A.
 
 __Example:__
+
 Example 1:
 
 Input: ["a","b","c","a","c","c"]
@@ -33,7 +36,7 @@ Example 4:
 Input: ["abcd","cdab","adcb","cbad"]
 Output: 1
 Explanation: 1 group ["abcd","cdab","adcb","cbad"]
- 
+
 __Note:__
 
 1 <= A.length <= 1000
@@ -53,6 +56,7 @@ __题目描述__:
 返回 A 中特殊等价字符串组的数量。
 
 __示例 :__
+
 示例 1：
 
 输入：["a","b","c","a","c","c"]
@@ -76,7 +80,7 @@ __示例 :__
 输入：["abcd","cdab","adcb","cbad"]
 输出：1
 解释：1 组 ["abcd","cdab","adcb","cbad"]
- 
+
 __提示：__
 
 1 <= A.length <= 1000
@@ -93,8 +97,10 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
-class Solution {
+class Solution 
+{
 public:
     int numSpecialEquivGroups(vector<string>& A) 
     {
@@ -102,8 +108,8 @@ public:
         for (auto a : A)
         {
             vector<int> odd(26), even(26);
-            for (int i = 0; i < a.size(); i++) odd[a[i++] - 'a']++;
-            for (int i = 1; i < a.size(); i++) even[a[i++] - 'a']++;     
+            for (int i = 0; i < a.size(); i++) ++odd[a[i++] - 'a'];
+            for (int i = 1; i < a.size(); i++) ++even[a[i++] - 'a'];     
             s.insert({odd, even});
         }
         return s.size();
@@ -112,6 +118,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int numSpecialEquivGroups(String[] A) {
@@ -129,6 +136,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def numSpecialEquivGroups(self, A: List[str]) -> int:

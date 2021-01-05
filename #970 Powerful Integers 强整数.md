@@ -1,3 +1,5 @@
+# 970 Powerful Integers 强整数
+
 __Description__:
 Given two positive integers x and y, an integer is powerful if it is equal to x^i + y^j for some integers i >= 0 and j >= 0.
 
@@ -6,11 +8,14 @@ Return a list of all powerful integers that have value less than or equal to bou
 You may return the answer in any order.  In your answer, each value should occur at most once.
 
 __Example:__
+
 Example 1:
 
 Input: x = 2, y = 3, bound = 10
 Output: [2,3,4,5,7,9,10]
-Explanation: 
+Explanation:
+
+```text
 2 = 2^0 + 3^0
 3 = 2^1 + 3^0
 4 = 2^0 + 3^1
@@ -18,12 +23,13 @@ Explanation:
 7 = 2^2 + 3^1
 9 = 2^3 + 3^0
 10 = 2^0 + 3^2
+```
 
 Example 2:
 
 Input: x = 3, y = 5, bound = 15
 Output: [2,4,6,8,10,14]
- 
+
 __Note:__
 
 1 <= x <= 100
@@ -38,11 +44,14 @@ __题目描述__:
 你可以按任何顺序返回答案。在你的回答中，每个值最多出现一次。
 
 __示例 :__
+
 示例 1：
 
 输入：x = 2, y = 3, bound = 10
 输出：[2,3,4,5,7,9,10]
-解释： 
+解释：
+
+```text
 2 = 2^0 + 3^0
 3 = 2^1 + 3^0
 4 = 2^0 + 3^1
@@ -50,12 +59,13 @@ __示例 :__
 7 = 2^2 + 3^1
 9 = 2^3 + 3^0
 10 = 2^0 + 3^2
+```
 
 示例 2：
 
 输入：x = 3, y = 5, bound = 15
 输出：[2,4,6,8,10,14]
- 
+
 __提示：__
 
 1 <= x <= 100
@@ -63,16 +73,20 @@ __提示：__
 0 <= bound <= 10^6
 
 __思路__:
+
 注意有特殊情况 1, 可以单独拿出来讨论
 由于 2 ^ 20 = 1048576 > bound <= 100000, 最大边界到 20
 时间复杂度O(1), 空间复杂度O(logn), 其中 n就是 bound的值
 
 __代码__:
 __C++__:
+
 ```C++
-class Solution {
+class Solution 
+{
 public:
-    vector<int> powerfulIntegers(int x, int y, int bound) {
+    vector<int> powerfulIntegers(int x, int y, int bound) 
+    {
         set<int> s;
         for (int i = 0; i < 20; i++) for (int j = 0; j < 20; j++) if (pow(x, i) + pow(y, j) <= bound) s.insert(pow(x, i) + pow(y, j));
         vector<int> result;
@@ -83,6 +97,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public List<Integer> powerfulIntegers(int x, int y, int bound) {
@@ -96,6 +111,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def powerfulIntegers(self, x: int, y: int, bound: int) -> List[int]:

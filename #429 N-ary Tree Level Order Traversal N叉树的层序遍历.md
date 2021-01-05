@@ -1,3 +1,5 @@
+# 429 N-ary Tree Level Order Traversal N叉树的层序遍历
+
 __Description__:
 Given an n-ary tree, return the level order traversal of its nodes' values. (ie, from left to right, level by level).
 
@@ -5,13 +7,14 @@ For example, given a 3-ary tree:
 ![3-ary tree](https://upload-images.jianshu.io/upload_images/16639143-e48a64a29deee174.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 We should return its level order traversal:
-```
+
+```text
 [
      [1],
      [3,2,4],
      [5,6]
 ]
- ```
+```
 
 __Note:__
 
@@ -25,7 +28,8 @@ __题目描述__:
 ![3叉树](https://upload-images.jianshu.io/upload_images/16639143-e48a64a29deee174.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 返回其层序遍历:
-```
+
+```text
 [
      [1],
      [3,2,4],
@@ -34,12 +38,14 @@ __题目描述__:
 ```
 
 __思路__:
+
 参考[LeetCode #107 Binary Tree Level Order Traversal II 二叉树的层次遍历 II](https://www.jianshu.com/p/76abc4ff072f)
 时间复杂度O(n), 空间复杂度O(n)
 
 __代码__:
 __C++__:
-```
+
+```C++
 /*
 // Definition for a Node.
 class Node {
@@ -55,17 +61,20 @@ public:
     }
 };
 */
-class Solution {
+class Solution 
+{
 public:
-    vector<vector<int>> levelOrder(Node* root) {
+    vector<vector<int>> levelOrder(Node* root) 
+    {
         vector<vector<int>> result;
         if (!root) return result;
         queue<Node*> q;
         q.push(root);
-        while (!q.empty()) {
+        while (!q.empty()) 
+        {
             vector<int> temp;
-            int s = q.size();
-            for (int i = 0; i < s; i++) {
+            for (int i = 0; i < q.size(); i++) 
+            {
                 Node* cur = q.front();
                 temp.push_back(cur -> val);
                 for (int j = 0; j < cur -> children.size(); j++) q.push(cur -> children[j]);
@@ -79,7 +88,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 /*
 // Definition for a Node.
 class Node {
@@ -116,25 +126,27 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 """
 # Definition for a Node.
 class Node:
-    def __init__(self, val, children):
+    def __init__(self, val=None, children=None):
         self.val = val
         self.children = children
 """
+
 class Solution:
     def levelOrder(self, root: 'Node') -> List[List[int]]:
         result = []
-        def bfs(root, result, n=0):
-            if root:
-                try:
-                    result[n].append(root.val)
-                except IndexError:
-                    result.append([root.val])
-                for i in root.children:
-                    bfs(i, result, n + 1)
-        bfs(root, result)
+        def dfs(root: 'Node', depth: int) -> None:
+            if not root: 
+                return 
+            if len(result) <= depth:
+                result.append([])
+            result[depth].append(root.val)
+            for c in root.children:
+                dfs(c, depth + 1)
+        dfs(root, 0)
         return result
 ```

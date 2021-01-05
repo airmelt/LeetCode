@@ -1,18 +1,23 @@
+# 606 Construct String from Binary Tree 根据二叉树创建字符串
+
 __Description__:
 You need to construct a string consists of parenthesis and integers from a binary tree with the preorder traversing way.
 
 The null node needs to be represented by empty parenthesis pair "()". And you need to omit all the empty parenthesis pairs that don't affect the one-to-one mapping relationship between the string and the original binary tree.
 
 __Example:__
+
 Example 1:
 Input: Binary tree: [1,2,3,4]
-```
+
+```text
        1
      /   \
     2     3
    /
   4
 ```
+
 Output: "1(2(4))(3)"
 
 Explanation: Originallay it needs to be "1(2(4)())(3()())",
@@ -21,13 +26,15 @@ And it will be "1(2(4))(3)".
 
 Example 2:
 Input: Binary tree: [1,2,3,null,4]
-```
+
+```text
        1
      /   \
     2     3
      \
       4
 ```
+
 Output: "1(2()(4))(3)"
 
 Explanation: Almost the same as the first example,
@@ -39,16 +46,19 @@ __题目描述__:
 空节点则用一对空括号 "()" 表示。而且你需要省略所有不影响字符串与原始二叉树之间的一对一映射关系的空括号对。
 
 __示例 :__
+
 示例 1:
 
 输入: 二叉树: [1,2,3,4]
-```
+
+```text
        1
      /   \
     2     3
    /
   4
 ```
+
 输出: "1(2(4))(3)"
 
 解释: 原本将是“1(2(4)())(3())”，
@@ -58,26 +68,30 @@ __示例 :__
 示例 2:
 
 输入: 二叉树: [1,2,3,null,4]
-```
+
+```text
        1
      /   \
     2     3
      \
       4
 ```
+
 输出: "1(2()(4))(3)"
 
 解释: 和第一个示例相似，
 除了我们不能省略第一个对括号来中断输入和输出之间的一对一映射关系。
 
 __思路__:
+
 1. 递归, 用先序遍历的思想访问每一个结点并加上括号
 2. 迭代, 存下每个结点和每个结点的深度, 深度用来给最后的结点加上右括号
 时间复杂度O(n), 空间复杂度O(n)
 
 __代码__:
 __C++__:
-```
+
+```C++
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -87,9 +101,11 @@ __C++__:
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
-class Solution {
+class Solution 
+{
 public:
-    string tree2str(TreeNode* t) {
+    string tree2str(TreeNode* t) 
+    {
         string result = "";
         int level = 0;
         if (!t) return result;
@@ -97,25 +113,31 @@ public:
         stack<int> l;
         s.push(t);
         l.push(level);
-        while (s.size()) {
+        while (s.size()) 
+        {
             TreeNode* cur = s.top();
             s.pop();
             level = l.top();
             l.pop();
             if (level > 0) result += "(";
             if (cur) result += to_string(cur -> val);
-            else {
+            else 
+            {
                 result += ")";
                 continue;
             }
-            if (cur -> left || cur -> right) {
-                if (cur -> right) {
+            if (cur -> left or cur -> right) 
+            {
+                if (cur -> right) 
+                {
                     s.push(cur -> right);
                     l.push(level + 1);
                 }
                 s.push(cur -> left);
                 l.push(level + 1);
-            } else {
+            } 
+            else 
+            {
                 if (s.size()) level -= l.top() - 1;
                 while (level--) result += ")";
             }
@@ -126,7 +148,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -162,7 +185,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, x):

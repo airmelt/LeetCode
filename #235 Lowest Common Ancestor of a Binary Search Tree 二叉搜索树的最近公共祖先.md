@@ -1,3 +1,5 @@
+# 235 Lowest Common Ancestor of a Binary Search Tree 二叉搜索树的最近公共祖先
+
 __Description__:
 Given a binary search tree (BST), find the lowest common ancestor (LCA) of two given nodes in the BST.
 
@@ -5,9 +7,10 @@ According to the [definition of LCA on Wikipedia](https://en.wikipedia.org/wiki
 
 Given binary search tree:  root = [6,2,8,0,4,7,9,null,null,3,5]
 
-![](http://upload-images.jianshu.io/upload_images/16639143-c196720af1f6ce69.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![Binary Search Tree](http://upload-images.jianshu.io/upload_images/16639143-c196720af1f6ce69.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 **Example:**
+
 **Example 1:**
 **Input:** root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 8
 **Output:** 6
@@ -20,9 +23,8 @@ Given binary search tree:  root = [6,2,8,0,4,7,9,null,null,3,5]
 
 **Note:**
 
-*   All of the nodes' values will be unique.
-*   p and q are different and both values will exist in the BST.
-
+* All of the nodes' values will be unique.
+* p and q are different and both values will exist in the BST.
 
 __题目描述__:
 给定一个二叉搜索树, 找到该树中两个指定节点的最近公共祖先。
@@ -31,7 +33,7 @@ __题目描述__:
 
 例如，给定如下二叉搜索树:  root = [6,2,8,0,4,7,9,null,null,3,5]
 
-![](http://upload-images.jianshu.io/upload_images/16639143-1c89c3214d035cd5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![二叉搜索树](http://upload-images.jianshu.io/upload_images/16639143-1c89c3214d035cd5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 **示例 1:**
 **输入:** root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 8
@@ -45,17 +47,18 @@ __题目描述__:
 
 **说明:**
 
-*   所有节点的值都是唯一的。
-*   p、q 为不同节点且均存在于给定的二叉搜索树中。
-
+* 所有节点的值都是唯一的。
+* p、q 为不同节点且均存在于给定的二叉搜索树中。
 
 __思路__:
+
 利用二叉搜索树的性质, 找到第一个分叉点即为所求结果
 时间复杂度O(lgn), 空间复杂度O(1), 每次查找范围减半
 
 __代码__:
 __C++__:
-```
+
+```C++
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -65,12 +68,15 @@ __C++__:
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
-class Solution {
+class Solution 
+{
 public:
-    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
-        while (true) {
-            if (root -> val > p -> val && root -> val > q -> val) root = root -> left;
-            else if (root -> val < p -> val && root -> val < q -> val) root = root -> right;
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) 
+    {
+        while (true) 
+        {
+            if (root -> val > p -> val and root -> val > q -> val) root = root -> left;
+            else if (root -> val < p -> val and root -> val < q -> val) root = root -> right;
             else return root;
         }
     }
@@ -78,7 +84,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -103,7 +110,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, x):

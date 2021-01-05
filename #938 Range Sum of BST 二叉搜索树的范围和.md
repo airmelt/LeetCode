@@ -1,9 +1,12 @@
+# 938 Range Sum of BST 二叉搜索树的范围和
+
 __Description__:
 Given the root node of a binary search tree, return the sum of values of all nodes with value between L and R (inclusive).
 
 The binary search tree is guaranteed to have unique values.
 
 __Example:__
+
 Example 1:
 
 Input: root = [10,5,15,3,7,null,18], L = 7, R = 15
@@ -13,7 +16,7 @@ Example 2:
 
 Input: root = [10,5,15,3,7,13,18,1,null,6], L = 6, R = 10
 Output: 23
- 
+
 __Note:__
 
 The number of nodes in the tree is at most 10000.
@@ -25,6 +28,7 @@ __题目描述__:
 二叉搜索树保证具有唯一的值。
 
 __示例 :__
+
 示例 1：
 
 输入：root = [10,5,15,3,7,null,18], L = 7, R = 15
@@ -34,21 +38,24 @@ __示例 :__
 
 输入：root = [10,5,15,3,7,13,18,1,null,6], L = 6, R = 10
 输出：23
- 
+
 __提示：__
 
 树中的结点数量最多为 10000 个。
 最终的答案保证小于 2^31。
 
 __思路__:
+
 注意到题目给的是 BST(二叉搜索树), 比 root小的在 root的左子树, 比 root大的在 root的右子树
 使用中序遍历, 落在 L和 R的范围中的就加入结果
+
 1. 递归
 2. 迭代
 时间复杂度O(n), 空间复杂度O(n)
 
 __代码__:
 __C++__:
+
 ```C++
 /**
  * Definition for a binary tree node.
@@ -59,13 +66,14 @@ __C++__:
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
-class Solution {
+class Solution 
+{
 public:
     int rangeSumBST(TreeNode* root, int L, int R) 
     {
         stack<TreeNode*> s;
         int result = 0;
-        while (s.size() || root)
+        while (s.size() or root)
         {
             if (root)
             {
@@ -77,7 +85,7 @@ public:
                 TreeNode* cur = s.top();
                 s.pop();
                 root = cur -> right;
-                if (cur -> val >= L && cur -> val <= R) result += cur -> val;
+                if (cur -> val >= L and cur -> val <= R) result += cur -> val;
             }
         }
         return result;
@@ -86,6 +94,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 /**
  * Definition for a binary tree node.
@@ -107,6 +116,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 # Definition for a binary tree node.
 # class TreeNode:

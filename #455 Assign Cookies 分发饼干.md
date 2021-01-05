@@ -8,6 +8,7 @@ You may assume the greed factor is always positive.
 You cannot assign more than one cookie to one child.
 
 __Example:__
+
 Example 1:
 Input: [1,2,3], [1,1]
 
@@ -35,6 +36,7 @@ __注意：__
 一个小朋友最多只能拥有一块饼干。
 
 __示例:__
+
 示例 1:
 
 输入: [1,2,3], [1,1]
@@ -58,6 +60,7 @@ __示例:__
 所以你应该输出2.
 
 __思路__:
+
 由于每个小孩最多获得一块饼干, 所以用最小的饼干满足要求最小的人能满足更多的人
 先对数组进行排序, 然后用贪心算法分发饼干
 时间复杂度O(nlgn), 空间复杂度O(1)

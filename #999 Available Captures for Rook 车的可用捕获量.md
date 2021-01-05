@@ -1,3 +1,5 @@
+# 999 Available Captures for Rook 车的可用捕获量
+
 __Description__:
 On an 8 x 8 chessboard, there is one white rook.  There also may be empty squares, white bishops, and black pawns.  These are given as characters 'R', '.', 'B', and 'p' respectively. Uppercase characters represent white pieces, and lowercase characters represent black pieces.
 
@@ -6,27 +8,28 @@ The rook moves as in the rules of Chess: it chooses one of four cardinal directi
 Return the number of pawns the rook can capture in one move.
 
 __Example:__
+
 Example 1:
 ![Chessboard  1](https://upload-images.jianshu.io/upload_images/16639143-70376cde87ff812d.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 Input: [[".",".",".",".",".",".",".","."],[".",".",".","p",".",".",".","."],[".",".",".","R",".",".",".","p"],[".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".","."],[".",".",".","p",".",".",".","."],[".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".","."]]
 Output: 3
-Explanation: 
+Explanation:
 In this example the rook is able to capture all the pawns.
 
 Example 2:
 ![Chessboard 2](https://upload-images.jianshu.io/upload_images/16639143-98ae4bc15cd3ee18.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 Input: [[".",".",".",".",".",".",".","."],[".","p","p","p","p","p",".","."],[".","p","p","B","p","p",".","."],[".","p","B","R","B","p",".","."],[".","p","p","B","p","p",".","."],[".","p","p","p","p","p",".","."],[".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".","."]]
 Output: 0
-Explanation: 
+Explanation:
 Bishops are blocking the rook to capture any pawn.
 
 Example 3:
 ![Chessboard  3](https://upload-images.jianshu.io/upload_images/16639143-704327c4aed5f241.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 Input: [[".",".",".",".",".",".",".","."],[".",".",".","p",".",".",".","."],[".",".",".","p",".",".",".","."],["p","p",".","R",".","p","B","."],[".",".",".",".",".",".",".","."],[".",".",".","B",".",".",".","."],[".",".",".","p",".",".",".","."],[".",".",".",".",".",".",".","."]]
 Output: 3
-Explanation: 
+Explanation:
 The rook can capture the pawns at positions b5, d6 and f5.
- 
+
 __Note:__
 
 board.length == board[i].length == 8
@@ -39,8 +42,9 @@ __题目描述__:
 车按国际象棋中的规则移动：它选择四个基本方向中的一个（北，东，西和南），然后朝那个方向移动，直到它选择停止、到达棋盘的边缘或移动到同一方格来捕获该方格上颜色相反的卒。另外，车不能与其他友方（白色）象进入同一个方格。
 
 返回车能够在一次移动中捕获到的卒的数量。
- 
+
 __示例 :__
+
 示例 1：
 ![棋盘  1](https://upload-images.jianshu.io/upload_images/16639143-78d221af51f0ff3c.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 输入：[[".",".",".",".",".",".",".","."],[".",".",".","p",".",".",".","."],[".",".",".","R",".",".",".","p"],[".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".","."],[".",".",".","p",".",".",".","."],[".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".","."]]
@@ -59,9 +63,9 @@ __示例 :__
 ![棋盘  3](https://upload-images.jianshu.io/upload_images/16639143-345623ffff6ddb1f.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 输入：[[".",".",".",".",".",".",".","."],[".",".",".","p",".",".",".","."],[".",".",".","p",".",".",".","."],["p","p",".","R",".","p","B","."],[".",".",".",".",".",".",".","."],[".",".",".","B",".",".",".","."],[".",".",".","p",".",".",".","."],[".",".",".",".",".",".",".","."]]
 输出：3
-解释： 
+解释：
 车可以捕获位置 b5，d6 和 f5 的卒。
- 
+
 __提示：__
 
 board.length == board[i].length == 8
@@ -69,11 +73,13 @@ board[i][j] 可以是 'R'，'.'，'B' 或 'p'
 只有一个格子上存在 board[i][j] == 'R'
 
 __思路__:
+
 首先遍历找到车的位置, 然后在车的同一行和同一列找没有被挡住的兵即可
 时间复杂度O(1), 空间复杂度O(1), 最多遍历 64个元素
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -92,7 +98,7 @@ public:
             if (board[i][left] == 'B') break;
             if (board[i][left] == 'p')
             {
-                result++;
+                ++result;
                 break;
             }
         }
@@ -101,7 +107,7 @@ public:
             if (board[i][right] == 'B') break;
             if (board[i][right] == 'p')
             {
-                result++;
+                ++result;
                 break;
             }
         }
@@ -110,7 +116,7 @@ public:
             if (board[up][j] == 'B') break;
             if (board[up][j] == 'p')
             {
-                result++;
+                ++result;
                 break;
             }
         }
@@ -119,7 +125,7 @@ public:
             if (board[down][j] == 'B') break;
             if (board[down][j] == 'p')
             {
-                result++;
+                ++result;
                 break;
             }
         }
@@ -129,6 +135,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int numRookCaptures(char[][] board) {
@@ -172,6 +179,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def numRookCaptures(self, board: List[List[str]]) -> int:

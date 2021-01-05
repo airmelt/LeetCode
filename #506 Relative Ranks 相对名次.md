@@ -1,7 +1,10 @@
+# 506 Relative Ranks 相对名次
+
 __Description__:
 Given scores of N athletes, find their relative ranks and the people with the top three highest scores, who will be awarded medals: "Gold Medal", "Silver Medal" and "Bronze Medal".
 
 __Example:__
+
 Example 1:
 Input: [5, 4, 3, 2, 1]
 Output: ["Gold Medal", "Silver Medal", "Bronze Medal", "4", "5"]
@@ -18,6 +21,7 @@ __题目描述__:
 (注：分数越高的选手，排名越靠前。)
 
 __示例：__
+
 示例 1:
 
 输入: [5, 4, 3, 2, 1]
@@ -31,6 +35,7 @@ N 是一个正整数并且不会超过 10000。
 所有运动员的成绩都不相同。
 
 __思路__:
+
 1. 排序, 把前三名转化成奖牌字符串
 时间复杂度O(nlgn), 空间复杂度O(n)
 2. 空间换时间, 将排名下标存在一个数组中
@@ -38,18 +43,24 @@ __思路__:
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    vector<string> findRelativeRanks(vector<int>& nums) {
+    vector<string> findRelativeRanks(vector<int>& nums) 
+    {
         vector<string> result(nums.size());
         int max_nums = 0, flag = 1;
         for (int i = 0; i < nums.size(); i++) max_nums = max(max_nums, nums[i]);
         int temp[max_nums + 1] = {0};
         for (int i = 0; i < nums.size(); i++) temp[nums[i]] = i + 1;
-        for (int i = max_nums; i >= 0; i--) {
-            if (temp[i] > 0) {
-                switch (flag) {
+        for (int i = max_nums; i >= 0; i--) 
+        {
+            if (temp[i] > 0) 
+            {
+                switch (flag) 
+                {
                     case 1:
                         result[temp[i] - 1] = "Gold Medal";
                         break;
@@ -71,7 +82,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public String[] findRelativeRanks(int[] nums) {
         String[] result = new String[nums.length];
@@ -103,7 +115,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def findRelativeRanks(self, nums: List[int]) -> List[str]:
         rank = {r: i for i, r in enumerate(sorted(nums, reverse=True))}

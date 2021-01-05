@@ -1,3 +1,5 @@
+# 944 Delete Columns to Make Sorted 删列造序
+
 __Description__:
 We are given an array A of N lowercase letter strings, all of the same length.
 
@@ -10,11 +12,12 @@ Suppose we chose a set of deletion indices D such that after deletions, each rem
 Return the minimum possible value of D.length.
 
 __Example:__
+
 Example 1:
 
 Input: ["cba","daf","ghi"]
 Output: 1
-Explanation: 
+Explanation:
 After choosing D = {1}, each column ["c","d","g"] and ["a","f","i"] are in non-decreasing sorted order.
 If we chose D = {}, then a column ["b","a","h"] would not be in non-decreasing sorted order.
 
@@ -29,7 +32,7 @@ Example 3:
 Input: ["zyx","wvu","tsr"]
 Output: 3
 Explanation: D = {0, 1, 2}
- 
+
 __Note:__
 
 1 <= A.length <= 100
@@ -49,6 +52,7 @@ __题目描述__:
 你需要选出一组要删掉的列 D，对 A 执行删除操作，使 A 中剩余的每一列都是 非降序 排列的，然后请你返回 D.length 的最小可能值。
 
 __示例 :__
+
 示例 1：
 
 输入：["cba", "daf", "ghi"]
@@ -68,33 +72,33 @@ __示例 :__
 输入：["zyx", "wvu", "tsr"]
 输出：3
 解释：D = {0, 1, 2}
- 
+
 __提示：__
 
 1 <= A.length <= 100
 1 <= A[i].length <= 1000
 
 __思路__:
+
 检查每一列, 如果不是有序的, 结果加 1
 时间复杂度O(nm), 空间复杂度O(1), 其中 n为数组 A的大小, m为数组 A中元素的大小
 
 __代码__:
 __C++__:
+
 ```C++
-class Solution {
+class Solution 
+{
 public:
     int minDeletionSize(vector<string>& A) 
     {
         int result = 0;
-        for (int j = 0; j < A[0].size(); j++)
+        for (int j = 0; j < A[0].size(); j++) for (int i = 1; i < A.size(); i++)
         {
-            for (int i = 1; i < A.size(); i++)
+            if (A[i][j] < A[i - 1][j])
             {
-                if (A[i][j] < A[i - 1][j])
-                {
-                    result++;
-                    break;
-                }
+                result++;
+                break;
             }
         }
         return result;
@@ -103,6 +107,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int minDeletionSize(String[] A) {
@@ -121,6 +126,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def minDeletionSize(self, A: List[str]) -> int:

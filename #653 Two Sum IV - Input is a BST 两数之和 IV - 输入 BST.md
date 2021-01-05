@@ -1,32 +1,38 @@
+# 653 Two Sum IV - Input is a BST 两数之和 IV - 输入 BST
+
 __Description__:
 Given a Binary Search Tree and a target number, return true if there exist two elements in the BST such that their sum is equal to the given target.
 
 __Example:__
+
 Example 1:
 
-Input: 
-```
+Input:
+
+```text
     5
    / \
   3   6
  / \   \
 2   4   7
 ```
+
 Target = 9
 
 Output: True
- 
 
 Example 2:
 
-Input: 
-```
+Input:
+
+```text
     5
    / \
   3   6
  / \   \
 2   4   7
 ```
+
 Target = 28
 
 Output: False
@@ -35,43 +41,49 @@ __题目描述__:
 给定一个二叉搜索树和一个目标结果，如果 BST 中存在两个元素且它们的和等于给定的目标结果，则返回 true。
 
 __示例 :__
+
 案例 1:
 
-输入: 
-```
+输入:
+
+```text
     5
    / \
   3   6
  / \   \
 2   4   7
 ```
+
 Target = 9
 
 输出: True
- 
 
 案例 2:
 
-输入: 
-```
+输入:
+
+```text
     5
    / \
   3   6
  / \   \
 2   4   7
 ```
+
 Target = 28
 
 输出: False
 
 __思路__:
+
 1. 遍历 BST, 将结点的值存入 set中, 每次判断元素是否在 set内即可, 可以通过剪枝加快搜索速度
 2. 根据 BST的特性, 将其中序遍历转化成升序数组用双指针判断
 时间复杂度O(n), 空间复杂度O(n)
 
 __代码__:
 __C++__:
-```
+
+```C++
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -81,12 +93,15 @@ __C++__:
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
-class Solution {
+class Solution 
+{
 public:
-    bool findTarget(TreeNode* root, int k) {
+    bool findTarget(TreeNode* root, int k) 
+    {
         in_order(root);
         int i = 0, j = list.size() - 1;
-        while (i < j) {
+        while (i < j) 
+        {
             if (list[i] + list[j] == k) return true;
             else if (list[i] + list[j] > k) j--;
             else if (list[i] + list[j] < k) i++;
@@ -95,8 +110,10 @@ public:
     }
 private:
     vector<int> list;
-    void in_order(TreeNode* root) {
-        if (root) {
+    void in_order(TreeNode* root) 
+    {
+        if (root) 
+        {
             in_order(root -> left);
             list.push_back(root -> val);
             in_order(root -> right);
@@ -106,7 +123,8 @@ private:
 ```
 
 __Java__:
-```
+
+```Java
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -132,7 +150,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, x):

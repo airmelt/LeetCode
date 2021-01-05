@@ -1,3 +1,5 @@
+# 344 Reverse String 反转字符串
+
 __Description__:
 Write a function that reverses a string. The input string is given as an array of characters char[].
 
@@ -6,6 +8,7 @@ Do not allocate extra space for another array, you must do this by modifying the
 You may assume all the characters consist of printable ascii characters.
 
 **Example :**
+
 Example 1:
 Input: ["h","e","l","l","o"]
 Output: ["o","l","l","e","h"]
@@ -22,6 +25,7 @@ __题目描述__:
 你可以假设数组中的所有字符都是 ASCII 码表中的可打印字符。
 
 **示例 :**
+
 示例 1：
 输入：["h","e","l","l","o"]
 输出：["o","l","l","e","h"]
@@ -31,18 +35,23 @@ __题目描述__:
 输出：["h","a","n","n","a","H"]
 
 __思路__:
+
 1. 双指针循环交换, 注意到交换的都是可打印字符串, 交换可以用异或进行
 2. 递归
 时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    void reverseString(vector<char>& s) {
+    void reverseString(vector<char>& s) 
+    {
         int i = 0, j = s.size() - 1;
-        while (i < j) {
+        while (i < j) 
+        {
             s[i] ^= s[j];
             s[j] ^= s[i];
             s[i++] ^= s[j--];
@@ -52,7 +61,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public void reverseString(char[] s) {
         swap(0, s.length - 1, s);
@@ -71,7 +81,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def reverseString(self, s: List[str]) -> None:
         """

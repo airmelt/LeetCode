@@ -1,3 +1,5 @@
+# 232 Implement Queue using Stacks 用栈实现队列
+
 __Description__:
 Implement the following operations of a queue using stacks.
 
@@ -7,7 +9,8 @@ peek() -- Get the front element.
 empty() -- Return whether the queue is empty.
 
 **Example:**
-```
+
+```C
 MyQueue queue = new MyQueue();
 
 queue.push(1);
@@ -16,6 +19,7 @@ queue.peek();  // returns 1
 queue.pop();   // returns 1
 queue.empty(); // returns false
 ```
+
 __Notes:__
 
 You must use only standard operations of a stack -- which means only push to top, peek/pop from top, size, and is empty operations are valid.
@@ -31,7 +35,8 @@ peek() -- 返回队列首部的元素。
 empty() -- 返回队列是否为空。
 
 **示例：**
-```
+
+```C
 MyQueue queue = new MyQueue();
 
 queue.push(1);
@@ -40,6 +45,7 @@ queue.peek();  // 返回 1
 queue.pop();   // 返回 1
 queue.empty(); // 返回 false
 ```
+
 __说明:__
 
 你只能使用标准的栈操作 -- 也就是只有 push to top, peek/pop from top, size, 和 is empty 操作是合法的。
@@ -47,31 +53,37 @@ __说明:__
 假设所有操作都是有效的 （例如，一个空的队列不会调用 pop 或者 peek 操作）。
 
 __思路__:
+
 参考[LeetCode #225 Implement Stack using Queues 用队列实现栈](https://www.jianshu.com/p/194e7074a0f6)
 使用 2个栈完成队列
+
 - push()时间复杂度O(1), 空间复杂度O(1)
 - pop()时间复杂度O(n), 空间复杂度O(n)
 - top()时间复杂度O(n), 空间复杂度O(n)
 - empty()时间复杂度O(1), 空间复杂度O(1)
 
-
 __代码__:
 __C++__:
-```
-class MyQueue {
+
+```C++
+class MyQueue 
+{
 public:
     /** Initialize your data structure here. */
-    MyQueue() {
+    MyQueue() 
+    {
 
     }
 
     /** Push element x to the back of queue. */
-    void push(int x) {
+    void push(int x) 
+    {
         in_stack.push(x);
     }
 
     /** Removes the element from in front of queue and returns that element. */
-    int pop() {
+    int pop() 
+    {
         move(in_stack, out_stack);
         int result = out_stack.top();
         out_stack.pop();
@@ -80,7 +92,8 @@ public:
     }
 
     /** Get the front element. */
-    int peek() {
+    int peek() 
+    {
         move(in_stack, out_stack);
         int result = out_stack.top();
         move(out_stack, in_stack);
@@ -88,14 +101,17 @@ public:
     }
 
     /** Returns whether the queue is empty. */
-    bool empty() {
+    bool empty() 
+    {
         return in_stack.empty();
     }
 private:
     stack<int> in_stack;
     stack<int> out_stack;
-    void move(stack<int> &a, stack<int> &b) {
-        while (!a.empty()) {
+    void move(stack<int> &a, stack<int> &b) 
+    {
+        while (!a.empty()) 
+        {
             b.push(a.top());
             a.pop();
         }
@@ -113,7 +129,8 @@ private:
 ```
 
 __Java__:
-```
+
+```Java
 class MyQueue {
 
     private Stack<Integer> stack;
@@ -165,7 +182,8 @@ class MyQueue {
 ```
 
 __Python__:
-```
+
+```Python
 class MyQueue:
 
     def __init__(self):

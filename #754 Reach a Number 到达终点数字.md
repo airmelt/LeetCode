@@ -1,3 +1,5 @@
+# 754 Reach a Number 到达终点数字
+
 __Description__:
 You are standing at position 0 on an infinite number line. There is a goal at position target.
 
@@ -6,6 +8,7 @@ On each move, you can either go left or right. During the n-th move (starting fr
 Return the minimum number of steps required to reach the destination.
 
 __Example:__
+
 Example 1:
 
 Input: target = 3
@@ -28,6 +31,7 @@ __Note:__
 target will be a non-zero integer in the range [-10^9, 10^9].
 
 __题目描述__:
+
 在一根无限长的数轴上，你站在0的位置。终点在target的位置。
 
 每次你可以选择向左或向右移动。第 n 次移动（从 1 开始），可以走 n 步。
@@ -35,6 +39,7 @@ __题目描述__:
 返回到达终点需要的最小移动次数。
 
 __示例 :__
+
 示例 1:
 
 输入: target = 3
@@ -51,12 +56,13 @@ __示例 :__
 第一次移动，从 0 到 1 。
 第二次移动，从 1 到 -1 。
 第三次移动，从 -1 到 2 。
- 
+
 __注意：__
 
 target是在[-10^9, 10^9]范围中的非零整数。
 
 __思路__:
+
 > 首先 target的正负性不影响结果, 比如 target = 3
 3 = 1 + 2; -3 = -1 + (-2)
 只要把每一步取相反数即可, 所以直接可以令 target = abs(target)
@@ -73,24 +79,28 @@ target = 1 + 2 + 3 + 4 - 5 = 5
 比如 target = 9, sum = 1 + 2 + 3 + 4 = 10, 10 - 9 = 1
 target = 1 + 2 - 3 + 4 + 5 = 9
 
-sum = (1 + 2 + 3 + ... + i) = (1 + i) * i / 2 
+sum = (1 + 2 + 3 + ... + i) = (1 + i) \* i / 2
 时间复杂度O(1), 空间复杂度O(1)
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    int reachNumber(int target) {
+    int reachNumber(int target) 
+    {
         int s = 0, i = 1;
-        for (target = abs(target); s < target || (s - target) % 2; i++) s += i;
+        for (target = abs(target); s < target or (s - target) % 2; i++) s += i;
         return --i;
     }
 };
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public int reachNumber(int target) {
         int s = 0, i = 1;
@@ -102,7 +112,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def reachNumber(self, target: int) -> int:
         s, i, target = 0, 1, abs(target)

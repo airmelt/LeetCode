@@ -1,9 +1,12 @@
+# 1071 Greatest Common Divisor of Strings 字符串的最大公因子
+
 __Description__:
 For strings S and T, we say "T divides S" if and only if S = T + ... + T  (T concatenated with itself 1 or more times)
 
 Return the largest string X such that X divides str1 and X divides str2.
 
 __Example:__
+
 Example 1:
 
 Input: str1 = "ABCABC", str2 = "ABC"
@@ -18,7 +21,7 @@ Example 3:
 
 Input: str1 = "LEET", str2 = "CODE"
 Output: ""
- 
+
 __Note:__
 
 1 <= str1.length <= 1000
@@ -31,6 +34,7 @@ __题目描述__:
 返回字符串 X，要求满足 X 能除尽 str1 且 X 能除尽 str2。
 
 __示例 :__
+
 示例 1：
 
 输入：str1 = "ABCABC", str2 = "ABC"
@@ -43,7 +47,7 @@ __示例 :__
 
 输入：str1 = "LEET", str2 = "CODE"
 输出：""
- 
+
 __提示：__
 
 1 <= str1.length <= 1000
@@ -51,12 +55,14 @@ __提示：__
 str1[i] 和 str2[i] 为大写英文字母
 
 __思路__:
+
 辗转相除法, 如果两个字符串有公因子, 那么 A + B一定等于 B + A
 再利用辗转相除法找到两个字符串的长度的公因子即可
 时间复杂度O(lgn), 空间复杂度O(1)
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -71,6 +77,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public String gcdOfStrings(String str1, String str2) {
@@ -84,6 +91,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def gcdOfStrings(self, str1: str, str2: str) -> str:

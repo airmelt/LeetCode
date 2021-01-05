@@ -1,7 +1,11 @@
+# 141 Linked List Cycle 环形链表
+
 __Description__:
 Given a linked list, determine if it has a cycle in it.
 
 To represent a cycle in the given linked list, we use an integer `pos` which represents the position (0-indexed) in the linked list where tail connects to. If `pos` is `-1`, then there is no cycle in the linked list.
+
+**Example:**
 
 **Example 1:**
 **Input:** head = [3,2,0,-4], pos = 1
@@ -33,24 +37,35 @@ __题目描述__:
 
 为了表示给定链表中的环，我们使用整数 `pos` 来表示链表尾连接到链表中的位置（索引从 0 开始）。 如果 `pos` 是 `-1`，则在该链表中没有环。
 
+**示例：**
+
 **示例 1：**
-**输入：**head = [3,2,0,-4], pos = 1
-**输出：**true
-**解释：**链表中有一个环，其尾部连接到第二个节点。
+**输入：**
+head = [3,2,0,-4], pos = 1
+**输出：**
+true
+**解释：**
+链表中有一个环，其尾部连接到第二个节点。
 
 ![示例 1](http://upload-images.jianshu.io/upload_images/16639143-9ea69fbab01f002b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 **示例 2：**
-**输入：**head = [1,2], pos = 0
-**输出：**true
-**解释：**链表中有一个环，其尾部连接到第一个节点。
+**输入：**
+head = [1,2], pos = 0
+**输出：**
+true
+**解释：**
+链表中有一个环，其尾部连接到第一个节点。
 
 ![示例 2](http://upload-images.jianshu.io/upload_images/16639143-bbd993563a6617b2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 **示例 3：**
-**输入：**head = [1], pos = -1
-**输出：**false
-**解释：**链表中没有环。
+**输入：**
+head = [1], pos = -1
+**输出：**
+false
+**解释：**
+链表中没有环。
 
 ![示例 3](http://upload-images.jianshu.io/upload_images/16639143-6644d6442aba72ed.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
@@ -58,12 +73,14 @@ __题目描述__:
 你能用 *O(1)*（即，常量）内存解决此问题吗？
 
 __思路__:
+
 快慢指针
 时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
-```
+
+```C++
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -72,12 +89,14 @@ __C++__:
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
-class Solution {
+class Solution 
+{
 public:
-    bool hasCycle(ListNode *head) {
-        ListNode* fast = head;
-        ListNode* slow = head;
-        while (fast && fast -> next) {            
+    bool hasCycle(ListNode *head) 
+    {
+        ListNode *fast = head, *slow = head;
+        while (fast and fast -> next) 
+        {            
             fast = fast -> next -> next;
             slow = slow -> next;
             if (fast == slow) return true;
@@ -88,7 +107,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 /**
  * Definition for singly-linked list.
  * class ListNode {
@@ -102,8 +122,7 @@ __Java__:
  */
 public class Solution {
     public boolean hasCycle(ListNode head) {
-        ListNode fast = head;
-        ListNode slow = head;
+        ListNode fast = head, slow = head;
         while (fast != null && fast.next != null) {            
             fast = fast.next.next;
             slow = slow.next;
@@ -115,7 +134,8 @@ public class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 # Definition for singly-linked list.
 # class ListNode(object):
 #     def __init__(self, x):

@@ -1,9 +1,12 @@
+# 746 Min Cost Climbing Stairs 使用最小花费爬楼梯
+
 __Description__:
 On a staircase, the i-th step has some non-negative cost cost[i] assigned (0 indexed).
 
 Once you pay the cost, you can either climb one or two steps. You need to find minimum cost to reach the top of the floor, and you can either start from the step with index 0, or the step with index 1.
 
 __Example:__
+
 Example 1:
 
 Input: cost = [10, 15, 20]
@@ -29,13 +32,14 @@ __题目描述__:
 您需要找到达到楼层顶部的最低花费。在开始时，你可以选择从索引为 0 或 1 的元素作为初始阶梯。
 
 __示例 :__
+
 示例 1:
 
 输入: cost = [10, 15, 20]
 输出: 15
 解释: 最低花费是从cost[1]开始，然后走两步即可到阶梯顶，一共花费15。
 
- 示例 2:
+示例 2:
 
 输入: cost = [1, 100, 1, 1, 1, 100, 1, 1, 100, 1]
 输出: 6
@@ -47,24 +51,29 @@ cost 的长度将会在 [2, 1000]。
 每一个 cost[i] 将会是一个Integer类型，范围为 [0, 999]。
 
 __思路__:
+
 参考[LeetCode #70 Climbing Stairs 爬楼梯](https://www.jianshu.com/p/8d7ceb7b7cf6)
 加上每次选择最小的代价即可
 时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    int minCostClimbingStairs(vector<int>& cost) {
+    int minCostClimbingStairs(vector<int>& cost) 
+    {
         for (int i = 2; i < cost.size(); i++) cost[i] += min(cost[i - 1], cost[i - 2]);
-        return cost[cost.size() - 1] < cost[cost.size() - 2] ? cost[cost.size() - 1] : cost[cost.size() - 2];
+        return min(cost[cost.size() - 1], cost[cost.size() - 2]);
     }
 };
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public int minCostClimbingStairs(int[] cost) {
         for (int i = 2; i < cost.length; i++) cost[i] += Math.min(cost[i - 1], cost[i - 2]);
@@ -74,7 +83,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def minCostClimbingStairs(self, cost: List[int]) -> int:
         temp, result = 0, 0

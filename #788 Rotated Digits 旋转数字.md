@@ -1,3 +1,5 @@
+# 788 Rotated Digits 旋转数字
+
 __Description__:
 X is a good number if after rotating each digit individually by 180 degrees, we get a valid number that is different from X.  Each digit must be rotated - we cannot choose to leave it alone.
 
@@ -6,9 +8,10 @@ A number is valid if each digit remains a digit after rotation. 0, 1, and 8 rota
 Now given a positive number N, how many numbers X from 1 to N are good?
 
 __Example:__
+
 Input: 10
 Output: 4
-Explanation: 
+Explanation:
 There are four good numbers in the range [1, 10] : 2, 5, 6, 9.
 Note that 1 and 10 are not good numbers, since they remain unchanged after rotating.
 
@@ -24,9 +27,10 @@ __题目描述__:
 现在我们有一个正整数 N, 计算从 1 到 N 中有多少个数 X 是好数？
 
 __示例 :__
+
 输入: 10
 输出: 4
-解释: 
+解释:
 在[1, 10]中有四个好数： 2, 5, 6, 9。
 注意 1 和 10 不是好数, 因为他们在旋转之后不变。
 
@@ -35,6 +39,7 @@ __注意：__
 N 的取值范围是 [1, 10000]。
 
 __思路__:
+
 1. 动态规划, 一个整数可以划分为 i % 10和 i / 10, 如果这两个数中存在3, 4, 7, 则一定不是好数; 如果这两个数中有2, 5, 6, 9则一定是好数
 时间复杂度O(n), 空间复杂度O(n)
 2. 对每一个数计算, 只要有3, 4, 7一定不是好数, 至少要有一位数是 2, 5, 6, 9
@@ -44,19 +49,22 @@ __思路__:
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    int rotatedDigits(int N) {
+    int rotatedDigits(int N) 
+    {
         int result = 0;
         vector<int> dp(N + 1, 0);
-        for (int i = 1; i <= N; i++) {
-            if (i == 3 || i == 4 || i == 7 ||
-                dp[i % 10] == -1 || dp[i / 10] == -1) dp[i] = -1;
-            else if (i == 2 || i == 5 || i == 6 || i == 9 ||
-                dp[i % 10] == 1 || dp[i / 10] == 1) {
+        for (int i = 1; i <= N; i++) 
+        {
+            if (i == 3 or i == 4 or i == 7 or dp[i % 10] == -1 or dp[i / 10] == -1) dp[i] = -1;
+            else if (i == 2 or i == 5 or i == 6 or i == 9 or dp[i % 10] == 1 or dp[i / 10] == 1) 
+            {
                 dp[i] = 1;
-                result++;
+                ++result;
             }
         }
         return result;
@@ -65,7 +73,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public int rotatedDigits(int N) {
         int result = 0;
@@ -87,7 +96,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def rotatedDigits(self, N: int) -> int:
         return len([i for i in range(1, N + 1) if not any([d for d in str(i) if int(d) in (3, 4, 7)]) and any([d for d in str(i) if int(d) in (2, 5, 6, 9)])])

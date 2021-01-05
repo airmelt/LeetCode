@@ -1,8 +1,11 @@
+# 171 Excel Sheet Column Number Excel表列序号
+
 __Description__:
 Given a column title as appear in an Excel sheet, return its corresponding column number.
 
 For example:
 
+```text
     A -> 1
     B -> 2
     C -> 3
@@ -11,8 +14,10 @@ For example:
     AA -> 27
     AB -> 28
     ...
+```
 
 __Example__:
+
 Example 1:
 Input: "A"
 Output: 1
@@ -30,6 +35,7 @@ __题目描述__:
 
 例如，
 
+```text
     A -> 1
     B -> 2
     C -> 3
@@ -38,8 +44,10 @@ __题目描述__:
     AA -> 27
     AB -> 28
     ...
+```
 
 __示例__:
+
 示例 1:
 输入: "A"
 输出: 1
@@ -53,17 +61,22 @@ __示例__:
 输出: 701
 
 __思路__:
+
 相当于 26进制转化为 10进制
 时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    int titleToNumber(string s) {
+    int titleToNumber(string s) 
+    {
         int result = 0;
-        for (char c : s) {
+        for (auto c : s) 
+        {
             result *= 26;
             result += c - 'A' + 1;
         }
@@ -73,13 +86,16 @@ public:
 ```
 
 __Java__:
-```
-class Solution {
-    public int titleToNumber(String s) {
+
+```Java
+class Solution 
+{
+    public int titleToNumber(String s) 
+    {
         int result = 0;
-        for (int i = 0; i < s.length(); i++) {
+        for (char c : s.toCharArray()) {
             result *= 26;
-            result += s.charAt(i) - 'A' + 1;
+            result += c - 'A' + 1;
         }
         return result;
     }
@@ -87,7 +103,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def titleToNumber(self, s: str) -> int:
         result = 0

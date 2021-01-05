@@ -1,3 +1,5 @@
+# 682 Baseball Game 棒球比赛
+
 __Description__:
 You're now a baseball game point recorder.
 
@@ -12,11 +14,12 @@ Each round's operation is permanent and could have an impact on the round before
 You need to return the sum of the points you could get in all the rounds.
 
 __Example:__
+
 Example 1:
 
 Input: ["5","2","C","D","+"]
 Output: 30
-Explanation: 
+Explanation:
 Round 1: You could get 5 points. The sum is: 5.
 Round 2: You could get 2 points. The sum is: 7.
 Operation 1: The round 2's data was invalid. The sum is: 5.  
@@ -27,7 +30,7 @@ Example 2:
 
 Input: ["5","-2","4","C","D","9","+","+"]
 Output: 27
-Explanation: 
+Explanation:
 Round 1: You could get 5 points. The sum is: 5.
 Round 2: You could get -2 points. The sum is: 3.
 Round 3: You could get 4 points. The sum is: 7.
@@ -45,7 +48,8 @@ Every integer represented in the list will be between -30000 and 30000.
 __题目描述__:
 你现在是棒球比赛记录员。
 给定一个字符串列表，每个字符串可以是以下四种类型之一：
-1.整数（一轮的得分）：直接表示您在本轮中获得的积分数。
+
+1. 整数（一轮的得分）：直接表示您在本轮中获得的积分数。
 2. "+"（一轮的得分）：表示本轮获得的得分是前两轮有效 回合得分的总和。
 3. "D"（一轮的得分）：表示本轮获得的得分是前一轮有效 回合得分的两倍。
 4. "C"（一个操作，这不是一个回合的分数）：表示您获得的最后一个有效 回合的分数是无效的，应该被移除。
@@ -54,11 +58,12 @@ __题目描述__:
 你需要返回你在所有回合中得分的总和。
 
 __示例 :__
+
 示例 1:
 
 输入: ["5","2","C","D","+"]
 输出: 30
-解释: 
+解释:
 第1轮：你可以得到5分。总和是：5。
 第2轮：你可以得到2分。总和是：7。
 操作1：第2轮的数据无效。总和是：5。
@@ -69,7 +74,7 @@ __示例 :__
 
 输入: ["5","-2","4","C","D","9","+","+"]
 输出: 27
-解释: 
+解释:
 第1轮：你可以得到5分。总和是：5。
 第2轮：你可以得到-2分。总数是：3。
 第3轮：你可以得到4分。总和是：7。
@@ -85,29 +90,37 @@ __注意:__
 列表中的每个整数都将介于-30000和30000之间。
 
 __思路__:
+
 用栈(可以用数组代替栈)记录每次的操作和操作数即可
 时间复杂度O(n), 空间复杂度O(n)
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    int calPoints(vector<string>& ops) {
+    int calPoints(vector<string>& ops) 
+    {
         int result = 0;
         stack<int> s;
-        for (auto op : ops) {
+        for (auto op : ops) 
+        {
             if (op == "D") s.push(2 * s.top());
             else if (op == "C") s.pop();
-            else if (op == "+") {
+            else if (op == "+") 
+            {
                 int a = s.top();
                 s.pop();
                 int b = s.top();
                 s.push(a);
                 s.push(a + b);
-            } else s.push(stoi(op));
+            } 
+            else s.push(stoi(op));
         }
-        while (s.size()) {
+        while (s.size()) 
+        {
             result += s.top();
             s.pop();
         }
@@ -117,7 +130,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public int calPoints(String[] ops) {
         int stack[] = new int[1000], i = 0, result = 0;
@@ -147,7 +161,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def calPoints(self, ops: List[str]) -> int:
         stack= []

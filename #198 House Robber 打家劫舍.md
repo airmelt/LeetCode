@@ -1,9 +1,12 @@
+# 198 House Robber 打家劫舍
+
 __Description__:
 You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security system connected and it will automatically contact the police if two adjacent houses were broken into on the same night.
 
 Given a list of non-negative integers representing the amount of money of each house, determine the maximum amount of money you can rob tonight without alerting the police.
 
 **Example:**
+
 Example 1:
 Input: [1,2,3,1]
 Output: 4
@@ -22,6 +25,7 @@ __题目描述__:
 给定一个代表每个房屋存放金额的非负整数数组，计算你在不触动警报装置的情况下，能够偷窃到的最高金额。
 
 **示例：**
+
 示例 1:
 输入: [1,2,3,1]
 输出: 4
@@ -35,6 +39,7 @@ __题目描述__:
      偷窃到的最高金额 = 2 + 9 + 1 = 12 。
 
 __思路__:
+
 动态规划
 状态转移公式为: f(n) = max[f(n - 1), f(n - 2) + an]
 如果采用数组保存, 空间复杂度为O(n)(Java代码, 自顶向下/C++代码, 自底向上)
@@ -43,26 +48,28 @@ __思路__:
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    int rob(vector<int>& nums) {
+    int rob(vector<int>& nums) 
+    {
         int len = nums.size();
         if (len == 0) return 0;
         if (len == 1) return nums[0];
         vector<int> memo(len);
         memo[0] = nums[0];
         memo[1] = nums[0] > nums[1] ? nums[0] : nums[1];
-        for (int i = 2; i < len; i++) {
-            memo[i] = max(memo[i - 1], memo[i - 2] + nums[i]);
-        }
+        for (int i = 2; i < len; i++) memo[i] = max(memo[i - 1], memo[i - 2] + nums[i]);
         return memo[len - 1];
     }
 };
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     private int[] memo;
     
@@ -90,7 +97,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def rob(self, nums: List[int]) -> int:
         pre, result = 0, 0

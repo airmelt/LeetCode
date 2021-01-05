@@ -1,3 +1,5 @@
+# 914 X of a Kind in a Deck of Cards 卡牌分组
+
 __Description__:
 In a deck of cards, each card has an integer written on it.
 
@@ -5,8 +7,9 @@ Return true if and only if you can choose X >= 2 such that it is possible to s
 
 Each group has exactly X cards.
 All the cards in each group have the same integer.
- 
+
 __Example:__
+
 Example 1:
 
 Input: [1,2,3,4,4,3,2,1]
@@ -52,6 +55,7 @@ __题目描述__:
 仅当你可选的 X >= 2 时返回 true。
 
 __示例 :__
+
 示例 1：
 
 输入：[1,2,3,4,4,3,2,1]
@@ -88,13 +92,16 @@ __提示：__
 0 <= deck[i] < 10000
 
 __思路__:
+
 用 map(Counter)记录下每个元素的出现次数, 取所有出现次数的最小公倍数, 返回最小公倍数是否大于等于 2即可
 时间复杂度O(n), 空间复杂度O(n)
 
 __代码__:
 __C++__:
+
 ```C++
-class Solution {
+class Solution 
+{
 public:
     bool hasGroupsSizeX(vector<int>& deck) 
     {
@@ -117,6 +124,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public boolean hasGroupsSizeX(int[] deck) {
@@ -134,6 +142,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def hasGroupsSizeX(self, deck: List[int]) -> bool:

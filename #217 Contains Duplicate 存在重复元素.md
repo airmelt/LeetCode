@@ -1,9 +1,12 @@
+# 217 Contains Duplicate 存在重复元素
+
 __Description__:
 Given an array of integers, find if the array contains any duplicates.
 
 Your function should return true if any value appears at least twice in the array, and it should return false if every element is distinct.
 
 **Example:**
+
 Example 1:
 Input: [1,2,3,1]
 Output: true
@@ -22,6 +25,7 @@ __题目描述__:
 如果任何值在数组中出现至少两次，函数返回 true。如果数组中每个元素都不相同，则返回 false。
 
 __示例__:
+
 示例 1:
 输入: [1,2,3,1]
 输出: true
@@ -35,15 +39,19 @@ __示例__:
 输出: true
 
 __思路__:
+
 利用 set或者 map记录出现过的数字, 用排序会增加时间复杂度到 O(nlgn)
 时间复杂度O(n), 空间复杂度O(n)
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    bool containsDuplicate(vector<int>& nums) {
+    bool containsDuplicate(vector<int>& nums) 
+    {
         set<int> s(nums.begin(), nums.end());
         return nums.size() != s.size();
     }
@@ -51,7 +59,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public boolean containsDuplicate(int[] nums) {
         Map<Integer, Integer> map = new HashMap<>();
@@ -65,7 +74,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
         return len(nums) != len(set(nums))

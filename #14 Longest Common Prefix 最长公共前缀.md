@@ -1,9 +1,12 @@
+# 14 Longest Common Prefix 最长公共前缀
+
 __Description__:
 Write a function to find the longest common prefix string amongst an array of strings.
 
 If there is no common prefix, return an empty string "".
 
 __Example__:
+
 Example 1:
 Input: ["flower","flow","flight"]
 Output: "fl"
@@ -22,6 +25,7 @@ __题目描述__:
 如果不存在公共前缀，返回空字符串 ""。
 
 __示例__:
+
 示例 1:
 输入: ["flower","flow","flight"]
 输出: "fl"
@@ -36,19 +40,22 @@ __说明__:
 
 __思路__:
 
-1, 先遍历选出最短的词, 在最短的词中用二分法选择子串
+1. 先遍历选出最短的词, 在最短的词中用二分法选择子串
 2. [字典树/前缀树](https://www.cnblogs.com/dlutxm/archive/2011/10/26/2225660.html)
 时间复杂度O(n), 空间复杂度O(n)
 
 __代码__:
 __C++__:
-```
-struct Node {
+
+```C++
+struct Node 
+{
     char c;
     int level;
     int child;
     unordered_map<char, Node*> map;
-    Node(char c) {
+    Node(char c) 
+    {
         this -> c = c;
         level = 0;
         child = 0;
@@ -56,24 +63,30 @@ struct Node {
     Node() {}
 };
 
-class PreTree {
+class PreTree 
+{
     private:
         Node* head;
     public:
-        PreTree() {
+        PreTree() 
+        {
             head = new Node();
         }
-        void insert(string str) {
+
+        void insert(string str) 
+        {
             if (str.size() == 0) return;
             int size = str.size();
             // c_str()生成一个指针, 指向'\0'结尾的数组
             // data()生成的数组不包括'\0'
             char* c = (char*)str.data();
             Node* p = head;
-            for (int i = 0; i < size; i++) {
+            for (int i = 0; i < size; i++) 
+            {
                 (p -> level)++;
                 // end()返回一个指向对象容器结尾的迭代器
-                if (p -> map.find(c[i]) == p -> map.end()) {
+                if (p -> map.find(c[i]) == p -> map.end()) 
+                {
                     Node* new_node = new Node(c[i]);
                     p -> map[c[i]] = new_node;
                 }
@@ -83,17 +96,24 @@ class PreTree {
             }
             (p -> child)++;
         }
-        bool findHelper(string str, int n) {
+
+        bool findHelper(string str, int n) 
+        {
             if (str.size() == 0) return false;
             Node* p = head;
             int size = str.size();
             char* c = (char*)str.data();
-            for (int i = 0; i < size; i++) {
-                if (p -> map.find(c[i]) == p -> map.end()) {
+            for (int i = 0; i < size; i++) 
+            {
+                if (p -> map.find(c[i]) == p -> map.end()) 
+                {
                     return false;
-                } else {
+                } 
+                else 
+                {
                     int len = p -> map.find(c[i]) -> second -> level + p -> map.find(c[i]) -> second -> child;
-                    if (len != n) {
+                    if (len != n) 
+                    {
                         return false;
                     }
                 }
@@ -102,9 +122,12 @@ class PreTree {
             return true;
         }
 };
-class Solution {
+
+class Solution 
+{
 public:
-    string longestCommonPrefix(vector<string>& strs) {
+    string longestCommonPrefix(vector<string>& strs) 
+    {
         if (strs.size() == 0) return "";
         if (strs.size() == 1) return strs[0];
         int size = strs.size();
@@ -112,15 +135,20 @@ public:
         int len = s.size();
         int length = 0;
         PreTree pre;
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < size; i++) 
+        {
             pre.insert(strs[i]);
         }
         string help;
-        for (int i = 0; i < len; i++) {
+        for (int i = 0; i < len; i++) 
+        {
             help = s.substr(0, i + 1);
-            if (pre.findHelper(help, size)) {
+            if (pre.findHelper(help, size)) 
+            {
                 length++;
-            } else {
+            } 
+            else 
+            {
                 break;
             }
         }
@@ -130,7 +158,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public String longestCommonPrefix(String[] strs) {
         if (strs == null || strs.length == 0) return "";
@@ -163,7 +192,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def longestCommonPrefix(self, strs: List[str]) -> str:
         if not strs:

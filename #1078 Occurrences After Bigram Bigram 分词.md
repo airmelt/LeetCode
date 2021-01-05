@@ -1,9 +1,12 @@
+# 1078 Occurrences After Bigram Bigram 分词
+
 __Description__:
 Given words first and second, consider occurrences in some text of the form "first second third", where second comes immediately after first, and third comes immediately after second.
 
 For each such occurrence, add "third" to the answer, and return the answer.
 
 __Example:__
+
 Example 1:
 
 Input: text = "alice is a good girl she is a good student", first = "a", second = "good"
@@ -13,7 +16,7 @@ Example 2:
 
 Input: text = "we will we will rock you", first = "we", second = "will"
 Output: ["we","rock"]
- 
+
 __Note:__
 
 1 <= text.length <= 1000
@@ -27,6 +30,7 @@ __题目描述__:
 对于每种这样的情况，将第三个词 "third" 添加到答案中，并返回答案。
 
 __示例 :__
+
 示例 1：
 
 输入：text = "alice is a good girl she is a good student", first = "a", second = "good"
@@ -36,7 +40,7 @@ __示例 :__
 
 输入：text = "we will we will rock you", first = "we", second = "will"
 输出：["we","rock"]
- 
+
 __提示：__
 
 1 <= text.length <= 1000
@@ -45,11 +49,13 @@ text 由一些用空格分隔的单词组成，每个单词都由小写英文�
 first 和 second 由小写英文字母组成
 
 __思路__:
+
 将字符串按照空格字符分开, 查找到符合题目要求的字符串就加入结果
 时间复杂度O(n), 空间复杂度O(n)
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -75,6 +81,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public String[] findOcurrences(String text, String first, String second) {
@@ -87,6 +94,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def findOcurrences(self, text: str, first: str, second: str) -> List[str]:

@@ -8,6 +8,7 @@ Two strings are isomorphic if the characters in s can be replaced to get t.
 All occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character but a character may map to itself.
 
 **Example:**
+
 Example 1:
 Input: s = "egg", t = "add"
 Output: true
@@ -31,6 +32,7 @@ __题目描述__:
 所有出现的字符都必须用另一个字符替换，同时保留字符的顺序。两个字符不能映射到同一个字符上，但字符可以映射自己本身。
 
 **示例：**
+
 示例 1:
 输入: s = "egg", t = "add"
 输出: true

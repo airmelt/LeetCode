@@ -1,9 +1,12 @@
+# 581 Shortest Unsorted Continuous Subarray 最短无序连续子数组
+
 __Description__:
 Given an integer array, you need to find one continuous subarray that if you only sort this subarray in ascending order, then the whole array will be sorted in ascending order, too.
 
 You need to find the shortest such subarray and output its length.
 
 __Example:__
+
 Example 1:
 Input: [2, 6, 4, 8, 10, 9, 15]
 Output: 5
@@ -19,6 +22,7 @@ __题目描述__:
 你找到的子数组应是最短的，请输出它的长度。
 
 __示例 :__
+
 示例 1:
 
 输入: [2, 6, 4, 8, 10, 9, 15]
@@ -31,6 +35,7 @@ __说明 :__
 输入的数组可能包含重复元素 ，所以升序的意思是<=。
 
 __思路__:
+
 1. 排序之后比较位置差别
 时间复杂度O(nlgn), 空间复杂度O(1)
 2. 设置两个指针分别指向数组的最大值和最小值, 初始值设为 0和 -1保证数组有序的时候输出 0
@@ -38,12 +43,16 @@ __思路__:
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    int findUnsortedSubarray(vector<int>& nums) {
+    int findUnsortedSubarray(vector<int>& nums) 
+    {
         int len = nums.size(), start = 0, end = -1, min_nums = nums[len - 1], max_nums = nums[0];
-        for (int i = 0, pos = 0; i < len; i++) {
+        for (int i = 0, pos = 0; i < len; i++) 
+        {
             pos = len - 1 - i;
             max_nums = max(max_nums, nums[i]);
             min_nums = min(min_nums, nums[pos]);
@@ -56,7 +65,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public int findUnsortedSubarray(int[] nums) {
         int len = nums.length, start = 0, end = -1, min = nums[len - 1], max = nums[0];
@@ -73,7 +83,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def findUnsortedSubarray(self, nums: List[int]) -> int:
         return len([i for i, (a, b) in enumerate(zip(nums, sorted(nums))) if a != b]) and [i for i, (a, b) in enumerate(zip(nums, sorted(nums))) if a != b][-1] - [i for i, (a, b) in enumerate(zip(nums, sorted(nums))) if a != b][0] + 1

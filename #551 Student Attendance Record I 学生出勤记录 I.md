@@ -1,3 +1,5 @@
+# 551 Student Attendance Record I 学生出勤记录 I
+
 __Description__:
 You are given a string representing an attendance record for a student. The record only contains the following three characters:
 'A' : Absent.
@@ -8,6 +10,7 @@ A student could be rewarded if his attendance record doesn't contain more than o
 You need to return whether the student could be rewarded according to his attendance record.
 
 __Example:__
+
 Example 1:
 Input: "PPALLP"
 Output: True
@@ -27,6 +30,7 @@ __题目描述__:
 你需要根据这个学生的出勤记录判断他是否会被奖赏。
 
 __示例 :__
+
 示例 1:
 
 输入: "PPALLP"
@@ -37,17 +41,22 @@ __示例 :__
 输出: False
 
 __思路__:
+
 扫描一遍找到 A的数量, 然后判断 'LLL'是否在字符串中即可
 时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    bool checkRecord(string s) {
+    bool checkRecord(string s) 
+    {
         int countA = 0;
-        for (char c : s) {
+        for (char c : s) 
+        {
             if (c == 'A') countA++;
             if (countA > 1) return false;
         }
@@ -57,7 +66,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public boolean checkRecord(String s) {
         int countA = 0;
@@ -71,7 +81,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def checkRecord(self, s: str) -> bool:
         return 'LLL' not in s and s.count('A') < 2

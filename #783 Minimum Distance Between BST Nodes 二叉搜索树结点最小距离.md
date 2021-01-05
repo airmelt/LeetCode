@@ -1,3 +1,5 @@
+# 783 Minimum Distance Between BST Nodes 二叉搜索树结点最小距离
+
 __Description__:
 Given a Binary Search Tree (BST) with the root node root, return the minimum difference between the values of any two different nodes in the tree.
 
@@ -9,13 +11,15 @@ Explanation:
 Note that root is a TreeNode object, not an array.
 
 The given tree [4,2,6,1,3,null,null] is represented by the following diagram:
-```
+
+```text
           4
         /   \
       2      6
      / \    
     1   3  
 ```
+
 while the minimum difference in this tree is 1, it occurs between node 1 and node 2, also between node 3 and node 2.
 
 __Note:__
@@ -34,13 +38,15 @@ __示例 :__
 注意，root是树结点对象(TreeNode object)，而不是数组。
 
 给定的树 [4,2,6,1,3,null,null] 可表示为下图:
-```
+
+```text
           4
         /   \
       2      6
      / \    
     1   3  
 ```
+
 最小的差值是 1, 它是节点1和节点2的差值, 也是节点3和节点2的差值。
 
 __注意：__
@@ -49,12 +55,14 @@ __注意：__
 二叉树总是有效的，每个节点的值都是整数，且不重复。
 
 __思路__:
+
 本题与[LeetCode #530 Minimum Absolute Difference in BST 二叉搜索树的最小绝对差](https://www.jianshu.com/p/b3b3dc64be1d)重复
 时间复杂度O(n), 空间复杂度O(n)
 
 __代码__:
 __C++__:
-```
+
+```C++
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -64,17 +72,23 @@ __C++__:
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
-class Solution {
+class Solution 
+{
 public:
-    int getMinimumDifference(TreeNode* root) {
+    int getMinimumDifference(TreeNode* root) 
+    {
         stack<TreeNode*> s;
         TreeNode* pre = NULL;
         int result = (1 << 31) - 1;
-        while (root || s.size()) {
-            if (root) {
+        while (root or s.size()) 
+        {
+            if (root) 
+            {
                 s.push(root);
                 root = root -> left;
-            } else {
+            } 
+            else 
+            {
                 root = s.top();
                 s.pop();
                 if (pre) result = min(result, abs(root -> val - pre -> val));
@@ -88,7 +102,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -117,7 +132,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, x):

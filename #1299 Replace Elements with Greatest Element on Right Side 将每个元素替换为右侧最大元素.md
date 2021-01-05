@@ -1,14 +1,17 @@
+# 1299 Replace Elements with Greatest Element on Right Side 将每个元素替换为右侧最大元素
+
 __Description__:
 Given an array arr, replace every element in that array with the greatest element among the elements to its right, and replace the last element with -1.
 
 After doing so, return the array.
 
 __Example:__
+
 Example 1:
 
 Input: arr = [17,18,5,4,6,1]
 Output: [18,6,6,6,1,-1]
- 
+
 __Constraints:__
 
 1 <= arr.length <= 10^4
@@ -23,18 +26,20 @@ __示例 :__
 
 输入：arr = [17,18,5,4,6,1]
 输出：[18,6,6,6,1,-1]
- 
+
 __提示：__
 
 1 <= arr.length <= 10^4
 1 <= arr[i] <= 10^5
 
 __思路__:
+
 逆序遍历, 记录最大值和当前值, 原地修改即可
 时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -53,6 +58,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int[] replaceElements(int[] arr) {
@@ -68,6 +74,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def replaceElements(self, arr: List[int]) -> List[int]:

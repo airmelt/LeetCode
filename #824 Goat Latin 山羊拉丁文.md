@@ -1,3 +1,5 @@
+# 824 Goat Latin 山羊拉丁文
+
 __Description__:
 A sentence S is given, composed of words separated by spaces. Each word consists of lowercase and uppercase letters only.
 
@@ -7,15 +9,16 @@ The rules of Goat Latin are as follows:
 
 If a word begins with a vowel (a, e, i, o, or u), append "ma" to the end of the word.
 For example, the word 'apple' becomes 'applema'.
- 
+
 If a word begins with a consonant (i.e. not a vowel), remove the first letter and append it to the end, then add "ma".
 For example, the word "goat" becomes "oatgma".
- 
+
 Add one letter 'a' to the end of each word per its word index in the sentence, starting with 1.
 For example, the first word gets "a" added to the end, the second word gets "aa" added to the end and so on.
-Return the final sentence representing the conversion from S to Goat Latin. 
+Return the final sentence representing the conversion from S to Goat Latin.
 
 __Example:__
+
 Example 1:
 
 Input: "I speak Goat Latin"
@@ -25,7 +28,7 @@ Example 2:
 
 Input: "The quick brown fox jumped over the lazy dog"
 Output: "heTmaa uickqmaaa rownbmaaaa oxfmaaaaa umpedjmaaaaaa overmaaaaaaa hetmaaaaaaaa azylmaaaaaaaaa ogdmaaaaaaaaaa"
- 
+
 __Notes:__
 
 S contains only uppercase, lowercase and spaces. Exactly one space between each word.
@@ -49,6 +52,7 @@ __题目描述__:
 返回将 S 转换为山羊拉丁文后的句子。
 
 __示例 :__
+
 示例 1:
 
 输入: "I speak Goat Latin"
@@ -58,19 +62,23 @@ __示例 :__
 
 输入: "The quick brown fox jumped over the lazy dog"
 输出: "heTmaa uickqmaaa rownbmaaaa oxfmaaaaa umpedjmaaaaaa overmaaaaaaa hetmaaaaaaaa azylmaaaaaaaaa ogdmaaaaaaaaaa"
+
 __说明：__
 
 S 中仅包含大小写字母和空格。单词间有且仅有一个空格。
 1 <= S.length <= 150。
 
 __思路__:
+
 用 split拆分之后按照规则添加然后合并即可
 时间复杂度O(n), 空间复杂度O(n)
 
 __代码__:
 __C++__:
+
 ```C++
-class Solution {
+class Solution 
+{
 public:
     string toGoatLatin(string S) 
     {
@@ -97,7 +105,7 @@ public:
             for (int j = 0;j < i + 1;j++) nums[i] += "a";
         } 
         string result = "";
-        for (int i = 0; i < nums.size(); i++) result += nums[i] +" ";
+        for (int i = 0; i < nums.size(); i++) result += nums[i] + " ";
         result.resize(result.size() - 1);
         return result;
     }
@@ -105,6 +113,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public String toGoatLatin(String S) {
@@ -128,6 +137,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def toGoatLatin(self, S: str) -> str:

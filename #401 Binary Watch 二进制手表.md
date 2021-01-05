@@ -1,3 +1,5 @@
+# 401 Binary Watch 二进制手表
+
 __Description__:
 A binary watch has 4 LEDs on the top which represent the hours (0-11), and the 6 LEDs on the bottom represent the minutes (0-59).
 
@@ -32,7 +34,6 @@ __案例:__
 
 输入: n = 1
 返回: ["1:00", "2:00", "4:00", "8:00", "0:01", "0:02", "0:04", "0:08", "0:16", "0:32"]
- 
 
 __注意事项:__
 
@@ -41,6 +42,7 @@ __注意事项:__
 分钟必须由两位数组成，可能会以零开头，比如 “10:2” 是无效的，应为 “10:02”。
 
 __思路__:
+
 参考[Java源码Integer.bitCount算法解析，分析原理（统计二进制bit位）
 ](https://segmentfault.com/a/1190000015763941)
 设置两个指针, 一个为时针(0~12), 一个为分针(0~60), 统计二进制中 1的数量满足要求的即可
@@ -48,20 +50,21 @@ __思路__:
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    vector<string> readBinaryWatch(int num) {
+    vector<string> readBinaryWatch(int num) 
+    {
         vector<string> result;
-        for (int i = 0; i < 12; i++)
-            for (int j = 0; j < 60; j++)
-                // 左移 6位是为了j(j < 64)与 i一定不相交, 取 6-28都可以
-                if (bitCount((i << 6) | j) == num)
-                    result.push_back(to_string(i) + ":" + (j > 9 ? "" : "0") + to_string(j));
+        // 左移 6位是为了j(j < 64)与 i一定不相交, 取 6-28都可以
+        for (int i = 0; i < 12; i++) for (int j = 0; j < 60; j++) if (bitCount((i << 6) | j) == num) result.push_back(to_string(i) + ":" + (j > 9 ? "" : "0") + to_string(j));
         return result;
     }
 private:
-    int bitCount(int i) {
+    int bitCount(int i) 
+    {
         i = (i & 0x55555555) + ((i >> 1) & 0x55555555);
         i = (i & 0x33333333) + ((i >> 2) & 0x33333333);
         i = (i & 0x0f0f0f0f) + ((i >> 4) & 0x0f0f0f0f);
@@ -73,21 +76,20 @@ private:
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public List<String> readBinaryWatch(int num) {
         List<String> result = new ArrayList<>();
-        for (int i = 0; i < 12; i++)
-            for (int j = 0; j < 60; j++)
-                if (Integer.bitCount((i << 6) | j) == num)
-                    result.add(i + ":" + (j > 9 ? "" : "0") + j);
+        for (int i = 0; i < 12; i++) for (int j = 0; j < 60; j++) if (Integer.bitCount((i << 6) | j) == num) result.add(i + ":" + (j > 9 ? "" : "0") + j);
         return result;
     }
 }
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def readBinaryWatch(self, num: int) -> List[str]:
         result = []

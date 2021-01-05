@@ -1,3 +1,5 @@
+# 1175 Prime Arrangements 质数排列
+
 __Description__:
 Return the number of permutations of 1 to n so that prime numbers are at prime indices (1-indexed.)
 
@@ -6,6 +8,7 @@ Return the number of permutations of 1 to n so that prime numbers are at prime i
 Since the answer may be large, return the answer modulo 10^9 + 7.
 
 __Example:__
+
 Example 1:
 
 Input: n = 5
@@ -16,7 +19,7 @@ Example 2:
 
 Input: n = 100
 Output: 682289015
- 
+
 __Constraints:__
 
 1 <= n <= 100
@@ -29,6 +32,7 @@ __题目描述__:
 由于答案可能会很大，所以请你返回答案 模 mod 10^9 + 7 之后的结果即可。
 
 __示例 :__
+
 示例 1：
 
 输入：n = 5
@@ -39,13 +43,15 @@ __示例 :__
 
 输入：n = 100
 输出：682289015
- 
+
 __提示：__
 
 1 <= n <= 100
 
 __思路__:
+
 题意是要把质数放在质数位置(下标)上, 非质数放在非质数位置上
+
 1. 打表法, 因为 n <= 100, 直接计算出来查表
 时间复杂度O(1), 空间复杂度O(1)
 2. 参考[LeetCode #204 Count Primes 计数质数](https://www.jianshu.com/p/4d4497c3fc75), 先计算出来小于 n + 1的质数的个数, 分别求质数的个数的全排列数和其他的个数的全排列数的乘积, 记得要取模
@@ -53,6 +59,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -90,6 +97,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int numPrimeArrangements(int n) {
@@ -121,6 +129,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def numPrimeArrangements(self, n: int) -> int:

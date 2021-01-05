@@ -1,3 +1,5 @@
+# 933 Number of Recent Calls 最近的请求次数
+
 __Description__:
 Write a class RecentCounter to count recent requests.
 
@@ -10,11 +12,12 @@ Any ping with time in [t - 3000, t] will count, including the current ping.
 It is guaranteed that every call to ping uses a strictly larger value of t than before.
 
 __Example:__
+
 Example 1:
 
 Input: inputs = ["RecentCounter","ping","ping","ping","ping"], inputs = [[],[1],[100],[3001],[3002]]
 Output: [null,1,2,3,3]
- 
+
 __Note:__
 
 Each test case will have at most 10000 calls to ping.
@@ -36,22 +39,24 @@ __示例 :__
 
 输入：inputs = ["RecentCounter","ping","ping","ping","ping"], inputs = [[],[1],[100],[3001],[3002]]
 输出：[null,1,2,3,3]
- 
+
 __提示：__
 
 每个测试用例最多调用 10000 次 ping。
 每个测试用例会使用严格递增的 t 值来调用 ping。
 每次调用 ping 都有 1 <= t <= 10^9。
 
-
 __思路__:
+
 维护一个长度为 3000的滑动窗口, 可用队列实现
 时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
+
 ```C++
-class RecentCounter {
+class RecentCounter 
+{
 public:
     RecentCounter() {}
     
@@ -74,6 +79,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 class RecentCounter {
 
@@ -98,6 +104,7 @@ class RecentCounter {
 ```
 
 __Python__:
+
 ```Python
 class RecentCounter:
 

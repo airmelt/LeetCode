@@ -1,58 +1,71 @@
+# 101 Symmetric Tree 对称二叉树
+
 __Description__:
 Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).
 
 __Example__:
+
 For example, this binary tree [1,2,2,3,4,4,3] is symmetric:
-```
+
+```text
     1
    / \
   2   2
  / \ / \
 3  4 4  3
 ```
+
 But the following [1,2,2,null,3,null,3] is not:
-```
+
+```text
     1
    / \
   2   2
    \   \
    3    3
 ```
+
 __Note__:
 Bonus points if you could solve it both recursively and iteratively.
-
 
 __题目描述__:
 给定一个二叉树，检查它是否是镜像对称的。
 
- __示例__:
+__示例__:
+
 例如，二叉树 [1,2,2,3,4,4,3] 是对称的。
-```
+
+```text
     1
    / \
   2   2
  / \ / \
 3  4 4  3
 ```
+
 但是下面这个 [1,2,2,null,3,null,3] 则不是镜像对称的:
-```
+
+```text
     1
    / \
   2   2
    \   \
    3    3
 ```
+
 __说明__:
 如果你可以运用递归和迭代两种方法解决这个问题，会很加分。
 
 __思路__:
+
 本题与[LeetCode #100 Same Tree 相同的树](https://www.jianshu.com/p/bd2076be1764)思路类似
 不过是将根结点的左子树和根结点的右子树对称比较, 可以用递归(C++/Python)/迭代(Java)方式
 时间复杂度O(n), 空间复杂度O(n), n为树中结点数量
 
 __代码__:
 __C++__:
-```
+
+```C++
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -62,24 +75,28 @@ __C++__:
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
-class Solution {
+class Solution 
+{
 public:
-    bool isSymmetric(TreeNode* root) {
+    bool isSymmetric(TreeNode* root) 
+    {
         if (!root) return true;
         return isMirror(root, root);
     }
 private:
-    bool isMirror(TreeNode* p, TreeNode* q) {
-        if (!p && !q) return true;
-        if (!p || !q) return false;
+    bool isMirror(TreeNode* p, TreeNode* q) 
+    {
+        if (!p and !q) return true;
+        if (!p or !q) return false;
         if (p -> val != q -> val) return false;
-        return isMirror(p -> left, q -> right) && isMirror(p -> right, q -> left);
+        return isMirror(p -> left, q -> right) and isMirror(p -> right, q -> left);
     }
 };
 ```
 
 __Java__:
-```
+
+```Java
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -113,7 +130,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, x):

@@ -1,3 +1,5 @@
+# 405 Convert a Number to Hexadecimal 数字转换为十六进制数
+
 __Description__:
 Given an integer, write an algorithm to convert it to hexadecimal. For negative integer, two’s complement method is used.
 
@@ -9,6 +11,7 @@ The given number is guaranteed to fit within the range of a 32-bit signed intege
 You must not use any method provided by the library which converts/formats the number to hex directly.
 
 __Example:__
+
 Example 1:
 
 Input:
@@ -31,11 +34,12 @@ __题目描述__:
 __注意:__
 
 十六进制中所有字母(a-f)都必须是小写。
-十六进制字符串中不能包含多余的前导零。如果要转化的数为0，那么以单个字符'0'来表示；对于其他情况，十六进制字符串中的第一个字符将不会是0字符。 
+十六进制字符串中不能包含多余的前导零。如果要转化的数为0，那么以单个字符'0'来表示；对于其他情况，十六进制字符串中的第一个字符将不会是0字符。
 给定的数确保在32位有符号整数范围内。
 不能使用任何由库提供的将数字直接转换或格式化为十六进制的方法。
 
 __示例：__
+
 示例 1：
 
 输入:
@@ -53,44 +57,50 @@ __示例：__
 "ffffffff"
 
 __思路__:
+
 每 4位转换成一位 16进制的数
 注意负数在计算机中存储是补码要转换成原码
 时间复杂度O(logn), 空间复杂度O(1)
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    string toHex(int num) {
+    string toHex(int num) 
+    {
         if (!num) return "0";
-		string hex = "0123456789abcdef", result = "";
-		while (num && result.size() < 8) {
-			result = hex[num & 0xf] + result;
-			num >>= 4;
-		}
-		return result;
+        string hex = "0123456789abcdef", result = "";
+        while (num and result.size() < 8) 
+        {
+            result = hex[num & 0xf] + result;
+            num >>= 4;
+        }
+        return result;
     }
 };
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public String toHex(int num) {
         if (num == 0) return "0";
-		String hex = "0123456789abcdef", result = "";
-		while (num != 0 && result.length() < 8) {
-			result = hex.charAt(num & 0xf) + result;
-			num >>= 4;
-		}
-		return result;
+        string hex = "0123456789abcdef", result = "";while (num && result.size() < 8) {
+            result = hex[num & 0xf] + result;
+            num >>= 4;
+        }
+        return result;
     }
 }
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def toHex(self, num: int) -> str:
         return hex(num)[2:] if num >= 0 else hex((1 << 32) + num)[2:]

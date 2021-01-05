@@ -1,3 +1,5 @@
+# 1221 Split a String in Balanced Strings 分割平衡字符串
+
 __Description__:
 Balanced strings are those who have equal quantity of 'L' and 'R' characters.
 
@@ -6,6 +8,7 @@ Given a balanced string s split it in the maximum amount of balanced strings.
 Return the maximum amount of splitted balanced strings.
 
 __Example:__
+
 Example 1:
 
 Input: s = "RLRRLLRLRL"
@@ -29,7 +32,7 @@ Example 4:
 Input: s = "RLRRRLLRLL"
 Output: 2
 Explanation: s can be split into "RL", "RRRLLRLL", since each substring contains an equal number of 'L' and 'R'
- 
+
 __Constraints:__
 
 1 <= s.length <= 1000
@@ -43,6 +46,7 @@ __题目描述__:
 返回可以通过分割得到的平衡字符串的最大数量。
 
 __示例 :__
+
 示例 1：
 
 输入：s = "RLRRLLRLRL"
@@ -60,18 +64,20 @@ __示例 :__
 输入：s = "LLLLRRRR"
 输出：1
 解释：s 只能保持原样 "LLLLRRRR".
- 
+
 __提示：__
 
 1 <= s.length <= 1000
 s[i] = 'L' 或 'R'
 
 __思路__:
+
 相当于 R和 L从头开始匹配, 相同的压入栈, 不同的弹出栈, 只有栈中的完全匹配(栈空, 即L和 R的数量相等), 结果➕1
 时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -91,6 +97,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int balancedStringSplit(String s) {
@@ -106,6 +113,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def balancedStringSplit(self, s: str) -> int:

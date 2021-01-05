@@ -1,3 +1,5 @@
+# 492 Construct the Rectangle 构造矩形
+
 __Description__:
 For a web developer, it is very important to know how to design a web page's size. So, given a specific rectangular web page’s area, your job by now is to design a rectangular web page, whose length L and width W satisfy the following requirements:
 
@@ -9,6 +11,7 @@ For a web developer, it is very important to know how to design a web page's siz
 You need to output the length L and the width W of the web page you designed in sequence.
 
 __Example:__
+
 Input: 4
 Output: [2, 2]
 Explanation: The target area is 4, and all the possible ways to construct it are [1,4], [2,2], [4,1].
@@ -41,16 +44,20 @@ __说明:__
 你设计的页面的长度和宽度必须都是正整数。
 
 __思路__:
+
 由基本不等式, 两个数越接近越好
 直接开方, 取最接近的整数即可
 时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    vector<int> constructRectangle(int area) {
+    vector<int> constructRectangle(int area) 
+    {
         int w = (int)sqrt(area);
         while (area % w) w--;
         return {area / w, w};
@@ -59,7 +66,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public int[] constructRectangle(int area) {
         int w = (int)Math.sqrt(area);
@@ -70,7 +78,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def constructRectangle(self, area: int) -> List[int]:
         w = int(math.sqrt(area))

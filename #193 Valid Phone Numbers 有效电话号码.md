@@ -1,3 +1,5 @@
+# 193 Valid Phone Numbers 有效电话号码
+
 __Description__:
 Given a text file file.txt that contains list of phone numbers (one per line), write a one liner bash script to print all valid phone numbers.
 
@@ -37,6 +39,7 @@ __题目描述__:
 (123) 456-7890
 
 __思路__:
+
 正则表达式
 ^(\d{3}-|\(\d{3}\))\d{3}-\d{4}
 \d{3}表示3位数字
@@ -45,6 +48,7 @@ __思路__:
 
 __代码__:
 __Bash__:
-```
+
+```bash
 grep -P '^(\d{3}-|\(\d{3}\) )\d{3}-\d{4}$' file.txt
 ```

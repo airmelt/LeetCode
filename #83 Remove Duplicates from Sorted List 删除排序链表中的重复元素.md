@@ -1,7 +1,10 @@
+# 83 Remove Duplicates from Sorted List 删除排序链表中的重复元素
+
 __Description__:
 Given a sorted linked list, delete all duplicates such that each element appear only once.
 
 __Example__:
+
 Example 1:
 Input: 1->1->2
 Output: 1->2
@@ -13,7 +16,8 @@ Output: 1->2->3
 __题目描述__:
 给定一个排序链表，删除所有重复的元素，使得每个元素只出现一次。
 
- __示例__:
+__示例__:
+
 示例 1:
 输入: 1->1->2
 输出: 1->2
@@ -23,13 +27,15 @@ __题目描述__:
 输出: 1->2->3
 
 __思路__:
+
 注意是排序链表, 所以只需要比较下一个结点即可
 可以用递归/迭代的方式
 时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
-```
+
+```C++
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -38,10 +44,12 @@ __C++__:
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
-class Solution {
+class Solution 
+{
 public:
-    ListNode* deleteDuplicates(ListNode* head) {
-        if (!head || !head -> next) return head;
+    ListNode* deleteDuplicates(ListNode* head) 
+    {
+        if (!head or !head -> next) return head;
         head -> next = deleteDuplicates(head -> next);
         if (head -> val == head -> next -> val) head = head -> next;
         return head;
@@ -50,7 +58,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -73,7 +82,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 # Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, x):

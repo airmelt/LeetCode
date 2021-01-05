@@ -1,9 +1,12 @@
+# 1002 Find Common Characters 查找常用字符
+
 __Description__:
 Given an array A of strings made only from lowercase letters, return a list of all characters that show up in all strings within the list (including duplicates).  For example, if a character occurs 3 times in all strings but not 4 times, you need to include that character three times in the final answer.
 
 You may return the answer in any order.
 
 __Example:__
+
 Example 1:
 
 Input: ["bella","label","roller"]
@@ -13,7 +16,7 @@ Example 2:
 
 Input: ["cool","lock","cook"]
 Output: ["c","o"]
- 
+
 __Note:__
 
 1 <= A.length <= 100
@@ -26,6 +29,7 @@ __题目描述__:
 你可以按任意顺序返回答案。
 
 __示例 :__
+
 示例 1：
 
 输入：["bella","label","roller"]
@@ -35,7 +39,7 @@ __示例 :__
 
 输入：["cool","lock","cook"]
 输出：["c","o"]
- 
+
 __提示：__
 
 1 <= A.length <= 100
@@ -43,11 +47,13 @@ __提示：__
 A[i][j] 是小写字母
 
 __思路__:
+
 用一个长度为 26的数组记录下各个字符出现的次数, 输出重复出现的最小的出现次数的字符即可
 时间复杂度O(mn), 空间复杂度O(1), m为 A数组的字符串长度, n为 A数组的长度
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -56,11 +62,11 @@ public:
     {
         vector<string> result;
         int count[26]{0};
-        for (auto c : A[0]) count[c - 'a']++;
+        for (auto c : A[0]) ++count[c - 'a'];
         for (int i = 1; i < A.size(); i++) 
         {
             int temp[26]{0};
-            for (auto c : A[i]) temp[c - 'a']++;
+            for (auto c : A[i]) ++temp[c - 'a'];
             for (int j = 0; j < 26; j++) count[j] = min(count[j], temp[j]);
         }
         for (int i = 0; i < 26; i++) if (count[i] > 0) for (int j = 0; j < count[i]; j++) result.push_back(string (1, 'a' + i));
@@ -70,6 +76,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public List<String> commonChars(String[] A) {
@@ -88,6 +95,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def commonChars(self, A: List[str]) -> List[str]:

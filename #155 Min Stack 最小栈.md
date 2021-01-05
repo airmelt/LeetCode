@@ -1,3 +1,5 @@
+# 155 Min Stack 最小栈
+
 __Description__:
 Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
 
@@ -6,8 +8,11 @@ pop() -- Removes the element on top of the stack.
 top() -- Get the top element.
 getMin() -- Retrieve the minimum element in the stack.
 
+**Example:**
+
 **Example 1:**
-```
+
+```text
 MinStack minStack = new MinStack();
 minStack.push(-2);
 minStack.push(0);
@@ -27,7 +32,8 @@ top() -- 获取栈顶元素。
 getMin() -- 检索栈中的最小元素。
 
 **示例:**
-```
+
+```text
 MinStack minStack = new MinStack();
 minStack.push(-2);
 minStack.push(0);
@@ -39,7 +45,9 @@ minStack.getMin();   --> 返回 -2.
 ```
 
 __思路__:
+
 栈可以用数组实现或者链表实现
+
 1. 用一个栈记录最小值
 2. 将最小值直接记录在这个栈
 如, 输入 -2 -> 0 -> -3, 栈中的记录依次为 -2 -> -2 -> 0 -> -2 -> -3 -> -3
@@ -50,30 +58,35 @@ __思路__:
 
 __代码__:
 __C++__:
-```
-class MinStack {
+
+```C++
+class MinStack 
+{
 public:
     /** initialize your data structure here. */
     stack<int> data;
     stack<int> minstack;
-    MinStack() {
-    }
+    MinStack() {}
 
-    void push(int x) {
+    void push(int x) 
+    {
         data.push(x);
-        if (minstack.empty() || x <= minstack.top()) minstack.push(x);
+        if (minstack.empty() or x <= minstack.top()) minstack.push(x);
     }
 
-    void pop() {
+    void pop() 
+    {
         if (data.top() == minstack.top()) minstack.pop();
         data.pop();
     }
 
-    int top() {
+    int top() 
+    {
         return data.top();
     }
 
-    int getMin() {
+    int getMin() 
+    {
         return minstack.top();
     }
 };
@@ -89,7 +102,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 class MinStack {
 
     /** initialize your data structure here. */
@@ -137,7 +151,8 @@ class MinStack {
 ```
 
 __Python__:
-```
+
+```Python
 class MinStack:
 
     def __init__(self):

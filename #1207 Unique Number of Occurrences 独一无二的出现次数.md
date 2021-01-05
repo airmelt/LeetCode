@@ -1,7 +1,10 @@
+# 1207 Unique Number of Occurrences 独一无二的出现次数
+
 __Description__:
 Given an array of integers arr, write a function that returns true if and only if the number of occurrences of each value in the array is unique.
 
 __Example:__
+
 Example 1:
 
 Input: arr = [1,2,2,1,1,3]
@@ -17,7 +20,7 @@ Example 3:
 
 Input: arr = [-3,0,1,-3,1,1,1,-3,10,0]
 Output: true
- 
+
 __Constraints:__
 
 1 <= arr.length <= 1000
@@ -29,6 +32,7 @@ __题目描述__:
 如果每个数的出现次数都是独一无二的，就返回 true；否则返回 false。
 
 __示例 :__
+
 示例 1：
 
 输入：arr = [1,2,2,1,1,3]
@@ -44,18 +48,20 @@ __示例 :__
 
 输入：arr = [-3,0,1,-3,1,1,1,-3,10,0]
 输出：true
- 
+
 __提示：__
 
 1 <= arr.length <= 1000
 -1000 <= arr[i] <= 1000
 
 __思路__:
+
 遍历数组, 将数组中的元素和个数存在一个 map中, 遍历这个 map的值, 存在一个 set中, 比较 map和 set的大小即可
 时间复杂度O(n), 空间复杂度O(n)
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -72,6 +78,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public boolean uniqueOccurrences(int[] arr) {
@@ -83,6 +90,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def uniqueOccurrences(self, arr: List[int]) -> bool:

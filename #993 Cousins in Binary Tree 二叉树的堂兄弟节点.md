@@ -1,3 +1,5 @@
+# 993 Cousins in Binary Tree 二叉树的堂兄弟节点
+
 __Description__:
 In a binary tree, the root node is at depth 0, and children of each depth k node are at depth k+1.
 
@@ -8,6 +10,7 @@ We are given the root of a binary tree with unique values, and the values x and
 Return true if and only if the nodes corresponding to the values x and y are cousins.
 
 __Example:__
+
 Example 1:
 ![Binary Tree 1](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/02/16/q1248-01.png)
 Input: root = [1,2,3,4], x = 4, y = 3
@@ -22,7 +25,7 @@ Example 3:
 ![Binary Tree 3](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/02/16/q1248-03.png)
 Input: root = [1,2,3,null,4], x = 2, y = 3
 Output: false
- 
+
 __Note:__
 
 The number of nodes in the tree will be between 2 and 100.
@@ -38,6 +41,7 @@ __题目描述__:
 只有与值 x 和 y 对应的节点是堂兄弟节点时，才返回 true。否则，返回 false。
 
 __示例 :__
+
 示例 1：
 ![二叉树1](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/02/16/q1248-01.png)
 输入：root = [1,2,3,4], x = 4, y = 3
@@ -52,19 +56,21 @@ __示例 :__
 ![二叉树3](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/02/16/q1248-03.png)
 输入：root = [1,2,3,null,4], x = 2, y = 3
 输出：false
- 
+
 __提示：__
 
 二叉树的节点数介于 2 到 100 之间。
 每个节点的值都是唯一的、范围为 1 到 100 的整数。
 
 __思路__:
+
 1. 层序遍历, 如果x, y在同一层, 且不是相邻的两个结点(较小的结点的下标不能为偶数), 则为堂兄弟结点, 如果为空, 可以在该层加入 0或者 null
 2. 遍历同时记录下结点的高度和父结点, 比较 x和 y的高度和父结点即可
 时间复杂度O(n), 空间复杂度O(n)
 
 __代码__:
 __C++__:
+
 ```C++
 /**
  * Definition for a binary tree node.
@@ -88,12 +94,12 @@ private:
     void dfs(const TreeNode* root, const int x, const int y, const int h)
     {
         if (!root) return;
-        if (root -> left && root -> left -> val == x || root -> right && root -> right -> val == x)
+        if (root -> left and root -> left -> val == x or root -> right and root -> right -> val == x)
         {
             parent_x = root -> val;
             height_x = h;
         }
-        if (root -> left && root -> left -> val == y || root -> right && root -> right -> val == y)
+        if (root -> left and root -> left -> val == y or root -> right and root -> right -> val == y)
         {
             parent_y = root -> val;
             height_y = h;
@@ -105,6 +111,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 /**
  * Definition for a binary tree node.
@@ -138,6 +145,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 # Definition for a binary tree node.
 # class TreeNode:

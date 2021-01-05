@@ -1,7 +1,10 @@
+# 709 To Lower Case 转换成小写字母
+
 __Description__:
 Implement function ToLowerCase() that has a string parameter str, and returns the same string in lowercase.
 
 __Example:__
+
 Example 1:
 
 Input: "Hello"
@@ -21,6 +24,7 @@ __题目描述__:
 实现函数 ToLowerCase()，该函数接收一个字符串参数 str，并将该字符串中的大写字母转换成小写字母，之后返回新的字符串。
 
 __示例 :__
+
 示例 1：
 
 输入: "Hello"
@@ -37,23 +41,28 @@ __示例 :__
 输出: "lovely"
 
 __思路__:
+
 遍历字符串, 将大写字符改成小写字符即可
 时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    string toLowerCase(string str) {
-        for (int i = 0; i < str.size(); i++) if (str[i] >= 'A' && str[i] <= 'Z') str[i] += 32;
+    string toLowerCase(string str) 
+    {
+        for (int i = 0; i < str.size(); i++) if (str[i] >= 'A' and str[i] <= 'Z') str[i] += 32;
         return str;
     }
 };
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public String toLowerCase(String str) {
         StringBuilder sb = new StringBuilder(str);
@@ -64,7 +73,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def toLowerCase(self, str: str) -> str:
         return str.lower()

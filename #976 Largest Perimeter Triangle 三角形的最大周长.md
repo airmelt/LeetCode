@@ -1,9 +1,12 @@
+# 976 Largest Perimeter Triangle 三角形的最大周长
+
 __Description__:
 Given an array A of positive lengths, return the largest perimeter of a triangle with non-zero area, formed from 3 of these lengths.
 
 If it is impossible to form any triangle of non-zero area, return 0.
 
 __Example:__
+
 Example 1:
 
 Input: [2,1,2]
@@ -23,7 +26,7 @@ Example 4:
 
 Input: [3,6,2,3]
 Output: 8
- 
+
 __Note:__
 
 3 <= A.length <= 10000
@@ -35,6 +38,7 @@ __题目描述__:
 如果不能形成任何面积不为零的三角形，返回 0。
 
 __示例 :__
+
 示例 1：
 
 输入：[2,1,2]
@@ -54,22 +58,26 @@ __示例 :__
 
 输入：[3,6,2,3]
 输出：8
- 
+
 __提示：__
 
 3 <= A.length <= 10000
 1 <= A[i] <= 10^6
 
 __思路__:
+
 先排序, 然后从最大值开始, 遍历到最大边小于另外两边之和, 这个三角形即为最大变长的三角形
 时间复杂度O(nlgn), 空间复杂度O(1)
 
 __代码__:
 __C++__:
+
 ```C++
-class Solution {
+class Solution 
+{
 public:
-    int largestPerimeter(vector<int>& A) {
+    int largestPerimeter(vector<int>& A) 
+    {
         sort(A.begin(), A.end());
         for (int i = A.size() - 1; i >= 2; i--) if (A[i - 2] + A[i - 1] > A[i]) return A[i - 2] + A[i - 1] + A[i];
         return 0;
@@ -78,6 +86,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int largestPerimeter(int[] A) {
@@ -89,6 +98,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def largestPerimeter(self, A: List[int]) -> int:

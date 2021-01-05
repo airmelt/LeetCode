@@ -1,3 +1,5 @@
+# 1313 Decompress Run-Length Encoded List 解压缩编码列表
+
 __Description__:
 We are given a list nums of integers representing a list compressed with run-length encoding.
 
@@ -6,11 +8,12 @@ Consider each adjacent pair of elements [a, b] = [nums[2*i], nums[2*i+1]] (wit
 Return the decompressed list.
 
 __Example:__
+
 Example 1:
 
 Input: nums = [1,2,3,4]
 Output: [2,4,4,4]
- 
+
 __Constraints:__
 
 2 <= nums.length <= 100
@@ -28,7 +31,7 @@ __示例 :__
 
 输入：nums = [1,2,3,4]
 输出：[2,4,4,4]
- 
+
 __提示：__
 
 2 <= nums.length <= 100
@@ -36,11 +39,13 @@ nums.length % 2 == 0
 1 <= nums[i] <= 100
 
 __思路__:
+
 两层循环, 第一层找到偶数下标, 这个表示后面的数字加入的次数, 第二层加入数组, 也可以先计算出最后数组的大小
 时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -55,6 +60,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int[] decompressRLElist(int[] nums) {
@@ -68,6 +74,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def decompressRLElist(self, nums: List[int]) -> List[int]:

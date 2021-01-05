@@ -1,3 +1,5 @@
+# 949 Largest Time for Given Digits 给定数字能组成的最大时间
+
 __Description__:
 Given an array of 4 digits, return the largest 24 hour time that can be made.
 
@@ -6,6 +8,7 @@ The smallest 24 hour time is 00:00, and the largest is 23:59.  Starting from 00
 Return the answer as a string of length 5.  If no valid time can be made, return an empty string.
 
 __Example:__
+
 Example 1:
 
 Input: [1,2,3,4]
@@ -15,7 +18,7 @@ Example 2:
 
 Input: [5,5,5,5]
 Output: ""
- 
+
 __Note:__
 
 A.length == 4
@@ -29,6 +32,7 @@ __题目描述__:
 以长度为 5 的字符串返回答案。如果不能确定有效时间，则返回空字符串。
 
 __示例 :__
+
 示例 1：
 
 输入：[1,2,3,4]
@@ -37,28 +41,31 @@ __示例 :__
 
 输入：[5,5,5,5]
 输出：""
- 
+
 __提示：__
 
 A.length == 4
 0 <= A[i] <= 9
 
 __思路__:
+
 1. 检查每一个组合, 取最大时间即可
 2. 排序之后用排列组合找到满足时间格式的输出即可
 时间复杂度O(1), 空间复杂度O(1), 最多检查 24(4!)组结果
 
 __代码__:
 __C++__:
+
 ```C++
-class Solution {
+class Solution 
+{
 public:
     string largestTimeFromDigits(vector<int>& A) 
     {
         sort(A.begin(), A.end(), greater<int>());
         do 
         {
-            if (A[0] * 10 + A[1] < 24 && A[2] * 10 + A[3] < 60) return to_string(A[0]) + to_string(A[1]) + ":" + to_string(A[2]) + to_string(A[3]);
+            if (A[0] * 10 + A[1] < 24 and A[2] * 10 + A[3] < 60) return to_string(A[0]) + to_string(A[1]) + ":" + to_string(A[2]) + to_string(A[3]);
         } while (next_permutation(A.begin(), A.end(), greater<int>()));
         return "";
     }
@@ -66,6 +73,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public String largestTimeFromDigits(int[] A) {
@@ -89,6 +97,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def largestTimeFromDigits(self, A: List[int]) -> str:

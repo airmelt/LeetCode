@@ -1,3 +1,5 @@
+# 1237 Find Positive Integer Solution for a Given Equation 找出给定方程的正整数解
+
 __Description__:
 Given a function  f(x, y) and a value z, return all positive integer pairs x and y where f(x,y) == z.
 
@@ -5,7 +7,7 @@ The function is constantly increasing, i.e.:
 
 f(x, y) < f(x + 1, y)
 f(x, y) < f(x, y + 1)
-The function interface is defined like this: 
+The function interface is defined like this:
 
 interface CustomFunction {
 public:
@@ -17,6 +19,7 @@ For custom testing purposes you're given an integer function_id and a target z a
 You may return the solutions in any order.
 
 __Example:__
+
 Example 1:
 
 Input: function_id = 1, z = 5
@@ -28,7 +31,7 @@ Example 2:
 Input: function_id = 2, z = 5
 Output: [[1,5],[5,1]]
 Explanation: function_id = 2 means that f(x, y) = x * y
- 
+
 __Constraints:__
 
 1 <= function_id <= 9
@@ -55,6 +58,7 @@ public:
 你可以将满足条件的 结果数对 按任意顺序返回。
 
 __示例 :__
+
 示例 1：
 
 输入：function_id = 1, z = 5
@@ -66,7 +70,7 @@ __示例 :__
 输入：function_id = 2, z = 5
 输出：[[1,5],[5,1]]
 解释：function_id = 2 表示 f(x, y) = x * y
- 
+
 __提示：__
 
 1 <= function_id <= 9
@@ -75,11 +79,13 @@ __提示：__
 在 1 <= x, y <= 1000 的前提下，题目保证 f(x, y) 是一个 32 位有符号整数。
 
 __思路__:
+
 注意到函数是严格单调的, 而且 x和 y都在 [1, 1000]的范围内, 可以使用双指针搜索 z的值
 时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
+
 ```C++
 /*
  * // This is the custom function interface.
@@ -104,8 +110,8 @@ public:
         {
             int temp = customfunction.f(left,right);
             if (temp == z) result.push_back({left, right});
-            if (temp > z) right--;
-            else left++;
+            if (temp > z) --right;
+            else ++left;
         }
         return result;
     }
@@ -113,6 +119,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 /*
  * // This is the custom function interface.
@@ -140,6 +147,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 """
    This is the custom function interface.

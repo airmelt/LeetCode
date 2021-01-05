@@ -1,3 +1,5 @@
+# 1160 Find Words That Can Be Formed by Characters 拼写单词
+
 __Description__:
 You are given an array of strings words and a string chars.
 
@@ -6,20 +8,21 @@ A string is good if it can be formed by characters from chars (each characte
 Return the sum of lengths of all good strings in words.
 
 __Example:__
+
 Example 1:
 
 Input: words = ["cat","bt","hat","tree"], chars = "atach"
 Output: 6
-Explanation: 
+Explanation:
 The strings that can be formed are "cat" and "hat" so the answer is 3 + 3 = 6.
 
 Example 2:
 
 Input: words = ["hello","world","leetcode"], chars = "welldonehoneyr"
 Output: 10
-Explanation: 
+Explanation:
 The strings that can be formed are "hello" and "world" so the answer is 5 + 5 = 10.
- 
+
 __Note:__
 
 1 <= words.length <= 1000
@@ -36,11 +39,12 @@ __题目描述__:
 返回词汇表 words 中你掌握的所有单词的 长度之和。
 
 __示例 :__
+
 示例 1：
 
 输入：words = ["cat","bt","hat","tree"], chars = "atach"
 输出：6
-解释： 
+解释：
 可以形成字符串 "cat" 和 "hat"，所以答案是 3 + 3 = 6。
 
 示例 2：
@@ -49,7 +53,7 @@ __示例 :__
 输出：10
 解释：
 可以形成字符串 "hello" 和 "world"，所以答案是 5 + 5 = 10。
- 
+
 __提示：__
 
 1 <= words.length <= 1000
@@ -57,11 +61,13 @@ __提示：__
 所有字符串中都仅包含小写英文字母
 
 __思路__:
+
 用 hash表记录 chars中每个字符出现的次数, 对 words表中的每一个单词进行比较
 时间复杂度O(n), 空间复杂度O(n)
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -90,6 +96,7 @@ class Solution
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int countCharacters(String[] words, String chars) {
@@ -113,6 +120,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def countCharacters(self, words: List[str], chars: str) -> int:

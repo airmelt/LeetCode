@@ -1,9 +1,12 @@
+# 989 Add to Array-Form of Integer 数组形式的整数加法
+
 __Description__:
 For a non-negative integer X, the array-form of X is an array of its digits in left to right order.  For example, if X = 1231, then the array form is [1,2,3,1].
 
 Given the array-form A of a non-negative integer X, return the array-form of the integer X+K.
 
 __Example:__
+
 Example 1:
 
 Input: A = [1,2,0,0], K = 34
@@ -27,7 +30,7 @@ Example 4:
 Input: A = [9,9,9,9,9,9,9,9,9,9], K = 1
 Output: [1,0,0,0,0,0,0,0,0,0,0]
 Explanation: 9999999999 + 1 = 10000000000
- 
+
 __Note:__
 
 1 <= A.length <= 10000
@@ -41,6 +44,7 @@ __题目描述__:
 给定非负整数 X 的数组形式 A，返回整数 X+K 的数组形式。
 
 __示例 :__
+
 示例 1：
 
 输入：A = [1,2,0,0], K = 34
@@ -64,7 +68,7 @@ __示例 :__
 输入：A = [9,9,9,9,9,9,9,9,9,9], K = 1
 输出：[1,0,0,0,0,0,0,0,0,0,0]
 解释：9999999999 + 1 = 10000000000
- 
+
 __提示：__
 
 1 <= A.length <= 10000
@@ -73,15 +77,19 @@ __提示：__
 如果 A.length > 1，那么 A[0] != 0
 
 __思路__:
+
 注意数组 A不能转化为整数, 因为数组长度可能为 10000, 远远超过 int能表示的范围
+
 1. 先逆序, 然后从第一位加上 K, 然后将数组 A的元素对 10取余不断进位, 注意判断数组 A的大小需要存储值判断, 因为数组 A的大小会动态变化, 最后输出时逆序
 2. 另开一个数组记录, 从后往前遍历, 按照加法设置进位
 时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
+
 ```C++
-class Solution {
+class Solution 
+{
 public:
     vector<int> addToArrayForm(vector<int>& A, int K) 
     {
@@ -89,7 +97,8 @@ public:
         reverse(A.begin(), A.end());
         A[0] += K;
         int i = 0;
-        while (A[i] > 9) {
+        while (A[i] > 9) 
+        {
             if (i > len - 2) A.push_back(0);
             A[i + 1] += A[i] / 10;
             A[i] %= 10;
@@ -102,6 +111,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public List<Integer> addToArrayForm(int[] A, int K) {
@@ -119,6 +129,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def addToArrayForm(self, A: List[int], K: int) -> List[int]:

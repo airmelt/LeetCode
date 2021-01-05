@@ -1,3 +1,5 @@
+# 888 Fair Candy Swap 公平的糖果交换
+
 __Description__:
 Alice and Bob have candy bars of different sizes: A[i] is the size of the i-th bar of candy that Alice has, and B[j] is the size of the j-th bar of candy that Bob has.
 
@@ -8,6 +10,7 @@ Return an integer array ans where ans[0] is the size of the candy bar that Alic
 If there are multiple answers, you may return any one of them.  It is guaranteed an answer exists.
 
 __Example:__
+
 Example 1:
 
 Input: A = [1,1], B = [2,2]
@@ -24,7 +27,7 @@ Example 4:
 
 Input: A = [1,2,5], B = [2,4]
 Output: [5,4]
- 
+
 __Note:__
 
 1 <= A.length <= 10000
@@ -44,6 +47,7 @@ __题目描述__:
 如果有多个答案，你可以返回其中任何一个。保证答案存在。
 
 __示例 :__
+
 示例 1：
 
 输入：A = [1,1], B = [2,2]
@@ -63,7 +67,7 @@ __示例 :__
 
 输入：A = [1,2,5], B = [2,4]
 输出：[5,4]
- 
+
 __提示：__
 
 1 <= A.length <= 10000
@@ -74,16 +78,20 @@ __提示：__
 答案肯定存在。
 
 __思路__:
+
 返回的值应该是 A数组中的一个存在于 B数组中并且满足 num + (sum(B) - sum(A)) // 2的数
 注意要把 B数组转化成 set, 查找时间为 O(1)
 时间复杂度O(n), 空间复杂度O(n), 其中 n为两数组的最长长度
 
 __代码__:
 __C++__:
+
 ```C++
-class Solution {
+class Solution 
+{
 public:
-    vector<int> fairCandySwap(vector<int>& A, vector<int>& B) {
+    vector<int> fairCandySwap(vector<int>& A, vector<int>& B) 
+    {
         int sum_A = accumulate(A.begin(), A.end(), 0), sum_B = accumulate(B.begin(), B.end(), 0);
         set<int> set_B(B.begin(), B.end());
         for (int num : A) if (set_B.count(num + ((sum_B - sum_A) >> 1))) return {num, num + ((sum_B - sum_A) >> 1)};
@@ -93,6 +101,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int[] fairCandySwap(int[] A, int[] B) {
@@ -110,6 +119,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def fairCandySwap(self, A: List[int], B: List[int]) -> List[int]:

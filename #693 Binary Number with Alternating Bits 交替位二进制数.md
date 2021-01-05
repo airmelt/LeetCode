@@ -1,7 +1,10 @@
+# 693 Binary Number with Alternating Bits 交替位二进制数
+
 __Description__:
 Given a positive integer, check whether it has alternating bits: namely, if two adjacent bits will always have different values.
 
 __Example:__
+
 Example 1:
 
 Input: 5
@@ -34,6 +37,7 @@ __题目描述__:
 给定一个正整数，检查他是否为交替位二进制数：换句话说，就是他的二进制数相邻的两个位数永不相等。
 
 __示例 :__
+
 示例 1:
 
 输入: 5
@@ -63,23 +67,28 @@ __示例 :__
 10的二进制数是: 1010
 
 __思路__:
+
 1. 可以转换成字符串, 查找 11或者 00是否在字符串中, 或者检查相邻两位是否相同
 2. 由于是相邻两位不同, 可以比较 n // 2和 n % 2的最后一位, 如果相同, 则说明相邻位相同, 返回 false
 时间复杂度O(1), 空间复杂度O(1), 检查的数的范围为 int, 最多需要检查 32位数字
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    bool hasAlternatingBits(int n) {
+    bool hasAlternatingBits(int n) 
+    {
         return ((n ^ (n >> 1)) & ((long)(n ^ (n >> 1)) + 1)) == 0;
     }
 };
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public boolean hasAlternatingBits(int n) {
         return ((n ^ (n >> 1)) & ((long)(n ^ (n >> 1)) + 1)) == 0;
@@ -88,7 +97,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def hasAlternatingBits(self, n: int) -> bool:
         return '11' not in bin(n) and '00' not in bin(n)

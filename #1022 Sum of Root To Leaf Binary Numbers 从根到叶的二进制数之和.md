@@ -1,3 +1,5 @@
+# 1022 Sum of Root To Leaf Binary Numbers 从根到叶的二进制数之和
+
 __Description__:
 Given a binary tree, each node has value 0 or 1.  Each root-to-leaf path represents a binary number starting with the most significant bit.  For example, if the path is 0 -> 1 -> 1 -> 0 -> 1, then this could represent 01101 in binary, which is 13.
 
@@ -6,12 +8,13 @@ For all leaves in the tree, consider the numbers represented by the path from t
 Return the sum of these numbers.
 
 __Example:__
+
 Example 1:
 ![Binary Tree](https://assets.leetcode.com/uploads/2019/04/04/sum-of-root-to-leaf-binary-numbers.png)
 Input: [1,0,1,0,1,0,1]
 Output: 22
 Explanation: (100) + (101) + (110) + (111) = 4 + 5 + 6 + 7 = 22
- 
+
 __Note:__
 
 The number of nodes in the tree is between 1 and 1000.
@@ -26,22 +29,25 @@ __题目描述__:
 以 10^9 + 7 为模，返回这些数字之和。
 
 __示例 :__
+
 ![二叉树](https://assets.leetcode.com/uploads/2019/04/04/sum-of-root-to-leaf-binary-numbers.png)
 输入：[1,0,1,0,1,0,1]
 输出：22
 解释：(100) + (101) + (110) + (111) = 4 + 5 + 6 + 7 = 22
- 
+
 __提示：__
 
 树中的结点数介于 1 和 1000 之间。
 node.val 为 0 或 1 。
 
 __思路__:
+
 按照 10进制转化为 2进制的思路, 每一层将上一层的值乘 2(即 << 1), 然后再加上遍历的结点的值, 用递归的方法遍历完整棵树即可
 时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
+
 ```C++
 /**
  * Definition for a binary tree node.
@@ -65,7 +71,7 @@ private:
         if (!root) return sum;
         sum <<= 1;
         sum += root -> val;
-        if (!root -> left && !root -> right) return sum;
+        if (!root -> left and !root -> right) return sum;
         int count = 0;
         if (root -> left) count += helper(root -> left, sum);
         if (root -> right) count += helper(root -> right, sum);
@@ -75,6 +81,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 /**
  * Definition for a binary tree node.
@@ -104,6 +111,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 # Definition for a binary tree node.
 # class TreeNode:

@@ -1,3 +1,5 @@
+# 922 Sort Array By Parity II 按奇偶排序数组 II
+
 __Description__:
 Given an array A of non-negative integers, half of the integers in A are odd, and half of the integers are even.
 
@@ -6,12 +8,13 @@ Sort the array so that whenever A[i] is odd, i is odd; and whenever A[i] is even
 You may return any answer array that satisfies this condition.
 
 __Example:__
+
 Example 1:
 
 Input: [4,2,5,7]
 Output: [4,5,2,7]
 Explanation: [4,7,2,5], [2,5,4,7], [2,7,4,5] would also have been accepted.
- 
+
 __Note:__
 
 2 <= A.length <= 20000
@@ -30,7 +33,7 @@ __示例 :__
 输入：[4,2,5,7]
 输出：[4,5,2,7]
 解释：[4,7,2,5]，[2,5,4,7]，[2,7,4,5] 也会被接受。
- 
+
 __提示：__
 
 2 <= A.length <= 20000
@@ -38,13 +41,16 @@ A.length % 2 == 0
 0 <= A[i] <= 1000
 
 __思路__:
+
 双指针法
 时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
+
 ```C++
-class Solution {
+class Solution 
+{
 public:
     vector<int> sortArrayByParityII(vector<int>& A) 
     {
@@ -66,6 +72,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int[] sortArrayByParityII(int[] A) {
@@ -85,6 +92,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def sortArrayByParityII(self, A: List[int]) -> List[int]:

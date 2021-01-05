@@ -1,7 +1,10 @@
+# 206 Reverse Linked List 反转链表
+
 __Description__:
 Reverse a singly linked list.
 
 **Example:**
+
 Input: 1->2->3->4->5->NULL
 Output: 5->4->3->2->1->NULL
 
@@ -12,6 +15,7 @@ __题目描述__:
 反转一个单链表。
 
 __示例__:
+
 输入: 1->2->3->4->5->NULL
 输出: 5->4->3->2->1->NULL
 
@@ -19,6 +23,7 @@ __进阶__:
 你可以迭代或递归地反转链表。你能否用两种方法解决这道题？
 
 __思路__:
+
 1. 将链表的结点全部压入栈然后弹出
 时间复杂度O(n), 空间复杂度O(n)
 2. 记录结点和结点的后一个结点, 将后一个结点的指针指向该结点
@@ -26,7 +31,8 @@ __思路__:
 
 __代码__:
 __C++__:
-```
+
+```C++
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -35,12 +41,15 @@ __C++__:
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
-class Solution {
+class Solution 
+{
 public:
-    ListNode* reverseList(ListNode* head) {
-        if (!head || !head -> next) return head;
+    ListNode* reverseList(ListNode* head) 
+    {
+        if (!head or !head -> next) return head;
         ListNode* result = NULL;
-        while (head) {
+        while (head) 
+        {
             ListNode* next = head -> next;
             head -> next = result;
             result = head;
@@ -52,7 +61,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -81,7 +91,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 # Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, x):
@@ -90,12 +101,10 @@ __Python__:
 
 class Solution:
     def reverseList(self, head: ListNode) -> ListNode:
-        return self.reverseListNode(head, None)
-
-    def reverseListNode(self, head: ListNode, pre: ListNode) -> ListNode:
-        if not head:
-            return pre
-        next = head.next
-        head.next = pre
-        return self.reverseListNode(next, head)
+        def reverseListNode(head: ListNode, pre: ListNode) -> ListNode:
+            if not head:
+                return pre
+            next, head.next = head.next, pre
+            return reverseListNode(next, head)
+        return reverseListNode(head, None)
 ```

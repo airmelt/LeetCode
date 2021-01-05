@@ -1,17 +1,20 @@
+# 883 Projection Area of 3D Shapes 三维形体投影面积
+
 __Description__:
-On a N * N grid, we place some 1 * 1 * 1 cubes that are axis-aligned with the x, y, and z axes.
+On a N \* N grid, we place some 1 \* 1 \* 1 cubes that are axis-aligned with the x, y, and z axes.
 
 Each value v = grid[i][j] represents a tower of v cubes placed on top of grid cell (i, j).
 
 Now we view the projection of these cubes onto the xy, yz, and zx planes.
 
-A projection is like a shadow, that maps our 3 dimensional figure to a 2 dimensional plane. 
+A projection is like a shadow, that maps our 3 dimensional figure to a 2 dimensional plane.
 
 Here, we are viewing the "shadow" when looking at the cubes from the top, the front, and the side.
 
 Return the total area of all three projections.
 
 __Example:__
+
 Example 1:
 
 Input: [[2]]
@@ -21,7 +24,7 @@ Example 2:
 
 Input: [[1,2],[3,4]]
 Output: 17
-Explanation: 
+Explanation:
 Here are the three projections ("shadows") of the shape made with each axis-aligned plane.
 ![projection](https://s3-lc-upload.s3.amazonaws.com/uploads/2018/08/02/shadow.png)
 
@@ -39,14 +42,14 @@ Example 5:
 
 Input: [[2,2,2],[2,1,2],[2,2,2]]
 Output: 21
- 
+
 __Note:__
 
 1 <= grid.length = grid[0].length <= 50
 0 <= grid[i][j] <= 50
 
 __题目描述__:
-在 N * N 的网格中，我们放置了一些与 x，y，z 三轴对齐的 1 * 1 * 1 立方体。
+在 N \* N 的网格中，我们放置了一些与 x，y，z 三轴对齐的 1 \* 1 \* 1 立方体。
 
 每个值 v = grid[i][j] 表示 v 个正方体叠放在单元格 (i, j) 上。
 
@@ -58,7 +61,8 @@ __题目描述__:
 
 返回所有三个投影的总面积。
 
- __示例 :__
+__示例 :__
+
 示例 1：
 
 输入：[[2]]
@@ -86,22 +90,26 @@ __题目描述__:
 
 输入：[[2,2,2],[2,1,2],[2,2,2]]
 输出：21
- 
+
 __提示：__
 
 1 <= grid.length = grid[0].length <= 50
 0 <= grid[i][j] <= 50
 
 __思路__:
+
 x方向上的投影是每个分量的最大值, y方向上的投影是转置之后的每个分量的最大值, z方向上的投影是该位置有方块( > 0), 记为 1
 时间复杂度O(n ^ 2), 空间复杂度O(1)
 
 __代码__:
 __C++__:
+
 ```C++
-class Solution {
+class Solution 
+{
 public:
-    int projectionArea(vector<vector<int>>& grid) {
+    int projectionArea(vector<vector<int>>& grid) 
+    {
         int result = 0;
         for (int i = 0; i < grid.size(); i++) 
         {
@@ -120,6 +128,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int projectionArea(int[][] grid) {
@@ -139,6 +148,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def projectionArea(self, grid: List[List[int]]) -> int:

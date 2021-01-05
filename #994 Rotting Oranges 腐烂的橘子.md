@@ -1,3 +1,5 @@
+# 994 Rotting Oranges 腐烂的橘子
+
 __Description__:
 In a given grid, each cell can have one of three values:
 
@@ -9,6 +11,7 @@ Every minute, any fresh orange that is adjacent (4-directionally) to a rotten or
 Return the minimum number of minutes that must elapse until no cell has a fresh orange.  If this is impossible, return -1 instead.
 
 __Example:__
+
 Example 1:
 ![Rotting Oranges](https://upload-images.jianshu.io/upload_images/16639143-2c68896066b4b28f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 Input: [[2,1,1],[1,1,0],[0,1,1]]
@@ -25,7 +28,7 @@ Example 3:
 Input: [[0,2]]
 Output: 0
 Explanation:  Since there are already no fresh oranges at minute 0, the answer is just 0.
- 
+
 __Note:__
 
 1 <= grid.length <= 10
@@ -43,6 +46,7 @@ __题目描述__:
 返回直到单元格中没有新鲜橘子为止所必须经过的最小分钟数。如果不可能，返回 -1。
 
 __示例 :__
+
 示例 1：
 ![腐烂的橘子](https://upload-images.jianshu.io/upload_images/16639143-56224de7f36a702c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 输入：[[2,1,1],[1,1,0],[0,1,1]]
@@ -59,7 +63,7 @@ __示例 :__
 输入：[[0,2]]
 输出：0
 解释：因为 0 分钟时已经没有新鲜橘子了，所以答案就是 0 。
- 
+
 __提示：__
 
 1 <= grid.length <= 10
@@ -67,11 +71,13 @@ __提示：__
 grid[i][j] 仅为 0、1 或 2
 
 __思路__:
+
 遍历橘子, 将腐烂的橘子加入队列, 并记录橘子的数量. 采用 BFS的思想遍历队列, 每次对 4个方向的橘子进行腐烂, 直到队列为空. 如果所有橘子都腐烂, 返回遍历的次数, 否则返回 -1
 时间复杂度O(n ^ 2), 空间复杂度O(n ^ 2)
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -84,7 +90,7 @@ public:
         for (int i = 0; i < row; i++) for (int j = 0; j < col; j++)
         {
             if (grid[i][j] == 2) q.push(make_pair(i, j));
-            if (grid[i][j]) count++;
+            if (grid[i][j]) ++count;
         }
         if (q.size() == count) return 0;
         while (q.size())
@@ -98,12 +104,12 @@ public:
                 for (auto direct : directs)
                 {
                     int x = cur.first + direct.first, y = cur.second + direct.second;
-                    if (x < 0 || y < 0 || x > row - 1 || y > col - 1 || grid[x][y] != 1) continue;
+                    if (x < 0 or y < 0 or x > row - 1 or y > col - 1 or grid[x][y] != 1) continue;
                     grid[x][y] = 2;
                     q.push(make_pair(x, y));
                 }
             }
-            result++;
+            ++result;
         }
         return count ? -1 : result;
     }
@@ -111,6 +117,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int orangesRotting(int[][] grid) {
@@ -141,6 +148,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def orangesRotting(self, grid: List[List[int]]) -> int:

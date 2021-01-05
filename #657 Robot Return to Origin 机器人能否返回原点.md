@@ -1,3 +1,5 @@
+# 657 Robot Return to Origin 机器人能否返回原点
+
 __Description__:
 There is a robot starting at position (0, 0), the origin, on a 2D plane. Given a sequence of its moves, judge if this robot ends up at (0, 0) after it completes its moves.
 
@@ -7,12 +9,13 @@ __Note:__
 The way that the robot is "facing" is irrelevant. "R" will always make the robot move to the right once, "L" will always make it move left, etc. Also, assume that the magnitude of the robot's movement is the same for each move.
 
 __Example:__
+
 Example 1:
 
 Input: "UD"
-Output: true 
+Output: true
 Explanation: The robot moves up once, and then down once. All moves have the same magnitude, so it ended up at the origin where it started. Therefore, we return true.
- 
+
 Example 2:
 
 Input: "LL"
@@ -28,6 +31,7 @@ __注意：__
 机器人“面朝”的方向无关紧要。 “R” 将始终使机器人向右移动一次，“L” 将始终向左移动等。此外，假设每次移动机器人的移动幅度相同。
 
 __示例 :__
+
 示例 1:
 
 输入: "UD"
@@ -40,24 +44,29 @@ __示例 :__
 解释：机器人向左移动两次。它最终位于原点的左侧，距原点有两次 “移动” 的距离。我们返回 false，因为它在移动结束时没有返回原点。
 
 __思路__:
+
 遍历字符串, 比较 U和D以及 L和 R的出现次数
 时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    bool judgeCircle(string moves) {
+    bool judgeCircle(string moves) 
+    {
         int count[26] = {0};
-        for (char c : moves) count[c - 'A']++;
+        for (char c : moves) ++count[c - 'A'];
         return count['L' - 'A'] == count['R' - 'A'] && count['U' - 'A'] == count['D' - 'A'];
     }
 };
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public boolean judgeCircle(String moves) {
         int[] count = new int[26];
@@ -68,7 +77,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def judgeCircle(self, moves: str) -> bool:
         return moves.count('U') == moves.count('D') and moves.count('R') == moves.count('L')

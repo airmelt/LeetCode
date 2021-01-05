@@ -1,7 +1,10 @@
+# 859 Buddy Strings 亲密字符串
+
 __Description__:
 Given two strings A and B of lowercase letters, return true if and only if we can swap two letters in A so that the result equals B.
 
 __Example:__
+
 Example 1:
 
 Input: A = "ab", B = "ba"
@@ -26,7 +29,7 @@ Example 5:
 
 Input: A = "", B = "aa"
 Output: false
- 
+
 __Note:__
 
 0 <= A.length <= 20000
@@ -37,6 +40,7 @@ __题目描述__:
 给定两个由小写字母构成的字符串 A 和 B ，只要我们可以通过交换 A 中的两个字母得到与 B 相等的结果，就返回 true ；否则返回 false 。
 
 __示例 :__
+
 示例 1：
 
 输入： A = "ab", B = "ba"
@@ -61,7 +65,7 @@ __示例 :__
 
 输入： A = "", B = "aa"
 输出： false
- 
+
 __提示：__
 
 0 <= A.length <= 20000
@@ -69,6 +73,7 @@ __提示：__
 A 和 B 仅由小写字母构成。
 
 __思路__:
+
 首先, 如果 A和 B长度不相等, 直接返回false
 如果 A等于 B, 只要 A中有重复字符, 返回true, 否则返回 false
 如果 A不等于 B, 遍历 A, 找到两个下标, 尝试交换, 能交换返回 true, 其他情况都返回 false
@@ -76,10 +81,13 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
-class Solution {
+class Solution 
+{
 public:
-    bool buddyStrings(string A, string B) {
+    bool buddyStrings(string A, string B) 
+    {
         if (A.size() != B.size()) return false;
         if (A == B)
         {
@@ -100,9 +108,11 @@ public:
         }
         return second != -1 && A[first] == B[second] && A[second] == B[first];
     }
-};```
+};
+```
 
 __Java__:
+
 ```Java
 class Solution {
     public boolean buddyStrings(String A, String B) {
@@ -127,6 +137,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def buddyStrings(self, A: str, B: str) -> bool:

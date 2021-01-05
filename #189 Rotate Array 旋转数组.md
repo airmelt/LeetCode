@@ -1,7 +1,10 @@
+# 189 Rotate Array 旋转数组
+
 __Description__:
 Given an array, rotate the array to the right by k steps, where k is non-negative.
 
 __Example__:
+
 Example 1:
 Input: [1,2,3,4,5,6,7] and k = 3
 Output: [5,6,7,1,2,3,4]
@@ -25,6 +28,7 @@ __题目描述__:
 给定一个数组，将数组中的元素向右移动 k 个位置，其中 k 是非负数。
 
 __示例__:
+
 示例 1:
 输入: [1,2,3,4,5,6,7] 和 k = 3
 输出: [5,6,7,1,2,3,4]
@@ -45,6 +49,7 @@ __说明__:
 要求使用空间复杂度为 O(1) 的原地算法。
 
 __思路__:
+
 1. 先将数组反转, 然后分别将[0, k) 和 [k, nums.size())部分反转
 2. 每次取出最后一个元素放到第一个元素的位置
 3. 递归交换
@@ -52,10 +57,13 @@ __思路__:
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    void rotate(vector<int>& nums, int k) {
+    void rotate(vector<int>& nums, int k) 
+    {
         int len = nums.size();
         k %= len;
         reverse(nums, 0, len - 1);
@@ -63,16 +71,16 @@ public:
         reverse(nums, k, len - 1);
     }
 private:
-    void reverse(vector<int>& nums, int start, int end) {
-        while (start < end) {
-            swap(nums[start++], nums[end--]);
-        }
+    void reverse(vector<int>& nums, int start, int end) 
+    {
+        while (start < end) swap(nums[start++], nums[end--]);
     }
 };
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public void rotate(int[] nums, int k) {
         recursiveSwap(nums, k, 0, nums.length);
@@ -95,7 +103,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def rotate(self, nums: List[int], k: int) -> None:
         """

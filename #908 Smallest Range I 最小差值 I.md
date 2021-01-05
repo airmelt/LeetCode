@@ -1,3 +1,5 @@
+# 908 Smallest Range I 最小差值 I
+
 __Description__:
 Given an array A of integers, for each integer A[i] we may choose any x with -K <= x <= K, and add x to A[i].
 
@@ -6,6 +8,7 @@ After this process, we have some array B.
 Return the smallest possible difference between the maximum value of B and the minimum value of B.
 
 __Example:__
+
 Example 1:
 
 Input: A = [1], K = 0
@@ -23,7 +26,7 @@ Example 3:
 Input: A = [1,3,6], K = 3
 Output: 0
 Explanation: B = [3,3,3] or B = [4,4,4]
- 
+
 __Note:__
 
 1 <= A.length <= 10000
@@ -38,6 +41,7 @@ __题目描述__:
 返回 B 的最大值和 B 的最小值之间可能存在的最小差值。
 
 __示例 :__
+
 示例 1：
 
 输入：A = [1], K = 0
@@ -55,7 +59,7 @@ __示例 :__
 输入：A = [1,3,6], K = 3
 输出：0
 解释：B = [3,3,3] 或 B = [4,4,4]
- 
+
 __提示：__
 
 1 <= A.length <= 10000
@@ -63,6 +67,7 @@ __提示：__
 0 <= K <= 10000
 
 __思路__:
+
 差距最大的是 max(A)和 min(A), 可以分别向中间靠近
 那么就说 max(A) - K和 min(A) + K之间的差距
 实际上返回的是 0和 max(A) - min(A) - 2 * K的较大值
@@ -70,16 +75,20 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
-class Solution {
+class Solution 
+{
 public:
-    int smallestRangeI(vector<int>& A, int K) {
+    int smallestRangeI(vector<int>& A, int K) 
+    {
         return max(*max_element(A.begin(), A.end()) - *min_element(A.begin(), A.end()) - 2 * K, 0);
     }
 };
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int smallestRangeI(int[] A, int K) {
@@ -94,6 +103,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def smallestRangeI(self, A: List[int], K: int) -> int:

@@ -1,9 +1,12 @@
+# 496 Next Greater Element I 下一个更大元素 I
+
 __Description__:
 You are given two arrays (without duplicates) nums1 and nums2 where nums1’s elements are subset of nums2. Find all the next greater numbers for nums1's elements in the corresponding places of nums2.
 
 The Next Greater Number of a number x in nums1 is the first greater number to its right in nums2. If it does not exist, output -1 for this number.
 
 __Example:__
+
 Example 1:
 Input: nums1 = [4,1,2], nums2 = [1,3,4,2].
 Output: [-1,3,-1]
@@ -29,6 +32,7 @@ __题目描述__:
 nums1 中数字 x 的下一个更大元素是指 x 在 nums2 中对应位置的右边的第一个比 x 大的元素。如果不存在，对应位置输出-1。
 
 __示例：__
+
 示例 1:
 
 输入: nums1 = [4,1,2], nums2 = [1,3,4,2].
@@ -53,23 +57,29 @@ nums1和nums2中所有元素是唯一的。
 nums1和nums2 的数组大小都不超过1000。
 
 __思路__:
+
 可以使用单调栈或者循环存储 nums2中每个元素其后第一个比自身大的元素
 时间复杂度O(m ^ 2), 空间复杂度O(m), m为数组 nums2的长度
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
+    vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) 
+    {
         int s[1000], top = -1;
         map<int,int> m;
-        for (int i = 0; i < nums2.size(); i++) {
-            if (top == -1) {
+        for (int i = 0; i < nums2.size(); i++) 
+        {
+            if (top == -1) 
+            {
                 s[++top] = i;
                 continue;
             }
-            while (top != -1 && nums2[i] > nums2[s[top]]) m[nums2[s[top--]]] = nums2[i];
+            while (top != -1 and nums2[i] > nums2[s[top]]) m[nums2[s[top--]]] = nums2[i];
             s[++top] = i;
         }
         for (int i = 0; i < nums1.size(); i++) nums1[i] = m.count(nums1[i])? m[nums1[i]] : -1;
@@ -79,7 +89,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public int[] nextGreaterElement(int[] nums1, int[] nums2) {
         Map<Integer, Integer> map = new HashMap<>();
@@ -100,7 +111,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
         d = {}

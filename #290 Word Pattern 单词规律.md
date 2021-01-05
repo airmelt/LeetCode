@@ -1,9 +1,12 @@
+# 290 Word Pattern 单词规律
+
 __Description__:
 Given a pattern and a string str, find if str follows the same pattern.
 
 Here follow means a full match, such that there is a bijection between a letter in pattern and a non-empty word in str.
 
 **Example :**
+
 Example 1:
 Input: pattern = "abba", str = "dog cat cat dog"
 Output: true
@@ -29,7 +32,8 @@ __题目描述__:
 这里的 遵循 指完全匹配，例如， pattern 里的每个字母和字符串 str 中的每个非空单词之间存在着双向连接的对应规律。
 
 **示例 :**
-示例1:
+
+示例 1:
 输入: pattern = "abba", str = "dog cat cat dog"
 输出: true
 
@@ -49,27 +53,35 @@ __说明:__
 你可以假设 pattern 只包含小写字母， str 包含了由单个空格分隔的小写字母。
 
 __思路__:
+
 用 split()函数将字符串按空格分割成字符串数组
 采用 map记录单词和 pattern中的字符的对应关系
 时间复杂度O(n), 空间复杂度O(n)
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    bool wordPattern(string pattern, string str) {
-        const vector<string>& list = split(str,' '); 
+    bool wordPattern(string pattern, string str) 
+    {
+        const vector<string>& list = split(str, ' '); 
         if (list.size() != pattern.size()) return false;
         map<string, char> dict1;
         map<char, string> dict2;
-        for (int i = 0; i < list.size(); i++) {
+        for (int i = 0; i < list.size(); i++) 
+        {
             const string& s = list[i];            
-            if (dict1.find(s) != dict1.end()) {
+            if (dict1.find(s) != dict1.end()) 
+            {
                 char tmp = dict1[s];
                 if (tmp != pattern[i]) return false;
-            } else {
-                if (dict2.size() && dict2.find(pattern[i]) != dict2.end()) return false;
+            } 
+            else 
+            {
+                if (dict2.size() and dict2.find(pattern[i]) != dict2.end()) return false;
                 dict1.insert(make_pair(s, pattern[i]));
                 dict2.insert(make_pair(pattern[i], s));
             }      
@@ -77,12 +89,14 @@ public:
         return true;
     }
 private:
-    vector<string> split(string& str,const char a) {
+    vector<string> split(string& str,const char a) 
+    {
         vector<string> strvec;
         string::size_type pos1, pos2;
         pos2 = str.find(a);
         pos1 = 0;
-        while (string::npos != pos2) {
+        while (string::npos != pos2) 
+        {
             strvec.push_back(str.substr(pos1, pos2 - pos1));
             pos1 = pos2 + 1;
             pos2 = str.find(a, pos1);
@@ -94,7 +108,8 @@ private:
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public boolean wordPattern(String pattern, String str) {
         char[] chars = pattern.toCharArray();
@@ -113,19 +128,20 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def wordPattern(self, pattern: str, str: str) -> bool:
         str = str.split(' ')
         if not pattern or not str or len(set(str)) != len(set(pattern)) or len(str) != len(pattern):
-        	return False
+            return False
         dict = {}
         for i in range(len(str)):
-        	if pattern[i] in dict:
-        		if dict[pattern[i]] == str[i]:
-        			continue
-        		else:
-        			return False
-        	dict[pattern[i]] = str[i]
+            if pattern[i] in dict:
+                if dict[pattern[i]] == str[i]:
+                    continue
+                else:
+                    return False
+            dict[pattern[i]] = str[i]
         return True
 ```

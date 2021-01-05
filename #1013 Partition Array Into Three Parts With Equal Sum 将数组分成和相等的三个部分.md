@@ -1,9 +1,12 @@
+# 1013 Partition Array Into Three Parts With Equal Sum 将数组分成和相等的三个部分
+
 __Description__:
 Given an array A of integers, return true if and only if we can partition the array into three non-empty parts with equal sums.
 
 Formally, we can partition the array if we can find indexes i+1 < j with (A[0] + A[1] + ... + A[i] == A[i+1] + A[i+2] + ... + A[j-1] == A[j] + A[j-1] + ... + A[A.length - 1])
 
 __Example:__
+
 Example 1:
 
 Input: [0,2,1,-6,6,-7,9,1,2,0,1]
@@ -20,7 +23,7 @@ Example 3:
 Input: [3,3,6,5,-2,2,5,1,-9,4]
 Output: true
 Explanation: 3 + 3 = 6 = 5 - 2 + 2 + 5 + 1 - 9 + 4
- 
+
 __Note:__
 
 3 <= A.length <= 50000
@@ -32,6 +35,7 @@ __题目描述__:
 形式上，如果我们可以找出索引 i+1 < j 且满足 (A[0] + A[1] + ... + A[i] == A[i+1] + A[i+2] + ... + A[j-1] == A[j] + A[j-1] + ... + A[A.length - 1]) 就可以将数组三等分。
 
 __示例 :__
+
 示例 1：
 
 输出：[0,2,1,-6,6,-7,9,1,2,0,1]
@@ -48,7 +52,7 @@ __示例 :__
 输入：[3,3,6,5,-2,2,5,1,-9,4]
 输出：true
 解释：3 + 3 = 6 = 5 - 2 + 2 + 5 + 1 - 9 + 4
- 
+
 __提示：__
 
 3 <= A.length <= 50000
@@ -60,6 +64,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -73,7 +78,7 @@ public:
         while (i < j) {
             if (l - s) l += A[i++];
             if (r - s) r += A[j--];
-            if (l == s && r == s) return true;
+            if (l == s and r == s) return true;
         }
         return false;
     }
@@ -81,6 +86,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public boolean canThreePartsEqualSum(int[] A) {
@@ -99,6 +105,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def canThreePartsEqualSum(self, A: List[int]) -> bool:

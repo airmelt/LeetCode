@@ -1,10 +1,13 @@
+# 226 Invert Binary Tree 翻转二叉树
+
 __Description__:
 Invert a binary tree.
 
 **Example:**
 
 Input:
-```
+
+```text
      4
    /   \
   2     7
@@ -13,7 +16,8 @@ Input:
 ```
 
 Output:
-```
+
+```text
      4
    /   \
   7     2
@@ -32,7 +36,8 @@ __题目描述__:
 **示例：**
 
 输入：
-```
+
+```text
      4
    /   \
   2     7
@@ -41,7 +46,8 @@ __题目描述__:
 ```
 
 输出：
-```
+
+```text
      4
    /   \
   7     2
@@ -50,19 +56,19 @@ __题目描述__:
 ```
 
 **备注:**
-这个问题是受到 [Max Howell ](https://twitter.com/mxcl)的 [原问题](https://twitter.com/mxcl/status/608682016205344768) 启发的 ：
+这个问题是受到 [Max Howell](https://twitter.com/mxcl)的 [原问题](https://twitter.com/mxcl/status/608682016205344768) 启发的 ：
 
 > 谷歌：我们90％的工程师使用您编写的软件(Homebrew)，但是您却无法在面试时在白板上写出翻转二叉树这道题，这太糟糕了。
 
-
 __思路__:
+
 采用[LeetCode #107 Binary Tree Level Order Traversal II 二叉树的层次遍历 II](https://www.jianshu.com/p/76abc4ff072f)类似的思路, 迭代或者递归解决
 时间复杂度O(n), 空间复杂度O(n)
 
-
 __代码__:
 __C++__:
-```
+
+```C++
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -72,13 +78,16 @@ __C++__:
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
-class Solution {
+class Solution 
+{
 public:
-    TreeNode* invertTree(TreeNode* root) {
+    TreeNode* invertTree(TreeNode* root) 
+    {
         if (!root) return root;
         queue<TreeNode*> q;
         q.push(root);
-        while (!q.empty()) {
+        while (!q.empty()) 
+        {
             TreeNode* cur = q.front();
             q.pop();
             TreeNode* temp = cur -> right;
@@ -93,7 +102,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -115,7 +125,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, x):

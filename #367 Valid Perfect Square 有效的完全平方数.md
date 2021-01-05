@@ -1,9 +1,12 @@
+# 367 Valid Perfect Square 有效的完全平方数
+
 __Description__:
 Given a positive integer num, write a function which returns True if num is a perfect square else False.
 
 __Note:__ Do not use any built-in library function such as sqrt.
 
 **Example :**
+
 Example 1:
 Input: 16
 Output: true
@@ -18,6 +21,7 @@ __题目描述__:
 __说明:__ 不要使用任何内置的库函数，如  sqrt。
 
 **示例 :**
+
 示例 1：
 输入：16
 输出：True
@@ -27,6 +31,7 @@ __说明:__ 不要使用任何内置的库函数，如  sqrt。
 输出：False
 
 __思路__:
+
 1. 利用正奇数之和等于平方数 1 + 3 + ... + (2n - 1) = n ^ 2
 2. 二分查找
 最大的平方数为 46340 ^ 2 < 2 ^ 31 - 1
@@ -34,12 +39,16 @@ __思路__:
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    bool isPerfectSquare(int num) {
+    bool isPerfectSquare(int num) 
+    {
         int temp = 1;
-        while (num > 0) {
+        while (num > 0) 
+        {
             num -= temp;
             temp += 2;
         }
@@ -49,7 +58,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public boolean isPerfectSquare(int num) {
         int low = 0;
@@ -66,7 +76,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def isPerfectSquare(self, num: int) -> bool:
         return (num in {i ** 2 for i in range(46341)})

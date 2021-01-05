@@ -1,11 +1,15 @@
+# 627 Swap Salary 交换工资
+
 __Description__:
 Given a table salary, such as the one below, that has m=male and f=female values. Swap all f and m values (i.e., change all f values to m and vice versa) with a single update statement and no intermediate temp table.
 
 Note that you must write a single update statement, DO NOT write any select statement for this problem.
 
 __Example:__
+
 Example:
-```
+
+```text
 | id | name | sex | salary |
 |----|------|-----|--------|
 | 1  | A    | m   | 2500   |
@@ -13,8 +17,10 @@ Example:
 | 3  | C    | m   | 5500   |
 | 4  | D    | f   | 500    |
 ```
+
 After running your update statement, the above salary table should have the following rows:
-```
+
+```text
 | id | name | sex | salary |
 |----|------|-----|--------|
 | 1  | A    | f   | 2500   |
@@ -29,8 +35,10 @@ __题目描述__:
 注意，您必只能写一个 Update 语句，请不要编写任何 Select 语句。
 
 __示例 :__
+
 例如：
-```
+
+```text
 | id | name | sex | salary |
 |----|------|-----|--------|
 | 1  | A    | m   | 2500   |
@@ -38,8 +46,10 @@ __示例 :__
 | 3  | C    | m   | 5500   |
 | 4  | D    | f   | 500    |
 ```
+
 运行你所编写的更新语句之后，将会得到以下表:
-```
+
+```text
 | id | name | sex | salary |
 |----|------|-----|--------|
 | 1  | A    | f   | 2500   |
@@ -49,11 +59,13 @@ __示例 :__
 ```
 
 __思路__:
+
 CASE WHEN
 
 __代码__:
 __MySQL__:
-```
+
+```sql
 # Write your MySQL query statement below
 UPDATE 
     salary 

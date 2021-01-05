@@ -1,9 +1,12 @@
+# 965 Univalued Binary Tree 单值二叉树
+
 __Description__:
 A binary tree is univalued if every node in the tree has the same value.
 
 Return true if and only if the given tree is univalued.
 
 __Example:__
+
 Example 1:
 ![Binary Tree 1](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/29/screen-shot-2018-12-25-at-50104-pm.png)
 Input: [1,1,1,1,1,null,1]
@@ -13,7 +16,7 @@ Example 2:
 ![Binary Tree 2](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/29/screen-shot-2018-12-25-at-50050-pm.png)
 Input: [2,2,2,5,2]
 Output: false
- 
+
 __Note:__
 
 The number of nodes in the given tree will be in the range [1, 100].
@@ -25,27 +28,31 @@ __题目描述__:
 只有给定的树是单值二叉树时，才返回 true；否则返回 false。
 
 __示例 :__
+
 示例 1：
 ![二叉树1](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/29/screen-shot-2018-12-25-at-50104-pm.png)
 输入：[1,1,1,1,1,null,1]
 输出：true
+
 示例 2：
 ![二叉树2](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/29/screen-shot-2018-12-25-at-50050-pm.png)
 输入：[2,2,2,5,2]
 输出：false
- 
+
 __提示：__
 
 给定树的节点数范围是 [1, 100]。
 每个节点的值都是整数，范围为 [0, 99] 。
 
 __思路__:
+
 1. 迭代, 用任何一种遍历遍历二叉树即可
 2. 递归
 时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
+
 ```C++
 /**
  * Definition for a binary tree node.
@@ -56,7 +63,8 @@ __C++__:
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
-class Solution {
+class Solution 
+{
 public:
     bool isUnivalTree(TreeNode* root) 
     {
@@ -77,6 +85,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 /**
  * Definition for a binary tree node.
@@ -95,6 +104,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 # Definition for a binary tree node.
 # class TreeNode:

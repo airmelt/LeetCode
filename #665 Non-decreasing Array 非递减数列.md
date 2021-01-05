@@ -1,14 +1,18 @@
+# 665 Non-decreasing Array 非递减数列
+
 __Description__:
 Given an array with n integers, your task is to check if it could become non-decreasing by modifying at most 1 element.
 
 We define an array is non-decreasing if array[i] <= array[i + 1] holds for every i (1 <= i < n).
 
 __Example:__
+
 Example 1:
 
 Input: [4,2,3]
 Output: True
 Explanation: You could modify the first 4 to 1 to get a non-decreasing array.
+
 Example 2:
 
 Input: [4,2,1]
@@ -24,11 +28,13 @@ __题目描述__:
 我们是这样定义一个非递减数列的： 对于数组中所有的 i (1 <= i < n)，满足 array[i] <= array[i + 1]。
 
 __示例 :__
+
 示例 1:
 
 输入: [4,2,3]
 输出: True
 解释: 你可以通过把第一个4变成1来使得它成为一个非递减数列。
+
 示例 2:
 
 输入: [4,2,1]
@@ -39,6 +45,7 @@ __说明:__
 n 的范围为 [1, 10,000]。
 
 __思路__:
+
 1. 如果数组不是递增数列, 有两种情况:
 [1, 4, 2, 3]或者[1, 2, 2, 1], 可以看出来比较 i - 2和 i位置元素的大小, 分别更改成 [1, 2, 2, 3]和[1, 2, 2, 2]即可
 2. 用双指针搜索, 如果满足题意, 那么指针最多只能相差 1, 注意判断边界条件即可
@@ -46,20 +53,24 @@ __思路__:
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    bool checkPossibility(vector<int>& nums) {
+    bool checkPossibility(vector<int>& nums) 
+    {
         int i = 0, j = nums.size() - 1;
-        while (i < j && nums[i] <= nums[i + 1]) i++;
-        while (i < j && nums[j] >= nums[j - 1]) j--;
-        return i == j || (i == j - 1 && ((i > 0 && (nums[i - 1] < nums[j])) || ((j < nums.size() - 1 && (nums[i] < nums[j + 1]))) || (i == 0 || j == nums.size() - 1)));
+        while (i < j and nums[i] <= nums[i + 1]) ++i;
+        while (i < j and nums[j] >= nums[j - 1]) --j;
+        return i == j or (i == j - 1 and ((i > 0 and (nums[i - 1] < nums[j])) or ((j < nums.size() - 1 and (nums[i] < nums[j + 1]))) or (i == 0 or j == nums.size() - 1)));
     }
 };
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public boolean checkPossibility(int[] nums) {
         int count = 0;
@@ -75,7 +86,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def checkPossibility(self, nums: List[int]) -> bool:
         count = 0

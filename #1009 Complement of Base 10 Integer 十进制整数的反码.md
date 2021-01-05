@@ -1,3 +1,5 @@
+# 1009 Complement of Base 10 Integer 十进制整数的反码
+
 __Description__:
 Every non-negative integer N has a binary representation.  For example, 5 can be represented as "101" in binary, 11 as "1011" in binary, and so on.  Note that except for N = 0, there are no leading zeroes in any binary representation.
 
@@ -6,6 +8,7 @@ The complement of a binary representation is the number in binary you get when
 For a given number N in base-10, return the complement of it's binary representation as a base-10 integer.
 
 __Example:__
+
 Example 1:
 
 Input: 5
@@ -23,7 +26,7 @@ Example 3:
 Input: 10
 Output: 5
 Explanation: 10 is "1010" in binary, with complement "0101" in binary, which is 5 in base-10.
- 
+
 __Note:__
 
 0 <= N < 10^9
@@ -36,6 +39,7 @@ __题目描述__:
 给定十进制数 N，返回其二进制表示的反码所对应的十进制整数。
 
 __示例 :__
+
 示例 1：
 
 输入：5
@@ -53,13 +57,15 @@ __示例 :__
 输入：10
 输出：5
 解释：10 的二进制表示为 "1010"，其二进制反码为 "0101"，也就是十进制中的 5 。
- 
+
 __提示：__
 
 0 <= N < 10^9
 
 __思路__:
+
 这里的取反和定义不太一样, 只用取到大于或等于 N的 2 ^ k即可
+
 1. 输出的结果为 2 ^ k - 1 - N, 因为 N + result = 2 ^ k - 1
 也可以是 N ^ (2 ^ k - 1), 第一个 ^ 为位运算操作符
 2. k = log(2)(N) = ln(N) / ln(2)
@@ -67,6 +73,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -79,6 +86,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int bitwiseComplement(int N) {
@@ -88,6 +96,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def bitwiseComplement(self, N: int) -> int:

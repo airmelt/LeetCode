@@ -1,9 +1,12 @@
+# 925 Long Pressed Name 长按键入
+
 __Description__:
 Your friend is typing his name into a keyboard.  Sometimes, when typing a character c, the key might get long pressed, and the character will be typed 1 or more times.
 
 You examine the typed characters of the keyboard.  Return True if it is possible that it was your friends name, with some characters (possibly none) being long pressed.
 
 __Example:__
+
 Example 1:
 
 Input: name = "alex", typed = "aaleex"
@@ -26,7 +29,7 @@ Example 4:
 Input: name = "laiden", typed = "laiden"
 Output: true
 Explanation: It's not necessary to long press any character.
- 
+
 __Note:__
 
 name.length <= 1000
@@ -39,6 +42,7 @@ __题目描述__:
 你将会检查键盘输入的字符 typed。如果它对应的可能是你的朋友的名字（其中一些字符可能被长按），那么就返回 True。
 
 __示例 :__
+
 示例 1：
 
 输入：name = "alex", typed = "aaleex"
@@ -61,7 +65,7 @@ __示例 :__
 输入：name = "laiden", typed = "laiden"
 输出：true
 解释：长按名字中的字符并不是必要的。
- 
+
 __提示：__
 
 name.length <= 1000
@@ -69,6 +73,7 @@ typed.length <= 1000
 name 和 typed 的字符都是小写字母。
 
 __思路__:
+
 双指针法
 __注意!__
 typed的末尾可能和name的末尾不相等
@@ -77,35 +82,41 @@ typed的末尾可能和name的末尾不相等
 
 __代码__:
 __C++__:
+
 ```C++
-class Solution {
+class Solution 
+{
 public:
     bool isLongPressedName(string name, string typed) 
     {
         if (name.size() > typed.size()) return false;
         int i = 0, j = 0;
-        while (i < name.size() && j < typed.size()) 
+        while (i < name.size() and j < typed.size()) 
         {
             if (name[i] == typed[j]) 
             {
                 i++;
                 j++;
             }
-            else if (j > 0 && typed[j] == typed[j - 1]) j++;
+            else if (j > 0 and typed[j] == typed[j - 1]) j++;
             else return false;
         }
-        if (i == name.size()) {
-            while (j < typed.size()) {
+        if (i == name.size()) 
+        {
+            while (j < typed.size()) 
+            {
                 if (typed[j] != name[i - 1]) return false;
                 j++;
             }
-        } else return false;
+        } 
+        else return false;
         return true;
     }
 };
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public boolean isLongPressedName(String name, String typed) {
@@ -131,6 +142,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def isLongPressedName(self, name: str, typed: str) -> bool:

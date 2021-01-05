@@ -1,9 +1,12 @@
+# 1108 Defanging an IP Address IP 地址无效化
+
 __Description__:
 Given a valid (IPv4) IP address, return a defanged version of that IP address.
 
 A defanged IP address replaces every period "." with "[.]".
 
 __Example:__
+
 Example 1:
 
 Input: address = "1.1.1.1"
@@ -13,7 +16,7 @@ Example 2:
 
 Input: address = "255.100.50.0"
 Output: "255[.]100[.]50[.]0"
- 
+
 __Constraints:__
 
 The given address is a valid IPv4 address.
@@ -24,6 +27,7 @@ __题目描述__:
 所谓无效化 IP 地址，其实就是用 "[.]" 代替了每个 "."。
 
 __示例 :__
+
 示例 1：
 
 输入：address = "1.1.1.1"
@@ -33,7 +37,7 @@ __示例 :__
 
 输入：address = "255.100.50.0"
 输出："255[.]100[.]50[.]0"
- 
+
 __提示：__
 
 给出的 address 是一个有效的 IPv4 地址
@@ -44,6 +48,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -57,6 +62,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public String defangIPaddr(String address) {
@@ -66,6 +72,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def defangIPaddr(self, address: str) -> str:

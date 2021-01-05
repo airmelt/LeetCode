@@ -1,86 +1,84 @@
+# 66 Plus One 加一
+
 __Description__:
-Given a string s consists of upper/lower-case alphabets and empty space characters ' ', return the length of last word in the string.
+Given a non-empty array of digits representing a non-negative integer, plus one to the integer.
 
-If the last word does not exist, return 0.
+The digits are stored such that the most significant digit is at the head of the list, and each element in the array contain a single digit.
 
-Note: A word is defined as a character sequence consists of non-space characters only.
+You may assume the integer does not contain any leading zero, except the number 0 itself.
 
 __Example__:
-Input: "Hello World"
-Output: 5
+
+Example 1:
+Input: [1,2,3]
+Output: [1,2,4]
+Explanation: The array represents the integer 123.
+
+Example 2:
+Input: [4,3,2,1]
+Output: [4,3,2,2]
+Explanation: The array represents the integer 4321.
 
 __题目描述__:
-给定一个仅包含大小写字母和空格 ' ' 的字符串，返回其最后一个单词的长度。
+给定一个由整数组成的非空数组所表示的非负整数，在该数的基础上加一。
 
-如果不存在最后一个单词，请返回 0 。
+最高位数字存放在数组的首位， 数组中每个元素只存储一个数字。
 
-说明：一个单词是指由字母组成，但不包含任何空格的字符串。
+你可以假设除了整数 0 之外，这个整数不会以零开头。
 
- __示例__:
+__示例__:
 
-输入: "Hello World"
-输出: 5
+示例 1:
+输入: [1,2,3]
+输出: [1,2,4]
+解释: 输入数组表示数字 123。
+
+示例 2:
+输入: [4,3,2,1]
+输出: [4,3,2,2]
+解释: 输入数组表示数字 4321。
 
 __思路__:
-先去除两端的括号, 再按空格拆分成字符串数组, 选择最后一个元素输出长度即可
-时间复杂度O(1), 空间复杂度O(1)
+特别注意[9] -> [1, 0]
+时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    void split(std::string& s, std::string& separator, std::vector<std::string>& result) {
-        size_t last = 0;
-        size_t index = s.find_first_of(separator, last);
-        while (index != std::string::npos) {
-            result.push_back(s.substr(last,index - last));
-            last = index + 1;
-            index = s.find_first_of(separator,last);
-        }
-        if (index - last > 0) {
-            result.push_back(s.substr(last, index - last));
-        }
+    vector<int> plusOne(vector<int>& digits) 
+    {
+        int len = digits.size() - 1;
+        while (len > -1 and ++digits[len] == 10) digits[len--] = 0;
+        if (len == - 1) digits.insert(digits.begin(), 1);
+        return digits;
     }
-
-    int lengthOfLastWord(string s) {
-        trim(s);
-        vector<string> result;
-        string separator = " ";
-        split(s, separator, result);
-        return result[result.size() - 1].size();
-    }
-
-    // 去除string两端的空格
-    std::string& trim(std::string &s) {
-        if (s.empty()) {
-            return s;
-        }
-        // iterator erase (iterator position);　　删除指定元素
-        // iterator erase (iterator first, iterator last);　　删除指定范围内的元素
-        // size_type find_first_not_of( const basic_string &str, size_type index = 0 );
-        // 在字符串中查找第一个与str中的字符都不匹配的字符
-        s.erase(0, s.find_first_not_of(" "));
-        s.erase(s.find_last_not_of(" ") + 1);
-        return s;
-    }
-
 };
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
-    public int lengthOfLastWord(String s) {
-        String[] strs = s.trim().split(" ");
-        return strs[strs.length - 1].length();
+    public int[] plusOne(int[] digits) {
+        int len = digits.length - 1;
+        while (len > -1 && ++digits[len] == 10) digits[len--] = 0;
+        if (len != - 1) return digits;
+        int[] result = new int[digits.length + 1];
+        for (int i = 0; i < digits.length; i++) result[i + 1] = digits[i];
+        result[0] = 1;
+        return result;
     }
 }
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
-    def lengthOfLastWord(self, s: str) -> int:
-        return len(s.strip().split(" ")[-1])
+    def plusOne(self, digits: List[int]) -> List[int]:
+        return [int(s) for s in str(int(''.join(map(lambda x:str(x),digits))) + 1)]
 ```

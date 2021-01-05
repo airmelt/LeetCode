@@ -1,23 +1,26 @@
+# 720 Longest Word in Dictionary 词典中最长的单词
+
 __Description__:
 Given a list of strings words representing an English Dictionary, find the longest word in words that can be built one character at a time by other words in words. If there is more than one possible answer, return the longest word with the smallest lexicographical order.
 
 If there is no answer, return the empty string.
 
 __Example:__
+
 Example 1:
 
-Input: 
+Input:
 words = ["w","wo","wor","worl", "world"]
 Output: "world"
-Explanation: 
+Explanation:
 The word "world" can be built one character at a time by "w", "wo", "wor", and "worl".
 
 Example 2:
 
-Input: 
+Input:
 words = ["a", "banana", "app", "appl", "ap", "apply", "apple"]
 Output: "apple"
-Explanation: 
+Explanation:
 Both "apply" and "apple" can be built from other words in the dictionary. However, "apple" is lexicographically smaller than "apply".
 
 __Note:__
@@ -32,20 +35,21 @@ __题目描述__:
 若无答案，则返回空字符串。
 
 __示例 :__
+
 示例 1:
 
-输入: 
+输入:
 words = ["w","wo","wor","worl", "world"]
 输出: "world"
-解释: 
+解释:
 单词"world"可由"w", "wo", "wor", 和 "worl"添加一个字母组成。
 
 示例 2:
 
-输入: 
+输入:
 words = ["a", "banana", "app", "appl", "ap", "apply", "apple"]
 输出: "apple"
-解释: 
+解释:
 "apply"和"apple"都能由词典中的单词组成。但是"apple"得字典序小于"apply"。
 
 __注意：__
@@ -55,6 +59,7 @@ words数组长度范围为[1,1000]。
 words[i]的长度范围为[1,30]。
 
 __思路__:
+
 1. 前缀树, 参考[LeetCode #14 Longest Common Prefix 最长公共前缀](https://www.jianshu.com/p/64dfea263509), 加上一个记录是否为单词的标志
 时间复杂度O(n), 空间复杂度O(n)
 2. 先按字典序排序, 遍历取第一个出现的最长单词即可
@@ -62,16 +67,20 @@ __思路__:
 
 __代码__:
 __C++__:
-```
-class PreTree {
+
+```C++
+class PreTree 
+{
 public:
     bool is_word;
     vector<PreTree*> children;
     PreTree(): is_word(false), children(26, nullptr) {}
 };
-class Solution {
+class Solution 
+{
 public:
-    string longestWord(vector<string>& words) {
+    string longestWord(vector<string>& words) 
+    {
         preTree = new PreTree();
         for (auto &word : words) insert(word);
         string temp = "";
@@ -81,18 +90,24 @@ public:
 private:
     string result = "";
     PreTree *preTree;
-    void insert(string &word) {
+    void insert(string &word) 
+    {
         PreTree *pt = preTree;
-        for (auto c : word) {
+        for (auto c : word) 
+        {
             if (!pt -> children[c - 'a']) pt -> children[c - 'a'] = new PreTree();
             pt = pt -> children[c - 'a'];
         }
         pt -> is_word = true;
     }
-    void search_word(PreTree *pt, string &word) {
-        if (pt) {
-            for (int i = 0; i < 26; i++) {
-                if (pt -> children[i] && pt ->children[i] -> is_word) {
+    void search_word(PreTree *pt, string &word) 
+    {
+        if (pt) 
+        {
+            for (int i = 0; i < 26; i++) 
+            {
+                if (pt -> children[i] and pt ->children[i] -> is_word) 
+                {
                     string temp = word + char('a' + i);
                     if (temp.size() > result.size()) result = temp;
                     search_word(pt -> children[i], temp);
@@ -104,7 +119,8 @@ private:
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public String longestWord(String[] words) {
         Arrays.sort(words);
@@ -122,7 +138,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def longestWord(self, words: List[str]) -> str:
         words, result, s = sorted(words), "", set()

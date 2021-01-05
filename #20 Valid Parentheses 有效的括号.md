@@ -1,3 +1,5 @@
+# 20 Valid Parentheses 有效的括号
+
 __Description__:
 Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
 
@@ -8,6 +10,7 @@ Open brackets must be closed in the correct order.
 Note that an empty string is also considered valid.
 
 __Example__:
+
 Example 1:
 Input: "()"
 Output: true
@@ -38,6 +41,7 @@ __题目描述__:
 注意空字符串可被认为是有效字符串。
 
 __示例__:
+
 示例 1:
 输入: "()"
 输出: true
@@ -59,21 +63,24 @@ __示例__:
 输出: true
 
 __思路__:
+
 1. 采用栈这一数据结构, 遇到左半括号就压入; 在遇到右半括号时, 如果栈顶是匹配的左半括号就弹出, 如果不匹配, 直接返回'false'; 最后栈如果为空, 返回'true'.
 2. 可以用replace函数反复删除匹配的括号
 时间复杂度O(n), 空间复杂度O(n)
 
-__[堆栈 Stack-wiki](https://en.wikipedia.org/wiki/Stack_(abstract_data_type))
-)__:
+__[堆栈 Stack-wiki](https://en.wikipedia.org/wiki/Stack_(abstract_data_type))__:
 > 堆栈（英语：stack）又称为栈或堆叠，是计算机科学中的一种抽象数据类型，只允许在有序的线性数据集合的一端（称为堆栈顶端，英语：top）进行加入数据（英语：push）和移除数据（英语：pop）的运算。
 > 按照后进先出（LIFO, Last In First Out）的原理运作。
 > 现实生活中可以类比堆在一起的光盘(唱片/书/餐盘), 只能从上往下拿, 可以堆叠
 > 堆栈常用一维数组或链表来实现。
 > 操作, 堆栈使用两种基本操作：推入（压栈，push）和弹出（弹栈，pop）：
+>
 > 1. 推入：将数据放入堆栈顶端，堆栈顶端移到新放入的数据。
 > 2. 弹出：将堆栈顶端数据移除，堆栈顶端移到移除后的下一笔数据。
+>
 > C++定义堆栈(也可以用vector):
-> ```
+>
+> ```C
 > struct Stack {
 >    // 堆栈空间
 >    int val[10];
@@ -81,10 +88,13 @@ __[堆栈 Stack-wiki](https://en.wikipedia.org/wiki/Stack_(abstract_data_type))
 >    int top;
 > };
 > ```
+>
 > 另外 C++中的 STL也有stack
-> \#include<stack>
+> \#include\<stack\>
+>
 > 常用函数有:
-> ```
+>
+> ```C
 > s.push(item);       //将item压入栈顶  
 > s.pop();            //删除栈顶的元素，但不会返回  
 > s.top();            //返回栈顶的元素，但不会删除  
@@ -94,15 +104,20 @@ __[堆栈 Stack-wiki](https://en.wikipedia.org/wiki/Stack_(abstract_data_type))
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    bool isValid(string s) {
+    bool isValid(string s) 
+    {
         if (s.empty()) return true;
         stack<char> result;
         string::iterator it = s.begin();
-        while (it != s.end()) {
-            switch (*it) {
+        while (it != s.end()) 
+        {
+            switch (*it) 
+            {
                 case '(':
                     result.push(*it);
                     break;
@@ -113,15 +128,15 @@ public:
                     result.push(*it);
                     break;
                 case ')':
-                    if (result.empty() || result.top() != '(') return false;
+                    if (result.empty() or result.top() != '(') return false;
                     else result.pop();
                     break;
                 case ']':
-                    if (result.empty() || result.top() != '[') return false;
+                    if (result.empty() or result.top() != '[') return false;
                     else result.pop();
                     break;
                 case '}':
-                    if (result.empty() || result.top() != '{') return false;
+                    if (result.empty() or result.top() != '{') return false;
                     else result.pop();
                     break;
             }
@@ -133,7 +148,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public boolean isValid(String s) {
         List<Character> result = new ArrayList<>();
@@ -166,7 +182,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def isValid(self, s: str) -> bool:
         while '()' in s or '[]' in s or '{}' in s:

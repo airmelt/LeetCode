@@ -1,7 +1,10 @@
+# 350 Intersection of Two Arrays II 两个数组的交集II
+
 __Description__:
 Given two arrays, write a function to compute their intersection.
 
 **Example :**
+
 Example 1:
 Input: nums1 = [1,2,2,1], nums2 = [2,2]
 Output: [2,2]
@@ -25,6 +28,7 @@ __题目描述__:
 给定两个数组，编写一个函数来计算它们的交集。
 
 **示例 :**
+
 示例 1:
 输入: nums1 = [1,2,2,1], nums2 = [2,2]
 输出: [2,2]
@@ -45,25 +49,31 @@ __进阶:__
 如果 nums2 的元素存储在磁盘上，磁盘内存是有限的，并且你不能一次加载所有的元素到内存中，你该怎么办？
 
 __思路__:
+
 参考[LeetCode #349 Intersection of Two Arrays 两个数组的交集](https://www.jianshu.com/p/b47062b61b54)
 利用 map存储不重复的值, 将 nums1的值和出现次数存储起来, 结果插入 nums2出现的数字
 时间复杂度O(n), 空间复杂度O(n)
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
+    vector<int> intersect(vector<int>& nums1, vector<int>& nums2) 
+    {
         map<int, int> map1;
-        for (int i = 0; i < nums1.size(); i++) {
+        for (int i = 0; i < nums1.size(); i++) 
+        {
             if (map1.find(nums1[i]) != map1.end()) map1[nums1[i]] = ++map1[nums1[i]];
             else map1[nums1[i]] = 1;
         }
-
         vector<int> result;
-        for (int i = 0; i < nums2.size(); i++) {
-            if (map1.find(nums2[i]) != map1.end() && map1[nums2[i]] > 0){
+        for (int i = 0; i < nums2.size(); i++) 
+        {
+            if (map1.find(nums2[i]) != map1.end() && map1[nums2[i]] > 0)
+            {
                 result.push_back(nums2[i]);
                 map1[nums2[i]] = --map1[nums2[i]];
             }
@@ -74,7 +84,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public int[] intersect(int[] nums1, int[] nums2) {
         Map<Integer, Integer> map = new HashMap<Integer, Integer>(nums1.length);
@@ -101,7 +112,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
         return list(itertools.chain(*[[i] * min(nums1.count(i), nums2.count(i)) for i in (set(nums1) & set(nums2))]))

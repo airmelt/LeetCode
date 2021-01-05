@@ -1,9 +1,12 @@
+# 35 Search Insert Position 搜索插入位置
+
 __Description__:
 Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
 
 You may assume no duplicates in the array.
 
 __Example__:
+
 Example 1:
 Input: [1,3,5,6], 5
 Output: 2
@@ -26,6 +29,7 @@ __题目描述__:
 你可以假设数组中无重复元素。
 
 __示例__:
+
 示例 1:
 输入: [1,3,5,6], 5
 输出: 2
@@ -43,19 +47,24 @@ __示例__:
 输出: 0
 
 __思路__:
+
 由于数组已排序, 最快的方法为二分查找
 时间复杂度为O(lgn), 空间复杂度为O(1)
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    int searchInsert(vector<int>& nums, int target) {
+    int searchInsert(vector<int>& nums, int target) 
+    {
+        // return lower_bound(nums.begin(), nums.end(), target) - nums.begin();
         if (!nums.size()) return 0;
-        int low = 0;
-        int high = nums.size() - 1;
-        while (low <= high) {
+        int low = 0, high = nums.size() - 1;
+        while (low <= high) 
+        {
             // 这里其实有low/high越界的问题, 最好的方式是用无符号右移
             int mid = low + ((high - low) >> 1);
             if (nums[mid] >= target) high = mid - 1;
@@ -67,21 +76,22 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public int searchInsert(int[] nums, int target) {
-        int result = Arrays.binarySearch(nums, target);
-        return result >= 0 ? result : -(result + 1);
+        return Arrays.binarySearch(nums, target) >= 0 ? Arrays.binarySearch(nums, target) : -(Arrays.binarySearch(nums, target) + 1);
     }
 }
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def searchInsert(self, nums: List[int], target: int) -> int:
-        low = 0
-        high = len(nums) - 1
+        # return bisect.bisect_left(nums, target)
+        low, high = 0, len(nums) - 1
         while (low <= high):
             mid = (high + low) // 2
             if (nums[mid] >= target):

@@ -1,3 +1,5 @@
+# 475 Heaters 供暖器
+
 __Description__:
 Winter is coming! Your first job during the contest is to design a standard heater with fixed warm radius to warm all the houses.
 
@@ -11,14 +13,14 @@ Numbers of houses and heaters you are given are non-negative and will not exceed
 Positions of houses and heaters you are given are non-negative and will not exceed 10^9.
 As long as a house is in the heaters' warm radius range, it can be warmed.
 All the heaters follow your radius standard and the warm radius will the same.
- 
+
 __Example:__
+
 Example 1:
 
 Input: [1,2,3],[2]
 Output: 1
 Explanation: The only heater was placed in the position 2, and if we use the radius 1 standard, then all the houses can be warmed.
- 
 
 Example 2:
 
@@ -41,6 +43,7 @@ __说明:__
 所有供暖器都遵循你的半径标准，加热的半径也一样。
 
 __示例 :__
+
 示例 1:
 
 输入: [1,2,3],[2]
@@ -54,7 +57,9 @@ __示例 :__
 解释: 在位置1, 4上有两个供暖器。我们需要将加热半径设为1，这样所有房屋就都能得到供暖。
 
 __思路__:
+
 题意是找到离房子最近的加热器的距离的最大值
+
 1. 对加热器数组进行排序, 遍历房子数组, 用二分查找找到离房子最近的加热器, 更新房子和加热器的距离
 时间复杂度O(mlgm), 空间复杂度O(1)
 2. 对两个数组都进行排序
@@ -62,17 +67,21 @@ __思路__:
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    int findRadius(vector<int>& houses, vector<int>& heaters) {
+    int findRadius(vector<int>& houses, vector<int>& heaters) 
+    {
         sort(houses.begin(), houses.end());
         sort(heaters.begin(), heaters.end());
         // vector<int>::iterator -> auto
         vector<int>::iterator i = heaters.begin(), j = houses.begin();
         int result = 0;
-        while (j != houses.end()) {
-            while (i != heaters.end() - 1 && abs(*(i + 1) - *j) <= abs(*i - *j)) i++;
+        while (j != houses.end()) 
+        {
+            while (i != heaters.end() - 1 and abs(*(i + 1) - *j) <= abs(*i - *j)) i++;
             result = max(result, abs(*i - *j));
             j++;
         }
@@ -82,7 +91,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public int findRadius(int[] houses, int[] heaters) {
         int result = 0;
@@ -106,7 +116,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def findRadius(self, houses: List[int], heaters: List[int]) -> int:
         result = 0

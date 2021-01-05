@@ -1,3 +1,5 @@
+# 1185 Day of the Week 一周中的第几天
+
 __Description__:
 Given a date, return the corresponding day of the week for that date.
 
@@ -6,6 +8,7 @@ The input is given as three integers representing the day, month and year respec
 Return the answer as one of the following values {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"}.
 
 __Example:__
+
 Example 1:
 
 Input: day = 31, month = 8, year = 2019
@@ -20,7 +23,7 @@ Example 3:
 
 Input: day = 15, month = 8, year = 1993
 Output: "Sunday"
- 
+
 __Constraints:__
 
 The given dates are valid dates between the years 1971 and 2100.
@@ -33,6 +36,7 @@ __题目描述__:
 您返回的结果必须是这几个值中的一个 {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"}。
 
 __示例 :__
+
 示例 1：
 
 输入：day = 31, month = 8, year = 2019
@@ -47,18 +51,20 @@ __示例 :__
 
 输入：day = 15, month = 8, year = 1993
 输出："Sunday"
- 
+
 __提示：__
 
 给出的日期一定是在 1971 到 2100 年之间的有效日期。
 
 __思路__:
+
 1. 以某时间作为参考, 计算出所给时间与标准的天数的差值, 然后对 7取模即可
 2. 蔡勒公式
 时间复杂度O(1), 空间复杂度O(1)
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -81,6 +87,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public String dayOfTheWeek(int day, int month, int year) {
@@ -93,6 +100,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def dayOfTheWeek(self, day: int, month: int, year: int) -> str:

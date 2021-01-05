@@ -1,3 +1,5 @@
+# 1021 Remove Outermost Parentheses 删除最外层的括号
+
 __Description__:
 A valid parentheses string is either empty (""), "(" + A + ")", or A + B, where A and B are valid parentheses strings, and + represents string concatenation.  For example, "", "()", "(())()", and "(()(()))" are all valid parentheses strings.
 
@@ -8,11 +10,12 @@ Given a valid parentheses string S, consider its primitive decomposition: S = P_
 Return S after removing the outermost parentheses of every primitive string in the primitive decomposition of S.
 
 __Example:__
+
 Example 1:
 
 Input: "(()())(())"
 Output: "()()()"
-Explanation: 
+Explanation:
 The input string is "(()())(())", with primitive decomposition "(()())" + "(())".
 After removing outer parentheses of each part, this is "()()" + "()" = "()()()".
 
@@ -20,7 +23,7 @@ Example 2:
 
 Input: "(()())(())(()(()))"
 Output: "()()()()(())"
-Explanation: 
+Explanation:
 The input string is "(()())(())(()(()))", with primitive decomposition "(()())" + "(())" + "(()(()))".
 After removing outer parentheses of each part, this is "()()" + "()" + "()(())" = "()()()()(())".
 
@@ -28,10 +31,10 @@ Example 3:
 
 Input: "()()"
 Output: ""
-Explanation: 
+Explanation:
 The input string is "()()", with primitive decomposition "()" + "()".
 After removing outer parentheses of each part, this is "" + "" = "".
- 
+
 __Note:__
 
 S.length <= 10000
@@ -48,6 +51,7 @@ __题目描述__:
 对 S 进行原语化分解，删除分解中每个原语字符串的最外层括号，返回 S 。
 
 __示例 :__
+
 示例 1：
 
 输入："(()())(())"
@@ -71,7 +75,7 @@ __示例 :__
 解释：
 输入字符串为 "()()"，原语化分解得到 "()" + "()"，
 删除每个部分中的最外层括号后得到 "" + "" = ""。
- 
+
 __提示：__
 
 S.length <= 10000
@@ -79,12 +83,14 @@ S[i] 为 "(" 或 ")"
 S 是一个有效括号字符串
 
 __思路__:
+
 由于 S一定是一个递归匹配的括号字符串, 如果给左括号赋值 +1, 右括号赋值 -1, 对每一个匹配的原语最后的和一定是 0
 那么最外层的括号一定满足: 左括号, count == 0; 右括号, count == 1
 时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -105,6 +111,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public String removeOuterParentheses(String S) {
@@ -121,6 +128,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def removeOuterParentheses(self, S: str) -> str:

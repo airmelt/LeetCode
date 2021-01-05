@@ -1,7 +1,10 @@
+# 844 Backspace String Compare 比较含退格的字符串
+
 __Description__:
 Given two strings S and T, return if they are equal when both are typed into empty text editors. # means a backspace character.
 
 __Example:__
+
 Example 1:
 
 Input: S = "ab#c", T = "ad#c"
@@ -40,6 +43,7 @@ __题目描述__:
 给定 S 和 T 两个字符串，当它们分别被输入到空白的文本编辑器后，判断二者是否相等，并返回结果。 # 代表退格字符。
 
 __示例 :__
+
 示例 1：
 
 输入：S = "ab#c", T = "ad#c"
@@ -63,7 +67,7 @@ __示例 :__
 输入：S = "a#c", T = "b"
 输出：false
 解释：S 会变成 “c”，但 T 仍然是 “b”。
- 
+
 __提示：__
 
 1 <= S.length <= 200
@@ -71,6 +75,7 @@ __提示：__
 S 和 T 只含有小写字母以及字符 '#'。
 
 __思路__:
+
 1. 直接在字符串上使用 backspace
 时间复杂度O(n), 空间复杂度O(1)
 2. 使用栈记录 backspace的结果
@@ -78,14 +83,17 @@ __思路__:
 
 __代码__:
 __C++__:
-```C++
-class Solution {
-public:
 
-    bool backspaceCompare(string S, string T) {
+```C++
+class Solution 
+{
+public:
+    bool backspaceCompare(string S, string T) 
+    {
         int s_index = backspace(S), t_index = backspace(T);
         if (s_index != t_index) return false;
-        else {
+        else 
+        {
             S = S.substr(0, s_index);
             T = T.substr(0, t_index);
             if (S == T) return true;
@@ -93,9 +101,11 @@ public:
         return false;
     }
 private:
-    int backspace (string& S) {
+    int backspace (string& S) 
+    {
         int index = 0;
-        for (auto i : S) {
+        for (auto i : S) 
+        {
             if (i != '#') S[index++]=i;
             else index == 0 ? 0 : --index;
         }
@@ -105,6 +115,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public boolean backspaceCompare(String S, String T) {
@@ -127,6 +138,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def backspaceCompare(self, S: str, T: str) -> bool:

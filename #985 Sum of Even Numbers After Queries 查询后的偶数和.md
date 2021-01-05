@@ -1,3 +1,5 @@
+# 985 Sum of Even Numbers After Queries 查询后的偶数和
+
 __Description__:
 We have an array A of integers, and an array queries of queries.
 
@@ -8,17 +10,18 @@ For the i-th query val = queries[i][0], index = queries[i][1], we add val to
 Return the answer to all queries.  Your answer array should have answer[i] as the answer to the i-th query.
 
 __Example:__
+
 Example 1:
 
 Input: A = [1,2,3,4], queries = [[1,0],[-3,1],[-4,0],[2,3]]
 Output: [8,6,2,4]
-Explanation: 
+Explanation:
 At the beginning, the array is [1,2,3,4].
 After adding 1 to A[0], the array is [2,2,3,4], and the sum of even values is 2 + 2 + 4 = 8.
 After adding -3 to A[1], the array is [2,-1,3,4], and the sum of even values is 2 + 4 = 6.
 After adding -4 to A[0], the array is [-2,-1,3,4], and the sum of even values is -2 + 4 = 2.
 After adding 2 to A[3], the array is [-2,-1,3,6], and the sum of even values is -2 + 6 = 4.
- 
+
 __Note:__
 
 1 <= A.length <= 10000
@@ -46,7 +49,7 @@ __示例 :__
 将 -3 加到 A[1] 上之后，数组为 [2,-1,3,4]，偶数值之和为 2 + 4 = 6。
 将 -4 加到 A[0] 上之后，数组为 [-2,-1,3,4]，偶数值之和为 -2 + 4 = 2。
 将 2 加到 A[3] 上之后，数组为 [-2,-1,3,6]，偶数值之和为 -2 + 6 = 4。
- 
+
 __提示：__
 
 1 <= A.length <= 10000
@@ -56,13 +59,16 @@ __提示：__
 0 <= queries[i][1] < A.length
 
 __思路__:
+
 先记录数组原来的偶数之和, 之后遍历查询数组, 对每个需要改变的 A数组的元素判断奇偶, 记录之后再改变, 再判断是否需要加入偶数之和
 时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
+
 ```C++
-class Solution {
+class Solution 
+{
 public:
     vector<int> sumEvenAfterQueries(vector<int>& A, vector<vector<int>>& queries) 
     {
@@ -82,6 +88,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int[] sumEvenAfterQueries(int[] A, int[][] queries) {
@@ -99,6 +106,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def sumEvenAfterQueries(self, A: List[int], queries: List[List[int]]) -> List[int]:

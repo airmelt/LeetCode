@@ -1,3 +1,5 @@
+# 108 Convert Sorted Array to Binary Search Tree 将有序数组转换为二叉搜索树
+
 __Description__:
 Given an array where elements are sorted in ascending order, convert it to a height balanced BST.
 
@@ -8,7 +10,8 @@ __Example__:
 Given the sorted array: [-10,-3,0,5,9],
 
 One possible answer is: [0,-3,9,-10,null,5], which represents the following height balanced BST:
-```
+
+```text
       0
      / \
    -3   9
@@ -21,12 +24,13 @@ __题目描述__:
 
 本题中，一个高度平衡二叉树是指一个二叉树每个节点 的左右两个子树的高度差的绝对值不超过 1。
 
- __示例__：
+__示例__：
 
 给定有序数组: [-10,-3,0,5,9],
 
 一个可能的答案是：[0,-3,9,-10,null,5]，它可以表示下面这个高度平衡二叉搜索树：
-```
+
+```text
       0
      / \
    -3   9
@@ -35,12 +39,14 @@ __题目描述__:
 ```
 
 __思路__:
+
 分治法, 可以将转化为二叉搜索树的操作看成二分查找, 剩下的分成左右子树继续查找
 时间复杂度O(n), 空间复杂度O(lgn), n为树中结点数
 
 [二叉搜索树 Binary search tree-wiki](https://en.wikipedia.org/wiki/Binary_search_tree)
 > __二叉查找树__（英语：Binary Search Tree），也称为__二叉搜索树__、__有序二叉树__（ordered binary tree）或__排序二叉树__（sorted binary tree）
 > 指一棵空树或者具有下列性质的[二叉树](https://zh.wikipedia.org/wiki/%E4%BA%8C%E5%8F%89%E6%A0%91 "二叉树")：
+>
 > 1. 若任意节点的左子树不空，则左子树上所有节点的值均小于它的根节点的值；
 > 2. 若任意节点的右子树不空，则右子树上所有节点的值均大于它的根节点的值；
 > 3. 任意节点的左、右子树也分别为二叉查找树；
@@ -52,11 +58,10 @@ __思路__:
 > 在二叉搜索树中的查找可以类比有序数组中的二分查找
 > 中序遍历二叉查找树可得到一个关键字的有序序列，一个无序序列可以通过构造一棵二叉查找树变成一个有序序列，构造树的过程即为对无序序列进行查找的过程。
 
-
-
 __代码__:
 __C++__:
-```
+
+```C++
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -66,13 +71,16 @@ __C++__:
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
-class Solution {
+class Solution 
+{
 public:
-    TreeNode* sortedArrayToBST(vector<int>& nums) {
+    TreeNode* sortedArrayToBST(vector<int>& nums) 
+    {
         return sortedArrayToBST(nums, 0, nums.size() - 1);
     }
 private:
-    TreeNode* sortedArrayToBST(vector<int>& nums, int left, int right) {
+    TreeNode* sortedArrayToBST(vector<int>& nums, int left, int right) 
+    {
         if (right < left) return NULL;
         int mid = left + (right - left) / 2;
         TreeNode* root = new TreeNode(nums[mid]);
@@ -84,7 +92,8 @@ private:
 ```
 
 __Java__:
-```
+
+```Java
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -111,7 +120,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, x):

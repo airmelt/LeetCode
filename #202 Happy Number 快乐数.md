@@ -1,3 +1,5 @@
+# 202 Happy Number 快乐数
+
 __Description__:
 Write an algorithm to determine if a number is "happy".
 
@@ -29,9 +31,15 @@ __题目描述__:
 12 + 02 + 02 = 1
 
 __思路__:
+
 快乐数定义参考[快乐数 Happy number](https://en.wikipedia.org/wiki/Happy_number)
 也可以自己打印循环中的数, 验证一下
-不快乐数一定会进入 4 -> 16 -> 37 -> 58 -> 89 -> 145 -> 42 -> 20 -> 4循环
+不快乐数一定会进入
+
+4 -> 16 -> 37 -> 58 -> 89 -> 145 -> 42 -> 20 -> 4
+
+循环
+
 1. 每次计算结果加入哈希表, 判断哈希表中是否存在, 或计算结果是否为1
 2. 判断计算结果为1或4
 时间复杂度O(1), 空间复杂度O(1)
@@ -40,13 +48,18 @@ __思路__:
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    bool isHappy(int n) {
-        while (n != 1 && n != 4) {
+    bool isHappy(int n) 
+    {
+        while (n != 1 and n != 4)
+        {
             int temp = 0;
-            while (n) {
+            while (n) 
+            {
                 temp += pow(n % 10, 2);
                 n /= 10;
             }
@@ -58,7 +71,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public boolean isHappy(int n) {
         Set<Integer> set = new HashSet<>();
@@ -78,7 +92,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def isHappy(self, n: int) -> bool:
         while 1:

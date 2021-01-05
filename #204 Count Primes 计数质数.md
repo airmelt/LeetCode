@@ -1,3 +1,5 @@
+# 204 Count Primes 计数质数
+
 __Description__:
 Count the number of prime numbers less than a non-negative number, n.
 
@@ -17,23 +19,29 @@ __题目描述__:
 解释: 小于 10 的质数一共有 4 个, 它们是 2, 3, 5, 7 。
 
 __思路__:
- [埃拉托斯特尼筛法 Sieve_of_Eratosthenes-wiki](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes)
+
+[埃拉托斯特尼筛法 Sieve_of_Eratosthenes-wiki](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes)
 筛选不大于根号 n的所有素数的倍数
 比如10, 找到第一个素数2, 去掉 2的倍数 4, 6, 8; 第二个素数3, 去掉 3的倍数 6, 9, 还剩下的数 2, 3, 5, 7就是小于 10的素数
 时间复杂度O(n ^ 1.5), 空间复杂度O(n)
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    int countPrimes(int n) {
+    int countPrimes(int n) 
+    {
         if (n < 3) return 0;
         int result = 0;
         vector<int> prime(n);
-        for (int i = 2; i < n; i++) {
+        for (int i = 2; i < n; i++) 
+        {
             if (prime[i]) continue;
-            else {
+            else 
+            {
                 result++;
                 for (int j = i; j < n; j += i) prime[j] = 1;
             }
@@ -44,7 +52,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public int countPrimes(int n) {
         if (n < 3) return 0;
@@ -65,7 +74,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def countPrimes(self, n: int) -> int:
         if n < 3:

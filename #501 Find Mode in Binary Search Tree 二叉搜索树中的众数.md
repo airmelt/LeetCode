@@ -1,3 +1,5 @@
+# 501 Find Mode in Binary Search Tree 二叉搜索树中的众数
+
 __Description__:
 Given a binary search tree (BST) with duplicates, find all the mode(s) (the most frequently occurred element) in the given BST.
 
@@ -6,17 +8,20 @@ Assume a BST is defined as follows:
 The left subtree of a node contains only nodes with keys less than or equal to the node's key.
 The right subtree of a node contains only nodes with keys greater than or equal to the node's key.
 Both the left and right subtrees must also be binary search trees.
- 
+
 __Example:__
+
 For example:
 Given BST [1,null,2,2],
-```
+
+```text
    1
     \
      2
     /
    2
- ```
+```
+
 return [2].
 
 __Note:__
@@ -35,15 +40,18 @@ __题目描述__:
 左子树和右子树都是二叉搜索树
 
 __示例：__
+
 例如：
 给定 BST [1,null,2,2],
-```
+
+```text
    1
     \
      2
     /
    2
 ```
+
 返回[2].
 
 __提示：__
@@ -53,7 +61,9 @@ __进阶：__
 你可以不使用额外的空间吗？（假设由递归产生的隐式调用栈的开销不被计算在内）
 
 __思路__:
+
 二叉搜索树的中序遍历可以返回一个升序的数组
+
 1. 中序遍历时, 对该数进行数量判断, 满足众数条件的就加入(进阶, 不考虑栈的额外开销)
 时间复杂度O(n), 空间复杂度O(1)
 2. 中序遍历的结果存储在数组中, 再判断众数
@@ -61,7 +71,8 @@ __思路__:
 
 __代码__:
 __C++__:
-```
+
+```C++
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -71,14 +82,17 @@ __C++__:
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
-class Solution {
+class Solution 
+{
 private:
-    void in_order(TreeNode* root, TreeNode*& pre, int& cur_count, int& max_count, vector<int>& result) {
+    void in_order(TreeNode* root, TreeNode*& pre, int& cur_count, int& max_count, vector<int>& result) 
+    {
         if (!root) return;
         in_order(root -> left, pre, cur_count, max_count, result);
         if (pre) cur_count = (root->val == pre->val) ? cur_count + 1 : 1;
         if (cur_count == max_count) result.push_back(root -> val);
-        else if (cur_count > max_count) {
+        else if (cur_count > max_count) 
+        {
             result.clear();
             result.push_back(root -> val);
             max_count = cur_count;
@@ -87,7 +101,8 @@ private:
         in_order(root->right, pre, cur_count, max_count, result);
     }
 public:
-    vector<int> findMode(TreeNode* root) {
+    vector<int> findMode(TreeNode* root) 
+    {
         vector<int> result;
         if (!root) return result;
         TreeNode* pre = NULL;
@@ -99,7 +114,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -132,7 +148,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, x):

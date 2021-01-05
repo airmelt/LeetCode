@@ -1,3 +1,5 @@
+# 703 Kth Largest Element in a Stream 数据流中的第K大元素
+
 __Description__:
 Design a class to find the kth largest element in a stream. Note that it is the kth largest element in the sorted order, not the kth distinct element.
 
@@ -5,6 +7,7 @@ Your KthLargest class will have a constructor which accepts an integer k and a
 
 __Example:__
 
+```Java
 int k = 3;
 int[] arr = [4,5,8,2];
 KthLargest kthLargest = new KthLargest(3, arr);
@@ -13,6 +16,7 @@ kthLargest.add(5);   // returns 5
 kthLargest.add(10);  // returns 5
 kthLargest.add(9);   // returns 8
 kthLargest.add(4);   // returns 8
+```
 
 __Note:__
 You may assume that nums' length ≥ k-1 and k ≥ 1.
@@ -24,6 +28,7 @@ __题目描述__:
 
 __示例 :__
 
+```Java
 int k = 3;
 int[] arr = [4,5,8,2];
 KthLargest kthLargest = new KthLargest(3, arr);
@@ -32,28 +37,35 @@ kthLargest.add(5);   // returns 5
 kthLargest.add(10);  // returns 5
 kthLargest.add(9);   // returns 8
 kthLargest.add(4);   // returns 8
+```
 
 __说明:__
 你可以假设 nums 的长度≥ k-1 且k ≥ 1。
 
 __思路__:
+
 由于需要输出第 k大的元素, 最好的方案是维护一个小顶堆, 可以用优先队列实现
 时间复杂度O(n), 空间复杂度O(k), n为数组 arr的大小
 
 __代码__:
 __C++__:
-```
-class KthLargest {
+
+```C++
+class KthLargest 
+{
 public:
-    KthLargest(int k, vector<int>& nums) {
+    KthLargest(int k, vector<int>& nums) 
+    {
         pq_size = k;
-        for (int i = 0; i < nums.size(); i++) {
+        for (int i = 0; i < nums.size(); i++) 
+        {
             pq.push(nums[i]);
             if (pq.size() > pq_size) pq.pop();
         }
     }
     
-    int add(int val) {
+    int add(int val) 
+    {
         pq.push(val);
         if (pq.size() > pq_size) pq.pop();
         return pq.top();
@@ -71,7 +83,8 @@ private:
 ```
 
 __Java__:
-```
+
+```Java
 class KthLargest {
 
     private PriorityQueue<Integer> pq;
@@ -101,7 +114,8 @@ class KthLargest {
 ```
 
 __Python__:
-```
+
+```Python
 import heapq
 class KthLargest:
 

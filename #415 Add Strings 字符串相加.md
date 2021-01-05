@@ -1,3 +1,5 @@
+# 415 Add Strings 字符串相加
+
 __Description__:
 Given two non-negative integers num1 and num2 represented as string, return the sum of num1 and num2.
 
@@ -19,18 +21,23 @@ num1 和num2 都不包含任何前导零。
 你不能使用任何內建 BigInteger 库， 也不能直接将输入的字符串转换为整数形式。
 
 __思路__:
+
 参考[LeetCode #67 Add Binary 二进制求和](https://www.jianshu.com/p/be1b75a32661)
 时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    string addStrings(string num1, string num2) {
+    string addStrings(string num1, string num2) 
+    {
         string result = "";
         int carry = 0, i = num1.size() - 1, j = num2.size() - 1;
-        while (i >= 0 || j >= 0 || carry != 0) {
+        while (i >= 0 or j >= 0 or carry != 0) 
+        {
             if (i >= 0) carry += num1[i--] - '0';
             if (j >= 0) carry += num2[j--] - '0';
             result += to_string(carry % 10);
@@ -43,7 +50,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public String addStrings(String num1, String num2) {
         StringBuilder sb = new StringBuilder();
@@ -60,22 +68,16 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def addStrings(self, num1: str, num2: str) -> str:
-        num1, num2 = num1[::-1], num2[::-1]
-        max_length = max(len(num1), len(num2))
-        result = ''
-        carry = 0
+        num1, num2, max_length, result, carry = num1[::-1], num2[::-1], max(len(num1), len(num2)), '', 0
         for i in range(max_length):
-            first = int(num1[i]) if i < len(num1) else 0
-            second = int(num2[i]) if i < len(num2) else 0
-            cur = (first + second + carry) % 10
+            first, second = int(num1[i]) if i < len(num1) else 0, int(num2[i]) if i < len(num2) else 0
+            result += str((first + second + carry) % 10)
             carry = int((first + second + carry) / 10)
-            result += str(cur)
         if carry > 0:
             result += str(carry)
-        if result == '':
-            return 0
         return result[::-1]
 ```

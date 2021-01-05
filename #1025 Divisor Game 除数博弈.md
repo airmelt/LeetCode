@@ -1,3 +1,5 @@
+# 1025 Divisor Game 除数博弈
+
 __Description__:
 Alice and Bob take turns playing a game, with Alice starting first.
 
@@ -10,6 +12,7 @@ Also, if a player cannot make a move, they lose the game.
 Return True if and only if Alice wins the game, assuming both players play optimally.
 
 __Example:__
+
 Example 1:
 
 Input: 2
@@ -21,7 +24,7 @@ Example 2:
 Input: 3
 Output: false
 Explanation: Alice chooses 1, Bob chooses 1, and Alice has no more moves.
- 
+
 __Note:__
 
 1 <= N <= 1000
@@ -38,6 +41,7 @@ __题目描述__:
 只有在爱丽丝在游戏中取得胜利时才返回 True，否则返回 false。假设两个玩家都以最佳状态参与游戏。
 
 __示例 :__
+
 示例 1：
 
 输入：2
@@ -49,7 +53,7 @@ __示例 :__
 输入：3
 输出：false
 解释：爱丽丝选择 1，鲍勃也选择 1，然后爱丽丝无法进行操作。
- 
+
 __提示：__
 
 1 <= N <= 1000
@@ -60,16 +64,20 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
-class Solution {
+class Solution 
+{
 public:
-    bool divisorGame(int N) {
+    bool divisorGame(int N) 
+    {
         return !(N & 1);
     }
 };
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public boolean divisorGame(int N) {
@@ -79,6 +87,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def divisorGame(self, N: int) -> bool:

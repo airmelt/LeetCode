@@ -1,3 +1,5 @@
+# 929 Unique Email Addresses 独特的电子邮件地址
+
 __Description__:
 Every email consists of a local name and a domain name, separated by the @ sign.
 
@@ -11,15 +13,16 @@ If you add a plus ('+') in the local name, everything after the first plus sign 
 
 It is possible to use both of these rules at the same time.
 
-Given a list of emails, we send one email to each address in the list.  How many different addresses actually receive mails? 
+Given a list of emails, we send one email to each address in the list.  How many different addresses actually receive mails?
 
 __Example:__
+
 Example 1:
 
 Input: ["```test.email+alex@leetcode.com```","```test.e.mail+bob.cathy@leetcode.com```","```testemail+david@lee.tcode.com```"]
 Output: 2
 Explanation: "```testemail@leetcode.com```" and "```testemail@lee.tcode.com```" actually receive mails
- 
+
 __Note:__
 
 1 <= emails[i].length <= 100
@@ -48,7 +51,7 @@ __示例 :__
 输入：["```test.email+alex@leetcode.com```","```test.e.mail+bob.cathy@leetcode.com```","```testemail+david@lee.tcode.com```"]
 输出：2
 解释：实际收到邮件的是 "```testemail@leetcode.com```" 和 "```testemail@lee.tcode.com```"。
- 
+
 __提示：__
 
 1 <= emails[i].length <= 100
@@ -56,13 +59,16 @@ __提示：__
 每封 emails[i] 都包含有且仅有一个 '@' 字符。
 
 __思路__:
+
 遍历 emails数组, 用 @分割开每一个 email得到 name和 domain, 在 name中查找 '+'和 '.'按题目要求处理之后加入 set, 返回 set大小即可
 时间复杂度O(mn), 空间复杂度O(n), n为数组大小, m为字符串长度
 
 __代码__:
 __C++__:
+
 ```C++
-class Solution {
+class Solution 
+{
 public:
     int numUniqueEmails(vector<string>& emails) 
     {
@@ -81,6 +87,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int numUniqueEmails(String[] emails) {
@@ -97,6 +104,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def numUniqueEmails(self, emails: List[str]) -> int:

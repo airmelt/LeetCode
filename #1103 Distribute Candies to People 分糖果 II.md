@@ -1,3 +1,5 @@
+# 1103 Distribute Candies to People 分糖果 II
+
 __Description__:
 We distribute some number of candies, to a row of n = num_people people in the following way:
 
@@ -10,6 +12,7 @@ This process repeats (with us giving one more candy each time, and moving to the
 Return an array (of length num_people and sum candies) that represents the final distribution of candies.
 
 __Example:__
+
 Example 1:
 
 Input: candies = 7, num_people = 4
@@ -24,12 +27,12 @@ Example 2:
 
 Input: candies = 10, num_people = 3
 Output: [5,2,3]
-Explanation: 
+Explanation:
 On the first turn, ans[0] += 1, and the array is [1,0,0].
 On the second turn, ans[1] += 2, and the array is [1,2,0].
 On the third turn, ans[2] += 3, and the array is [1,2,3].
 On the fourth turn, ans[0] += 4, and the final array is [5,2,3].
- 
+
 __Constraints:__
 
 1 <= candies <= 10^9
@@ -49,6 +52,7 @@ __题目描述__:
 返回一个长度为 num_people、元素之和为 candies 的数组，以表示糖果的最终分发情况（即 ans[i] 表示第 i 个小朋友分到的糖果数）。
 
 __示例 :__
+
 示例 1：
 
 输入：candies = 7, num_people = 4
@@ -68,13 +72,14 @@ __示例 :__
 第二次，ans[1] += 2，数组变为 [1,2,0]。
 第三次，ans[2] += 3，数组变为 [1,2,3]。
 第四次，ans[0] += 4，最终数组变为 [5,2,3]。
- 
+
 __提示：__
 
 1 <= candies <= 10^9
 1 <= num_people <= 1000
 
 __思路__:
+
 1. 按照题目要求分配
 时间复杂度O(n), 空间复杂度O(1)
 2. 数学法: 除去最后一次分配, 前 n次分配和应该是 n * (n + 1) / 2个糖果, 可以解一元二次方程得到 n
@@ -82,6 +87,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -101,6 +107,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int[] distributeCandies(int candies, int num_people) {
@@ -115,6 +122,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def distributeCandies(self, candies: int, num_people: int) -> List[int]:
