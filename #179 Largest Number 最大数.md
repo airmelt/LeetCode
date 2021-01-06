@@ -1,7 +1,10 @@
+# 179 Largest Number 最大数
+
 __Description__:
 Given a list of non negative integers, arrange them such that they form the largest number.
 
 __Example:__
+
 Example 1:
 
 Input: [10,2]
@@ -19,6 +22,7 @@ __题目描述__:
 给定一组非负整数，重新排列它们的顺序使之组成一个最大的整数。
 
 __示例 :__
+
 示例 1:
 
 输入: [10,2]
@@ -33,12 +37,14 @@ __说明：__
 输出结果可能非常大，所以你需要返回一个字符串而不是整数。
 
 __思路__:
+
 重写排序的比较函数
 按照字符串排序
 时间复杂度O(nlgn), 空间复杂度O(n)
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -55,6 +61,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public String largestNumber(int[] nums) {
@@ -70,6 +77,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def largestNumber(self, nums: List[int]) -> str:

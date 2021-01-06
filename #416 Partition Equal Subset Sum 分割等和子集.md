@@ -4,6 +4,7 @@ __Description__:
 Given a non-empty array nums containing only positive integers, find if the array can be partitioned into two subsets such that the sum of elements in both subsets is equal.
 
 __Example:__
+
 Example 1:
 
 Input: nums = [1,5,11,5]
@@ -30,6 +31,7 @@ __注意:__
 数组的大小不会超过 200
 
 __示例 :__
+
 示例 1:
 
 输入: [1, 5, 11, 5]
@@ -47,6 +49,7 @@ __示例 :__
 解释: 数组不能分割成两个元素和相等的子集.
 
 __思路__:
+
 动态规划
 dp[i][j] 表示在 [0, i]区间中是否能选出一些 nums数组中的值, 使得这些元素和等于 j
 dp[0][j] 应该初始化为 nums[k] == j, 其中 0 <= k <= len(nums) - 1
@@ -71,7 +74,7 @@ public:
         for (int i = 0; i < n; i++) for (int j = sum; j > nums[i] - 1; j--)
         {
             if (!i) dp[j] = (nums[i] == j);
-            else dp[j] = dp[j] || dp[j - nums[i]];
+            else dp[j] = dp[j] or dp[j - nums[i]];
         }
         return dp.back();
     }

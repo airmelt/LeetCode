@@ -1,3 +1,5 @@
+# 399 Evaluate Division 除法求值
+
 __Description__:
 You are given an array of variable pairs equations and an array of real numbers values, where equations[i] = [Ai, Bi] and values[i] represent the equation Ai / Bi = values[i]. Each Ai or Bi is a string that represents a single variable.
 
@@ -9,11 +11,12 @@ __Note:__
 The input is always valid. You may assume that evaluating the queries will not result in division by zero and that there is no contradiction.
 
 __Example:__
+
 Example 1:
 
 Input: equations = [["a","b"],["b","c"]], values = [2.0,3.0], queries = [["a","c"],["b","a"],["a","e"],["a","a"],["x","x"]]
 Output: [6.00000,0.50000,-1.00000,1.00000,-1.00000]
-Explanation: 
+Explanation:
 Given: a / b = 2.0, b / c = 3.0
 queries are: a / c = ?, b / a = ?, a / e = ?, a / a = ?, x / x = ?
 return: [6.0, 0.5, -1.0, 1.0, -1.0 ]
@@ -27,7 +30,7 @@ Example 3:
 
 Input: equations = [["a","b"]], values = [0.5], queries = [["a","b"],["b","a"],["a","c"],["x","y"]]
 Output: [0.50000,2.00000,-1.00000,-1.00000]
- 
+
 __Constraints:__
 
 1 <= equations.length <= 20
@@ -46,6 +49,7 @@ __题目描述__:
 输入总是有效的。你可以假设除法运算中不会出现除数为 0 的情况，且不存在任何矛盾的结果。
 
 __示例 :__
+
 示例 1：
 
 输入：equations = [["a","b"],["b","c"]], values = [2.0,3.0], queries = [["a","c"],["b","a"],["a","e"],["a","a"],["x","x"]]
@@ -64,7 +68,7 @@ __示例 :__
 
 输入：equations = [["a","b"]], values = [0.5], queries = [["a","b"],["b","a"],["a","c"],["x","y"]]
 输出：[0.50000,2.00000,-1.00000,-1.00000]
- 
+
 __提示：__
 
 1 <= equations.length <= 20
@@ -78,12 +82,14 @@ queries[i].length == 2
 equations[i][0], equations[i][1], queries[i][0], queries[i][1] 由小写英文字母与数字组成
 
 __思路__:
+
 转化为图是否有路径
 用 bfs或者 dfs查找路径, 注意剪枝加快查找速度
 时间复杂度O(n), 空间复杂度O(n)
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -123,7 +129,8 @@ public:
             weight[equations[i].front() + "#" + equations[i].back()] = values[i];
             weight[equations[i].back() + "#" + equations[i].front()] = 1.0 / values[i];
         }
-        for (int i = 0; i < queries.size(); i++) {
+        for (int i = 0; i < queries.size(); i++) 
+        {
             unordered_set<string> visited;
             double temp = dfs(queries[i].front(), queries[i].back(), visited);
             if (!temp) temp = -1.0;
@@ -135,6 +142,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     private Map<String, Set<String>> graph = new HashMap<>();
@@ -180,6 +188,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def calcEquation(self, equations: List[List[str]], values: List[float], queries: List[List[str]]) -> List[float]:

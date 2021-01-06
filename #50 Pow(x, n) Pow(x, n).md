@@ -1,7 +1,10 @@
+# 50 Pow(x, n) Pow(x, n)
+
 __Description__:
 Implement pow(x, n), which calculates x raised to the power n (xn).
 
 __Example:__
+
 Example 1:
 
 Input: 2.00000, 10
@@ -27,6 +30,7 @@ __题目描述__:
 实现 pow(x, n) ，即计算 x 的 n 次幂函数。
 
 __示例 :__
+
 示例 1:
 
 输入: 2.00000, 10
@@ -49,12 +53,14 @@ __说明:__
 n 是 32 位有符号整数，其数值范围是 [−2^31, 2^31 − 1] 。
 
 __思路__:
+
 快速幂算法
 每次将 n减半, 如果是奇数, 乘 x, 否则 x自乘
 时间复杂度O(lgn), 空间复杂度O(1)
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -73,6 +79,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public double myPow(double x, int n) {
@@ -87,6 +94,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def myPow(self, x: float, n: int) -> float:

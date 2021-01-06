@@ -1,9 +1,12 @@
+# 89 Gray Code 格雷编码
+
 __Description__:
 The gray code is a binary numeral system where two successive values differ in only one bit.
 
 Given a non-negative integer n representing the total number of bits in the code, print the sequence of gray code. A gray code sequence must begin with 0.
 
 __Example:__
+
 Example 1:
 
 Input: 2
@@ -38,6 +41,7 @@ __题目描述__:
 格雷编码序列必须以 0 开头。
 
 __示例 :__
+
 示例 1:
 
 输入: 2
@@ -65,11 +69,13 @@ __示例 :__
      因此，当 n = 0 时，其格雷编码序列为 [0]。
 
 __思路__:
+
 格雷码生成方式 i ^ (i >> 1)
 时间复杂度O(2 ^ n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -84,6 +90,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public List<Integer> grayCode(int n) {
@@ -95,6 +102,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def grayCode(self, n: int) -> List[int]:

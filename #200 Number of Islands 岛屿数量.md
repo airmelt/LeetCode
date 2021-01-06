@@ -1,25 +1,34 @@
+# 200 Number of Islands 岛屿数量
+
 __Description__:
 Given a 2d grid map of '1's (land) and '0's (water), count the number of islands. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.
 
 __Example:__
+
 Example 1:
 
+```text
 Input: grid = [
   ["1","1","1","1","0"],
   ["1","1","0","1","0"],
   ["1","1","0","0","0"],
   ["0","0","0","0","0"]
 ]
+```
+
 Output: 1
 
 Example 2:
 
+```text
 Input: grid = [
   ["1","1","0","0","0"],
   ["1","1","0","0","0"],
   ["0","0","1","0","0"],
   ["0","0","0","1","1"]
 ]
+```
+
 Output: 3
 
 __题目描述__:
@@ -30,8 +39,10 @@ __题目描述__:
 此外，你可以假设该网格的四条边均被水包围。
 
 __示例 :__
+
 示例 1:
 
+```text
 输入:
 [
 ['1','1','1','1','0'],
@@ -39,10 +50,13 @@ __示例 :__
 ['1','1','0','0','0'],
 ['0','0','0','0','0']
 ]
+```
+
 输出: 1
 
 示例 2:
 
+```text
 输入:
 [
 ['1','1','0','0','0'],
@@ -50,10 +64,13 @@ __示例 :__
 ['0','0','1','0','0'],
 ['0','0','0','1','1']
 ]
+```
+
 输出: 3
 解释: 每座岛屿只能由水平和/或竖直方向上相邻的陆地连接而成。
 
 __思路__:
+
 dfs
 找到第一个为 '1'的, 即为岛屿, 然后向 4个方向搜索, 直到遇到不为 '1'的
 递归终点可以设置为不为 '0'和 '1'的其他字符
@@ -61,6 +78,7 @@ dfs
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -78,7 +96,7 @@ public:
 private:
     void dfs(vector<vector<char>>& grid, int i, int j)
     {
-        if (i < 0 || i > grid.size() - 1 || j < 0 || j > grid[0].size() - 1 || grid[i][j] != '1') return;
+        if (i < 0 or i > grid.size() - 1 or j < 0 or j > grid[0].size() - 1 or grid[i][j] != '1') return;
         grid[i][j] = '#';
         dfs(grid, i + 1, j);
         dfs(grid, i - 1, j);
@@ -89,6 +107,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int numIslands(char[][] grid) {
@@ -112,6 +131,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:

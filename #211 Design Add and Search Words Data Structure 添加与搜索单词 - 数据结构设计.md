@@ -1,12 +1,16 @@
+# 211 Design Add and Search Words Data Structure 添加与搜索单词 - 数据结构设计
+
 __Description__:
 You should design a data structure that supports adding new words and finding if a string matches any previously added string.
 
 Implement the WordDictionary class:
 
+```text
 WordDictionary() Initializes the object.
 void addWord(word) adds word to the data structure, it can be matched later.
 bool search(word) returns true if there is any string in the data structure that matches word or false otherwise. word may contain dots '.' where dots can be matched with any letter.
- 
+```
+
 __Example:__
 
 Input
@@ -16,6 +20,8 @@ Output
 [null,null,null,null,false,true,true,true]
 
 Explanation
+
+```Java
 WordDictionary wordDictionary = new WordDictionary();
 wordDictionary.addWord("bad");
 wordDictionary.addWord("dad");
@@ -24,7 +30,8 @@ wordDictionary.search("pad"); // return False
 wordDictionary.search("bad"); // return True
 wordDictionary.search(".ad"); // return True
 wordDictionary.search("b.."); // return True
- 
+```
+
 __Constraints:__
 
 1 <= word.length <= 500
@@ -39,9 +46,11 @@ __题目描述__:
 
 实现词典类 WordDictionary ：
 
+```text
 WordDictionary() 初始化词典对象
 void addWord(word) 将 word 添加到数据结构中，之后可以对它进行匹配
 bool search(word) 如果数据结构中存在字符串与 word 匹配，则返回 true ；否则，返回  false 。word 中可能包含一些 '.' ，每个 . 都可以表示任何一个字母。
+```
 
 __示例 :__
 
@@ -52,6 +61,8 @@ __示例 :__
 [null,null,null,null,false,true,true,true]
 
 解释：
+
+```Java
 WordDictionary wordDictionary = new WordDictionary();
 wordDictionary.addWord("bad");
 wordDictionary.addWord("dad");
@@ -60,6 +71,7 @@ wordDictionary.search("pad"); // return False
 wordDictionary.search("bad"); // return True
 wordDictionary.search(".ad"); // return True
 wordDictionary.search("b.."); // return True
+```
 
 __提示：__
 
@@ -69,11 +81,13 @@ search 中的 word 由 '.' 或小写英文字母组成
 最调用多 50000 次 addWord 和 search
 
 __思路__:
+
 参考[LeetCode #208 Implement Trie (Prefix Tree) 实现 Trie (前缀树)](https://www.jianshu.com/p/8d7b8b324079)
 add操作时间复杂度O(n), search操作时间复杂度O(nm), 空间复杂度O(nm), 其中 n为单词长度, m为单词个数
 
 __代码__:
 __C++__:
+
 ```C++
 class WordDictionary 
 {
@@ -129,6 +143,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class WordDictionary {
 
@@ -209,6 +224,7 @@ class WordDictionary {
 ```
 
 __Python__:
+
 ```Python
 class WordDictionary:
 

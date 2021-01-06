@@ -1,3 +1,5 @@
+# 222 Count Complete Tree Nodes 完全二叉树的节点个数
+
 __Description__:
 Given a complete binary tree, count the number of nodes.
 
@@ -8,14 +10,16 @@ In a complete binary tree every level, except possibly the last, is completely f
 
 __Example:__
 
-Input: 
-```
+Input:
+
+```text
     1
    / \
   2   3
  / \  /
 4  5 6
 ```
+
 Output: 6
 
 __题目描述__:
@@ -27,29 +31,34 @@ __说明：__
 
 __示例 :__
 
-输入: 
-```
+输入:
+
+```text
     1
    / \
   2   3
  / \  /
 4  5 6
 ```
+
 输出: 6
 
 __思路__:
+
 1. 求结点数, 简单递归
 当根结点为空返回 0
 否则返回 1 + 左子树结点 + 右子树结点
 时间复杂度O(n), 空间复杂度O(lgn), lgn表示树的深度
 2. 由于该题已经明确是完全二叉树, 只需要求最大深度即可
 计算左子树和右子树的左子树的高度(因为是完全二叉树, 子树的高度取决与最后一层是否填满, 两者最多相差 1)
+
 - 若左右高度相等, 说明左子树一定是满二叉树, 结点数等于2 ^ (左子树的高度) + 递归计算右子树
 - 若左右高度不相等, 说明右子树一定是满二叉树, 结点数等于2 ^ (右子树的高度) + 递归计算左子树
 时间复杂度O(lgn * lgn), 空间复杂度O(1), 时间复杂度推导: T(n) = T(n / 2) + logn
 
 __代码__:
 __C++__:
+
 ```C++
 /**
  * Definition for a binary tree node.
@@ -60,7 +69,8 @@ __C++__:
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
-class Solution {
+class Solution 
+{
 public:
     int countNodes(TreeNode* root) 
     {
@@ -84,6 +94,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 /**
  * Definition for a binary tree node.
@@ -102,6 +113,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 # Definition for a binary tree node.
 # class TreeNode:

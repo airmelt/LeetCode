@@ -1,21 +1,27 @@
+# 99 Recover Binary Search Tree 恢复二叉搜索树
+
 __Description__:
 Two elements of a binary search tree (BST) are swapped by mistake.
 
 Recover the tree without changing its structure.
 
 __Example:__
+
 Example 1:
 
 Input: [1,3,null,null,2]
-```
+
+```text
    1
   /
  3
   \
    2
 ```
+
 Output: [3,1,null,null,2]
-```
+
+```text
    3
   /
  1
@@ -26,15 +32,18 @@ Output: [3,1,null,null,2]
 Example 2:
 
 Input: [3,1,4,null,null,2]
-```
+
+```text
   3
  / \
 1   4
    /
   2
 ```
+
 Output: [2,1,4,null,null,3]
-```
+
+```text
   2
  / \
 1   4
@@ -53,18 +62,22 @@ __题目描述__:
 请在不改变其结构的情况下，恢复这棵树。
 
 __示例 :__
+
 示例 1:
 
 输入: [1,3,null,null,2]
-```
+
+```text
    1
   /
  3
   \
    2
 ```
+
 输出: [3,1,null,null,2]
-```
+
+```text
    3
   /
  1
@@ -75,32 +88,38 @@ __示例 :__
 示例 2:
 
 输入: [3,1,4,null,null,2]
-```
+
+```text
   3
  / \
 1   4
    /
   2
 ```
+
 输出: [2,1,4,null,null,3]
-```
+
+```text
   2
  / \
 1   4
    /
   3
 ```
+
 __进阶:__
 
 使用 O(n) 空间复杂度的解法很容易实现。
 你能想出一个只使用常数空间的解决方案吗？
 
 __思路__:
+
 使用 morris遍历 BST(即线索二叉树)
 时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
+
 ```C++
 /**
  * Definition for a binary tree node.
@@ -132,7 +151,7 @@ public:
                 }
                 else if (pre -> right == root) pre -> right = nullptr;
             }
-            if (p && p -> val > root -> val)
+            if (p and p -> val > root -> val)
             {
                 if (!t1) t1 = p;
                 t2 = root;
@@ -149,7 +168,7 @@ private:
         if (root)
         {
             pre = pre -> left;
-            while (pre -> right && pre -> right != root) pre = pre -> right;
+            while (pre -> right and pre -> right != root) pre = pre -> right;
         }
         return pre;
     }
@@ -157,6 +176,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 /**
  * Definition for a binary tree node.
@@ -196,6 +216,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 # Definition for a binary tree node.
 # class TreeNode:

@@ -1,3 +1,5 @@
+# 126 Word Ladder II 单词接龙 II
+
 __Description__:
 Given two words (beginWord and endWord), and a dictionary's word list, find all shortest transformation sequence(s) from beginWord to endWord, such that:
 
@@ -13,6 +15,7 @@ You may assume no duplicates in the word list.
 You may assume beginWord and endWord are non-empty and are not the same.
 
 __Example:__
+
 Example 1:
 
 Input:
@@ -52,6 +55,7 @@ __说明：__
 你可以假设 beginWord 和 endWord 是非空的，且二者不相同。
 
 __示例 :__
+
 示例 1:
 
 输入:
@@ -77,6 +81,7 @@ wordList = ["hot","dot","dog","lot","log"]
 解释: endWord "cog" 不在字典中，所以不存在符合要求的转换序列。
 
 __思路__:
+
 要求输出最小的路径, 一般考虑使用 BFS
 考虑到要搜索 word, 可以将 word对应成 id放入哈希表中
 为了方便转化可以对应 id再建立一个哈希表, 这里可以简单的用下标替代
@@ -89,6 +94,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -192,6 +198,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public List<List<String>> findLadders(String beginWord, String endWord, List<String> wordList) {
@@ -256,6 +263,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def findLadders(self, beginWord: str, endWord: str, wordList: List[str]) -> List[List[str]]:
@@ -282,4 +290,4 @@ class Solution:
                 q = t
                 v.update(q.keys())
         return []
-```Í
+```

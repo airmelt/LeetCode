@@ -1,3 +1,5 @@
+# 55 Jump Game 跳跃游戏
+
 __Description__:
 Given an array of non-negative integers, you are initially positioned at the first index of the array.
 
@@ -6,6 +8,7 @@ Each element in the array represents your maximum jump length at that position.
 Determine if you are able to reach the last index.
 
 __Example:__
+
 Example 1:
 
 Input: nums = [2,3,1,1,4]
@@ -31,6 +34,7 @@ __题目描述__:
 判断你是否能够到达最后一个位置。
 
 __示例 :__
+
 示例 1:
 
 输入: [2,3,1,1,4]
@@ -44,6 +48,7 @@ __示例 :__
 解释: 无论怎样，你总会到达索引为 3 的位置。但该位置的最大跳跃长度是 0 ， 所以你永远不可能到达最后一个位置。
 
 __思路__:
+
 贪心法
 参考[LeetCode #45 Jump Game II 跳跃游戏 II](https://www.jianshu.com/p/6fa9af3500e1)
 每次更新 i + nums[i]表示最远能跳到到位置
@@ -52,6 +57,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -70,6 +76,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public boolean canJump(int[] nums) {
@@ -84,6 +91,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def canJump(self, nums: List[int]) -> bool:

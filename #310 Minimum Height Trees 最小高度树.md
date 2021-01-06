@@ -1,3 +1,5 @@
+# 310 Minimum Height Trees 最小高度树
+
 __Description__:
 A tree is an undirected graph in which any two vertices are connected by exactly one path. In other words, any connected graph without simple cycles is a tree.
 
@@ -8,14 +10,19 @@ Return a list of all MHTs' root labels. You can return the answer in any order.
 The height of a rooted tree is the number of edges on the longest downward path between the root and a leaf.
 
 __Example:__
+
 Example 1:
+
 ![Trees 1](https://upload-images.jianshu.io/upload_images/16639143-c928b8e86bb95ffc.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 Input: n = 4, edges = [[1,0],[1,2],[1,3]]
 Output: [1]
 Explanation: As shown, the height of the tree is 1 when the root is the node with label 1 which is the only MHT.
 
 Example 2:
+
 ![Trees 2](https://upload-images.jianshu.io/upload_images/16639143-342c40bd63e087cd.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 Input: n = 6, edges = [[3,0],[3,1],[3,2],[3,4],[5,4]]
 Output: [3,4]
 
@@ -28,7 +35,7 @@ Example 4:
 
 Input: n = 2, edges = [[0,1]]
 Output: [0,1]
- 
+
 __Constraints:__
 
 1 <= n <= 2 * 104
@@ -48,22 +55,26 @@ __题目描述__:
 你可以假设没有重复的边会出现在 edges 中。由于所有的边都是无向边， [0, 1]和 [1, 0] 是相同的，因此不会同时出现在 edges 里。
 
 __示例 :__
+
 示例 1:
 
 输入: n = 4, edges = [[1, 0], [1, 2], [1, 3]]
-```
+
+```text
         0
         |
         1
        / \
       2   3 
 ```
+
 输出: [1]
 
 示例 2:
 
 输入: n = 6, edges = [[0, 3], [1, 3], [2, 3], [4, 3], [5, 4]]
-```
+
+```text
      0  1  2
       \ | /
         3
@@ -72,6 +83,7 @@ __示例 :__
         |
         5 
 ```
+
 输出: [3, 4]
 
 __说明:__
@@ -79,12 +91,14 @@ __说明:__
 树的高度是指根节点和叶子节点之间最长向下路径上边的数量。
 
 __思路__:
+
 拓扑排序
 每一轮将度为 1的结点删除直到剩下最后一个或两个结点
 时间复杂度O(n ^ 2), 空间复杂度O(n)
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -127,6 +141,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public List<Integer> findMinHeightTrees(int n, int[][] edges) {
@@ -166,6 +181,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def findMinHeightTrees(self, n: int, edges: List[List[int]]) -> List[int]:

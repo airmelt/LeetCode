@@ -1,3 +1,5 @@
+# 382 Linked List Random Node 链表随机节点
+
 __Description__:
 Given a singly linked list, return a random node's value from the linked list. Each node must have the same probability of being chosen.
 
@@ -6,6 +8,7 @@ What if the linked list is extremely large and its length is unknown to you? Cou
 
 __Example:__
 
+```Java
 // Init a singly linked list [1,2,3].
 ListNode head = new ListNode(1);
 head.next = new ListNode(2);
@@ -14,6 +17,7 @@ Solution solution = new Solution(head);
 
 // getRandom() should return either 1, 2, or 3 randomly. Each element should have equal probability of returning.
 solution.getRandom();
+```
 
 __题目描述__:
 给定一个单链表，随机选择链表的一个节点，并返回相应的节点值。保证每个节点被选的概率一样。
@@ -23,6 +27,7 @@ __进阶:__
 
 __示例 :__
 
+```Java
 // 初始化一个单链表 [1,2,3].
 ListNode head = new ListNode(1);
 head.next = new ListNode(2);
@@ -31,8 +36,10 @@ Solution solution = new Solution(head);
 
 // getRandom()方法应随机返回1,2,3中的一个，保证每个元素被返回的概率相等。
 solution.getRandom();
+```
 
 __思路__:
+
 取最后一个节点并替换为结果的概率为 1 / n
 设取倒数第二个节点的概率为 x, 则 x * (1 - 1 / n) = 1 / n, x = 1 / (n - 1), 表示取倒数第二个节点, 并且不取最后一个节点
 那么可以每次生成一个 [0, k]的随机数, 如果随机到 0就替换
@@ -41,6 +48,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 /**
  * Definition for singly-linked list.
@@ -50,16 +58,19 @@ __C++__:
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
-class Solution {
+class Solution 
+{
 public:
     /** @param head The linked list's head.
         Note that the head is guaranteed to be not null, so it contains at least one node. */
-    Solution(ListNode* head): head(head) {
+    Solution(ListNode* head): head(head) 
+    {
 
     }
     
     /** Returns a random node's value. */
-    int getRandom() {
+    int getRandom() 
+    {
         ListNode* cur = head -> next;
         int result = head -> val, i = 2;
         while (cur) 
@@ -82,6 +93,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 /**
  * Definition for singly-linked list.
@@ -123,6 +135,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 # Definition for singly-linked list.
 # class ListNode:

@@ -1,3 +1,5 @@
+# 354 Russian Doll Envelopes 俄罗斯套娃信封问题
+
 __Description__:
 You have a number of envelopes with widths and heights given as a pair of integers (w, h). One envelope can fit into another if and only if both the width and height of one envelope is greater than the width and height of the other envelope.
 
@@ -9,7 +11,7 @@ Rotation is not allowed.
 __Example:__
 
 Input: [[5,4],[6,4],[6,7],[2,3]]
-Output: 3 
+Output: 3
 Explanation: The maximum number of envelopes you can Russian doll is 3 ([2,3] => [5,4] => [6,7]).
 
 __题目描述__:
@@ -23,10 +25,11 @@ __说明:__
 __示例 :__
 
 输入: envelopes = [[5,4],[6,4],[6,7],[2,3]]
-输出: 3 
+输出: 3
 解释: 最多信封的个数为 3, 组合为: [2,3] => [5,4] => [6,7]。
 
 __思路__:
+
 按照长度增序, 宽度降序排序
 这时只要选择最长的宽度的子序列即为最长的套娃
 因为每次选择都选的是当前长度最窄的信封
@@ -35,6 +38,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -56,6 +60,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int maxEnvelopes(int[][] envelopes) {
@@ -84,6 +89,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def maxEnvelopes(self, envelopes: List[List[int]]) -> int:

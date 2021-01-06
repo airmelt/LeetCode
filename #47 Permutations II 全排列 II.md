@@ -1,3 +1,5 @@
+# 47 Permutations II 全排列 II
+
 __Description__:
 Given a collection of numbers that might contain duplicates, return all possible unique permutations.
 
@@ -25,14 +27,17 @@ __示例 :__
 ]
 
 __思路__:
+
 回溯法
 参考[LeetCode #46 Permutations 全排列](https://www.jianshu.com/p/603134948f0f)
+
 1. 排序
 2. 剪枝去掉重复的排列
 时间复杂度O(n * n!), 空间复杂度O(n)
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -72,6 +77,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public List<List<Integer>> permuteUnique(int[] nums) {
@@ -102,6 +108,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def permuteUnique(self, nums: List[int]) -> List[List[int]]:

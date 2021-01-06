@@ -1,20 +1,24 @@
+# 94 Binary Tree Inorder Traversal 二叉树的中序遍历
+
 __Description__:
 Given a binary tree, return the inorder traversal of its nodes' values.
 
 __Example:__
 
 Input: [1,null,2,3]
-```
+
+```text
    1
     \
      2
     /
    3
 ```
+
 Output: [1,3,2]
 
 __Follow up:__
- Recursive solution is trivial, could you do it iteratively?
+Recursive solution is trivial, could you do it iteratively?
 
 __题目描述__:
 给定一个二叉树，返回它的中序 遍历。
@@ -22,19 +26,22 @@ __题目描述__:
 __示例 :__
 
 输入: [1,null,2,3]
-```
+
+```text
    1
     \
      2
     /
    3
 ```
+
 输出: [1,3,2]
 
-__进阶: __
+__进阶:__
 递归算法很简单，你可以通过迭代算法完成吗？
 
 __思路__:
+
 1. 递归法
 按照左中右递归加入即可
 2. 迭代法
@@ -43,6 +50,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 /**
  * Definition for a binary tree node.
@@ -60,7 +68,7 @@ public:
     {
         vector<int> result;
         stack<TreeNode*> s;
-        while (!s.empty() || root) 
+        while (!s.empty() or root) 
         {
             while (root) 
             {
@@ -78,6 +86,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 /**
  * Definition for a binary tree node.
@@ -102,6 +111,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 # Definition for a binary tree node.
 # class TreeNode:

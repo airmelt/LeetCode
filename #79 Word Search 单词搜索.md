@@ -1,3 +1,5 @@
+# 79 Word Search 单词搜索
+
 __Description__:
 Given a 2D board and a word, find if the word exists in the grid.
 
@@ -42,12 +44,14 @@ board 和 word 中只包含大写和小写英文字母。
 1 <= word.length <= 10^3
 
 __思路__:
+
 回溯法
 遍历 board从第一个 board[i][j] = word[0]的坐标开始向 4个方向查找
-时间复杂度O(m ^ 2 * n ^ 2), 空间复杂度O(mn)
+时间复杂度O(m ^ 2 \* n ^ 2), 空间复杂度O(mn)
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -63,10 +67,10 @@ private:
         char temp = board[i][j];
         board[i][j] = '0';
         if (l == ++size) return true;
-        if (i > 0 && board[i - 1][j] == word[size]) if (backtrack(board, word, i - 1, j, n, m, size, l)) return true;
-        if (i < n - 1 && board[i + 1][j] == word[size]) if (backtrack(board, word, i + 1, j, n, m, size, l)) return true;
-        if (j > 0 && board[i][j - 1] == word[size]) if (backtrack(board, word, i, j - 1, n, m, size, l)) return true;
-        if (j < m - 1 && board[i][j + 1] == word[size]) if (backtrack(board, word, i, j + 1, n, m, size, l)) return true;
+        if (i > 0 and board[i - 1][j] == word[size]) if (backtrack(board, word, i - 1, j, n, m, size, l)) return true;
+        if (i < n - 1 and board[i + 1][j] == word[size]) if (backtrack(board, word, i + 1, j, n, m, size, l)) return true;
+        if (j > 0 and board[i][j - 1] == word[size]) if (backtrack(board, word, i, j - 1, n, m, size, l)) return true;
+        if (j < m - 1 and board[i][j + 1] == word[size]) if (backtrack(board, word, i, j + 1, n, m, size, l)) return true;
         board[i][j] = temp;
         return false;
     }
@@ -74,6 +78,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public boolean exist(char[][] board, String word) {
@@ -95,6 +100,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def exist(self, board: List[List[str]], word: str) -> bool:

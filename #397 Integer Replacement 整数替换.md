@@ -1,3 +1,5 @@
+# 397 Integer Replacement 整数替换
+
 __Description__:
 Given a positive integer n, you can apply one of the following operations:
 
@@ -6,6 +8,7 @@ If n is odd, replace n with either n + 1 or n - 1.
 Return the minimum number of operations needed for n to become 1.
 
 __Example:__
+
 Example 1:
 
 Input: n = 8
@@ -23,7 +26,7 @@ Example 3:
 
 Input: n = 4
 Output: 2
- 
+
 __Constraints:__
 
 1 <= n <= 2^31 - 1
@@ -36,6 +39,7 @@ __题目描述__:
 n 变为 1 所需的最小替换次数是多少？
 
 __示例 :__
+
 示例 1：
 
 输入：n = 8
@@ -53,12 +57,13 @@ __示例 :__
 
 输入：n = 4
 输出：2
- 
+
 __提示：__
 
 1 <= n <= 2^31 - 1
 
 __思路__:
+
 数学法
 偶数直接除 2
 奇数分为 0bxxx01和 0bxxx11和 3讨论
@@ -66,6 +71,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -76,7 +82,7 @@ public:
         while (n > 1)
         {
             if (!(n & 1) or n == INT_MAX) n >>= 1;
-            else if ((n & 2) == 2 && n > 3) ++n;
+            else if ((n & 2) == 2 and n > 3) ++n;
             else --n;
             ++result;
         }
@@ -86,6 +92,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int integerReplacement(int n) {
@@ -102,6 +109,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def integerReplacement(self, n: int) -> int:

@@ -5,12 +5,17 @@ A sequence of numbers is called arithmetic if it consists of at least three elem
 
 For example, these are arithmetic sequences:
 
+```text
 1, 3, 5, 7, 9
 7, 7, 7, 7
 3, -1, -5, -9
+```
+
 The following sequence is not arithmetic.
 
+```text
 1, 1, 2, 5, 7
+```
 
 A zero-indexed array A consisting of N numbers is given. A slice of that array is any pair of integers (P, Q) such that 0 <= P < Q < N.
 
@@ -30,12 +35,17 @@ __题目描述__:
 
 例如，以下数列为等差数列:
 
+```text
 1, 3, 5, 7, 9
 7, 7, 7, 7
 3, -1, -5, -9
+```
+
 以下数列不是等差数列。
 
+```text
 1, 1, 2, 5, 7
+```
 
 数组 A 包含 N 个数，且索引从0开始。数组 A 的一个子数组划分为数组 (P, Q)，P 与 Q 是整数且满足 0<=P<Q<N 。
 
@@ -52,6 +62,7 @@ A = [1, 2, 3, 4]
 返回: 3, A 中有三个子等差数组: [1, 2, 3], [2, 3, 4] 以及自身 [1, 2, 3, 4]。
 
 __思路__:
+
 动态规划
 dp[i] 表示以 A[i]结尾的等差数列的长度
 则 dp[i] = dp[i - 1] + 1, 如果 A[i - 2], A[i - 1], A[i]为等差数列, 否则 dp[i] = 0

@@ -1,7 +1,9 @@
+# 331 Verify Preorder Serialization of a Binary Tree 验证二叉树的前序序列化
+
 __Description__:
 One way to serialize a binary tree is to use pre-order traversal. When we encounter a non-null node, we record the node's value. If it is a null node, we record using a sentinel value such as #.
 
-```
+```text
      _9_
     /   \
    3     2
@@ -20,6 +22,7 @@ Each comma separated value in the string must be either an integer or a characte
 You may assume that the input format is always valid, for example it could never contain two consecutive commas such as "1,,3".
 
 __Example:__
+
 Example 1:
 
 Input: "9,3,4,#,#,1,#,#,2,#,6,#,#"
@@ -38,7 +41,7 @@ Output: false
 __题目描述__:
 序列化二叉树的一种方法是使用前序遍历。当我们遇到一个非空节点时，我们可以记录下这个节点的值。如果它是一个空节点，我们可以使用一个标记值记录，例如 #。
 
-```
+```text
      _9_
     /   \
    3     2
@@ -57,6 +60,7 @@ __题目描述__:
 你可以认为输入格式总是有效的，例如它永远不会包含两个连续的逗号，比如 "1,,3" 。
 
 __示例 :__
+
 示例 1:
 
 输入: "9,3,4,#,#,1,#,#,2,#,6,#,#"
@@ -73,12 +77,14 @@ __示例 :__
 输出: false
 
 __思路__:
+
 记录 "#"的个数, 遍历过程中要比数字小
 最后的个数比数字要多 1
 时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -100,6 +106,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public boolean isValidSerialization(String preorder) {
@@ -119,6 +126,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def isValidSerialization(self, preorder: str) -> bool:

@@ -1,3 +1,5 @@
+# 68 Text Justification 文本左右对齐
+
 __Description__:
 Given an array of words and a width maxWidth, format the text such that each line has exactly maxWidth characters and is fully (left and right) justified.
 
@@ -14,17 +16,21 @@ Each word's length is guaranteed to be greater than 0 and not exceed maxWidth.
 The input array words contains at least one word.
 
 __Example:__
+
 Example 1:
 
 Input:
 words = ["This", "is", "an", "example", "of", "text", "justification."]
 maxWidth = 16
 Output:
+
+```text
 [
    "This    is    an",
    "example  of text",
    "justification.  "
 ]
+```
 
 Example 2:
 
@@ -32,11 +38,15 @@ Input:
 words = ["What","must","be","acknowledgment","shall","be"]
 maxWidth = 16
 Output:
+
+```text
 [
   "What   must   be",
   "acknowledgment  ",
   "shall be        "
 ]
+```
+
 Explanation: Note that the last line is "shall be    " instead of "shall     be",
              because the last line must be left-justified instead of fully-justified.
              Note that the second line is also left-justified becase it contains only one word.
@@ -48,6 +58,8 @@ words = ["Science","is","what","we","understand","well","enough","to","explain",
          "to","a","computer.","Art","is","everything","else","we","do"]
 maxWidth = 20
 Output:
+
+```text
 [
   "Science  is  what we",
   "understand      well",
@@ -56,6 +68,7 @@ Output:
   "everything  else  we",
   "do                  "
 ]
+```
 
 __题目描述__:
 给定一个单词数组和一个长度 maxWidth，重新排版单词，使其成为每行恰好有 maxWidth 个字符，且左右两端对齐的文本。
@@ -73,17 +86,21 @@ __说明:__
 输入单词数组 words 至少包含一个单词。
 
 __示例 :__
+
 示例 1:
 
 输入:
 words = ["This", "is", "an", "example", "of", "text", "justification."]
 maxWidth = 16
 输出:
+
+```text
 [
    "This    is    an",
    "example  of text",
    "justification.  "
 ]
+```
 
 示例 2:
 
@@ -91,13 +108,17 @@ maxWidth = 16
 words = ["What","must","be","acknowledgment","shall","be"]
 maxWidth = 16
 输出:
+
+```text
 [
   "What   must   be",
   "acknowledgment  ",
   "shall be        "
 ]
+```
+
 解释: 注意最后一行的格式应为 "shall be    " 而不是 "shall     be",
-     因为最后一行应为左对齐，而不是左右两端对齐。       
+     因为最后一行应为左对齐，而不是左右两端对齐。
      第二行同样为左对齐，这是因为这行只包含一个单词。
 
 示例 3:
@@ -107,6 +128,8 @@ words = ["Science","is","what","we","understand","well","enough","to","explain",
          "to","a","computer.","Art","is","everything","else","we","do"]
 maxWidth = 20
 输出:
+
+```text
 [
   "Science  is  what we",
   "understand      well",
@@ -115,13 +138,16 @@ maxWidth = 20
   "everything  else  we",
   "do                  "
 ]
+```
 
 __思路__:
+
 按照题目要求放置, 注意边界条件的处理
 时间复杂度O(mn), 空间复杂度O(m), m为字符串长度, n为字符串数组长度
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -205,6 +231,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public List<String> fullJustify(String[] words, int maxWidth) {
@@ -269,6 +296,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 from functools import reduce
 class Solution:

@@ -1,3 +1,5 @@
+# 403 Frog Jump 青蛙过河
+
 __Description__:
 A frog is crossing a river. The river is divided into x units and at each unit there may or may not exist a stone. The frog can jump on a stone, but it must not jump into the water.
 
@@ -12,6 +14,7 @@ Each stone's position will be a non-negative integer < 2^31.
 The first stone's position is always 0.
 
 __Example:__
+
 Example 1:
 
 [0,1,3,5,6,8,12,17]
@@ -21,16 +24,16 @@ The first stone at the 0th unit, second stone at the 1st unit,
 third stone at the 3rd unit, and so on...
 The last stone at the 17th unit.
 
-Return true. The frog can jump to the last stone by jumping 
-1 unit to the 2nd stone, then 2 units to the 3rd stone, then 
-2 units to the 4th stone, then 3 units to the 6th stone, 
+Return true. The frog can jump to the last stone by jumping
+1 unit to the 2nd stone, then 2 units to the 3rd stone, then
+2 units to the 4th stone, then 3 units to the 6th stone,
 4 units to the 7th stone, and 5 units to the 8th stone.
 
 Example 2:
 
 [0,1,2,3,4,8,9,11]
 
-Return false. There is no way to jump to the last stone as 
+Return false. There is no way to jump to the last stone as
 the gap between the 5th and 6th stone is too large.
 
 __题目描述__:
@@ -43,10 +46,11 @@ __题目描述__:
 __注意:__
 
 石子的数量 ≥ 2 且 < 1100；
-每一个石子的位置序号都是一个非负整数，且其 < 231；
+每一个石子的位置序号都是一个非负整数，且其 < 2^31；
 第一个石子的位置永远是0。
 
 __示例 :__
+
 示例 1:
 
 [0,1,3,5,6,8,12,17]
@@ -56,19 +60,20 @@ __示例 :__
 第三个石子在序号为3的单元格的位置， 以此定义整个数组...
 最后一个石子处于序号为17的单元格的位置。
 
-返回 true。即青蛙可以成功过河，按照如下方案跳跃： 
-跳1个单位到第2块石子, 然后跳2个单位到第3块石子, 接着 
-跳2个单位到第4块石子, 然后跳3个单位到第6块石子, 
+返回 true。即青蛙可以成功过河，按照如下方案跳跃：
+跳1个单位到第2块石子, 然后跳2个单位到第3块石子, 接着
+跳2个单位到第4块石子, 然后跳3个单位到第6块石子,
 跳4个单位到第7块石子, 最后，跳5个单位到第8个石子（即最后一块石子）。
 
 示例 2:
 
 [0,1,2,3,4,8,9,11]
 
-返回 false。青蛙没有办法过河。 
+返回 false。青蛙没有办法过河。
 这是因为第5和第6个石子之间的间距太大，没有可选的方案供青蛙跳跃过去。
 
 __思路__:
+
 动态规划
 dp[i][j] 表示从 j出发是否能到达 i
 dp[i][k] = dp[j][k - 1] or dp[j][k] or dp[j][k + 1], 0 <= j < i, k = stones[j] - stones[i]
@@ -78,6 +83,7 @@ k必须不大于 i, 因为从 i = 1开始, 第一次最多跳 1, 以后每次跳
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -104,6 +110,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public boolean canCross(int[] stones) {
@@ -124,6 +131,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def canCross(self, stones: List[int]) -> bool:

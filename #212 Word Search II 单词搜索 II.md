@@ -1,3 +1,5 @@
+# 212 Word Search II 单词搜索 II
+
 __Description__:
 Given a 2D board and a list of words from the dictionary, find all words in the board.
 
@@ -5,17 +7,20 @@ Each word must be constructed from letters of sequentially adjacent cell, where 
 
 __Example:__
 
-Input: 
+Input:
+
+```text
 board = [
   ['o','a','a','n'],
   ['e','t','a','e'],
   ['i','h','k','r'],
   ['i','f','l','v']
 ]
+```
+
 words = ["oath","pea","eat","rain"]
 
 Output: ["eat","oath"]
- 
 
 __Note:__
 
@@ -29,7 +34,9 @@ __题目描述__:
 
 __示例 :__
 
-输入: 
+输入:
+
+```text
 words = ["oath","pea","eat","rain"] and board =
 [
   ['o','a','a','n'],
@@ -37,6 +44,7 @@ words = ["oath","pea","eat","rain"] and board =
   ['i','h','k','r'],
   ['i','f','l','v']
 ]
+```
 
 输出: ["eat","oath"]
 说明:
@@ -48,6 +56,7 @@ __提示：__
 如果当前单词不存在于所有单词的前缀中，则可以立即停止回溯。什么样的数据结构可以有效地执行这样的操作？散列表是否可行？为什么？ 前缀树如何？如果你想学习如何实现一个基本的前缀树，请先查看这个问题： 实现Trie（前缀树）。
 
 __思路__:
+
 参考[LeetCode #208 Implement Trie (Prefix Tree) 实现 Trie (前缀树)](https://www.jianshu.com/p/8d7b8b324079)和[LeetCode #79 Word Search 单词搜索](https://www.jianshu.com/p/26fc42b8784d)
 将 words数组中的所有 word插入到前缀树中
 再在 board数组中进行 dfs搜索
@@ -55,6 +64,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 struct Trie
 {
@@ -65,9 +75,11 @@ struct Trie
         for (int i = 0; i < 26; i++) children[i] = nullptr;
     }
 };
-class Solution {
+class Solution 
+{
 public:
-    vector<string> findWords(vector<vector<char>>& board, vector<string>& words) {
+    vector<string> findWords(vector<vector<char>>& board, vector<string>& words) 
+    {
         vector<string> result;
         Trie *t = new Trie();
         for (auto& word : words)
@@ -86,9 +98,9 @@ public:
 private:
     void helper(vector<string>& result, vector<vector<char>>& board, int i, int j, Trie* t)
     {
-        if (i < 0 || i > board.size() - 1 || j < 0 || j > board[0].size() - 1) return;
+        if (i < 0 or i > board.size() - 1 or j < 0 or j > board[0].size() - 1) return;
         char c = board[i][j];
-        if (c == '*' || !t -> children[c - 'a']) return;
+        if (c == '*' or !t -> children[c - 'a']) return;
         t = t -> children[c - 'a'];
         if (t -> word != "")
         {
@@ -107,6 +119,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public List<String> findWords(char[][] board, String[] words) {
@@ -158,6 +171,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def findWords(self, board: List[List[str]], words: List[str]) -> List[str]:

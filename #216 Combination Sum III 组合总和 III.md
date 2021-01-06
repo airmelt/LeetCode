@@ -1,3 +1,5 @@
+# 216 Combination Sum III 组合总和 III
+
 __Description__:
 Find all possible combinations of k numbers that add up to a number n, given that only numbers from 1 to 9 can be used and each combination should be a unique set of numbers.
 
@@ -7,6 +9,7 @@ All numbers will be positive integers.
 The solution set must not contain duplicate combinations.
 
 __Example:__
+
 Example 1:
 
 Input: k = 3, n = 7
@@ -23,9 +26,10 @@ __题目描述__:
 __说明：__
 
 所有数字都是正整数。
-解集不能包含重复的组合。 
+解集不能包含重复的组合。
 
 __示例 :__
+
 示例 1:
 
 输入: k = 3, n = 7
@@ -36,12 +40,14 @@ __示例 :__
 输出: [[1,2,6], [1,3,5], [2,3,4]]
 
 __思路__:
+
 回溯法
 终点为长度等于 n且 target == 0
 时间复杂度O(n!), 空间复杂度O(n)
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -57,7 +63,7 @@ private:
     void trackback(vector<vector<int>>& result, vector<int>& track, int k, int start, int target) 
     {
         if (target < 0) return;
-        if (track.size() == k && target == 0) 
+        if (track.size() == k and target == 0) 
         {
             result.push_back(track);
             return;
@@ -73,6 +79,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public List<List<Integer>> combinationSum3(int k, int n) {
@@ -97,8 +104,9 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def combinationSum3(self, k: int, n: int, r=range(1, 10)) -> List[List[int]]:
-        return [list(i) for i in itertools.combinations(range(1, 10), k) if sum(i) ==  n]
+        return [list(i) for i in itertools.combinations(range(1, 10), k) if sum(i) == n]
 ```

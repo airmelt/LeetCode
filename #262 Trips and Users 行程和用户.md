@@ -1,7 +1,9 @@
+# 262 Trips and Users 行程和用户
+
 __Description__:
 The Trips table holds all taxi trips. Each trip has a unique Id, while Client_Id and Driver_Id are both foreign keys to the Users_Id at the Users table. Status is an ENUM type of (‘completed’, ‘cancelled_by_driver’, ‘cancelled_by_client’).
 
-```
+```text
 +----+-----------+-----------+---------+--------------------+----------+
 | Id | Client_Id | Driver_Id | City_Id |        Status      |Request_at|
 +----+-----------+-----------+---------+--------------------+----------+
@@ -20,7 +22,7 @@ The Trips table holds all taxi trips. Each trip has a unique Id, while Client_Id
 
 The Users table holds all users. Each user has an unique Users_Id, and Role is an ENUM type of (‘client’, ‘driver’, ‘partner’).
 
-```
+```text
 +----------+--------+--------+
 | Users_Id | Banned |  Role  |
 +----------+--------+--------+
@@ -39,7 +41,8 @@ Write a SQL query to find the cancellation rate of requests made by unbanned use
 
 __Example:__
 For the above tables, your SQL query should return the following rows with the cancellation rate being rounded to two decimal places.
-```
+
+```text
 +------------+-------------------+
 |     Day    | Cancellation Rate |
 +------------+-------------------+
@@ -52,7 +55,7 @@ For the above tables, your SQL query should return the following rows with the c
 __题目描述__:
 Trips 表中存所有出租车的行程信息。每段行程有唯一键 Id，Client_Id 和 Driver_Id 是 Users 表中 Users_Id 的外键。Status 是枚举类型，枚举成员为 (‘completed’, ‘cancelled_by_driver’, ‘cancelled_by_client’)。
 
-```
+```text
 +----+-----------+-----------+---------+--------------------+----------+
 | Id | Client_Id | Driver_Id | City_Id |        Status      |Request_at|
 +----+-----------+-----------+---------+--------------------+----------+
@@ -68,9 +71,10 @@ Trips 表中存所有出租车的行程信息。每段行程有唯一键 Id，C
 | 10 |     4     |    13     |    12   | cancelled_by_driver|2013-10-03|
 +----+-----------+-----------+---------+--------------------+----------+
 ```
+
 Users 表存所有用户。每个用户有唯一键 Users_Id。Banned 表示这个用户是否被禁止，Role 则是一个表示（‘client’, ‘driver’, ‘partner’）的枚举类型。
 
-```
+```text
 +----------+--------+--------+
 | Users_Id | Banned |  Role  |
 +----------+--------+--------+
@@ -88,8 +92,10 @@ Users 表存所有用户。每个用户有唯一键 Users_Id。Banned 表示这
 写一段 SQL 语句查出 2013年10月1日 至 2013年10月3日 期间非禁止用户的取消率。基于上表，你的 SQL 语句应返回如下结果，取消率（Cancellation Rate）保留两位小数。
 
 __示例 :__
+
 取消率的计算方式如下：(被司机或乘客取消的非禁止用户生成的订单数量) / (非禁止用户生成的订单总数)
-```
+
+```text
 +------------+-------------------+
 |     Day    | Cancellation Rate |
 +------------+-------------------+
@@ -98,7 +104,9 @@ __示例 :__
 | 2013-10-03 |       0.50        |
 +------------+-------------------+
 ```
+
 __思路__:
+
 ROUND
 COUNT
 INNER JOIN
@@ -106,7 +114,8 @@ BETWEEN
 
 __代码__:
 __MySQL__:
-```
+
+```sql
 # Write your MySQL query statement below
 SELECT Request_at Day, ROUND(COUNT(Status != 'completed' OR NULL) / COUNT(1), 2) 'Cancellation Rate'
 FROM Trips

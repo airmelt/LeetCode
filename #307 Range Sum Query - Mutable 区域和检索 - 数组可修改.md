@@ -1,3 +1,5 @@
+# 307 Range Sum Query - Mutable 区域和检索 - 数组可修改
+
 __Description__:
 Given an integer array nums, find the sum of the elements between indices i and j (i ≤ j), inclusive.
 
@@ -7,10 +9,12 @@ __Example:__
 
 Given nums = [1, 3, 5]
 
+```text
 sumRange(0, 2) -> 9
 update(1, 2)
 sumRange(0, 2) -> 8
- 
+```
+
 __Constraints:__
 
 The array is only modifiable by the update function.
@@ -26,9 +30,11 @@ __示例 :__
 
 Given nums = [1, 3, 5]
 
+```text
 sumRange(0, 2) -> 9
 update(1, 2)
 sumRange(0, 2) -> 8
+```
 
 __说明:__
 
@@ -36,6 +42,7 @@ __说明:__
 你可以假设 update 函数与 sumRange 函数的调用次数是均匀分布的。
 
 __思路__:
+
 采用线段树
 线段树中记录 start和 end为 nums的开始和结束区间, 以及 val为区间和, 线段树还有左子树右子树分别是区间的二分
 否则继续调用 dfs搜索下一个子字符串
@@ -44,6 +51,7 @@ update() 时间复杂度O(lgn), 空间复杂度O(1)
 
 __代码__:
 __C++__:
+
 ```C++
 class NumArray 
 {
@@ -89,6 +97,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class NumArray {
 
@@ -165,6 +174,7 @@ class NumArray {
 ```
 
 __Python__:
+
 ```Python
 class NumArray:
 

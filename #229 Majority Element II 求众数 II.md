@@ -1,3 +1,5 @@
+# 229 Majority Element II 求众数 II
+
 __Description__:
 Given an integer array of size n, find all elements that appear more than ⌊ n/3 ⌋ times.
 
@@ -5,6 +7,7 @@ __Note:__
 The algorithm should run in linear time and in O(1) space.
 
 __Example:__
+
 Example 1:
 
 Input: [3,2,3]
@@ -22,6 +25,7 @@ __说明：__
 要求算法的时间复杂度为 O(n)，空间复杂度为 O(1)。
 
 __示例 :__
+
 示例 1:
 
 输入: [3,2,3]
@@ -33,6 +37,7 @@ __示例 :__
 输出: [1,2]
 
 __思路__:
+
 1. 排序之后找到最多的两个元素, 看是否出现次数超过 n / 3
 时间复杂度O(nlgn), 空间复杂度O(1)
 2. 由于需要超过 n / 3的出现次数
@@ -43,6 +48,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -53,12 +59,12 @@ public:
         int a = 0, b = 0, x = 0, y = 0, count = 0;
         for (auto num : nums)
         {
-            if ((x == 0 || num == a) && num != b)
+            if ((x == 0 or num == a) and num != b)
             {
                 ++x;
                 a = num;
             }
-            else if (y == 0 || num == b)
+            else if (y == 0 or num == b)
             {
                 ++y;
                 b = num;
@@ -73,13 +79,14 @@ public:
         if (count > nums.size() / 3) result.push_back(a);
         count = 0;
         for (auto num : nums) if (b == num) ++count;
-        if (count > nums.size() / 3 && a != b) result.push_back(b);
+        if (count > nums.size() / 3 and a != b) result.push_back(b);
         return result;
     }
 };
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public List<Integer> majorityElement(int[] nums) {
@@ -108,6 +115,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def majorityElement(self, nums: List[int]) -> List[int]:

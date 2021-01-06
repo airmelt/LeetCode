@@ -1,3 +1,5 @@
+# 390 Elimination Game 消除游戏
+
 __Description__:
 There is a list of sorted integers from 1 to n. Starting from left to right, remove the first number and every other number afterward until you reach the end of the list.
 
@@ -11,9 +13,13 @@ __Example:__
 
 Input:
 n = 9,
+
 ~~1~~ 2 ~~3~~ 4 ~~5~~ 6 ~~7~~ 8 ~~9~~
+
 2 ~~4~~ 6 ~~8~~
+
 ~~2~~ 6
+
 6
 
 Output:
@@ -30,9 +36,13 @@ __示例 :__
 
 输入:
 n = 9,
+
 ~~1~~ 2 ~~3~~ 4 ~~5~~ 6 ~~7~~ 8 ~~9~~
+
 2 ~~4~~ 6 ~~8~~
+
 ~~2~~ 6
+
 6
 
 输出:
@@ -41,20 +51,22 @@ n = 9,
 __思路__:
 
 ~~1~~ 2 ~~3~~ 4 ~~5~~ ... 2k ~~2k + 1~~
+
   2   4   ... 2k
+
   k  k-1  ...  1
 
 假设删除后留下的数为 f(k)
 第一行为 f(2k)或者 f(2k + 1)
 第二行为第一步去掉 k个数之后, 对应起来应该像上图这样, 因为第二次是从右往左删除
 第三行为 f(k)
-可以找到规律, f(2k) + 2 * f(k) = 2k + 2
-即 f(2k) = 2 * (k + 1 - f(k))
+可以找到规律, f(2k) + 2 \* f(k) = 2k + 2
+即 f(2k) = 2 \* (k + 1 - f(k))
 时间复杂度O(lgn), 空间复杂度O(1)
-
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -67,6 +79,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int lastRemaining(int n) {
@@ -76,6 +89,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def lastRemaining(self, n: int) -> int:

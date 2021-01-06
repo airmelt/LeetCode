@@ -1,3 +1,5 @@
+# 91 Decode Ways 解码方法
+
 __Description__:
 A message containing letters from A-Z is being encoded to numbers using the following mapping:
 
@@ -8,6 +10,7 @@ A message containing letters from A-Z is being encoded to numbers using the foll
 Given a non-empty string containing only digits, determine the total number of ways to decode it.
 
 __Example:__
+
 Example 1:
 
 Input: "12"
@@ -30,6 +33,7 @@ __题目描述__:
 给定一个只包含数字的非空字符串，请计算解码方法的总数。
 
 __示例 :__
+
 示例 1:
 
 输入: "12"
@@ -43,6 +47,7 @@ __示例 :__
 解释: 它可以解码为 "BZ" (2 26), "VF" (22 6), 或者 "BBF" (2 2 6) 。
 
 __思路__:
+
 动态规划
 dp[i + 1] = s[i] == '0' ? 0 : dp[i]
 如果前一位和该位在 1-26之间:
@@ -51,6 +56,7 @@ dp[i + 1] = dp[i] + dp[i - 1]
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -62,7 +68,7 @@ public:
         for (int i = 0; i < s.size(); i++)
         {
             result = s[i] == '0' ? 0 : one;
-            if (i > 0 && (s[i - 1] == '1' || s[i - 1] == '2' && s[i] < '7')) result += two;
+            if (i > 0 and (s[i - 1] == '1' || s[i - 1] == '2' and s[i] < '7')) result += two;
             two = one;
             one = result;
         }
@@ -72,6 +78,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int numDecodings(String s) {
@@ -90,6 +97,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def numDecodings(self, s: str) -> int:

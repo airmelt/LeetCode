@@ -100,7 +100,7 @@ public:
             {
                 --key_map[key];
                 Node *next_node = node -> next;
-                if (next_node == tail || next_node -> val < val - 1)
+                if (next_node == tail or next_node -> val < val - 1)
                 {
                     Node *cur = new Node(val - 1);
                     cur -> keys.insert(key);
@@ -112,7 +112,8 @@ public:
                 }
                 else next_node -> keys.insert(key);
             }
-            if (node -> keys.empty()) {
+            if (node -> keys.empty()) 
+            {
                 node -> pre -> next = node -> next;
                 node -> next -> pre = node -> pre;
                 value_map.erase(val);

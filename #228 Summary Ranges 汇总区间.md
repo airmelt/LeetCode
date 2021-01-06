@@ -1,7 +1,10 @@
+# 228 Summary Ranges 汇总区间
+
 __Description__:
 Given a sorted integer array without duplicates, return the summary of its ranges.
 
 __Example:__
+
 Example 1:
 
 Input:  [0,1,2,4,5,7]
@@ -18,6 +21,7 @@ __题目描述__:
 给定一个无重复元素的有序整数数组，返回数组区间范围的汇总。
 
 __示例 :__
+
 示例 1:
 
 输入: [0,1,2,4,5,7]
@@ -31,6 +35,7 @@ __示例 :__
 解释: 2,3,4 可组成一个连续的区间; 8,9 可组成一个连续的区间。
 
 __思路__:
+
 双指针
 右指针负责找到第一个 nums[r] + 1 != nums[r + 1]的位置
 左指针指向上一个区间的右边 + 1的位置
@@ -38,6 +43,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -48,7 +54,7 @@ public:
         int l = 0, r = 0;
         while (r < nums.size())
         {
-            while (r < nums.size() - 1 && nums[r] + 1 == nums[r + 1]) ++r;
+            while (r < nums.size() - 1 and nums[r] + 1 == nums[r + 1]) ++r;
             if (l != r) result.push_back(to_string(nums[l]) + "->" + to_string(nums[r]));
             else result.push_back(to_string(nums[l]));
             ++r;
@@ -60,6 +66,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public List<String> summaryRanges(int[] nums) {
@@ -78,6 +85,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def summaryRanges(self, nums: List[int]) -> List[str]:

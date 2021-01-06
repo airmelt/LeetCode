@@ -1,10 +1,13 @@
+# 316 Remove Duplicate Letters 去除重复字母
+
 __Description__:
 Given a string s, remove duplicate letters so that every letter appears once and only once. You must make sure your result is the smallest in lexicographical order among all possible results.
 
 __Note:__
-This question is the same as 1081: https://leetcode.com/problems/smallest-subsequence-of-distinct-characters/
+This question is the same as [1081](https://leetcode.com/problems/smallest-subsequence-of-distinct-characters/)
 
 __Example:__
+
 Example 1:
 
 Input: s = "bcabc"
@@ -14,7 +17,7 @@ Example 2:
 
 Input: s = "cbacdcbc"
 Output: "acdb"
- 
+
 __Constraints:__
 
 1 <= s.length <= 104
@@ -24,9 +27,10 @@ __题目描述__:
 给你一个字符串 s ，请你去除字符串中重复的字母，使得每个字母只出现一次。需保证 返回结果的字典序最小（要求不能打乱其他字符的相对位置）。
 
 __注意：__
-该题与 1081 https://leetcode-cn.com/problems/smallest-subsequence-of-distinct-characters 相同
+该题与 [1081](https://leetcode.com/problems/smallest-subsequence-of-distinct-characters/) 相同
 
 __示例 :__
+
 示例 1：
 
 输入：s = "bcabc"
@@ -36,13 +40,14 @@ __示例 :__
 
 输入：s = "cbacdcbc"
 输出："acdb"
- 
+
 __提示：__
 
 1 <= s.length <= 104
 s 由小写英文字母组成
 
 __思路__:
+
 单调栈
 先统计字符串中的字符的个数
 遍历字符串, 减去对应的字符
@@ -53,6 +58,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -81,6 +87,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public String removeDuplicateLetters(String s) {
@@ -106,6 +113,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def removeDuplicateLetters(self, s: str) -> str:

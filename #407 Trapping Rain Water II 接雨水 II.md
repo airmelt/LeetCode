@@ -6,17 +6,23 @@ Given an m x n matrix of positive integers representing the height of each unit 
 __Example:__
 
 Given the following 3x6 height map:
+
+```text
 [
   [1,4,3,1,3,2],
   [3,2,1,3,2,4],
   [2,3,3,2,3,1]
 ]
+```
 
 Return 4.
 
 ![elevation map](https://upload-images.jianshu.io/upload_images/16639143-a2ef6ae7e5c75caa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 The above image represents the elevation map [[1,4,3,1,3,2],[3,2,1,3,2,4],[2,3,3,2,3,1]] before the rain.
+
 ![rain](https://upload-images.jianshu.io/upload_images/16639143-67e28c608afe33ee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 After the rain, water is trapped between the blocks. The total volume of water trapped is 4.
 
 __Constraints:__
@@ -30,17 +36,23 @@ __题目描述__:
 __示例 :__
 
 给出如下 3x6 的高度图:
+
+```text
 [
   [1,4,3,1,3,2],
   [3,2,1,3,2,4],
   [2,3,3,2,3,1]
 ]
+```
 
 返回 4 。
 
 ![高度图](https://upload-images.jianshu.io/upload_images/16639143-94d9ab9057045975.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 如上图所示，这是下雨前的高度图[[1,4,3,1,3,2],[3,2,1,3,2,4],[2,3,3,2,3,1]] 的状态。
+
 ![雨](https://upload-images.jianshu.io/upload_images/16639143-4ba53cd2a06129e9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 下雨后，雨水将会被存储在这些方块中。总的接雨水量是4。
 
 __提示：__
@@ -49,6 +61,7 @@ __提示：__
 0 <= heightMap[i][j] <= 20000
 
 __思路__:
+
 使用优先队列记录围栏
 先将高度图的外围一圈当作围栏
 每次找到最低的围栏, 在周围找到没有遍历过的点, 如果高度比当前高度小, 说明可以存放雨水

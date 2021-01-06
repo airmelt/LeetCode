@@ -1,14 +1,19 @@
+# 60 Permutation Sequence 第k个排列
+
 __Description__:
 The set [1,2,3,...,n] contains a total of n! unique permutations.
 
 By listing and labeling all of the permutations in order, we get the following sequence for n = 3:
 
+```text
 "123"
 "132"
 "213"
 "231"
 "312"
 "321"
+```
+
 Given n and k, return the kth permutation sequence.
 
 __Note:__
@@ -17,6 +22,7 @@ Given n will be between 1 and 9 inclusive.
 Given k will be between 1 and n! inclusive.
 
 __Example:__
+
 Example 1:
 
 Input: n = 3, k = 3
@@ -32,12 +38,15 @@ __题目描述__:
 
 按大小顺序列出所有排列情况，并一一标记，当 n = 3 时, 所有排列如下：
 
+```text
 "123"
 "132"
 "213"
 "231"
 "312"
 "321"
+```
+
 给定 n 和 k，返回第 k 个排列。
 
 __说明：__
@@ -46,6 +55,7 @@ __说明：__
 给定 k 的范围是[1,  n!]。
 
 __示例 :__
+
 示例 1:
 
 输入: n = 3, k = 3
@@ -57,6 +67,7 @@ __示例 :__
 输出: "2314"
 
 __思路__:
+
 1. 回溯法找到所有排列中的第 k个
 时间复杂度O(n * n!), 空间复杂度O(n)
 2. 数学方法
@@ -72,10 +83,13 @@ k %= 2!, k = 1
 
 __代码__:
 __C++__:
+
 ```C++
-class Solution {
+class Solution 
+{
 public:
-    string getPermutation(int n, int k) {
+    string getPermutation(int n, int k) 
+    {
         string result = string("123456789").substr(0, n);
         for (int i = 1; i < k; i++) next_permutation(result.begin(), result.end());
         return result;
@@ -84,6 +98,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public String getPermutation(int n, int k) {
@@ -106,6 +121,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def getPermutation(self, n: int, k: int) -> str:

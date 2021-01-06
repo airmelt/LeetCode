@@ -1,3 +1,5 @@
+# 25 Reverse Nodes in k-Group K 个一组翻转链表
+
 __Description__:
 Given a linked list, reverse the nodes of a linked list k at a time and return its modified list.
 
@@ -37,6 +39,7 @@ __说明 :__
 你不能只是单纯的改变节点内部的值，而是需要实际的进行节点交换。
 
 __思路__:
+
 - 对每 k个一组的链表需要直接反转
 - 对整个链表, 需要找到这 k个一组的链表的开头和结尾, 每次循环处理一组
 - 循环结束的条件为: 一组链表中少于 k个结点, 对最后这一组不需要循环直接输出
@@ -44,11 +47,12 @@ __思路__:
 e.g. head: 1 -> 2 -> 3 -> 4 -> 5 -> 6 ->7 -> 8
 1 -> 2 -> 3反转之后成为 3 -> 2 -> 1
 然后从 4开始继续反转
- 
+
 时间复杂度O(kn), 空间复杂度O(1)
 
 __代码__:
 __C++__:
+
 ```C++
 /**
  * Definition for singly-linked list.
@@ -96,6 +100,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 /**
  * Definition for singly-linked list.
@@ -137,6 +142,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 # Definition for singly-linked list.
 # class ListNode:

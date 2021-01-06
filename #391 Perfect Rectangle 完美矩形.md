@@ -1,11 +1,16 @@
+# 391 Perfect Rectangle 完美矩形
+
 __Description__:
 Given N axis-aligned rectangles where N > 0, determine if they all together form an exact cover of a rectangular region.
 
 Each rectangle is represented as a bottom-left point and a top-right point. For example, a unit square is represented as [1,1,2,2]. (coordinate of bottom-left point is (1, 1) and top-right point is (2, 2)).
 
 __Example:__
+
 Example 1:
+
 ![rectangle_perfect](https://upload-images.jianshu.io/upload_images/16639143-8920a70a237bde71.gif?imageMogr2/auto-orient/strip)
+
 rectangles = [
   [1,1,3,3],
   [3,1,4,2],
@@ -15,9 +20,11 @@ rectangles = [
 ]
 
 Return true. All 5 rectangles together form an exact cover of a rectangular region.
- 
+
 Example 2:
+
 ![rectangle_separated](https://upload-images.jianshu.io/upload_images/16639143-8b21e76ba7366962.gif?imageMogr2/auto-orient/strip)
+
 rectangles = [
   [1,1,2,3],
   [1,3,2,4],
@@ -26,9 +33,11 @@ rectangles = [
 ]
 
 Return false. Because there is a gap between the two rectangular regions.
- 
+
 Example 3:
+
 ![rectangle_hole](https://upload-images.jianshu.io/upload_images/16639143-774eb0d5d9e3b1c5.gif?imageMogr2/auto-orient/strip)
+
 rectangles = [
   [1,1,3,3],
   [3,1,4,2],
@@ -37,9 +46,11 @@ rectangles = [
 ]
 
 Return false. Because there is a gap in the top center.
- 
+
 Example 4:
+
 ![rectangle_intersect](https://upload-images.jianshu.io/upload_images/16639143-d5f8aaf6b5341ca5.gif?imageMogr2/auto-orient/strip)
+
 rectangles = [
   [1,1,3,3],
   [3,1,4,2],
@@ -55,8 +66,11 @@ __题目描述__:
 每个矩形用左下角的点和右上角的点的坐标来表示。例如， 一个单位正方形可以表示为 [1,1,2,2]。 ( 左下角的点的坐标为 (1, 1) 以及右上角的点的坐标为 (2, 2) )。
 
 __示例 :__
+
 示例 1:
+
 ![完美矩形](https://upload-images.jianshu.io/upload_images/16639143-91511600f13791f9.gif?imageMogr2/auto-orient/strip)
+
 rectangles = [
   [1,1,3,3],
   [3,1,4,2],
@@ -66,9 +80,11 @@ rectangles = [
 ]
 
 返回 true。5个矩形一起可以精确地覆盖一个矩形区域。
- 
+
 示例 2:
+
 ![分隔矩形](https://upload-images.jianshu.io/upload_images/16639143-d9e2fef09c0e0754.gif?imageMogr2/auto-orient/strip)
+
 rectangles = [
   [1,1,2,3],
   [1,3,2,4],
@@ -79,7 +95,9 @@ rectangles = [
 返回 false。两个矩形之间有间隔，无法覆盖成一个矩形。
 
 示例 3:
+
 ![间隔矩形](https://upload-images.jianshu.io/upload_images/16639143-f9c5eb67eebbab5e.gif?imageMogr2/auto-orient/strip)
+
 rectangles = [
   [1,1,3,3],
   [3,1,4,2],
@@ -90,7 +108,9 @@ rectangles = [
 返回 false。图形顶端留有间隔，无法覆盖成一个矩形。
 
 示例 4:
+
 ![相交矩形](https://upload-images.jianshu.io/upload_images/16639143-02b1ec6dcf13acf4.gif?imageMogr2/auto-orient/strip)
+
 rectangles = [
   [1,1,3,3],
   [3,1,4,2],
@@ -101,14 +121,15 @@ rectangles = [
 返回 false。因为中间有相交区域，虽然形成了矩形，但不是精确覆盖。
 
 __思路__:
+
 如果是完美矩形, 则四个角只出现一次, 其他的点成对出现
 用一个哈希表记录 4个顶点的位置, 记录所有的矩形的面积和
 最后要留下 4个顶点, 且面积和等于最后形成的矩形
 时间复杂度O(n), 空间复杂度O(n)
 
-
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -139,6 +160,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public boolean isRectangleCover(int[][] rectangles) {
@@ -167,6 +189,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def isRectangleCover(self, rectangles: List[List[int]]) -> bool:

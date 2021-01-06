@@ -1,3 +1,5 @@
+# 188 Best Time to Buy and Sell Stock IV 买卖股票的最佳时机 IV
+
 __Description__:
 Say you have an array for which the i-th element is the price of a given stock on day i.
 
@@ -7,6 +9,7 @@ __Note:__
 You may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).
 
 __Example:__
+
 Example 1:
 
 Input: [2,4,1], k = 2
@@ -25,10 +28,11 @@ __题目描述__:
 
 设计一个算法来计算你所能获取的最大利润。你最多可以完成 k 笔交易。
 
-__注意: __
+__注意:__
 你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。
 
 __示例 :__
+
 示例 1:
 
 输入: [2,4,1], k = 2
@@ -43,12 +47,14 @@ __示例 :__
      随后，在第 5 天 (股票价格 = 0) 的时候买入，在第 6 天 (股票价格 = 3) 的时候卖出, 这笔交易所能获得利润 = 3-0 = 3 。
 
 __思路__:
+
 参考[LeetCode #123 Best Time to Buy and Sell Stock III 买卖股票的最佳时机 III](https://www.jianshu.com/p/afd580831d79)
 注意在 k > n / 2时, 由于买入卖出需要 2天时间, 这时可以简化为无限次购买, 可用贪心求解
 时间复杂度O(nk), 空间复杂度O(k)
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -61,8 +67,7 @@ public:
             for (int i = 0; i < n - 1; i++) if (prices[i + 1] > prices[i]) dp += prices[i + 1] - prices[i];
             return dp;
         }
-        vector<int> buy(k + 1, 0);
-        vector<int> sell(k + 1, INT_MIN);
+        vector<int> buy(k + 1, 0), sell(k + 1, INT_MIN);
         for (int i = 0; i < n; i++) 
         {
             for (int j = 1; j < k + 1; j++) 
@@ -77,6 +82,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int maxProfit(int k, int[] prices) {
@@ -104,6 +110,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def maxProfit(self, k: int, prices: List[int]) -> int:

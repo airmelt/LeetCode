@@ -1,3 +1,5 @@
+# 368 Largest Divisible Subset 最大整除子集
+
 __Description__:
 Given a set of distinct positive integers, find the largest subset such that every pair (Si, Sj) of elements in this subset satisfies:
 
@@ -6,6 +8,7 @@ Si % Sj = 0 or Sj % Si = 0.
 If there are multiple solutions, return any subset is fine.
 
 __Example:__
+
 Example 1:
 
 Input: [1,2,3]
@@ -22,6 +25,7 @@ __题目描述__:
 如果有多个目标子集，返回其中任何一个均可。
 
 __示例 :__
+
 示例 1:
 
 输入: [1,2,3]
@@ -33,6 +37,7 @@ __示例 :__
 输出: [1,2,4,8]
 
 __思路__:
+
 动态规划
 dp[i]表示到 0-i的 num[i]最大能整除的个数
 比如[1, 2, 3, 4, 5, 6, 7, 8], i = 7, nums[i] = 8, dp[i] = 4(1, 2, 4, 8)
@@ -44,6 +49,7 @@ dp[i]表示到 0-i的 num[i]最大能整除的个数
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -79,6 +85,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public List<Integer> largestDivisibleSubset(int[] nums) {
@@ -107,6 +114,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def largestDivisibleSubset(self, nums: List[int]) -> List[int]:

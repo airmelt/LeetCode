@@ -1,3 +1,5 @@
+# 96 Unique Binary Search Trees 不同的二叉搜索树
+
 __Description__:
 Given n, how many structurally unique BST's (binary search trees) that store values 1 ... n?
 
@@ -7,7 +9,8 @@ Input: 3
 Output: 5
 Explanation:
 Given n = 3, there are a total of 5 unique BST's:
-```
+
+```text
    1         3     3      2      1
     \       /     /      / \      \
      3     2     1      1   3      2
@@ -24,7 +27,8 @@ __示例 :__
 输出: 5
 解释:
 给定 n = 3, 一共有 5 种不同结构的二叉搜索树:
-```
+
+```text
    1         3     3      2      1
     \       /     /      / \      \
      3     2     1      1   3      2
@@ -33,12 +37,14 @@ __示例 :__
 ```
 
 __思路__:
+
 卡特兰数
 时间复杂度O(n), 空间复杂度O(1)
 直接用数学公式可以降到 O(1)
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -51,6 +57,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int numTrees(int n) {
@@ -60,6 +67,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def numTrees(self, n: int) -> int:

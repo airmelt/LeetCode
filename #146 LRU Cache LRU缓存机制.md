@@ -1,3 +1,5 @@
+# 146 LRU Cache LRU缓存机制
+
 __Description__:
 Design and implement a data structure for Least Recently Used (LRU) cache. It should support the following operations: get and put.
 
@@ -11,6 +13,7 @@ Could you do both operations in O(1) time complexity?
 
 __Example:__
 
+```Java
 LRUCache cache = new LRUCache( 2 /* capacity */ );
 
 cache.put(1, 1);
@@ -22,6 +25,7 @@ cache.put(4, 4);    // evicts key 1
 cache.get(1);       // returns -1 (not found)
 cache.get(3);       // returns 3
 cache.get(4);       // returns 4
+```
 
 __题目描述__:
 运用你所掌握的数据结构，设计和实现一个  LRU (最近最少使用) 缓存机制。它应该支持以下操作： 获取数据 get 和 写入数据 put 。
@@ -35,6 +39,7 @@ __进阶：__
 
 __示例 :__
 
+```Java
 LRUCache cache = new LRUCache( 2 /* 缓存容量 */ );
 
 cache.put(1, 1);
@@ -46,8 +51,10 @@ cache.put(4, 4);    // 该操作会使得关键字 1 作废
 cache.get(1);       // 返回 -1 (未找到)
 cache.get(3);       // 返回  3
 cache.get(4);       // 返回  4
+```
 
 __思路__:
+
 采用双链表和哈希表结合的方式
 哈希表查找时间为 O(1)
 get函数实现思路: key不存在直接返回 -1; 否则将 key对应的 value移动到双链表开头
@@ -56,6 +63,7 @@ put函数实现思路: key已经存在, 将旧节点删除, 放入新节点; 若
 
 __代码__:
 __C++__:
+
 ```C++
 class LRUCache 
 {
@@ -112,6 +120,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class LRUCache extends LinkedHashMap<Integer, Integer>{
     private int capacity;
@@ -144,6 +153,7 @@ class LRUCache extends LinkedHashMap<Integer, Integer>{
 ```
 
 __Python__:
+
 ```Python
 class LRUCache(dict):
     def __init__(self, capacity: int):

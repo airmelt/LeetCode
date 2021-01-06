@@ -1,13 +1,17 @@
+# 149 Max Points on a Line 直线上最多的点数
+
 __Description__:
 Given n points on a 2D plane, find the maximum number of points that lie on the same straight line.
 
 __Example:__
+
 Example 1:
 
 Input: [[1,1],[2,2],[3,3]]
 Output: 3
 Explanation:
-```
+
+```text
 ^
 |
 |        o
@@ -22,7 +26,8 @@ Example 2:
 Input: [[1,1],[3,2],[5,3],[4,1],[2,3],[1,4]]
 Output: 4
 Explanation:
-```
+
+```text
 ^
 |
 |  o
@@ -37,18 +42,42 @@ __NOTE:__
 input types have been changed on April 15, 2019. Please reset to default code definition to get new method signature.
 
 __题目描述__:
-在 O(n log n) 时间复杂度和常数级空间复杂度下，对链表进行排序。
+给定一个二维平面，平面上有 n 个点，求最多有多少个点在同一条直线上。
 
 __示例 :__
+
 示例 1:
 
-输入: 4->2->1->3
-输出: 1->2->3->4
+输入: [[1,1],[2,2],[3,3]]
+输出: 3
+解释:
 
-示例 2:
+```text
+^
+|
+|        o
+|     o
+|  o  
++------------->
+0  1  2  3  4
+```
 
-输入: -1->5->3->4->0
-输出: -1->0->3->4->5
+示例 2:
+
+输入: [[1,1],[3,2],[5,3],[4,1],[2,3],[1,4]]
+输出: 4
+解释:
+
+```text
+^
+|
+|  o
+|     o        o
+|        o
+|  o        o
++------------------->
+0  1  2  3  4  5  6
+```
 
 __思路__:
 参考[LeetCode #1232 Check If It Is a Straight Line 缀点成线](https://www.jianshu.com/p/565e452159f5)
@@ -58,6 +87,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -89,6 +119,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int maxPoints(int[][] points) {
@@ -117,6 +148,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 from decimal import Decimal
 class Solution:

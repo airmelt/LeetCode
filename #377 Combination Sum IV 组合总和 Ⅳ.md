@@ -1,3 +1,5 @@
+# 377 Combination Sum IV 组合总和 Ⅳ
+
 __Description__:
 Given an integer array with all positive numbers and no duplicates, find the number of possible combinations that add up to a positive integer target.
 
@@ -18,7 +20,6 @@ The possible combination ways are:
 Note that different sequences are counted as different combinations.
 
 Therefore the output is 7.
- 
 
 __Follow up:__
 What if negative numbers are allowed in the given array?
@@ -58,6 +59,7 @@ __致谢：__
 特别感谢 @pbrother 添加此问题并创建所有测试用例。
 
 __思路__:
+
 动态规划
 dp[i]表示 i用 nums中的组合的数量
 dp[i] = sum(dp[i - num])
@@ -67,6 +69,7 @@ dp[7] = dp[1] + dp[2] + dp[4]
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -82,6 +85,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int combinationSum4(int[] nums, int target) {
@@ -94,6 +98,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def combinationSum4(self, nums: List[int], target: int) -> int:

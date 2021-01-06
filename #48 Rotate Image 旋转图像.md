@@ -1,3 +1,5 @@
+# 48 Rotate Image 旋转图像
+
 __Description__:
 You are given an n x n 2D matrix representing an image.
 
@@ -8,39 +10,52 @@ __Note:__
 You have to rotate the image in-place, which means you have to modify the input 2D matrix directly. DO NOT allocate another 2D matrix and do the rotation.
 
 __Example:__
+
 Example 1:
 
-Given input matrix = 
+Given input matrix =
+
+```text
 [
   [1,2,3],
   [4,5,6],
   [7,8,9]
 ],
+```
 
 rotate the input matrix in-place such that it becomes:
+
+```text
 [
   [7,4,1],
   [8,5,2],
   [9,6,3]
 ]
+```
 
 Example 2:
 
 Given input matrix =
+
+```text
 [
   [ 5, 1, 9,11],
   [ 2, 4, 8,10],
   [13, 3, 6, 7],
   [15,14,12,16]
-], 
+],
+```
 
 rotate the input matrix in-place such that it becomes:
+
+```text
 [
   [15,13, 2, 5],
   [14, 3, 4, 1],
   [12, 6, 8, 9],
   [16, 7,10,11]
 ]
+```
 
 __题目描述__:
 给定一个 n × n 的二维矩阵表示一个图像。
@@ -52,41 +67,55 @@ __说明:__
 你必须在原地旋转图像，这意味着你需要直接修改输入的二维矩阵。请不要使用另一个矩阵来旋转图像。
 
 __示例 :__
+
 示例 1:
 
-给定 matrix = 
+给定 matrix =
+
+```text
 [
   [1,2,3],
   [4,5,6],
   [7,8,9]
 ],
+```
 
 原地旋转输入矩阵，使其变为:
+
+```text
 [
   [7,4,1],
   [8,5,2],
   [9,6,3]
 ]
+```
 
 示例 2:
 
 给定 matrix =
+
+```text
 [
   [ 5, 1, 9,11],
   [ 2, 4, 8,10],
   [13, 3, 6, 7],
   [15,14,12,16]
 ], 
+```
 
 原地旋转输入矩阵，使其变为:
+
+```text
 [
   [15,13, 2, 5],
   [14, 3, 4, 1],
   [12, 6, 8, 9],
   [16, 7,10,11]
 ]
+```
 
 __思路__:
+
 1. 先转置矩阵, 再反转每一行
 时间复杂度O(n ^ 2), 空间复杂度O(1)
 2. 将最外层的 4个角矩形交换元素
@@ -94,6 +123,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -114,6 +144,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public void rotate(int[][] matrix) {
@@ -130,6 +161,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def rotate(self, matrix: List[List[int]]) -> None:

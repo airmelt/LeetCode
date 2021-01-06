@@ -1,7 +1,10 @@
+# 65 Valid Number 有效数字
+
 __Description__:
 Validate if a given string can be interpreted as a decimal number.
 
 __Example:__
+
 Some examples:
 "0" => true
 " 0.1 " => true
@@ -33,6 +36,7 @@ __题目描述__:
 验证给定的字符串是否可以解释为十进制数字。
 
 __示例 :__
+
 例如:
 
 "0" => true
@@ -62,7 +66,9 @@ __更新于 2015-02-10:__
 C++函数的形式已经更新了。如果你仍然看见你的函数接收 const char * 类型的参数，请点击重载按钮重置你的代码。
 
 __思路__:
+
 从左到右依次扫描
+
 1. 去掉 s左边的空格
 2. 判断在小数点或者指数(e)之前的数为带符号整数
 3. 如果是小数点, 要求后面的没有数字(用或“||”表示)或者是无符号整数
@@ -73,6 +79,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -86,30 +93,30 @@ public:
         if (s[i] == '.')
         {
             ++i;
-            is_num = scan_unsigned(s, i, n) || is_num;
+            is_num = scan_unsigned(s, i, n) or is_num;
         }
-        if (s[i] == 'e' || s[i] == 'E')
+        if (s[i] == 'e' or s[i] == 'E')
         {
             ++i;
-            is_num = scan_integer(s, i, n) && is_num;
+            is_num = scan_integer(s, i, n) and is_num;
         }
         scan_space(s, i, n);
-        return is_num && i == n;
+        return is_num and i == n;
     }
 private:
     void scan_space(string &s, int &i, int &n)
     {
-        while (i < n && s[i] == ' ') ++i;
+        while (i < n and s[i] == ' ') ++i;
     }
     bool scan_integer(string &s, int &i, int &n)
     {
-        if (s[i] == '+' || s[i] == '-') ++i;
+        if (s[i] == '+' or s[i] == '-') ++i;
         return scan_unsigned(s, i, n);
     }
     bool scan_unsigned(string &s, int &i, int &n)
     {
         bool result = false;
-        while (i < n && s[i] >= '0' && s[i] <= '9')
+        while (i < n and s[i] >= '0' and s[i] <= '9')
         {
             ++i;
             result = true;
@@ -120,6 +127,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public boolean isNumber(String s) {
@@ -129,6 +137,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def isNumber(self, s: str) -> bool:

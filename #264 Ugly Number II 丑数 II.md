@@ -1,7 +1,9 @@
+# 264 Ugly Number II 丑数 II
+
 __Description__:
 Write a program to find the n-th ugly number.
 
-Ugly numbers are positive numbers whose prime factors only include 2, 3, 5. 
+Ugly numbers are positive numbers whose prime factors only include 2, 3, 5.
 
 __Example:__
 
@@ -31,6 +33,7 @@ __说明：__
 n 不超过1690。
 
 __思路__:
+
 使用 3指针
 每次计算选择最小值, 移动最小值指针
 注意 3个 if条件并列, 比如 6, 既可以由 2得到, 也可以由 3得到
@@ -38,6 +41,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -60,6 +64,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int nthUglyNumber(int n) {
@@ -79,6 +84,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def nthUglyNumber(self,  n: int) -> int:

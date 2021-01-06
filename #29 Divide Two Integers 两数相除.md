@@ -1,3 +1,5 @@
+# 29 Divide Two Integers 两数相除
+
 __Description__:
 Given two integers dividend and divisor, divide two integers without using multiplication, division and mod operator.
 
@@ -6,6 +8,7 @@ Return the quotient after dividing dividend by divisor.
 The integer division should truncate toward zero.
 
 __Example:__
+
 Example 1:
 
 Input: dividend = 10, divisor = 3
@@ -28,6 +31,7 @@ __题目描述__:
 返回被除数 dividend 除以除数 divisor 得到的商。
 
 __示例 :__
+
 示例 1:
 
 输入: dividend = 10, divisor = 3
@@ -44,13 +48,15 @@ __说明 :__
 假设我们的环境只能存储 32 位有符号整数，其数值范围是 [−2^31,  2^31 − 1]。本题中，如果除法结果溢出，则返回 2^31 − 1。
 
 __思路__:
+
 1. 可以从减法去考虑, 比如 10 - 3 = 7 > 3, 计数器加 1; 7 - 3 = 4 > 3, 计数器加 1; 4 - 3 = 1 < 3, 计数器加 1并结束循环, 那么结果就是 3
 时间复杂度O(n), 空间复杂度O(1)
-2. 可以考虑用类似二进制的处理方法, 每次寻找被除数最接近 n * 2 ^ i的数, 结果加上这个数, 最多 32次可以结束, 比如 100 / 3 -> 100 / 32 = 3, result = 32  -> 100 - 32 * 3 = 4 -> 4 / 3 = 1, result = 33
+2. 可以考虑用类似二进制的处理方法, 每次寻找被除数最接近 n \* 2 ^ i的数, 结果加上这个数, 最多 32次可以结束, 比如 100 / 3 -> 100 / 32 = 3, result = 32  -> 100 - 32 * 3 = 4 -> 4 / 3 = 1, result = 33
 时间复杂度O(1), 空间复杂度O(1)
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -58,8 +64,8 @@ public:
     int divide(int dividend, int divisor) 
     {
         if (dividend == 0) return 0;
-        if (dividend == INT_MIN && divisor == -1) return INT_MAX;
-        if (dividend == INT_MIN && divisor == 1) return INT_MIN;
+        if (dividend == INT_MIN and divisor == -1) return INT_MAX;
+        if (dividend == INT_MIN and divisor == 1) return INT_MIN;
         bool sign = (dividend ^ divisor) < 0;
         int result = 0;
         long a = abs((long)(dividend)), b = abs((long)(divisor));
@@ -71,13 +77,13 @@ public:
                 a -= b << i;
             }
         }
-        cout << result;
         return sign ? -result : result;
     }
 };
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int divide(int dividend, int divisor) {
@@ -87,6 +93,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def divide(self, dividend: int, divisor: int) -> int:

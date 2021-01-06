@@ -1,16 +1,20 @@
+# 144 Binary Tree Preorder Traversal 二叉树的前序遍历
+
 __Description__:
 Given a binary tree, return the preorder traversal of its nodes' values.
 
 __Example:__
 
 Input: [1,null,2,3]
-```
+
+```text
    1
     \
      2
     /
    3
 ```
+
 Output: [1,2,3]
 
 __Follow up:__
@@ -22,19 +26,22 @@ __题目描述__:
 __示例 :__
 
 输入: [1,null,2,3]  
-```
+
+```text
    1
     \
      2
     /
    3 
 ```
+
 输出: [1,2,3]
 
 __进阶：__
 递归算法很简单，你可以通过迭代算法完成吗？
 
 __思路__:
+
 1. 递归法
 处理 root
 处理 root.left
@@ -49,6 +56,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 /**
  * Definition for a binary tree node.
@@ -59,9 +67,11 @@ __C++__:
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
-class Solution {
+class Solution 
+{
 public:
-    vector<int> preorderTraversal(TreeNode* root) {
+    vector<int> preorderTraversal(TreeNode* root) 
+    {
         vector<int> result;
         TreeNode* cur = root;
         while (cur) 
@@ -75,7 +85,6 @@ public:
             {
                 TreeNode* pre = cur -> left;
                 while (pre -> right and pre -> right != cur) pre = pre -> right;
-
                 if (!pre -> right) 
                 {
                   result.push_back(cur -> val);
@@ -95,6 +104,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 /**
  * Definition for a binary tree node.
@@ -122,6 +132,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 # Definition for a binary tree node.
 # class TreeNode:

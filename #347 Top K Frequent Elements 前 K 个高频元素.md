@@ -1,7 +1,10 @@
+# 347 Top K Frequent Elements 前 K 个高频元素
+
 __Description__:
 Given a non-empty array of integers, return the k most frequent elements.
 
 __Example:__
+
 Example 1:
 
 Input: nums = [1,1,1,2,2,3], k = 2
@@ -23,6 +26,7 @@ __题目描述__:
 给定一个非空的整数数组，返回其中出现频率前 k 高的元素。
 
 __示例 :__
+
 示例 1:
 
 输入: nums = [1,1,1,2,2,3], k = 2
@@ -41,6 +45,7 @@ __提示：__
 你可以按任意顺序返回答案。
 
 __思路__:
+
 由于要求时间复杂度优于 nlogn, 所以不能使用直接排序的方式
 先将数字对应的出现频率存在 map中
 然后将 map中的元素加入优先队列(小根堆)中, 保证优先队列的大小小于等于 k
@@ -48,6 +53,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -74,6 +80,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int[] topKFrequent(int[] nums, int k) {
@@ -83,6 +90,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:

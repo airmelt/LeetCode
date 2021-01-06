@@ -1,3 +1,5 @@
+# 187 Repeated DNA Sequences 重复的DNA序列
+
 __Description__:
 All DNA is composed of a series of nucleotides abbreviated as A, C, G, and T, for example: "ACGAATTCCG". When studying DNA, it is sometimes useful to identify repeated sequences within the DNA.
 
@@ -20,6 +22,7 @@ __示例 :__
 输出：["AAAAACCCCC", "CCCCCAAAAA"]
 
 __思路__:
+
 将 ACTG与 0123对应, 即对应二进制 00, 01, 10, 11
 用位运算加快查找
 由于子字符串长度为 10, 所以需要 20位, 表示范围为 0 ~ 2 ^ 20 - 1
@@ -27,6 +30,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -56,6 +60,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public List<String> findRepeatedDnaSequences(String s) {
@@ -88,6 +93,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def findRepeatedDnaSequences(self, s: str) -> List[str]:

@@ -1,9 +1,12 @@
+# 82 Remove Duplicates from Sorted List II 删除排序链表中的重复元素 II
+
 __Description__:
 Given a sorted linked list, delete all nodes that have duplicate numbers, leaving only distinct numbers from the original list.
 
 Return the linked list sorted as well.
 
 __Example:__
+
 Example 1:
 
 Input: 1->2->3->3->4->4->5
@@ -18,6 +21,7 @@ __题目描述__:
 给定一个排序链表，删除所有含有重复数字的节点，只保留原始链表中 没有重复出现 的数字。
 
 __示例 :__
+
 示例 1:
 
 输入: 1->2->3->3->4->4->5
@@ -29,6 +33,7 @@ __示例 :__
 输出: 2->3
 
 __思路__:
+
 新建一个 dummy结点, dummy结点的下一个结点指向 head
 用两个指针分别指向 dummy结点和 head
 指向 head的指针作为工作指针, 查找并跳过重复的结点
@@ -36,6 +41,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 /**
  * Definition for singly-linked list.
@@ -50,15 +56,15 @@ class Solution
 public:
     ListNode* deleteDuplicates(ListNode* head) 
     {
-        if (!head || !head -> next) return head;
+        if (!head or !head -> next) return head;
         ListNode* result = new ListNode(-1);
         result -> next = head;
         ListNode *p = head, *q = result;
         while (p)
         {
-            if (p -> next && p -> next -> val == p -> val)
+            if (p -> next and p -> next -> val == p -> val)
             {
-                while (p -> next && p -> next -> val == p -> val) p = p -> next;
+                while (p -> next and p -> next -> val == p -> val) p = p -> next;
                 q -> next = p -> next;
                 p = p -> next;
             }
@@ -74,6 +80,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 /**
  * Definition for singly-linked list.
@@ -105,6 +112,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 # Definition for singly-linked list.
 # class ListNode:

@@ -1,3 +1,5 @@
+# 363 Max Sum of Rectangle No Larger Than K 矩形区域不超过 K 的最大数值和
+
 __Description__:
 
 Given a non-empty 2D matrix matrix and an integer k, find the max sum of a rectangle in the matrix such that its sum is no larger than k.
@@ -5,7 +7,7 @@ Given a non-empty 2D matrix matrix and an integer k, find the max sum of a recta
 __Example:__
 
 Input: matrix = [[1,0,1],[0,-2,3]], k = 2
-Output: 2 
+Output: 2
 Explanation: Because the sum of rectangle [[0, 1], [-2, 3]] is 2,
              and 2 is the max number no larger than k (k = 2).
 
@@ -20,7 +22,7 @@ __题目描述__:
 __示例 :__
 
 输入: matrix = [[1,0,1],[0,-2,3]], k = 2
-输出: 2 
+输出: 2
 解释: 矩形区域 [[0, 1], [-2, 3]] 的数值和是 2，且 2 是不超过 k 的最大数字（k = 2）。
 
 __说明:__
@@ -29,6 +31,7 @@ __说明:__
 如果行数远大于列数，你将如何解答呢？
 
 __思路__:
+
 前缀和➕二分
 参考[LeetCode #304 Range Sum Query 2D - Immutable 二维区域和检索 - 矩阵不可变](https://www.jianshu.com/p/698d4825c808), 使用二维数组的前缀和
 由于这里的行远远大于列, 使用列作为外层循环
@@ -38,6 +41,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -65,6 +69,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int maxSumSubmatrix(int[][] matrix, int k) {
@@ -90,6 +95,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def maxSumSubmatrix(self, matrix: List[List[int]], k: int) -> int:

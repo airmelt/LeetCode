@@ -1,3 +1,5 @@
+# 321 Create Maximum Number 拼接最大数
+
 __Description__:
 Given two arrays of length m and n with digits 0-9 representing two numbers. Create the maximum number of length k <= m + n from digits of the two. The relative order of the digits from the same array must be preserved. Return an array of the k digits.
 
@@ -5,6 +7,7 @@ __Note:__
 You should try to optimize your time and space complexity.
 
 __Example:__
+
 Example 1:
 
 Input:
@@ -41,6 +44,7 @@ __说明:__
 请尽可能地优化你算法的时间和空间复杂度。
 
 __示例 :__
+
 示例 1:
 
 输入:
@@ -69,6 +73,7 @@ k = 3
 [9, 8, 9]
 
 __思路__:
+
 分治
 考虑从一个数组中选出最大的 k个数
 可以使用单调栈/双指针实现, 先填充 j个数字到 result数组中, n - i表示 nums数组中还未被选中的部分, j表示已经选中的数, 如果 nums[i]大于已经选中的数, 就倒退指针, 这样就能选出最大的 k个数
@@ -78,13 +83,16 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
-class Solution {
+class Solution 
+{
 public:
-    vector<int> maxNumber(vector<int>& nums1, vector<int>& nums2, int k) {
+    vector<int> maxNumber(vector<int>& nums1, vector<int>& nums2, int k) 
+    {
         vector<int> result(k);
         int m = nums1.size(), n = nums2.size();
-        for (int i = max(0, k - n); i <= k && i <= m; i++)
+        for (int i = max(0, k - n); i <= k and i <= m; i++)
         {
             vector<int> pick1 = pick_max(nums1, i), pick2 = pick_max(nums2, k - i);
             vector<int> temp = merge(pick1, pick2, k);
@@ -99,7 +107,7 @@ private:
         int n = nums.size();
         for (int i = 0, j = 0; i < n; i++)
         {
-            while (n - i + j > k && j > 0 && nums[i] > result[j - 1]) --j;
+            while (n - i + j > k and j > 0 and nums[i] > result[j - 1]) --j;
             if (j < k) result[j++] = nums[i];
         }
         return result;
@@ -125,6 +133,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int[] maxNumber(int[] nums1, int[] nums2, int k) {
@@ -162,6 +171,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def maxNumber(self, nums1: List[int], nums2: List[int], k: int) -> List[int]:

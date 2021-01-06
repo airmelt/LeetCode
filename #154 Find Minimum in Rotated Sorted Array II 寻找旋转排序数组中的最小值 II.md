@@ -1,3 +1,5 @@
+# 154 Find Minimum in Rotated Sorted Array II 寻找旋转排序数组中的最小值 II
+
 __Description__:
 Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand.
 
@@ -8,6 +10,7 @@ Find the minimum element.
 The array may contain duplicates.
 
 __Example:__
+
 Example 1:
 
 Input: [1,3,5]
@@ -32,6 +35,7 @@ __题目描述__:
 注意数组中可能存在重复的元素。
 
 __示例 :__
+
 示例 1：
 
 输入: [1,3,5]
@@ -48,7 +52,9 @@ __说明：__
 允许重复会影响算法的时间复杂度吗？会如何影响，为什么？
 
 __思路__:
+
 参考[LeetCode #153 Find Minimum in Rotated Sorted Array 寻找旋转排序数组中的最小值](https://www.jianshu.com/p/ec8de2741d87)
+
 1. 逐个搜索
 时间复杂度O(n), 空间复杂度O(1)
 2. 二分法
@@ -58,10 +64,13 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
-class Solution {
+class Solution 
+{
 public:
-    int findMin(vector<int>& nums) {
+    int findMin(vector<int>& nums) 
+    {
         int left = 0, right = nums.size() - 1;
         while (left < right) 
         {
@@ -76,6 +85,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int findMin(int[] nums) {
@@ -92,6 +102,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def findMin(self, nums: List[int]) -> int:

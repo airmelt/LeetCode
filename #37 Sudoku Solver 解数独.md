@@ -1,3 +1,5 @@
+# 37 Sudoku Solver 解数独
+
 __Description__:
 Write a program to solve a Sudoku puzzle by filling the empty cells.
 
@@ -9,6 +11,7 @@ Each of the the digits 1-9 must occur exactly once in each of the 9 3x3 sub-box
 Empty cells are indicated by the character '.'.
 
 ![A sudoku puzzle...](https://upload-images.jianshu.io/upload_images/16639143-54e5fa13d98357c1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 ![...and its solution numbers marked in red.](https://upload-images.jianshu.io/upload_images/16639143-836093cfecce8b6c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 __Note:__
@@ -28,6 +31,7 @@ __题目描述__:
 空白格用 '.' 表示。
 
 ![一个数独。](https://upload-images.jianshu.io/upload_images/16639143-891537358cb8473c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 ![答案被标成红色。](https://upload-images.jianshu.io/upload_images/16639143-0b1ca721a5ad4a7c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 __说明:__
@@ -37,7 +41,9 @@ __说明:__
 给定数独永远是 9x9 形式的。
 
 __思路__:
+
 回溯法
+
 1. 初始化条件, 在这里是给出题目中已经存在的数字
 2. 做选择, 从 1-9中选出满足 row, col, box的进入下一层函数选择
 3. 撤销选择
@@ -46,6 +52,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -81,7 +88,7 @@ private:
         {
             for (int num = 0; num < 9; num++)
             {
-                bool valid = !(row[i][num] || col[j][num] || box[i / 3 * 3 + j / 3][num]);
+                bool valid = !(row[i][num] or col[j][num] or box[i / 3 * 3 + j / 3][num]);
                 if (valid)
                 {
                     row[i][num] = true;
@@ -103,6 +110,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public void solveSudoku(char[][] board) {
@@ -148,6 +156,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def solveSudoku(self, board: List[List[str]]) -> None:

@@ -1,3 +1,5 @@
+# 297 Serialize and Deserialize Binary Tree 二叉树的序列化与反序列化
+
 __Description__:
 Serialization is the process of converting a data structure or object into a sequence of bits so that it can be stored in a file or memory buffer, or transmitted across a network connection link to be reconstructed later in the same or another computer environment.
 
@@ -7,8 +9,11 @@ __Clarification:__
 The input/output format is the same as how LeetCode serializes a binary tree. You do not necessarily need to follow this format, so please be creative and come up with different approaches yourself.
 
 __Example:__
+
 Example 1:
+
 ![Binary Tree](https://upload-images.jianshu.io/upload_images/16639143-e46425aa7190beb6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 Input: root = [1,2,3,null,null,4,5]
 Output: [1,2,3,null,null,4,5]
 
@@ -26,7 +31,7 @@ Example 4:
 
 Input: root = [1,2]
 Output: [1,2]
- 
+
 __Constraints:__
 
 The number of nodes in the tree is in the range [0, 104].
@@ -40,13 +45,15 @@ __题目描述__:
 __示例 :__
 
 你可以将以下二叉树：
-```
+
+```text
     1
    / \
   2   3
      / \
     4   5
 ```
+
 序列化为 "[1,2,3,null,null,4,5]"
 
 __提示:__
@@ -56,11 +63,13 @@ __说明:__
 不要使用类的成员 / 全局 / 静态变量来存储状态，你的序列化和反序列化算法应该是无状态的。
 
 __思路__:
+
 可以用任何一种方法遍历二叉树, 用一个特殊符号或者 null记录空结点, 用特殊符号分割开每一个结点
 时间复杂度O(n), 空间复杂度O(n)
 
 __代码__:
 __C++__:
+
 ```C++
 /**
  * Definition for a binary tree node.
@@ -113,6 +122,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 /**
  * Definition for a binary tree node.
@@ -178,6 +188,7 @@ public class Codec {
 ```
 
 __Python__:
+
 ```Python
 # Definition for a binary tree node.
 # class TreeNode(object):

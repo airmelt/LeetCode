@@ -1,3 +1,5 @@
+# 115 Distinct Subsequences 不同的子序列
+
 __Description__:
 Given a string S and a string T, count the number of distinct subsequences of S which equals T.
 
@@ -6,6 +8,7 @@ A subsequence of a string is a new string which is formed from the original stri
 It's guaranteed the answer fits on a 32-bit signed integer.
 
 __Example:__
+
 Example 1:
 
 Input: S = "rabbbit", T = "rabbit"
@@ -13,7 +16,8 @@ Output: 3
 Explanation:
 As shown below, there are 3 ways you can generate "rabbit" from S.
 (The caret symbol ^ means the chosen letters)
-```
+
+```text
 rabbbit
 ^^^^ ^^
 rabbbit
@@ -29,7 +33,8 @@ Output: 5
 Explanation:
 As shown below, there are 5 ways you can generate "bag" from S.
 (The caret symbol ^ means the chosen letters)
-```
+
+```text
 babgbag
 ^^ ^
 babgbag
@@ -50,6 +55,7 @@ __题目描述__:
 题目数据保证答案符合 32 位带符号整数范围。
 
 __示例 :__
+
 示例 1：
 
 输入：S = "rabbbit", T = "rabbit"
@@ -58,7 +64,8 @@ __示例 :__
 
 如下图所示, 有 3 种可以从 S 中得到 "rabbit" 的方案。
 (上箭头符号 ^ 表示选取的字母)
-```
+
+```text
 rabbbit
 ^^^^ ^^
 rabbbit
@@ -73,9 +80,10 @@ rabbbit
 输出：5
 解释：
 
-如下图所示, 有 5 种可以从 S 中得到 "bag" 的方案。 
+如下图所示, 有 5 种可以从 S 中得到 "bag" 的方案。
 (上箭头符号 ^ 表示选取的字母)
-```
+
+```text
 babgbag
 ^^ ^
 babgbag
@@ -89,6 +97,7 @@ babgbag
 ```
 
 __思路__:
+
 动态规划
 dp[i][j]表示 s[:i]中包含 t[:j]的子序列个数
 转移方程: 当 s[i] == t[j], dp[i + 1][j + 1] = dp[i][j] + dp[i][j + 1]
@@ -97,6 +106,7 @@ dp[i][j]表示 s[:i]中包含 t[:j]的子序列个数
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -112,6 +122,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int numDistinct(String s, String t) {
@@ -129,6 +140,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def numDistinct(self, s: str, t: str) -> int:

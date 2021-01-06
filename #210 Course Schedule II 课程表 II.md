@@ -1,3 +1,5 @@
+# 210 Course Schedule II 课程表 II
+
 __Description__:
 There are a total of n courses you have to take, labeled from 0 to n-1.
 
@@ -8,19 +10,20 @@ Given the total number of courses and a list of prerequisite pairs, return the o
 There may be multiple correct orders, you just need to return one of them. If it is impossible to finish all courses, return an empty array.
 
 __Example:__
+
 Example 1:
 
-Input: 2, [[1,0]] 
+Input: 2, [[1,0]]
 Output: [0,1]
-Explanation: There are a total of 2 courses to take. To take course 1 you should have finished   
+Explanation: There are a total of 2 courses to take. To take course 1 you should have finished
              course 0. So the correct course order is [0,1] .
 
 Example 2:
 
 Input: 4, [[1,0],[2,0],[3,1],[3,2]]
 Output: [0,1,2,3] or [0,2,1,3]
-Explanation: There are a total of 4 courses to take. To take course 3 you should have finished both     
-             courses 1 and 2. Both courses 1 and 2 should be taken after you finished course 0. 
+Explanation: There are a total of 4 courses to take. To take course 3 you should have finished both
+             courses 1 and 2. Both courses 1 and 2 should be taken after you finished course 0.
              So one correct course order is [0,1,2,3]. Another correct ordering is [0,2,1,3] .
 
 __Note:__
@@ -38,9 +41,10 @@ __题目描述__:
 可能会有多个正确的顺序，你只要返回一种就可以了。如果不可能完成所有课程，返回一个空数组。
 
 __示例 :__
+
 示例 1:
 
-输入: 2, [[1,0]] 
+输入: 2, [[1,0]]
 输出: [0,1]
 解释: 总共有 2 门课程。要学习课程 1，你需要先完成课程 0。因此，正确的课程顺序为 [0,1] 。
 
@@ -63,15 +67,19 @@ __提示：__
 拓扑排序也可以通过 BFS 完成。
 
 __思路__:
+
 参考[LeetCode #207 Course Schedule 课程表](https://www.jianshu.com/p/8d7b8b324079)
 时间复杂度O(n + m), 空间复杂度O(n + m), 其中 n为课程数, m为先修课程数
 
 __代码__:
 __C++__:
+
 ```C++
-class Solution {
+class Solution 
+{
 public:
-    vector<int> findOrder(int numCourses, vector<vector<int>>& prerequisites) {
+    vector<int> findOrder(int numCourses, vector<vector<int>>& prerequisites) 
+    {
         map<int, vector<int>> adjcent;
         vector<int> indegree(numCourses, 0), result(numCourses, 0);
         queue<int> q;
@@ -99,6 +107,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int[] findOrder(int numCourses, int[][] prerequisites) {
@@ -125,6 +134,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:

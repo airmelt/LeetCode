@@ -1,3 +1,5 @@
+# 239 Sliding Window Maximum 滑动窗口最大值
+
 __Description__:
 Given an array nums, there is a sliding window of size k which is moving from the very left of the array to the very right. You can only see the k numbers in the window. Each time the sliding window moves right by one position. Return the max sliding window.
 
@@ -7,9 +9,10 @@ Could you solve it in linear time?
 __Example:__
 
 Input: nums = [1,3,-1,-3,5,3,6,7], and k = 3
-Output: [3,3,5,5,6,7] 
-Explanation: 
-```
+Output: [3,3,5,5,6,7]
+Explanation:
+
+```text
 Window position                Max
 ---------------               -----
 [1  3  -1] -3  5  3  6  7       3
@@ -18,7 +21,7 @@ Window position                Max
  1  3  -1 [-3  5  3] 6  7       5
  1  3  -1  -3 [5  3  6] 7       6
  1  3  -1  -3  5 [3  6  7]      7
-``` 
+```
 
 __Constraints:__
 
@@ -38,9 +41,10 @@ __进阶：__
 __示例 :__
 
 输入: nums = [1,3,-1,-3,5,3,6,7], 和 k = 3
-输出: [3,3,5,5,6,7] 
-解释: 
-```
+输出: [3,3,5,5,6,7]
+解释:
+
+```text
   滑动窗口的位置                最大值
 ---------------               -----
 [1  3  -1] -3  5  3  6  7       3
@@ -49,7 +53,7 @@ __示例 :__
  1  3  -1 [-3  5  3] 6  7       5
  1  3  -1  -3 [5  3  6] 7       6
  1  3  -1  -3  5 [3  6  7]      7
- ```
+```
 
 __提示：__
 
@@ -58,13 +62,16 @@ __提示：__
 1 <= k <= nums.length
 
 __思路__:
+
 用一个队列记录最大值
+
 1. 当队首的元素超出滑动窗口, 弹出
 2. 小于新加入的元素, 弹出全部队尾元素(保证队首元素最大)
 时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -85,6 +92,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int[] maxSlidingWindow(int[] nums, int k) {
@@ -102,6 +110,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:

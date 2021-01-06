@@ -1,3 +1,5 @@
+# 19 Remove Nth Node From End of List 删除链表的倒数第N个节点
+
 __Description__:
 Given a linked list, remove the n-th node from the end of list and return its head.
 
@@ -33,13 +35,16 @@ __进阶：__
 你能尝试使用一趟扫描实现吗？
 
 __思路__:
+
 此题为 408原题
+
 1. 先遍历一次链表获取长度, 找到倒数第 n个结点的位置并移除, 需要遍历两次链表
 2. 设置快慢指针, 快指针先移动 n个结点, 然后快慢指针同步移动, 移除当快指针为空时慢指针位置的结点即可, 只需要遍历一次链表
 时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
+
 ```C++
 /**
  * Definition for singly-linked list.
@@ -49,10 +54,12 @@ __C++__:
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
-class Solution {
+class Solution 
+{
 public:
-    ListNode* removeNthFromEnd(ListNode* head, int n) {
-        if (!head || !head -> next) return nullptr;
+    ListNode* removeNthFromEnd(ListNode* head, int n) 
+    {
+        if (!head or !head -> next) return nullptr;
         ListNode *fast = head, *slow = head;
         for (int i = 0; i < n; i++) fast = fast -> next;
         if (!fast) return head -> next;
@@ -68,6 +75,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 /**
  * Definition for singly-linked list.
@@ -94,6 +102,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 # Definition for singly-linked list.
 # class ListNode:

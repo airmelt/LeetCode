@@ -1,3 +1,5 @@
+# 45 Jump Game II 跳跃游戏 II
+
 __Description__:
 Given an array of non-negative integers, you are initially positioned at the first index of the array.
 
@@ -35,6 +37,7 @@ __说明:__
 假设你总是可以到达数组的最后一个位置。
 
 __思路__:
+
 贪心
 每一次跳跃都选择能跳到的最远距离
 每一步更新 nums[i] + i
@@ -42,6 +45,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -63,6 +67,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int jump(int[] nums) {
@@ -80,6 +85,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def jump(self, nums: List[int]) -> int:

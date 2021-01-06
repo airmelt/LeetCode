@@ -1,3 +1,5 @@
+# 129 Sum Root to Leaf Numbers 求根到叶子节点数字之和
+
 __Description__:
 Given a binary tree containing digits from 0-9 only, each root-to-leaf path could represent a number.
 
@@ -9,14 +11,17 @@ __Note:__
 A leaf is a node with no children.
 
 __Example:__
+
 Example 1:
 
 Input: [1,2,3]
-```
+
+```text
     1
    / \
   2   3
 ```
+
 Output: 25
 Explanation:
 The root-to-leaf path 1->2 represents the number 12.
@@ -26,13 +31,15 @@ Therefore, sum = 12 + 13 = 25.
 Example 2:
 
 Input: [4,9,0,5,1]
-```
+
+```text
     4
    / \
   9   0
  / \
 5   1
 ```
+
 Output: 1026
 Explanation:
 The root-to-leaf path 4->9->5 represents the number 495.
@@ -51,14 +58,17 @@ __说明：__
 叶子节点是指没有子节点的节点。
 
 __示例 :__
+
 示例 1:
 
 输入: [1,2,3]
-```
+
+```text
     1
    / \
   2   3
 ```
+
 输出: 25
 解释:
 从根到叶子节点路径 1->2 代表数字 12.
@@ -68,13 +78,15 @@ __示例 :__
 示例 2:
 
 输入: [4,9,0,5,1]
-```
+
+```text
     4
    / \
   9   0
  / \
 5   1
 ```
+
 输出: 1026
 解释:
 从根到叶子节点路径 4->9->5 代表数字 495.
@@ -83,12 +95,14 @@ __示例 :__
 因此，数字总和 = 495 + 491 + 40 = 1026.
 
 __思路__:
+
 参考[LeetCode #112 Path Sum 路径总和](https://www.jianshu.com/p/28393f816dab)
 不过这里的路径需要每次递归到新的一层时✖️10
 时间复杂度O(n), 空间复杂度O(n)
 
 __代码__:
 __C++__:
+
 ```C++
 /**
  * Definition for a binary tree node.
@@ -118,6 +132,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 /**
  * Definition for a binary tree node.
@@ -143,6 +158,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 # Definition for a binary tree node.
 # class TreeNode:

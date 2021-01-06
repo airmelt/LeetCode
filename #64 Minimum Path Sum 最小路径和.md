@@ -1,3 +1,5 @@
+# 64 Minimum Path Sum 最小路径和
+
 __Description__:
 Given a m x n grid filled with non-negative numbers, find a path from top left to bottom right which minimizes the sum of all numbers along its path.
 
@@ -33,13 +35,16 @@ __示例 :__
 解释: 因为路径 1→3→1→1→1 的总和最小。
 
 __思路__:
+
 动态规划
+
 1. 边界 dp[i][0] = dp[i][0] + dp[i - 1][0], dp[0][i] = dp[0][i] + dp[0][i - 1]
 2. 内部 dp[i][j] = min(dp[i - 1][j], dp[i][j - 1]) + dp[i][j]
 时间复杂度O(mn), 空间复杂度O(1)
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -56,6 +61,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int minPathSum(int[][] grid) {
@@ -69,6 +75,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def minPathSum(self, grid: List[List[int]]) -> int:

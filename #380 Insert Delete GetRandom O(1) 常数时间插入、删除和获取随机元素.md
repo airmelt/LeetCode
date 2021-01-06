@@ -1,3 +1,5 @@
+# 380 Insert Delete GetRandom O(1) 常数时间插入、删除和获取随机元素
+
 __Description__:
 Implement the RandomizedSet class:
 
@@ -7,6 +9,7 @@ int getRandom() Returns a random element from the current set of elements (it's 
 Follow up: Could you implement the functions of the class with each function works in average O(1) time?
 
 __Example:__
+
 Example 1:
 
 Input
@@ -16,6 +19,8 @@ Output
 [null, true, false, true, 2, true, false, 2]
 
 Explanation
+
+```Java
 RandomizedSet randomizedSet = new RandomizedSet();
 randomizedSet.insert(1); // Inserts 1 to the set. Returns true as 1 was inserted successfully.
 randomizedSet.remove(2); // Returns false as 2 does not exist in the set.
@@ -24,10 +29,11 @@ randomizedSet.getRandom(); // getRandom() should return either 1 or 2 randomly.
 randomizedSet.remove(1); // Removes 1 from the set, returns true. Set now contains [2].
 randomizedSet.insert(2); // 2 was already in the set, so return false.
 randomizedSet.getRandom(); // Since 2 is the only number in the set, getRandom() will always return 2.
- 
+```
+
 __Constraints:__
 
--231 <= val <= 231 - 1
+-2^31 <= val <= 2^31 - 1
 At most 105 calls will be made to insert, remove, and getRandom.
 There will be at least one element in the data structure when getRandom is called.
 
@@ -40,6 +46,7 @@ getRandom：随机返回现有集合中的一项。每个元素应该有相同�
 
 __示例 :__
 
+```Java
 // 初始化一个空的集合。
 RandomizedSet randomSet = new RandomizedSet();
 
@@ -63,8 +70,10 @@ randomSet.insert(2);
 
 // 由于 2 是集合中唯一的数字，getRandom 总是返回 2 。
 randomSet.getRandom();
+```
 
 __思路__:
+
 使用 map记录值和下标
 使用 vector(列表)记录值
 插入时如果有重复值, 返回 false, 否则存入 map和插在列表的结尾, 返回 true
@@ -74,6 +83,7 @@ insert()时间复杂度O(1), remove()时间复杂度O(1), getRandom()时间复�
 
 __代码__:
 __C++__:
+
 ```C++
 class RandomizedSet 
 {
@@ -122,6 +132,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 class RandomizedSet {
 
@@ -171,6 +182,7 @@ class RandomizedSet {
 ```
 
 __Python__:
+
 ```Python
 class RandomizedSet:
 

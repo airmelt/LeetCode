@@ -1,7 +1,10 @@
+# 41 First Missing Positive 缺失的第一个正数
+
 __Description__:
 Given an unsorted integer array, find the smallest missing positive integer.
 
 __Example:__
+
 Example 1:
 
 Input: [1,2,0]
@@ -25,6 +28,7 @@ __题目描述__:
 给定一个未排序的整数数组，找出其中没有出现的最小的正整数。
 
 __示例 :__
+
 示例 1:
 
 输入: [1,2,0]
@@ -45,6 +49,7 @@ __说明:__
 你的算法的时间复杂度应为O(n)，并且只能使用常数级别的空间。
 
 __思路__:
+
 此题为408原题
 思路是用数组下标当作桶, 进行桶排序
 第一次遍历先将 1~nums.size()范围内的元素放在正确的位置
@@ -54,13 +59,14 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
 public:
     int firstMissingPositive(vector<int>& nums) 
     {
-        for (int i = 0; i < nums.size(); i++) while (nums[i] > 0 && nums[i] < nums.size() + 1 && nums[i] != nums[nums[i] - 1]) swap(nums[i], nums[nums[i] - 1]);
+        for (int i = 0; i < nums.size(); i++) while (nums[i] > 0 and nums[i] < nums.size() + 1 and nums[i] != nums[nums[i] - 1]) swap(nums[i], nums[nums[i] - 1]);
         for (int i = 0; i < nums.size(); i++) if (nums[i] != i + 1) return i + 1;
         return nums.size() + 1;
     }
@@ -68,6 +74,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int firstMissingPositive(int[] nums) {
@@ -85,6 +92,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def firstMissingPositive(self, nums: List[int]) -> int:

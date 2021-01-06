@@ -1,3 +1,5 @@
+# 109 Convert Sorted List to Binary Search Tree 有序链表转换二叉搜索树
+
 __Description__:
 Given a singly linked list where elements are sorted in ascending order, convert it to a height balanced BST.
 
@@ -8,7 +10,8 @@ __Example:__
 Given the sorted linked list: [-10,-3,0,5,9],
 
 One possible answer is: [0,-3,9,-10,null,5], which represents the following height balanced BST:
-```
+
+```text
       0
      / \
    -3   9
@@ -26,7 +29,8 @@ __示例 :__
 给定的有序链表： [-10, -3, 0, 5, 9],
 
 一个可能的答案是：[0, -3, 9, -10, null, 5], 它可以表示下面这个高度平衡二叉搜索树：
-```
+
+```text
       0
      / \
    -3   9
@@ -35,6 +39,7 @@ __示例 :__
 ```
 
 __思路__:
+
 递归法
 使用快慢指针找到链表中点即为根节点
 前一半链表为左子树, 后一半链表为右子树
@@ -42,6 +47,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 /**
  * Definition for singly-linked list.
@@ -69,7 +75,7 @@ public:
         TreeNode *root = new TreeNode(head -> val);
         if (!head -> next) return root;
         ListNode *pre = head, *p = pre -> next, *q = p -> next;
-        while (q && q -> next)
+        while (q and q -> next)
         {
             pre = pre -> next;
             p = pre -> next;
@@ -85,6 +91,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 /**
  * Definition for singly-linked list.
@@ -123,6 +130,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 # Definition for singly-linked list.
 # class ListNode:

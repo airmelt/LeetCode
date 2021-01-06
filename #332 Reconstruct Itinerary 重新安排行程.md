@@ -1,3 +1,5 @@
+# 332 Reconstruct Itinerary 重新安排行程
+
 __Description__:
 Given a list of airline tickets represented by pairs of departure and arrival airports [from, to], reconstruct the itinerary in order. All of the tickets belong to a man who departs from JFK. Thus, the itinerary must begin with JFK.
 
@@ -9,6 +11,7 @@ You may assume all tickets form at least one valid itinerary.
 One must use all the tickets once and only once.
 
 __Example:__
+
 Example 1:
 
 Input: [["MUC", "LHR"], ["JFK", "MUC"], ["SFO", "SJC"], ["LHR", "SFO"]]
@@ -30,8 +33,9 @@ __提示：__
 所有的机场都用三个大写字母表示（机场代码）。
 假定所有机票至少存在一种合理的行程。
 所有的机票必须都用一次 且 只能用一次。
- 
+
 __示例 :__
+
 示例 1：
 
 输入：[["MUC", "LHR"], ["JFK", "MUC"], ["SFO", "SJC"], ["LHR", "SFO"]]
@@ -44,6 +48,7 @@ __示例 :__
 解释：另一种有效的行程是 ["JFK","SFO","ATL","JFK","ATL","SFO"]。但是它自然排序更大更靠后。
 
 __思路__:
+
 图遍历
 保存节点的邻接节点的时候使用优先队列可以保证按序访问
 递归结束的条件是从该节点出发能够完全遍历(由题设可知, 一定存在这样的序列), 遍历完加入结果
@@ -52,6 +57,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -70,7 +76,7 @@ private:
     
     void helper(const string& start) 
     {
-        while (graph.count(start) && graph[start].size() > 0) 
+        while (graph.count(start) and graph[start].size() > 0) 
         {
             string destination = graph[start].top();
             graph[start].pop();
@@ -82,6 +88,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public List<String> findItinerary(List<List<String>> tickets) {
@@ -104,6 +111,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def findItinerary(self, tickets: List[List[str]]) -> List[str]:

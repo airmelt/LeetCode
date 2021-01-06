@@ -1,3 +1,5 @@
+# 274 H-Index H 指数
+
 __Description__:
 Given an array of citations (each citation is a non-negative integer) of a researcher, write a function to compute the researcher's h-index.
 
@@ -6,10 +8,10 @@ According to the definition of [h-index](https://en.wikipedia.org/wiki/H-index) 
 __Example:__
 
 Input: citations = [3,0,6,1,5]
-Output: 3 
-Explanation: [3,0,6,1,5] means the researcher has 5 papers in total and each of them had 
-             received 3, 0, 6, 1, 5 citations respectively. 
-             Since the researcher has 3 papers with at least 3 citations each and the remaining 
+Output: 3
+Explanation: [3,0,6,1,5] means the researcher has 5 papers in total and each of them had
+             received 3, 0, 6, 1, 5 citations respectively.
+             Since the researcher has 3 papers with at least 3 citations each and the remaining
              two with no more than 3 citations each, her h-index is 3.
 
 __Note:__
@@ -25,7 +27,7 @@ __题目描述__:
 __示例 :__
 
 输入：citations = [3,0,6,1,5]
-输出：3 
+输出：3
 解释：给定数组表示研究者总共有 5 篇论文，每篇论文相应的被引用了 3, 0, 6, 1, 5 次。
      由于研究者有 3 篇论文每篇 至少 被引用了 3 次，其余两篇论文每篇被引用 不多于 3 次，所以她的 h 指数是 3。
 
@@ -33,6 +35,7 @@ __提示：__
 如果 h 有多种可能的值，h 指数是其中最大的那个。
 
 __思路__:
+
 1. 先排序, 然后比较 i和citations[citations.size() - i - 1]
 时间复杂度O(nlgn), 空间复杂度O(1)
 2. 由于要求 h篇文章至少有 h个引用
@@ -43,6 +46,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -60,6 +64,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int hIndex(int[] citations) {
@@ -73,6 +78,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def hIndex(self, citations: List[int]) -> int:

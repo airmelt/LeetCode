@@ -1,3 +1,5 @@
+# 63 Unique Paths II 不同路径 II
+
 __Description__:
 A robot is located at the top-left corner of a m x n grid (marked 'Start' in the diagram below).
 
@@ -11,6 +13,7 @@ __Note:__
 m and n will be at most 100.
 
 __Example:__
+
 Example 1:
 
 Input:
@@ -23,6 +26,7 @@ Output: 2
 Explanation:
 There is one obstacle in the middle of the 3x3 grid above.
 There are two ways to reach the bottom-right corner:
+
 1. Right -> Right -> Down -> Down
 2. Down -> Down -> Right -> Right
 
@@ -39,6 +43,7 @@ __说明：__
 m 和 n 的值均不超过 100。
 
 __示例 :__
+
 示例 1:
 
 输入:
@@ -51,11 +56,14 @@ __示例 :__
 解释:
 3x3 网格的正中间有一个障碍物。
 从左上角到右下角一共有 2 条不同的路径：
+
 1. 向右 -> 向右 -> 向下 -> 向下
 2. 向下 -> 向下 -> 向右 -> 向右
 
 __思路__:
+
 动态规划
+
 1. 边界处理, 如果入口就有障碍, 直接返回
 2. 第一个元素设置为 1, 表示可达, 初始化第一行/列, 如果可达, 标记为 1否则标记为 0
 3. 对除第一行/列进行遍历, 如果该元素没有障碍,则 dp[i][j] = dp[i - 1][j] + dp[i][j - 1], 否则标记为 0表示不可达
@@ -64,17 +72,18 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
 public:
     int uniquePathsWithObstacles(vector<vector<int>>& obstacleGrid) 
     {
-        if (obstacleGrid.empty() || obstacleGrid[0].empty() || obstacleGrid[0][0] == 1) return 0;
+        if (obstacleGrid.empty() or obstacleGrid[0].empty() or obstacleGrid[0][0] == 1) return 0;
         int m = obstacleGrid.size(), n = obstacleGrid[0].size();
         obstacleGrid[0][0] = 1;
-        for (int i = 1; i < m; i++) obstacleGrid[i][0] = (obstacleGrid[i - 1][0] == 1 && obstacleGrid[i][0] == 0) ? 1 : 0;
-        for (int i = 1; i < n; i++) obstacleGrid[0][i] = (obstacleGrid[0][i - 1] == 1 && obstacleGrid[0][i] == 0) ? 1 : 0;
+        for (int i = 1; i < m; i++) obstacleGrid[i][0] = (obstacleGrid[i - 1][0] == 1 and obstacleGrid[i][0] == 0) ? 1 : 0;
+        for (int i = 1; i < n; i++) obstacleGrid[0][i] = (obstacleGrid[0][i - 1] == 1 and obstacleGrid[0][i] == 0) ? 1 : 0;
         for (int i = 1; i < m; i++) for (int j = 1; j < n; j++) obstacleGrid[i][j] = obstacleGrid[i][j] == 0 ? obstacleGrid[i - 1][j] + obstacleGrid[i][j - 1] : 0;
         return obstacleGrid[m - 1][n - 1];
     }
@@ -82,6 +91,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int uniquePathsWithObstacles(int[][] obstacleGrid) {
@@ -97,6 +107,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def uniquePathsWithObstacles(self, obstacleGrid: List[List[int]]) -> int:

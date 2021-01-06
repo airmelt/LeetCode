@@ -1,3 +1,5 @@
+# 199 Binary Tree Right Side View 二叉树的右视图
+
 __Description__:
 Given a binary tree, imagine yourself standing on the right side of it, return the values of the nodes you can see ordered from top to bottom.
 
@@ -6,7 +8,8 @@ __Example:__
 Input: [1,2,3,null,5,null,4]
 Output: [1, 3, 4]
 Explanation:
-```
+
+```text
    1            <---
  /   \
 2     3         <---
@@ -22,7 +25,8 @@ __示例 :__
 输入: [1,2,3,null,5,null,4]
 输出: [1, 3, 4]
 解释:
-```
+
+```text
    1            <---
  /   \
 2     3         <---
@@ -31,12 +35,14 @@ __示例 :__
 ```
 
 __思路__:
+
 参考[LeetCode #102 Binary Tree Level Order Traversal 二叉树的层序遍历](https://www.jianshu.com/p/61e7034d309e)
 层次遍历按层输出最右边的结点
 时间复杂度O(n), 空间复杂度O(n)
 
 __代码__:
 __C++__:
+
 ```C++
 /**
  * Definition for a binary tree node.
@@ -74,6 +80,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 /**
  * Definition for a binary tree node.
@@ -105,6 +112,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 # Definition for a binary tree node.
 # class TreeNode:

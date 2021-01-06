@@ -1,13 +1,18 @@
+# 221 Maximal Square 最大正方形
+
 __Description__:
 Given a 2D binary matrix filled with 0's and 1's, find the largest square containing only 1's and return its area.
 
 __Example:__
 
-Input: 
+Input:
 
 1 0 1 0 0
+
 1 0 __1__ __1__ 0
+
 1 1 __1__ __1__ 1
+
 1 0 0 1 0
 
 Output: 4
@@ -17,16 +22,20 @@ __题目描述__:
 
 __示例 :__
 
-输入: 
+输入:
 
 1 0 1 0 0
+
 1 0 __1__ __1__ 0
+
 1 1 __1__ __1__ 1
+
 1 0 0 1 0
 
 输出: 4
 
 __思路__:
+
 动态规划
 一个正方形只用考虑其边长
 dp[i][j]表示 matrix[i - 1][j - 1]能够得到的最大的正方形的边长
@@ -38,6 +47,7 @@ dp[i][j] = 0, matrix[i - 1][j - 1] == '0'
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -68,6 +78,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int maximalSquare(char[][] matrix) {
@@ -85,6 +96,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def maximalSquare(self, matrix: List[List[str]]) -> int:

@@ -1,9 +1,12 @@
+# 406 Queue Reconstruction by Height 根据身高重建队列
+
 __Description__:
 You are given an array of people, people, which are the attributes of some people in a queue (not necessarily in order). Each people[i] = [hi, ki] represents the ith person of height hi with exactly ki other people in front who have a height greater than or equal to hi.
 
 Reconstruct and return the queue that is represented by the input array people. The returned queue should be formatted as an array queue, where queue[j] = [hj, kj] is the attributes of the jth person in the queue (queue[0] is the person at the front of the queue).
 
 __Example:__
+
 Example 1:
 
 Input: people = [[7,0],[4,4],[7,1],[5,0],[6,1],[5,2]]
@@ -21,7 +24,7 @@ Example 2:
 
 Input: people = [[6,0],[5,0],[4,0],[3,2],[2,2],[1,4]]
 Output: [[4,0],[5,0],[2,2],[3,2],[1,4],[6,0]]
- 
+
 __Constraints:__
 
 1 <= people.length <= 2000
@@ -35,6 +38,7 @@ __题目描述__:
 请你重新构造并返回输入数组 people 所表示的队列。返回的队列应该格式化为数组 queue ，其中 queue[j] = [hj, kj] 是队列中第 j 个人的属性（queue[0] 是排在队列前面的人）。
 
 __示例 :__
+
 示例 1：
 
 输入：people = [[7,0],[4,4],[7,1],[5,0],[6,1],[5,2]]
@@ -52,7 +56,7 @@ __示例 :__
 
 输入：people = [[6,0],[5,0],[4,0],[3,2],[2,2],[1,4]]
 输出：[[4,0],[5,0],[2,2],[3,2],[1,4],[6,0]]
- 
+
 __提示：__
 
 1 <= people.length <= 2000
@@ -61,12 +65,14 @@ __提示：__
 题目数据确保队列可以被重建
 
 __思路__:
+
 先按照 k排序, 再按照身高逆序排序
 然后按 k插入数组
 时间复杂度O(nlgn), 空间复杂度O(n)
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -86,6 +92,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int[][] reconstructQueue(int[][] people) {
@@ -98,6 +105,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def reconstructQueue(self, people: List[List[int]]) -> List[List[int]]:

@@ -1,3 +1,5 @@
+# 93 Restore IP Addresses 复原IP地址
+
 __Description__:
 Given a string containing only digits, restore it by returning all possible valid IP address combinations.
 
@@ -19,6 +21,7 @@ __示例 :__
 输出: ["255.255.11.135", "255.255.111.35"]
 
 __思路__:
+
 1. 回溯法
 注意前导 0是不符合要求的
 时间复杂度O(1), 空间复杂度O(1), 由于 ip地址最长为 12位, 相当于插入 3个 '.', 那么就是 C(11, 3)个需要检查的点
@@ -28,6 +31,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -44,11 +48,11 @@ private:
         if (start > s.size()) return;
         for (int i = start; i < s.size() && i < start + 3; i++)
         {
-            if (s.size() - 1 - i > 3 * (4 - n) || s.size() - 1 - i < 4 - n) continue;
+            if (s.size() - 1 - i > 3 * (4 - n) or s.size() - 1 - i < 4 - n) continue;
             const string num = s.substr(start, i - start + 1);
             if (num[0] == '0' && num.size() > 1) continue;
             const int address = stoi(num);
-            if (address < 256 && n == 4) 
+            if (address < 256 and n == 4) 
             {
                 temp += num;
                 result.push_back(temp);
@@ -61,6 +65,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public List<String> restoreIpAddresses(String s) {
@@ -82,6 +87,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def restoreIpAddresses(self, s: str) -> List[str]:

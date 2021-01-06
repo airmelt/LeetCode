@@ -1,3 +1,5 @@
+# 365 Water and Jug Problem 水壶问题
+
 __Description__:
 You are given two jugs with capacities x and y litres. There is an infinite amount of water supply available. You need to determine whether it is possible to measure exactly z litres using these two jugs.
 
@@ -10,6 +12,7 @@ Empty any of the jugs.
 Pour water from one jug into another till the other jug is completely full or the first jug itself is empty.
 
 __Example:__
+
 Example 1: (From the famous "Die Hard" example)
 
 Input: x = 3, y = 5, z = 4
@@ -19,7 +22,7 @@ Example 2:
 
 Input: x = 2, y = 6, z = 5
 Output: False
- 
+
 __Constraints:__
 
 0 <= x <= 10^6
@@ -38,6 +41,7 @@ __题目描述__:
 从一个水壶向另外一个水壶倒水，直到装满或者倒空
 
 __示例 :__
+
 示例 1: (From the famous "Die Hard" example)
 
 输入: x = 3, y = 5, z = 4
@@ -49,11 +53,13 @@ __示例 :__
 输出: False
 
 __思路__:
+
 只要 z能整除 x和 y的最大公约数就为真
 时间复杂度O(lgmin(x, y)), 空间复杂度O(1), 主要时间用于计算 gcd(x, y)
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -65,13 +71,15 @@ public:
         return z % gcd(x, y) == 0;
     }
 private:
-    int gcd(int x, int y) {
+    int gcd(int x, int y) 
+    {
         return y == 0 ? x : gcd(y, x % y);
     }
 };
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public boolean canMeasureWater(int x, int y, int z) {
@@ -87,6 +95,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def canMeasureWater(self, x: int, y: int, z: int) -> bool:

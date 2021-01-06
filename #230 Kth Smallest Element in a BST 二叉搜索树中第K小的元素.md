@@ -1,23 +1,29 @@
+# 230 Kth Smallest Element in a BST 二叉搜索树中第K小的元素
+
 __Description__:
 Given a binary search tree, write a function kthSmallest to find the kth smallest element in it.
 
 __Example:__
+
 Example 1:
 
 Input: root = [3,1,4,null,2], k = 1
-```
+
+```text
    3
   / \
  1   4
   \
    2
 ```
+
 Output: 1
 
 Example 2:
 
 Input: root = [5,3,6,2,4,null,null,1], k = 3
-```
+
+```text
        5
       / \
      3   6
@@ -26,6 +32,7 @@ Input: root = [5,3,6,2,4,null,null,1], k = 3
   /
  1
 ```
+
 Output: 3
 
 __Follow up:__
@@ -43,22 +50,26 @@ __说明：__
 你可以假设 k 总是有效的，1 ≤ k ≤ 二叉搜索树元素个数。
 
 __示例 :__
+
 示例 1:
 
 输入: root = [3,1,4,null,2], k = 1
-```
+
+```text
    3
   / \
  1   4
   \
    2
 ```
+
 输出: 1
 
 示例 2:
 
 输入: root = [5,3,6,2,4,null,null,1], k = 3
-```
+
+```text
        5
       / \
      3   6
@@ -67,12 +78,14 @@ __示例 :__
   /
  1
 ```
+
 输出: 3
 
 __进阶：__
 如果二叉搜索树经常被修改（插入/删除操作）并且你需要频繁地查找第 k 小的值，你将如何优化 kthSmallest 函数？
 
 __思路__:
+
 1. 中序排列一定是升序数组, 返回第 k - 1个元素即可
 时间复杂度O(n), 空间复杂度O(n)
 2. 利用二叉搜索树的性质, 搜索结点的子结点数
@@ -83,6 +96,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 /**
  * Definition for a binary tree node.
@@ -102,7 +116,7 @@ public:
     {
         stack<TreeNode*> s;
         int count = 0;
-        while (!s.empty() || root)
+        while (!s.empty() or root)
         {
             if (root)
             {
@@ -124,6 +138,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 /**
  * Definition for a binary tree node.
@@ -156,6 +171,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 # Definition for a binary tree node.
 # class TreeNode:

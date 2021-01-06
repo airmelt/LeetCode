@@ -1,3 +1,5 @@
+# 139 Word Break 单词拆分
+
 __Description__:
 Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, determine if s can be segmented into a space-separated sequence of one or more dictionary words.
 
@@ -7,6 +9,7 @@ The same word in the dictionary may be reused multiple times in the segmentation
 You may assume the dictionary does not contain duplicate words.
 
 __Example:__
+
 Example 1:
 
 Input: s = "leetcode", wordDict = ["leet", "code"]
@@ -34,6 +37,7 @@ __说明：__
 你可以假设字典中没有重复的单词。
 
 __示例 :__
+
 示例 1：
 
 输入: s = "leetcode", wordDict = ["leet", "code"]
@@ -53,6 +57,7 @@ __示例 :__
 输出: false
 
 __思路__:
+
 动态规划
 dp[i]表示 s[:i]可以被字典分割
 转移方程 dp[i + 1] = check(s[:j] and dp[j]), j = 1, 2, ..., i
@@ -63,6 +68,7 @@ dp[i]表示 s[:i]可以被字典分割
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -79,6 +85,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public boolean wordBreak(String s, List<String> wordDict) {
@@ -92,6 +99,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def wordBreak(self, s: str, wordDict: List[str]) -> bool:

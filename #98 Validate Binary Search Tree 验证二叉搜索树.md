@@ -1,3 +1,5 @@
+# 98 Validate Binary Search Tree 验证二叉搜索树
+
 __Description__:
 Given a binary tree, determine if it is a valid binary search tree (BST).
 
@@ -6,43 +8,74 @@ Assume a BST is defined as follows:
 The left subtree of a node contains only nodes with keys less than the node's key.
 The right subtree of a node contains only nodes with keys greater than the node's key.
 Both the left and right subtrees must also be binary search trees.
- 
+
 __Example:__
+
 Example 1:
-```
+
+```text
     2
    / \
   1   3
 ```
+
 Input: [2,1,3]
 Output: true
 Example 2:
-```
+
+```text
     5
    / \
   1   4
      / \
     3   6
 ```
+
 Input: [5,1,4,null,null,3,6]
 Output: false
 Explanation: The root node's value is 5 but its right child's value is 4.
 
 __题目描述__:
-给定三个字符串 s1, s2, s3, 验证 s3 是否是由 s1 和 s2 交错组成的。
+给定一个二叉树，判断其是否是一个有效的二叉搜索树。
+
+假设一个二叉搜索树具有如下特征：
+
+节点的左子树只包含小于当前节点的数。
+节点的右子树只包含大于当前节点的数。
+所有左子树和右子树自身必须也是二叉搜索树。
 
 __示例 :__
-示例 1:
 
-输入: s1 = "aabcc", s2 = "dbbca", s3 = "aadbbcbcac"
+示例 1:
+
+输入:
+
+```text
+    2
+   / \
+  1   3
+```
+
 输出: true
 
 示例 2:
 
-输入: s1 = "aabcc", s2 = "dbbca", s3 = "aadbbbaccc"
+输入:
+
+```text
+    5
+   / \
+  1   4
+     / \
+    3   6
+```
+
 输出: false
+解释: 输入为: [5,1,4,null,null,3,6]。
+     根节点的值为 5 ，但是其右子节点值为 4 。
 
 __思路__:
+
 注意这里的 BST树是对应全局递归定义的, 不能只比较当前节点的左右孩子的大小
 
 1. 递归法
@@ -54,6 +87,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 /**
  * Definition for a binary tree node.
@@ -71,7 +105,8 @@ public:
     {
         stack<TreeNode*> s;
         long last = (long)INT_MIN - 1;
-        while (s.size() || root) {
+        while (s.size() or root) 
+        {
             while (root) 
             {
                 s.push(root);
@@ -89,6 +124,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 /**
  * Definition for a binary tree node.
@@ -111,6 +147,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 # Definition for a binary tree node.
 # class TreeNode:

@@ -1,15 +1,17 @@
+# 319 Bulb Switcher 灯泡开关
+
 __Description__:
 There are n bulbs that are initially off. You first turn on all the bulbs. Then, you turn off every second bulb. On the third round, you toggle every third bulb (turning on if it's off or turning off if it's on). For the i-th round, you toggle every i bulb. For the n-th round, you only toggle the last bulb. Find how many bulbs are on after n rounds.
 
 __Example:__
 
 Input: 3
-Output: 1 
-Explanation: 
+Output: 1
+Explanation:
 At first, the three bulbs are [off, off, off].
 After first round, the three bulbs are [on, on, on].
 After second round, the three bulbs are [on, off, on].
-After third round, the three bulbs are [on, off, off]. 
+After third round, the three bulbs are [on, off, off].
 
 So you should return 1, because there is only one bulb is on.
 
@@ -19,16 +21,17 @@ __题目描述__:
 __示例 :__
 
 输入: 3
-输出: 1 
-解释: 
+输出: 1
+解释:
 初始时, 灯泡状态 [关闭, 关闭, 关闭].
 第一轮后, 灯泡状态 [开启, 开启, 开启].
 第二轮后, 灯泡状态 [开启, 关闭, 开启].
-第三轮后, 灯泡状态 [开启, 关闭, 关闭]. 
+第三轮后, 灯泡状态 [开启, 关闭, 关闭].
 
 你应该返回 1，因为只有一个灯泡还亮着。
 
 __思路__:
+
 需要找到 1-n中有几个奇数个因子的数
 比如 4, 4的因子为 1, 2, 4, 操作开关只有 3次, 所以最后会打开
 所以只要找到 n的平方根即可
@@ -36,6 +39,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -48,6 +52,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int bulbSwitch(int n) {
@@ -57,6 +62,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def bulbSwitch(self, n: int) -> int:

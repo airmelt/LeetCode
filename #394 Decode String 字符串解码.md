@@ -1,3 +1,5 @@
+# 394 Decode String 字符串解码
+
 __Description__:
 Given an encoded string, return its decoded string.
 
@@ -8,6 +10,7 @@ You may assume that the input string is always valid; No extra white spaces, squ
 Furthermore, you may assume that the original data does not contain any digits and that digits are only for those repeat numbers, k. For example, there won't be input like 3a or 2[4].
 
 __Example:__
+
 Example 1:
 
 Input: s = "3[a]2[bc]"
@@ -45,6 +48,7 @@ __题目描述__:
 此外，你可以认为原始数据不包含数字，所有的数字只表示重复的次数 k ，例如不会出现像 3a 或 2[4] 的输入。
 
 __示例 :__
+
 示例 1：
 
 输入：s = "3[a]2[bc]"
@@ -66,6 +70,7 @@ __示例 :__
 输出："abccdcdcdxyz"
 
 __思路__:
+
 用两个栈记录数字和目前的字符串
 每次碰到 '[', 就把当前的字符串加入栈, 当前数字也加入栈
 每次碰到 ']', 将字符串与之前的相加并更新, 弹出两个栈的栈顶
@@ -73,6 +78,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -108,6 +114,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public String decodeString(String s) {
@@ -134,6 +141,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def decodeString(self, s: str) -> str:

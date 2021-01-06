@@ -1,3 +1,5 @@
+# 402 Remove K Digits 移掉K位数字
+
 __Description__:
 Given a non-negative integer num represented as a string, remove k digits from the number so that the new number is the smallest possible.
 
@@ -6,6 +8,7 @@ The length of num is less than 10002 and will be ≥ k.
 The given num does not contain any leading zero.
 
 __Example:__
+
 Example 1:
 
 Input: num = "1432219", k = 3
@@ -33,6 +36,7 @@ num 的长度小于 10002 且 ≥ k。
 num 不会包含任何前导零。
 
 __示例 :__
+
 示例 1 :
 
 输入: num = "1432219", k = 3
@@ -52,6 +56,7 @@ __示例 :__
 解释: 从原数字移除所有的数字，剩余为空就是0。
 
 __思路__:
+
 最小栈
 按照贪心的原则, 遇到大于前面的数字的就移除
 存入栈中的是反的, 结果要反着输出
@@ -59,6 +64,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -91,6 +97,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public String removeKdigits(String num, int k) {
@@ -113,6 +120,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def removeKdigits(self, num: str, k: int) -> str:

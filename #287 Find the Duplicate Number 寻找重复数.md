@@ -1,3 +1,5 @@
+# 287 Find the Duplicate Number 寻找重复数
+
 __Description__:
 Given an array of integers nums containing n + 1 integers where each integer is in the range [1, n] inclusive.
 
@@ -5,12 +7,13 @@ There is only one duplicate number in nums, return this duplicate number.
 
 __Follow-ups__:
 
-How can we prove that at least one duplicate number must exist in nums? 
+How can we prove that at least one duplicate number must exist in nums?
 Can you solve the problem without modifying the array nums?
 Can you solve the problem using only constant, O(1) extra space?
 Can you solve the problem with runtime complexity less than O(n2)?
- 
+
 __Example:__
+
 Example 1:
 
 Input: nums = [1,3,4,2,2]
@@ -30,7 +33,7 @@ Example 4:
 
 Input: nums = [1,1,2]
 Output: 1
- 
+
 __Constraints:__
 
 2 <= n <= 3 * 10 ^ 4
@@ -42,6 +45,7 @@ __题目描述__:
 给定一个包含 n + 1 个整数的数组 nums，其数字都在 1 到 n 之间（包括 1 和 n），可知至少存在一个重复的整数。假设只有一个重复的整数，找出这个重复的数。
 
 __示例 :__
+
 示例 1:
 
 输入: [1,3,4,2,2]
@@ -60,6 +64,7 @@ __说明：__
 4. 数组中只有一个重复的数字，但它可能不止重复出现一次。
 
 __思路__:
+
 1. 哈希表记录
 时间复杂度O(n), 空间复杂度O(n)
 2. 排序, 比较两个相邻元素, 会破坏原数组
@@ -82,6 +87,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -101,6 +107,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int findDuplicate(int[] nums) {
@@ -116,6 +123,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def findDuplicate(self, nums: List[int]) -> int:

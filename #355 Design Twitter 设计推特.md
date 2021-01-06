@@ -1,3 +1,5 @@
+# 355 Design Twitter 设计推特
+
 __Description__:
 Design a simplified version of Twitter where users can post tweets, follow/unfollow another user and is able to see the 10 most recent tweets in the user's news feed. Your design should support the following methods:
 
@@ -8,6 +10,7 @@ unfollow(followerId, followeeId): Follower unfollows a followee.
 
 __Example:__
 
+```Java
 Twitter twitter = new Twitter();
 
 // User 1 posts a new tweet (id = 5).
@@ -32,6 +35,7 @@ twitter.unfollow(1, 2);
 // User 1's news feed should return a list with 1 tweet id -> [5],
 // since user 1 is no longer following user 2.
 twitter.getNewsFeed(1);
+```
 
 __题目描述__:
 设计一个简化版的推特(Twitter)，可以让用户实现发送推文，关注/取消关注其他用户，能够看见关注人（包括自己）的最近十条推文。你的设计需要支持以下的几个功能：
@@ -43,6 +47,7 @@ unfollow(followerId, followeeId): 取消关注一个用户
 
 __示例 :__
 
+```Java
 Twitter twitter = new Twitter();
 
 // 用户1发送了一条新推文 (用户id = 1, 推文id = 5).
@@ -67,8 +72,10 @@ twitter.unfollow(1, 2);
 // 用户1的获取推文应当返回一个列表，其中包含一个id为5的推文.
 // 因为用户1已经不再关注用户2.
 twitter.getNewsFeed(1);
+```
 
 __思路__:
+
 使用 3个表
 一个表用来记录关注的人及发布的推特
 一个表用来记录发表的推特及时间
@@ -81,8 +88,10 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
-class Twitter {
+class Twitter 
+{
 private:
     void init(int userId) 
     {
@@ -129,7 +138,7 @@ public:
             cur.clear();
             auto it = user[followeeId].tweet.begin();
             int i = 0;
-            while (i < result.size() && it != user[followeeId].tweet.end()) 
+            while (i < result.size() and it != user[followeeId].tweet.end()) 
             {
                 if (tweet_time[(*it)] > tweet_time[result[i]]) 
                 {
@@ -143,7 +152,7 @@ public:
                 }
                 if (cur.size() == recent_max) break;
             }
-            for (; i < result.size() && cur.size() < recent_max; ++i) cur.emplace_back(result[i]);
+            for (; i < result.size() and cur.size() < recent_max; ++i) cur.emplace_back(result[i]);
             for (; it != user[followeeId].tweet.end() && cur.size() < recent_max; ++it) cur.emplace_back(*it);
             result.assign(cur.begin(),cur.end());
         }
@@ -176,6 +185,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Twitter {
     private class Node {
@@ -270,6 +280,7 @@ class Twitter {
 ```
 
 __Python__:
+
 ```Python
 class Twitter:
     def __init__(self):

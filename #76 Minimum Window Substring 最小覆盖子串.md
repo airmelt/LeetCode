@@ -1,3 +1,5 @@
+# 76 Minimum Window Substring 最小覆盖子串
+
 __Description__:
 Given a string S and a string T, find the minimum window in S which will contain all the characters in T in complexity O(n).
 
@@ -25,6 +27,7 @@ __说明：__
 如果 S 中存在这样的子串，我们保证它是唯一的答案。
 
 __思路__:
+
 滑动窗口法
 用两个指针分别指向滑动窗口的两边
 当窗口内的字符数不够时移动右指针
@@ -34,6 +37,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -72,6 +76,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public String minWindow(String s, String t) {
@@ -102,6 +107,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def minWindow(self, s: str, t: str) -> str:

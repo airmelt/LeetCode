@@ -1,3 +1,5 @@
+# 34 Find First and Last Position of Element in Sorted Array 在排序数组中查找元素的第一个和最后一个位置
+
 __Description__:
 Given an array of integers nums sorted in ascending order, find the starting and ending position of a given target value.
 
@@ -6,6 +8,7 @@ Your algorithm's runtime complexity must be in the order of O(log n).
 If the target is not found in the array, return [-1, -1].
 
 __Example:__
+
 Example 1:
 
 Input: nums = [5,7,7,8,8,10], target = 8
@@ -23,6 +26,7 @@ __题目描述__:
 如果数组中不存在目标值，返回 [-1, -1]。
 
 __示例 :__
+
 示例 1:
 
 输入: nums = [5,7,7,8,8,10], target = 8
@@ -34,11 +38,13 @@ __示例 :__
 输出: [-1,-1]
 
 __思路__:
+
 由于数组有序, 可以使用二分查找, 分别查找左边界和右边界
 时间复杂度O(lgn), 空间复杂度O(1)
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -54,7 +60,7 @@ public:
             if (nums[mid] < target) left = mid + 1;
             else right = mid;
         }
-        if (left != n && nums[left] == target) result[0] = left;
+        if (left != n and nums[left] == target) result[0] = left;
         left = 0;
         right = n;
         while (left < right)
@@ -63,13 +69,14 @@ public:
             if (nums[mid] > target) right = mid;
             else left = mid + 1;
         }
-        if (left != 0 && nums[--left] == target) result[1] = left;
+        if (left != 0 and nums[--left] == target) result[1] = left;
         return result;
     }
 };
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int[] searchRange(int[] nums, int target) {
@@ -96,6 +103,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def searchRange(self, nums: List[int], target: int) -> List[int]:

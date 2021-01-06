@@ -1,3 +1,5 @@
+# 127 Word Ladder 单词接龙
+
 __Description__:
 Given two words (beginWord and endWord), and a dictionary's word list, find the length of shortest transformation sequence from beginWord to endWord, such that:
 
@@ -13,6 +15,7 @@ You may assume no duplicates in the word list.
 You may assume beginWord and endWord are non-empty and are not the same.
 
 __Example:__
+
 Example 1:
 
 Input:
@@ -51,6 +54,7 @@ __说明：__
 你可以假设 beginWord 和 endWord 是非空的，且二者不相同。
 
 __示例 :__
+
 示例 1:
 
 输入:
@@ -75,6 +79,7 @@ wordList = ["hot","dot","dog","lot","log"]
 解释: endWord "cog" 不在字典中，所以无法进行转换。
 
 __思路__:
+
 1. 一开始用的传统 BFS, 会超时
 2. 考虑到地点和终点已知, 可以用双端 BFS
 3. 从两端分别搜索, 每次用较小的 set进行搜索
@@ -82,8 +87,10 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
-class Solution {
+class Solution 
+{
 public:
     int ladderLength(string beginWord, string endWord, vector<string>& wordList) 
     {
@@ -120,6 +127,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {
@@ -156,6 +164,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:

@@ -1,3 +1,5 @@
+# 33 Search in Rotated Sorted Array 搜索旋转排序数组
+
 __Description__:
 Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand.
 
@@ -10,6 +12,7 @@ You may assume no duplicate exists in the array.
 Your algorithm's runtime complexity must be in the order of O(log n).
 
 __Example:__
+
 Example 1:
 
 Input: nums = [4,5,6,7,0,1,2], target = 0
@@ -32,6 +35,7 @@ __题目描述__:
 你的算法时间复杂度必须是 O(log n) 级别。
 
 __示例 :__
+
 示例 1:
 
 输入: nums = [4,5,6,7,0,1,2], target = 0
@@ -43,6 +47,7 @@ __示例 :__
 输出: -1
 
 __思路__:
+
 1. 暴力法, 逐个查找
 时间复杂度O(n), 空间复杂度O(1)
 2. 旋转之后的数组也是部分有序的, 可以用类似二分查找的方法查找
@@ -50,6 +55,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -63,12 +69,12 @@ public:
             if (nums[mid] == target) return mid;
             else if (nums[mid] < nums[high])
             {
-                if (nums[mid] < target && target <= nums[high]) low = mid + 1;
+                if (nums[mid] < target and target <= nums[high]) low = mid + 1;
                 else high = mid - 1;
             }
             else
             {
-                if (nums[mid] > target && target >= nums[low]) high = mid - 1;
+                if (nums[mid] > target and target >= nums[low]) high = mid - 1;
                 else low = mid + 1;
             }
         }
@@ -78,6 +84,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int search(int[] nums, int target) {
@@ -89,6 +96,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def search(self, nums: List[int], target: int) -> int:

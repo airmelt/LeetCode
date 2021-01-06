@@ -1,3 +1,5 @@
+# 327 Count of Range Sum 区间和的个数
+
 __Description__:
 Given an integer array nums, return the number of range sums that lie in [lower, upper] inclusive.
 Range sum S(i, j) is defined as the sum of the elements in nums between indices i and j (i ≤ j), inclusive.
@@ -8,9 +10,9 @@ A naive algorithm of O(n2) is trivial. You MUST do better than that.
 __Example:__
 
 Input: nums = [-2,5,-1], lower = -2, upper = 2,
-Output: 3 
+Output: 3
 Explanation: The three ranges are : [0,0], [2,2], [0,2] and their respective sums are: -2, -1, 2.
- 
+
 __Constraints:__
 
 0 <= nums.length <= 10^4
@@ -25,10 +27,11 @@ __说明:__
 __示例 :__
 
 输入: nums = [-2,5,-1], lower = -2, upper = 2,
-输出: 3 
+输出: 3
 解释: 3个区间分别是: [0,0], [2,2], [0,2]，它们表示的和分别为: -2, -1, 2。
 
 __思路__:
+
 1. 暴力法
 利用前缀和
 遍历前缀和数组
@@ -47,6 +50,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -66,8 +70,8 @@ private:
         int right1 = mid, right2 = mid;
         for (int left = l; left < mid; ++left) 
         {
-            while (right1 != h && nums[right1] - nums[left] < lower) ++right1;
-            while (right2 != h && nums[right2] - nums[left] <= upper) ++right2;
+            while (right1 != h and nums[right1] - nums[left] < lower) ++right1;
+            while (right2 != h and nums[right2] - nums[left] <= upper) ++right2;
             count += right2 - right1;
         }
         inplace_merge(nums.begin() + l, nums.begin() + mid, nums.begin() + h);
@@ -77,6 +81,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     private int N;
@@ -142,6 +147,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def countRangeSum(self, nums: List[int], lower: int, upper: int) -> int:

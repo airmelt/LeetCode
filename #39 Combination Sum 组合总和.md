@@ -1,3 +1,5 @@
+# 39 Combination Sum 组合总和
+
 __Description__:
 Given a set of candidate numbers (candidates) (without duplicates) and a target number (target), find all unique combinations in candidates where the candidate numbers sums to target.
 
@@ -9,6 +11,7 @@ All numbers (including target) will be positive integers.
 The solution set must not contain duplicate combinations.
 
 __Example:__
+
 Example 1:
 
 Input: candidates = [2,3,6,7], target = 7,
@@ -36,9 +39,10 @@ candidates 中的数字可以无限制重复被选取。
 __说明:__
 
 所有数字（包括 target）都是正整数。
-解集不能包含重复的组合。 
+解集不能包含重复的组合。
 
 __示例 :__
+
 示例 1:
 
 输入: candidates = [2,3,6,7], target = 7,
@@ -59,7 +63,9 @@ __示例 :__
 ]
 
 __思路__:
+
 回溯法
+
 1. 先对 candidates排序, 保证数组从小到大排列
 2. 从 candidates中按大小顺序选出元素加入候选列表
 3. 如果 target == 0, 将候选列表加入到结果中
@@ -69,6 +75,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -97,6 +104,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
@@ -122,6 +130,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:

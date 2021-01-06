@@ -1,3 +1,5 @@
+# 143 Reorder List 重排链表
+
 __Description__:
 Given a singly linked list L: L0→L1→…→Ln-1→Ln,
 reorder it to: L0→Ln→L1→Ln-1→L2→Ln-2→…
@@ -5,6 +7,7 @@ reorder it to: L0→Ln→L1→Ln-1→L2→Ln-2→…
 You may not modify the values in the list's nodes, only nodes itself may be changed.
 
 __Example:__
+
 Example 1:
 
 Given 1->2->3->4, reorder it to 1->4->2->3.
@@ -20,6 +23,7 @@ __题目描述__:
 你不能只是单纯的改变节点内部的值，而是需要实际的进行节点交换。
 
 __示例 :__
+
 示例 1:
 
 给定链表 1->2->3->4, 重新排列为 1->4->2->3.
@@ -29,6 +33,7 @@ __示例 :__
 给定链表 1->2->3->4->5, 重新排列为 1->5->2->4->3.
 
 __思路__:
+
 此题为 2009年 408原题
 首先用快慢指针找到中点
 将中点之后到链表反转
@@ -37,6 +42,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 /**
  * Definition for singly-linked list.
@@ -84,6 +90,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 /**
  * Definition for singly-linked list.
@@ -125,6 +132,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 # Definition for singly-linked list.
 # class ListNode:

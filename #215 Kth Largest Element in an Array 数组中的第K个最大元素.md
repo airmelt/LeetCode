@@ -1,7 +1,10 @@
+# 215 Kth Largest Element in an Array 数组中的第K个最大元素
+
 __Description__:
 Find the kth largest element in an unsorted array. Note that it is the kth largest element in the sorted order, not the kth distinct element.
 
 __Example:__
+
 Example 1:
 
 Input: [3,2,1,5,6,4] and k = 2
@@ -19,6 +22,7 @@ __题目描述__:
 在未排序的数组中找到第 k 个最大的元素。请注意，你需要找的是数组排序后的第 k 个最大的元素，而不是第 k 个不同的元素。
 
 __示例 :__
+
 示例 1:
 
 输入: [3,2,1,5,6,4] 和 k = 2
@@ -33,6 +37,7 @@ __说明：__
 你可以假设 k 总是有效的，且 1 ≤ k ≤ 数组的长度。
 
 __思路__:
+
 1. 排序
 时间复杂度O(nlgn), 空间复杂度O(1)
 2. 小根堆
@@ -43,6 +48,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -58,6 +64,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int findKthLargest(int[] nums, int k) {
@@ -91,6 +98,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def findKthLargest(self, nums: List[int], k: int) -> int:

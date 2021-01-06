@@ -1,3 +1,5 @@
+# 40 Combination Sum II 组合总和 II
+
 __Description__:
 Given a collection of candidate numbers (candidates) and a target number (target), find all unique combinations in candidates where the candidate numbers sums to target.
 
@@ -9,6 +11,7 @@ All numbers (including target) will be positive integers.
 The solution set must not contain duplicate combinations.
 
 __Example:__
+
 Example 1:
 
 Input: candidates = [10,1,2,7,6,1,5], target = 8,
@@ -37,9 +40,10 @@ candidates 中的每个数字在每个组合中只能使用一次。
 __说明:__
 
 所有数字（包括目标数）都是正整数。
-解集不能包含重复的组合。 
+解集不能包含重复的组合。
 
 __示例 :__
+
 示例 1:
 
 输入: candidates = [10,1,2,7,6,1,5], target = 8,
@@ -50,6 +54,7 @@ __示例 :__
   [2, 6],
   [1, 1, 6]
 ]
+
 示例 2:
 
 输入: candidates = [2,5,2,1,2], target = 5,
@@ -60,7 +65,9 @@ __示例 :__
 ]
 
 __思路__:
+
 回溯法
+
 1. 先对 candidates排序, 保证数组从小到大排列
 2. 从 candidates中按大小顺序选出元素加入候选列表
 3. 如果 target == 0, 将候选列表加入到结果中
@@ -70,6 +77,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -88,7 +96,7 @@ public:
         if (target == 0) result.push_back(temp);
         for (int i = start; i < candidates.size(); i++)
         {
-            if (i > start && candidates[i] == candidates[i - 1]) continue;
+            if (i > start and candidates[i] == candidates[i - 1]) continue;
             if (target < 0) break;
             temp.push_back(candidates[i]);
             trackback(result, candidates, target - candidates[i], i + 1, temp);
@@ -99,6 +107,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
@@ -125,6 +134,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:

@@ -1,3 +1,5 @@
+# 135 Candy 分发糖果
+
 __Description__:
 There are N children standing in a line. Each child is assigned a rating value.
 
@@ -8,6 +10,7 @@ Children with a higher rating get more candies than their neighbors.
 What is the minimum candies you must give?
 
 __Example:__
+
 Example 1:
 
 Input: [1,0,2]
@@ -31,6 +34,7 @@ __题目描述__:
 那么这样下来，老师至少需要准备多少颗糖果呢？
 
 __示例 :__
+
 示例 1:
 
 输入: [1,0,2]
@@ -45,15 +49,17 @@ __示例 :__
      第三个孩子只得到 1 颗糖果，这已满足上述两个条件。
 
 __思路__:
-1.  给每个人初始化 1个糖果
+
+1. 给每个人初始化 1个糖果
 先正向遍历数组, 记录比前面大的评分的孩子的糖果为前一人加 1
 再反向遍历数组, 记录比后面大的评分的孩子的糖果为后一人加 1
 时间复杂度O(n), 空间复杂度O(n)
-2. 由于分配糖果的形式一定是从 1 -> n或者从 m -> 1, 所以我们可以记录上坡的长度和下坡的次数及峰顶和谷底的糖果数, 用等差数列求和求出各个坡的糖果数 
+2. 由于分配糖果的形式一定是从 1 -> n或者从 m -> 1, 所以我们可以记录上坡的长度和下坡的次数及峰顶和谷底的糖果数, 用等差数列求和求出各个坡的糖果数
 时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -69,6 +75,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int candy(int[] ratings) {
@@ -97,6 +104,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def candy(self, ratings: List[int]) -> int:

@@ -1,3 +1,5 @@
+# 23 Merge k Sorted Lists 合并K个排序链表
+
 __Description__:
 Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.
 
@@ -25,6 +27,7 @@ __示例 :__
 输出: 1->1->2->3->4->4->5->6
 
 __思路__:
+
 1. 暴力法, 可以将所有链表元素放到一个数组中, 对链表中的值进行排序即可
 时间复杂度O(nlgn), 空间复杂度O(n)
 2. 由于结点已经有序, 只要每次比较链表开头的元素即可, 是暴力法的优化
@@ -38,6 +41,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 /**
  * Definition for singly-linked list.
@@ -82,6 +86,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 /**
  * Definition for singly-linked list.
@@ -117,6 +122,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 # Definition for singly-linked list.
 # class ListNode:

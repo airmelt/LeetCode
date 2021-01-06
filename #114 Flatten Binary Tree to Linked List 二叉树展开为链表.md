@@ -1,17 +1,23 @@
+# 114 Flatten Binary Tree to Linked List 二叉树展开为链表
+
 __Description__:
 Given a binary tree, flatten it to a linked list in-place.
 
 __Example:__
+
 For example, given the following tree:
-```
+
+```text
     1
    / \
   2   5
  / \   \
 3   4   6
 ```
+
 The flattened tree should look like:
-```
+
+```text
 1
  \
   2
@@ -29,16 +35,20 @@ __题目描述__:
 给定一个二叉树，原地将它展开为一个单链表。
 
 __示例 :__
+
 例如，给定二叉树
-```
+
+```text
     1
    / \
   2   5
  / \   \
 3   4   6
 ```
+
 将其展开为：
-```
+
+```text
 1
  \
   2
@@ -53,6 +63,7 @@ __示例 :__
 ```
 
 __思路__:
+
 后序遍历
 将右指针指向左子树
 左子树的最后节点的右指针指向原来的右子树
@@ -61,6 +72,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 /**
  * Definition for a binary tree node.
@@ -91,6 +103,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 /**
  * Definition for a binary tree node.
@@ -122,6 +135,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 # Definition for a binary tree node.
 # class TreeNode:

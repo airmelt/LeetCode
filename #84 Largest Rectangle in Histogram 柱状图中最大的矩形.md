@@ -1,3 +1,5 @@
+# 84 Largest Rectangle in Histogram 柱状图中最大的矩形
+
 __Description__:
 Given n non-negative integers representing the histogram's bar height where the width of each bar is 1, find the area of largest rectangle in the histogram.
 
@@ -25,15 +27,18 @@ __示例 :__
 输出: 10
 
 __思路__:
-1. 对每一个柱子, 寻找左边小于它的第一个柱子 left_index, 右边小于它的第一个柱子 right_index, result = max(height[i] * (right_index - left_index - 1)
+
+1. 对每一个柱子, 寻找左边小于它的第一个柱子 left_index, 右边小于它的第一个柱子 right_index, result = max(height[i] \* (right_index - left_index - 1)
 时间复杂度O(n ^ 2), 空间复杂度O(1)
 2. 单调栈
+
 - 单调栈是一种特殊的栈, 栈中的元素依次递增(递减), 这就要求在入栈的时候, 如果该元素比栈顶元素大, 直接入栈, 否则弹出元素直到栈顶元素小于入栈元素
 这样如果是需要入栈的元素比栈顶小, 说明它是栈顶的第一个右边小于它的元素, 其下标就是右边柱子 right_index, 左边的下标 left_index就是栈顶元素的下标, 单调栈里记录下标, 保证下标对应的 height值递增
 时间复杂度O(n), 空间复杂度O(n)
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -45,7 +50,7 @@ public:
          int result = 0;
          for (int i = 0; i < heights.size(); i++)
          {
-             while (!s.empty() && heights[i] < heights[s.top()])
+             while (!s.empty() and heights[i] < heights[s.top()])
              {
                  int cur = s.top();
                  s.pop();
@@ -59,6 +64,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int largestRectangleArea(int[] heights) {
@@ -79,6 +85,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def largestRectangleArea(self, heights: List[int]) -> int:

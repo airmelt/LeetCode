@@ -1,3 +1,5 @@
+# 46 Permutations 全排列
+
 __Description__:
 Given a collection of distinct integers, return all possible permutations.
 
@@ -31,7 +33,9 @@ __示例 :__
 ]
 
 __思路__:
+
 回溯法
+
 1. 满足结束条件(这里是 list的大小等于 nums数组的大小)就加入到结果中, 并返回
 2. 对 nums中的每一个元素进行选择
 3. 递归调用
@@ -40,6 +44,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -73,6 +78,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public List<List<Integer>> permute(int[] nums) {
@@ -99,6 +105,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:

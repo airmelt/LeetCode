@@ -1,3 +1,5 @@
+# 134 Gas Station 加油站
+
 __Description__:
 There are N gas stations along a circular route, where the amount of gas at station i is gas[i].
 
@@ -12,9 +14,10 @@ Both input arrays are non-empty and have the same length.
 Each element in the input arrays is a non-negative integer.
 
 __Example:__
+
 Example 1:
 
-Input: 
+Input:
 gas  = [1,2,3,4,5]
 cost = [3,4,5,1,2]
 
@@ -31,7 +34,7 @@ Therefore, return 3 as the starting index.
 
 Example 2:
 
-Input: 
+Input:
 gas  = [2,3,4]
 cost = [3,4,3]
 
@@ -59,9 +62,10 @@ __说明：__
 输入数组中的元素均为非负数。
 
 __示例 :__
+
 示例 1:
 
-输入: 
+输入:
 gas  = [1,2,3,4,5]
 cost = [3,4,5,1,2]
 
@@ -78,7 +82,7 @@ cost = [3,4,5,1,2]
 
 示例 2:
 
-输入: 
+输入:
 gas  = [2,3,4]
 cost = [3,4,3]
 
@@ -93,7 +97,8 @@ cost = [3,4,3]
 因此，无论怎样，你都不可能绕环路行驶一周。
 
 __思路__:
-1.  对每一个点进行测试, 看能否按照规则跑一圈
+
+1. 对每一个点进行测试, 看能否按照规则跑一圈
 时间复杂度O(n ^ 2), 空间复杂度O(1)
 2. 首先, 每个站点的富余油量应该是 gas[i] - cost[i], 表示经过该点可以额外获得多少汽油, 负值表示消耗量
 如果 sum(gas[i] - cost[i]) < 0则油量不够, 一定不能跑一圈
@@ -110,6 +115,7 @@ rest < run表示剩余的油量不足以支撑汽车跑过这个点
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -132,6 +138,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int canCompleteCircuit(int[] gas, int[] cost) {
@@ -149,6 +156,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def canCompleteCircuit(self, gas: List[int], cost: List[int]) -> int:

@@ -1,3 +1,5 @@
+# 334 Increasing Triplet Subsequence 递增的三元子序列
+
 __Description__:
 Given an unsorted array return whether an increasing subsequence of length 3 exists or not in the array.
 
@@ -10,6 +12,7 @@ __Note:__
 Your algorithm should run in O(n) time complexity and O(1) space complexity.
 
 __Example:__
+
 Example 1:
 
 Input: [1,2,3,4,5]
@@ -28,10 +31,11 @@ __题目描述__:
 如果存在这样的 i, j, k,  且满足 0 ≤ i < j < k ≤ n-1，
 使得 arr[i] < arr[j] < arr[k] ，返回 true ; 否则返回 false 。
 
-__说明: __
+__说明:__
 要求算法的时间复杂度为 O(n)，空间复杂度为 O(1) 。
- 
+
 __示例 :__
+
 示例 1:
 
 输入: [1,2,3,4,5]
@@ -43,6 +47,7 @@ __示例 :__
 输出: false
 
 __思路__:
+
 记录最小值 min和比最小值大的一个值 mid
 如果在后面找到一个比 mid大的值, 返回 true
 遍历完还没找到返回 false
@@ -51,6 +56,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -58,7 +64,8 @@ public:
     bool increasingTriplet(vector<int>& nums) 
     {
         int a = INT_MAX, b = INT_MAX;
-        for (auto &num : nums) {
+        for (auto &num : nums) 
+        {
             if (num <= a) a = num;
             else if (num <= b) b = num;
             else return true;
@@ -69,6 +76,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public boolean increasingTriplet(int[] nums) {
@@ -84,6 +92,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def increasingTriplet(self, nums: List[int]) -> bool:

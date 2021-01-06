@@ -1,7 +1,10 @@
+# 201 Bitwise AND of Numbers Range 数字范围按位与
+
 __Description__:
 Given a range [m, n] where 0 <= m <= n <= 2147483647, return the bitwise AND of all numbers in this range, inclusive.
 
 __Example:__
+
 Example 1:
 
 Input: [5,7]
@@ -16,7 +19,8 @@ __题目描述__:
 给定范围 [m, n]，其中 0 <= m <= n <= 2147483647，返回此范围内所有数字的按位与（包含 m, n 两端点）。
 
 __示例 :__
-示例 1: 
+
+示例 1:
 
 输入: [5,7]
 输出: 4
@@ -27,6 +31,7 @@ __示例 :__
 输出: 0
 
 __思路__:
+
 由于要返回所有数字的按位与
 只要范围内有一位为 0, 则结果的该位为 0
 所以要输出 m和 n的公共前缀
@@ -36,6 +41,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -49,6 +55,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int rangeBitwiseAnd(int m, int n) {
@@ -59,6 +66,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def rangeBitwiseAnd(self, m: int, n: int) -> int:

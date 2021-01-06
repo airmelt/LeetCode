@@ -1,9 +1,12 @@
+# 322 Coin Change 零钱兑换
+
 __Description__:
 You are given coins of different denominations and a total amount of money amount. Write a function to compute the fewest number of coins that you need to make up that amount. If that amount of money cannot be made up by any combination of the coins, return -1.
 
 You may assume that you have an infinite number of each kind of coin.
 
 __Example:__
+
 Example 1:
 
 Input: coins = [1,2,5], amount = 11
@@ -29,7 +32,7 @@ Example 5:
 
 Input: coins = [1], amount = 2
 Output: 2
- 
+
 __Constraints:__
 
 1 <= coins.length <= 12
@@ -42,10 +45,11 @@ __题目描述__:
 你可以认为每种硬币的数量是无限的。
 
 __示例 :__
+
 示例 1：
 
 输入：coins = [1, 2, 5], amount = 11
-输出：3 
+输出：3
 解释：11 = 5 + 5 + 1
 
 示例 2：
@@ -67,7 +71,7 @@ __示例 :__
 
 输入：coins = [1], amount = 2
 输出：2
- 
+
 __提示：__
 
 1 <= coins.length <= 12
@@ -75,6 +79,7 @@ __提示：__
 0 <= amount <= 10^4
 
 __思路__:
+
 动态规划
 设 dp[i]表示可以最少用 dp[i]个硬币组成 i块钱
 初始条件 dp[0] = 0, dp[i] = +infinity
@@ -83,6 +88,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -101,6 +107,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int coinChange(int[] coins, int amount) {
@@ -115,6 +122,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def coinChange(self, coins: List[int], amount: int) -> int:

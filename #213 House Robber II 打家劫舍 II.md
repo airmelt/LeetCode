@@ -1,9 +1,12 @@
+# 213 House Robber II 打家劫舍 II
+
 __Description__:
 You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed. All houses at this place are arranged in a circle. That means the first house is the neighbor of the last one. Meanwhile, adjacent houses have security system connected and it will automatically contact the police if two adjacent houses were broken into on the same night.
 
 Given a list of non-negative integers representing the amount of money of each house, determine the maximum amount of money you can rob tonight without alerting the police.
 
 __Example:__
+
 Example 1:
 
 Input: [2,3,2]
@@ -24,6 +27,7 @@ __题目描述__:
 给定一个代表每个房屋存放金额的非负整数数组，计算你在不触动警报装置的情况下，能够偷窃到的最高金额。
 
 __示例 :__
+
 示例 1:
 
 输入: [2,3,2]
@@ -38,6 +42,7 @@ __示例 :__
      偷窃到的最高金额 = 1 + 3 = 4 。
 
 __思路__:
+
 参考[https://www.jianshu.com/p/617078f0fbb5](LeetCode #198 House Robber 打家劫舍)
 动态规划
 dp[i]表示前 i天能偷到的最大价值
@@ -48,6 +53,7 @@ dp[i]表示前 i天能偷到的最大价值
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -74,6 +80,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int rob(int[] nums) {
@@ -95,6 +102,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def rob(self, nums: List[int]) -> int:

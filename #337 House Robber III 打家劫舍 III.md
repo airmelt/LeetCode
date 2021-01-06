@@ -1,32 +1,39 @@
+# 337 House Robber III 打家劫舍 III
+
 __Description__:
 The thief has found himself a new place for his thievery again. There is only one entrance to this area, called the "root." Besides the root, each house has one and only one parent house. After a tour, the smart thief realized that "all houses in this place forms a binary tree". It will automatically contact the police if two directly-linked houses were broken into on the same night.
 
 Determine the maximum amount of money the thief can rob tonight without alerting the police.
 
 __Example:__
+
 Example 1:
 
 Input: [3,2,3,null,3,null,1]
-```
+
+```text
      3
     / \
    2   3
     \   \ 
      3   1
 ```
-Output: 7 
+
+Output: 7
 Explanation: Maximum amount of money the thief can rob = 3 + 3 + 1 = 7.
 
 Example 2:
 
 Input: [3,4,5,1,3,null,1]
-```
+
+```text
      3
     / \
    4   5
   / \   \ 
  1   3   1
 ```
+
 Output: 9
 Explanation: Maximum amount of money the thief can rob = 4 + 5 = 9.
 
@@ -36,33 +43,39 @@ __题目描述__:
 计算在不触动警报的情况下，小偷一晚能够盗取的最高金额。
 
 __示例 :__
+
 示例 1:
 
 输入: [3,2,3,null,3,null,1]
-```
+
+```text
      3
     / \
    2   3
     \   \ 
      3   1
 ```
-输出: 7 
+
+输出: 7
 解释: 小偷一晚能够盗取的最高金额 = 3 + 3 + 1 = 7.
 
 示例 2:
 
 输入: [3,4,5,1,3,null,1]
-```
+
+```text
      3
     / \
    4   5
   / \   \ 
  1   3   1
 ```
+
 输出: 9
 解释: 小偷一晚能够盗取的最高金额 = 4 + 5 = 9.
 
 __思路__:
+
 记忆化搜索
 从根节点(root)开始
 选择根节点, 或者选择根节点的子节点的左右节点, 按层搜索, 并把结果加入一个 map中
@@ -70,6 +83,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 /**
  * Definition for a binary tree node.
@@ -101,6 +115,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 /**
  * Definition for a binary tree node.
@@ -128,6 +143,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 # Definition for a binary tree node.
 # class TreeNode:

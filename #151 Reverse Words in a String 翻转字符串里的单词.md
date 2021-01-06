@@ -1,7 +1,10 @@
+# 151 Reverse Words in a String 翻转字符串里的单词
+
 __Description__:
 Given an input string, reverse the string word by word.
 
 __Example:__
+
 Example 1:
 
 Input: "the sky is blue"
@@ -33,6 +36,7 @@ __题目描述__:
 给定一个字符串，逐个翻转字符串中的每个单词。
 
 __示例 :__
+
 示例 1：
 
 输入: "the sky is blue"
@@ -61,6 +65,7 @@ __进阶：__
 请选用 C 语言的用户尝试使用 O(1) 额外空间复杂度的原地解法。
 
 __思路__:
+
 参考[LeetCode #189 Rotate Array 旋转数组](https://www.jianshu.com/p/15443e6ea0de)
 先将整个字符串反转
 再按空格反转每个单词并去掉额外的空格
@@ -68,6 +73,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -85,6 +91,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public String reverseWords(String s) {
@@ -96,6 +103,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def reverseWords(self, s: str) -> str:

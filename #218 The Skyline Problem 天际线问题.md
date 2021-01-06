@@ -1,12 +1,16 @@
+# 218 The Skyline Problem 天际线问题
+
 __Description__:
 A city's skyline is the outer contour of the silhouette formed by all the buildings in that city when viewed from a distance. Now suppose you are given the locations and height of all the buildings as shown on a cityscape photo (Figure A), write a program to output the skyline formed by these buildings collectively (Figure B).
 
 ![Figure A](https://upload-images.jianshu.io/upload_images/16639143-208e8a01b5d7206b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 ![Figure B](https://upload-images.jianshu.io/upload_images/16639143-e97f54faa473517a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 The geometric information of each building is represented by a triplet of integers [Li, Ri, Hi], where Li and Ri are the x coordinates of the left and right edge of the ith building, respectively, and Hi is its height. It is guaranteed that 0 ≤ Li, Ri ≤ INT_MAX, 0 < Hi ≤ INT_MAX, and Ri - Li > 0. You may assume all buildings are perfect rectangles grounded on an absolutely flat surface at height 0.
 
 __Example:__
+
 For instance, the dimensions of all buildings in Figure A are recorded as: [ [2 9 10], [3 7 15], [5 12 12], [15 20 10], [19 24 8] ] .
 
 The output is a list of "key points" (red dots in Figure B) in the format of [ [x1,y1], [x2, y2], [x3, y3], ... ] that uniquely defines a skyline. A key point is the left endpoint of a horizontal line segment. Note that the last key point, where the rightmost building ends, is merely used to mark the termination of the skyline, and always has zero height. Also, the ground in between any two adjacent buildings should be considered part of the skyline contour.
@@ -24,11 +28,13 @@ __题目描述__:
 城市的天际线是从远处观看该城市中所有建筑物形成的轮廓的外部轮廓。现在，假设您获得了城市风光照片（图A）上显示的所有建筑物的位置和高度，请编写一个程序以输出由这些建筑物形成的天际线（图B）。
 
 ![图A](https://upload-images.jianshu.io/upload_images/16639143-208e8a01b5d7206b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 ![图B](https://upload-images.jianshu.io/upload_images/16639143-e97f54faa473517a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 每个建筑物的几何信息用三元组 [Li，Ri，Hi] 表示，其中 Li 和 Ri 分别是第 i 座建筑物左右边缘的 x 坐标，Hi 是其高度。可以保证 0 ≤ Li, Ri ≤ INT_MAX, 0 < Hi ≤ INT_MAX 和 Ri - Li > 0。您可以假设所有建筑物都是在绝对平坦且高度为 0 的表面上的完美矩形。
 
 __示例 :__
+
 例如，图A中所有建筑物的尺寸记录为：[ [2 9 10], [3 7 15], [5 12 12], [15 20 10], [19 24 8] ] 。
 
 输出是以 [ [x1,y1], [x2, y2], [x3, y3], ... ] 格式的“关键点”（图B中的红点）的列表，它们唯一地定义了天际线。关键点是水平线段的左端点。请注意，最右侧建筑物的最后一个关键点仅用于标记天际线的终点，并始终为零高度。此外，任何两个相邻建筑物之间的地面都应被视为天际线轮廓的一部分。
@@ -51,6 +57,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -80,6 +87,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public List<List<Integer>> getSkyline(int[][] buildings) {
@@ -112,6 +120,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def getSkyline(self, buildings: List[List[int]]) -> List[List[int]]:

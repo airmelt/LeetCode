@@ -1,7 +1,10 @@
+# 324 Wiggle Sort II 摆动排序 II
+
 __Description__:
 Given an unsorted array nums, reorder it such that nums[0] < nums[1] > nums[2] < nums[3]....
 
 __Example:__
+
 Example 1:
 
 Input: nums = [1, 5, 1, 1, 6, 4]
@@ -22,6 +25,7 @@ __题目描述__:
 给定一个无序的数组 nums，将它重新排列成 nums[0] < nums[1] > nums[2] < nums[3]... 的顺序。
 
 __示例 :__
+
 示例 1:
 
 输入: nums = [1, 5, 1, 1, 6, 4]
@@ -39,6 +43,7 @@ __进阶：__
 你能用 O(n) 时间复杂度和 / 或原地 O(1) 额外空间来实现吗？
 
 __思路__:
+
 1. 排序再交叉插入原数组
 比如 [1, 2, 3], [4, 5], 插入之后就可以得到 [1, 4, 2, 5, 3]
 时间复杂度O(nlgn), 空间复杂度O(1)
@@ -50,6 +55,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -78,6 +84,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     private void swap(int[] nums, int p, int q) {
@@ -119,6 +126,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def wiggleSort(self, nums: List[int]) -> None:

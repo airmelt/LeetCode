@@ -1,11 +1,13 @@
+# 300 Longest Increasing Subsequence 最长上升子序列
+
 __Description__:
 Given an unsorted array of integers, find the length of longest increasing subsequence.
 
 __Example:__
 
 Input: [10,9,2,5,3,7,101,18]
-Output: 4 
-Explanation: The longest increasing subsequence is [2,3,7,101], therefore the length is 4. 
+Output: 4
+Explanation: The longest increasing subsequence is [2,3,7,101], therefore the length is 4.
 
 __Note:__
 There may be more than one LIS combination, it is only necessary for you to return the length.
@@ -20,7 +22,7 @@ __题目描述__:
 __示例 :__
 
 输入: [10,9,2,5,3,7,101,18]
-输出: 4 
+输出: 4
 解释: 最长的上升子序列是 [2,3,7,101]，它的长度是 4。
 
 __说明:__
@@ -31,13 +33,16 @@ __进阶：__
 你能将算法的时间复杂度降低到 O(n log n) 吗?
 
 __思路__:
+
 1. 动态规划
 设 dp[i]表示以 nums[i]结尾的最长子序列
 遍历 nums[0] ~ nums[i], 如果 nums[i] > nums[j](j = 0, 1, 2, ..., i - 1), dp[i] = max(dp[i], dp[j] + 1)
 时间复杂度O(n ^ 2), 空间复杂度O(n)
 2. 动态规划 ➕ 二分查找
 设 dp[i]表示当长度为 i + 1时, 以 nums中的某个数结尾的最小的上升子序列
-例如 [4, 5, 6, 3], 
+
+例如 [4, 5, 6, 3],
+
 - size == 1, [4], [5], [6], [3], 最小就是 dp[0] = 3
 - size == 2, [4, 5], [5, 6], 最小的就是 dp[1] = 5
 - size == 3, [4, 5, 6], 最小的就是 dp[2] = 6
@@ -49,6 +54,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -68,6 +74,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int lengthOfLIS(int[] nums) {
@@ -81,6 +88,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def lengthOfLIS(self, nums: List[int]) -> int:

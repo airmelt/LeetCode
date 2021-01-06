@@ -1,3 +1,5 @@
+# 238 Product of Array Except Self 除自身以外数组的乘积
+
 __Description__:
 Given an array nums of n integers where n > 1,  return an array output such that output[i] is equal to the product of all the elements of nums except nums[i].
 
@@ -6,7 +8,7 @@ __Example:__
 Input:  [1,2,3,4]
 Output: [24,12,8,6]
 
-__Constraint: __
+__Constraint:__
 It's guaranteed that the product of the elements of any prefix or suffix of the array (including the whole array) fits in a 32 bit integer.
 
 __Note:__
@@ -33,6 +35,7 @@ __进阶：__
 你可以在常数空间复杂度内完成这个题目吗？（ 出于对空间复杂度分析的目的，输出数组不被视为额外空间。）
 
 __思路__:
+
 1. 用一个 long记录所有乘积, 然后在原数组上用除法修改
 2. 类似矩阵主对角线都是 1, 矩阵(i, j) = nums[j](i != j)
 然后将每一行乘起来
@@ -42,6 +45,7 @@ left和 right分别为 nums[i]左边和 nums[i]右边所有数的乘积
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -63,6 +67,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int[] productExceptSelf(int[] nums) {
@@ -80,6 +85,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:

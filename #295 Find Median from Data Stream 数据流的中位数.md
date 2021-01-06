@@ -1,3 +1,5 @@
+# 295 Find Median from Data Stream 数据流的中位数
+
 __Description__:
 Median is the middle value in an ordered integer list. If the size of the list is even, there is no middle value. So the median is the mean of the two middle value.
 
@@ -10,15 +12,17 @@ Design a data structure that supports the following two operations:
 
 void addNum(int num) - Add a integer number from the data stream to the data structure.
 double findMedian() - Return the median of all elements so far.
- 
+
 __Example:__
 
+```text
 addNum(1)
 addNum(2)
 findMedian() -> 1.5
-addNum(3) 
+addNum(3)
 findMedian() -> 2
- 
+```
+
 __Follow up:__
 
 If all integer numbers from the stream are between 0 and 100, how would you optimize it?
@@ -40,11 +44,13 @@ double findMedian() - 返回目前所有元素的中位数。
 
 __示例 :__
 
+```text
 addNum(1)
 addNum(2)
 findMedian() -> 1.5
 addNum(3) 
 findMedian() -> 2
+```
 
 __进阶：__
 
@@ -52,6 +58,7 @@ __进阶：__
 如果数据流中 99% 的整数都在 0 到 100 范围内，你将如何优化你的算法？
 
 __思路__:
+
 设置一个大根堆, 一个小根堆
 大根堆里放较小的元素, 记为 small, 小根堆里放较大的元素, 记为large
 保证两个堆的元素个数差不超过 1
@@ -62,6 +69,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class MedianFinder 
 {
@@ -106,6 +114,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 class MedianFinder {
 
@@ -144,6 +153,7 @@ class MedianFinder {
 ```
 
 __Python__:
+
 ```Python
 class MedianFinder:
 

@@ -1,3 +1,5 @@
+# 128 Longest Consecutive Sequence 最长连续序列
+
 __Description__:
 Given an unsorted array of integers, find the length of the longest consecutive elements sequence.
 
@@ -21,6 +23,7 @@ __示例 :__
 解释: 最长连续序列是 [1, 2, 3, 4]。它的长度为 4。
 
 __思路__:
+
 要确定一个数是否存在, 需要用 set, 可以将查询时间将为 O(1)
 如果一个连续子序列存在, 假定从 x开始, 长度为 result
 则 x, x + 1, x + 2, ... , x + result - 1均在 set中,
@@ -30,6 +33,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -53,6 +57,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int longestConsecutive(int[] nums) {
@@ -72,6 +77,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:

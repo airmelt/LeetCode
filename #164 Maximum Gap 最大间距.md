@@ -1,9 +1,12 @@
+# 164 Maximum Gap 最大间距
+
 __Description__:
 Given an unsorted array, find the maximum difference between the successive elements in its sorted form.
 
 Return 0 if the array contains less than 2 elements.
 
 __Example:__
+
 Example 1:
 
 Input: [3,6,9,1]
@@ -27,6 +30,7 @@ __题目描述__:
 如果数组元素个数小于 2，则返回 0。
 
 __示例 :__
+
 示例 1:
 
 输入: [3,6,9,1]
@@ -45,6 +49,7 @@ __说明：__
 请尝试在线性时间复杂度和空间复杂度的条件下解决此问题。
 
 __思路__:
+
 1. 排序之后后项减前项取最大值即可
 时间复杂度O(nlgn), 空间复杂度O(1)
 2. 桶排序
@@ -57,6 +62,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -96,6 +102,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int maximumGap(int[] nums) {
@@ -109,6 +116,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def maximumGap(self, nums: List[int]) -> int:

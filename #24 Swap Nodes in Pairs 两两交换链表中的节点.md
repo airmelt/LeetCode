@@ -1,3 +1,5 @@
+# 24 Swap Nodes in Pairs 两两交换链表中的节点
+
 __Description__:
 Given a linked list, swap every two adjacent nodes and return its head.
 
@@ -17,12 +19,14 @@ __示例 :__
 给定 1->2->3->4, 你应该返回 2->1->4->3.
 
 __思路__:
+
 1. 迭代法, 设置一个头结点, 对当前工作结点的下一个结点和下下个结点进行交换, 工作结点每次向后移动 2步即可
 2. 递归法, 将当前结点和后面的结点进行交换, 对当前结点的下下个结点递归调用函数, 出口为空结点或者下一个结点为空
 时间复杂度O(n), 空间复杂度O(1), 不考虑递归栈的大小
 
 __代码__:
 __C++__:
+
 ```C++
 /**
  * Definition for singly-linked list.
@@ -37,7 +41,7 @@ class Solution
 public:
     ListNode* swapPairs(ListNode* head) 
     {
-        if (!head || !head -> next) return head;
+        if (!head or !head -> next) return head;
         ListNode *result = head -> next;
         head -> next = swapPairs(result -> next);
         result -> next = head;
@@ -47,6 +51,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 /**
  * Definition for singly-linked list.
@@ -74,6 +79,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 # Definition for singly-linked list.
 # class ListNode:

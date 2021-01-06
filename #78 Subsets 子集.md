@@ -1,3 +1,5 @@
+# 78 Subsets 子集
+
 __Description__:
 Given a set of distinct integers, nums, return all possible subsets (the power set).
 
@@ -41,15 +43,17 @@ __示例 :__
 ]
 
 __思路__:
+
 1. 回溯法
-时间复杂度O(n* 2 ^ n), 空间复杂度O(n* 2 ^ n)
+时间复杂度O(n \* 2 ^ n), 空间复杂度O(n \* 2 ^ n)
 2. 递归法, 遍历列表, 将结果中的每一个子集都加上新遍历的元素
-时间复杂度O(n* 2 ^ n), 空间复杂度O(n* 2 ^ n)
+时间复杂度O(n \* 2 ^ n), 空间复杂度O(n \* 2 ^ n)
 3. 二进制掩码法, 由于对于每一个元素来说都有选择加入或者不选择加入两种, 生成 nums.size()位的二进制掩码即可
-时间复杂度O(n* 2 ^ n), 空间复杂度O(n* 2 ^ n)
+时间复杂度O(n \* 2 ^ n), 空间复杂度O(n \* 2 ^ n)
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -76,6 +80,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public List<List<Integer>> subsets(int[] nums) {
@@ -92,6 +97,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:

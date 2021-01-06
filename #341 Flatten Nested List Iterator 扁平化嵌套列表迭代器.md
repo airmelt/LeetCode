@@ -1,21 +1,24 @@
+# 341 Flatten Nested List Iterator 扁平化嵌套列表迭代器
+
 __Description__:
 Given a nested list of integers, implement an iterator to flatten it.
 
 Each element is either an integer, or a list -- whose elements may also be integers or other lists.
 
 __Example:__
+
 Example 1:
 
 Input: [[1,1],2,[1,1]]
 Output: [1,1,2,1,1]
-Explanation: By calling next repeatedly until hasNext returns false, 
+Explanation: By calling next repeatedly until hasNext returns false,
              the order of elements returned by next should be: [1,1,2,1,1].
 
 Example 2:
 
 Input: [1,[4,[6]]]
 Output: [1,4,6]
-Explanation: By calling next repeatedly until hasNext returns false, 
+Explanation: By calling next repeatedly until hasNext returns false,
              the order of elements returned by next should be: [1,4,6].
 
 __题目描述__:
@@ -24,6 +27,7 @@ __题目描述__:
 列表中的每一项或者为一个整数，或者是另一个列表。其中列表的元素也可能是整数或是其他列表。
 
 __示例 :__
+
 示例 1:
 
 输入: [[1,1],2,[1,1]]
@@ -37,6 +41,7 @@ __示例 :__
 解释: 通过重复调用 next 直到 hasNext 返回 false，next 返回的元素的顺序应该是: [1,4,6]。
 
 __思路__:
+
 用一个队列记录列表中的值
 采用递归的方式将列表放入队列
 每次查询 next的时候直接弹出队首元素
@@ -45,6 +50,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 /**
  * // This is the interface that allows for creating nested lists.
@@ -103,6 +109,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 /**
  * // This is the interface that allows for creating nested lists.
@@ -155,6 +162,7 @@ public class NestedIterator implements Iterator<Integer> {
 ```
 
 __Python__:
+
 ```Python
 # """
 # This is the interface that allows for creating nested lists.

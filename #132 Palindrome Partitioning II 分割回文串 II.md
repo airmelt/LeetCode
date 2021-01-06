@@ -1,3 +1,5 @@
+# 132 Palindrome Partitioning II 分割回文串 II
+
 __Description__:
 Given a string s, partition s such that every substring of the partition is a palindrome.
 
@@ -21,6 +23,7 @@ __示例 :__
 解释: 进行一次分割就可将 s 分割成 ["aa","b"] 这样两个回文子串。
 
 __思路__:
+
 1. 参考[LeetCode #131 Palindrome Partitioning 分割回文串](https://www.jianshu.com/p/1715b6ab5741), 在最后的结果中找到最短的列表, 其长度减 1即为最小的分割方式
 时间复杂度太高
 时间复杂度O(2 ^ n), 空间复杂度O(n ^ 2)
@@ -33,6 +36,7 @@ dp数组表示 s[:i]分割成回文字符串需要的分割次数
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -63,6 +67,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int minCut(String s) {
@@ -87,6 +92,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def minCut(self, s: str) -> int:

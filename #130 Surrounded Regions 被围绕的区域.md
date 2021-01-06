@@ -1,10 +1,13 @@
+# 130 Surrounded Regions 被围绕的区域
+
 __Description__:
 Given a 2D board containing 'X' and 'O' (the letter O), capture all regions surrounded by 'X'.
 
 A region is captured by flipping all 'O's into 'X's in that surrounded region.
 
 __Example:__
-```
+
+```text
 X X X X
 X O O X
 X X O X
@@ -12,12 +15,14 @@ X O X X
 ```
 
 After running your function, the board should be:
-```
+
+```text
 X X X X
 X X X X
 X X X X
 X O X X
 ```
+
 Explanation:
 
 Surrounded regions shouldn’t be on the border, which means that any 'O' on the border of the board are not flipped to 'X'. Any 'O' that is not on the border and it is not connected to an 'O' on the border will be flipped to 'X'. Two cells are connected if they are adjacent cells connected horizontally or vertically.
@@ -28,24 +33,29 @@ __题目描述__:
 找到所有被 'X' 围绕的区域，并将这些区域里所有的 'O' 用 'X' 填充。
 
 __示例 :__
-```
+
+```text
 X X X X
 X O O X
 X X O X
 X O X X
 ```
+
 运行你的函数后，矩阵变为：
-```
+
+```text
 X X X X
 X X X X
 X X X X
 X O X X
 ```
+
 解释:
 
 被围绕的区间不会存在于边界上，换句话说，任何边界上的 'O' 都不会被填充为 'X'。 任何不在边界上，或不与边界上的 'O' 相连的 'O' 最终都会被填充为 'X'。如果两个元素在水平或垂直方向相邻，则称它们是“相连”的。
 
 __思路__:
+
 DFS
 先将与边界相连的 'O'修改为 '-'
 再将所有剩下的 'O'修改为 'X'
@@ -54,6 +64,7 @@ DFS
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -77,7 +88,7 @@ public:
 private:
     void helper(vector<vector<char>>& board, int i, int j, int row, int col) 
     {
-        if (i < 0 || j < 0 || i >= row || j >= col || board[i][j] != 'O') return;
+        if (i < 0 or j < 0 or i >= row or j >= col or board[i][j] != 'O') return;
         board[i][j] = '-';
         helper(board, i - 1, j, row, col);
         helper(board, i + 1, j, row, col);
@@ -88,6 +99,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public void solve(char[][] board) {
@@ -115,6 +127,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def solve(self, board: List[List[str]]) -> None:

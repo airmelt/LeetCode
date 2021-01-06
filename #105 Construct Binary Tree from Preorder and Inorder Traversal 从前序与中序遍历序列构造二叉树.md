@@ -1,3 +1,5 @@
+# 105 Construct Binary Tree from Preorder and Inorder Traversal 从前序与中序遍历序列构造二叉树
+
 __Description__:
 Given preorder and inorder traversal of a tree, construct the binary tree.
 
@@ -5,12 +7,14 @@ __Note:__
 You may assume that duplicates do not exist in the tree.
 
 __Example:__
+
 For example, given
 
 preorder = [3,9,20,15,7]
 inorder = [9,3,15,20,7]
 Return the following binary tree:
-```
+
+```text
     3
    / \
   9  20
@@ -25,12 +29,14 @@ __注意:__
 你可以假设树中没有重复的元素。
 
 __示例 :__
+
 例如，给出
 
 前序遍历 preorder = [3,9,20,15,7]
 中序遍历 inorder = [9,3,15,20,7]
 返回如下的二叉树：
-```
+
+```text
     3
    / \
   9  20
@@ -39,6 +45,7 @@ __示例 :__
 ```
 
 __思路__:
+
 1. 递归法
 前序遍历第一个为根节点
 找到前序遍历第一个元素在中序遍历的下标, 将中序遍历列表分为 2个部分, 前半部分为左子树, 后半部分为右子树
@@ -48,6 +55,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 /**
  * Definition for a binary tree node.
@@ -66,7 +74,7 @@ public:
         if (preorder.empty()) return nullptr;
         TreeNode* root = new TreeNode(preorder.front());
         int index = 0;
-        while (index < inorder.size() && preorder.front() != inorder[index]) ++index;
+        while (index < inorder.size() and preorder.front() != inorder[index]) ++index;
         vector<int> pre(preorder.begin() + 1, preorder.begin() + 1 + index);
         vector<int> in(inorder.begin(), inorder.begin() + index);
         root -> left = buildTree(pre, in);
@@ -79,6 +87,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 /**
  * Definition for a binary tree node.
@@ -117,6 +126,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 # Definition for a binary tree node.
 # class TreeNode:

@@ -1,3 +1,5 @@
+# 385 Mini Parser 迷你语法分析器
+
 __Description__:
 Given a nested list of integers represented as a string, implement a parser to deserialize it.
 
@@ -9,14 +11,14 @@ You may assume that the string is well-formed:
 String is non-empty.
 String does not contain white spaces.
 String contains only digits 0-9, [, - ,, ].
- 
+
 __Example:__
+
 Example 1:
 
 Given s = "324",
 
 You should return a NestedInteger object which contains a single integer 324.
- 
 
 Example 2:
 
@@ -41,8 +43,9 @@ __提示：__
 字符串非空
 字符串不包含空格
 字符串只包含数字0-9、[、-、,、]
- 
+
 __示例 :__
+
 示例 1：
 
 给定 s = "324",
@@ -62,6 +65,7 @@ __示例 :__
          a. 一个 integer 包含值 789
 
 __思路__:
+
 递归
 终点要么是 s为空, 要么 s为数字, 要么 s长度小于 2(为 '['或者 '[]')
 可以将 s看作是一棵树, 每一层 []相当于树的一层
@@ -69,6 +73,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 /**
  * // This is the interface that allows for creating nested lists.
@@ -125,6 +130,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 /**
  * // This is the interface that allows for creating nested lists.
@@ -175,6 +181,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 # """
 # This is the interface that allows for creating nested lists.

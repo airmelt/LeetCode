@@ -89,7 +89,7 @@ public:
             dfs(matrix, 0, i, p, matrix[0][i]);
             dfs(matrix, m - 1, i, a, matrix[m - 1][i]); 
         }
-        for (int i = 0; i < m; i++) for (int j = 0; j < n; j++) if(p[i][j] && a[i][j]) result.push_back({i, j});
+        for (int i = 0; i < m; i++) for (int j = 0; j < n; j++) if(p[i][j] and a[i][j]) result.push_back({i, j});
         return result;
     }
 private:

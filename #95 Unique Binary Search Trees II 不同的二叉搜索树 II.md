@@ -1,3 +1,5 @@
+# 95 Unique Binary Search Trees II 不同的二叉搜索树 II
+
 __Description__:
 Given an integer n, generate all structurally unique BST's (binary search trees) that store values 1 ... n.
 
@@ -14,13 +16,14 @@ Output:
 ]
 Explanation:
 The above output corresponds to the 5 unique BST's shown below:
-```
+
+```text
    1         3     3      2      1
     \       /     /      / \      \
      3     2     1      1   3      2
     /     /       \                 \
    2     1         2                 3
- ```
+```
 
 __Constraints:__
 
@@ -42,25 +45,28 @@ __示例 :__
 ]
 解释：
 以上的输出对应以下 5 种不同结构的二叉搜索树：
-```
+
+```text
    1         3     3      2      1
     \       /     /      / \      \
      3     2     1      1   3      2
     /     /       \                 \
    2     1         2                 3
- ```
+```
 
 __提示：__
 
 0 <= n <= 8
 
 __思路__:
+
 递归法
 将每一个数字作为根节点, 将小于根节点的一边作为左子树, 大于根节点的一边作为右子树, 递归调用, 然后按顺序插入即可
 时间复杂度O(4 ^ n / n ^ (1 / 2)), 空间复杂度O(1)
 
 __代码__:
 __C++__:
+
 ```C++
 /**
  * Definition for a binary tree node.
@@ -109,6 +115,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 /**
  * Definition for a binary tree node.
@@ -153,6 +160,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 # Definition for a binary tree node.
 # class TreeNode:

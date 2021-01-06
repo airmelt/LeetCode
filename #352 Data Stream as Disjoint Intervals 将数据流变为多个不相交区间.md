@@ -1,14 +1,19 @@
+# 352 Data Stream as Disjoint Intervals 将数据流变为多个不相交区间
+
 __Description__:
 Given a data stream input of non-negative integers a1, a2, ..., an, ..., summarize the numbers seen so far as a list of disjoint intervals.
 
 __Example:__
+
 For example, suppose the integers from the data stream are 1, 3, 7, 2, 6, ..., then the summary will be:
 
+```text
 [1, 1]
 [1, 1], [3, 3]
 [1, 1], [3, 3], [7, 7]
 [1, 3], [7, 7]
 [1, 3], [6, 7]
+```
 
 __Follow up:__
 
@@ -20,11 +25,13 @@ __题目描述__:
 __示例 :__
 例如，假设数据流中的整数为 1，3，7，2，6，…，每次的总结为：
 
+```text
 [1, 1]
 [1, 1], [3, 3]
 [1, 1], [3, 3], [7, 7]
 [1, 3], [7, 7]
 [1, 3], [6, 7]
+```
 
 __进阶：__
 如果有很多合并，并且与数据流的大小相比，不相交区间的数量很小，该怎么办?
@@ -33,6 +40,7 @@ __提示：__
 特别感谢 @yunhong 提供了本问题和其测试用例。
 
 __思路__:
+
 1. 利用二叉搜索树(set)
 插入的时候直接插入到 set
 需要区间时合并区间输出
@@ -44,6 +52,7 @@ addNum()时间复杂度O(n), getIntervals()时间复杂度O(1), 空间复杂度O
 
 __代码__:
 __C++__:
+
 ```C++
 class SummaryRanges 
 {
@@ -63,7 +72,7 @@ public:
         int last = *dp.begin(), begin = *dp.begin();
         for (auto it : dp)
         {
-            if (it == last || it - 1 == last) last = it;
+            if (it == last or it - 1 == last) last = it;
             else
             {
                 result.push_back({begin, last});
@@ -86,6 +95,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 public class SummaryRanges {
     
@@ -152,6 +162,7 @@ public class SummaryRanges {
 ```
 
 __Python__:
+
 ```Python
 class SummaryRanges:
 

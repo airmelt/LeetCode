@@ -1,11 +1,14 @@
+# 299 Bulls and Cows 猜数字游戏
+
 __Description__:
 You are playing the following Bulls and Cows game with your friend: You write down a number and ask your friend to guess what the number is. Each time your friend makes a guess, you provide a hint that indicates how many digits in said guess match your secret number exactly in both digit and position (called "bulls") and how many digits match the secret number but locate in the wrong position (called "cows"). Your friend will use successive guesses and hints to eventually derive the secret number.
 
-Write a function to return a hint according to the secret number and friend's guess, use A to indicate the bulls and B to indicate the cows. 
+Write a function to return a hint according to the secret number and friend's guess, use A to indicate the bulls and B to indicate the cows.
 
 Please note that both secret number and friend's guess may contain duplicate digits.
 
 __Example:__
+
 Example 1:
 
 Input: secret = "1807", guess = "7810"
@@ -20,7 +23,7 @@ Input: secret = "1123", guess = "0111"
 
 Output: "1A1B"
 
-__Explanation:__ 
+__Explanation:__
 The 1st 1 in friend's guess is a bull, the 2nd or 3rd 1 is a cow.
 Note: You may assume that the secret number and your friend's guess only contain digits, and their lengths are always equal.
 
@@ -32,6 +35,7 @@ __题目描述__:
 请注意秘密数字和朋友的猜测数都可能含有重复数字。
 
 __示例 :__
+
 示例 1:
 
 输入: secret = "1807", guess = "7810"
@@ -52,31 +56,34 @@ __说明:__
 你可以假设秘密数字和朋友的猜测数都只包含数字，并且它们的长度永远相等。
 
 __思路__:
+
 这里只有 10个数字(0-9), 可以用一个个容量为 10的数组, 分别存储每个字符串中的各个数字出现的个数, 遍历字符串记录数字出现在的个数
 A的个数为相同数字出现的个数, B的个数为除了 A之外出现的数字的个数
 时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
+
 ```C++
-class Solution {
+class Solution 
+{
 public:
     string getHint(string secret, string guess) 
     {
         int bucket[10] = {0}, bull = 0, cow = 0;
-        for (auto c : secret) bucket[c - '0']++;
+        for (auto c : secret) ++bucket[c - '0'];
         for (int i = 0; i < guess.size(); i++) 
         {
             if (secret[i] == guess[i])
             {
-                bull++;
-                if (bucket[secret[i] - '0'] < 1) cow--;
-                bucket[secret[i] - '0']--;
+                ++bull;
+                if (bucket[secret[i] - '0'] < 1) --cow;
+                --bucket[secret[i] - '0'];
             }
             else if (bucket[guess[i] - '0'] > 0)
             {
-                bucket[guess[i] - '0']--;
-                cow++;
+                --bucket[guess[i] - '0'];
+                ++cow;
             }
         }
         return to_string(bull) + "A" + to_string(cow) + "B";
@@ -85,6 +92,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public String getHint(String secret, String guess) {
@@ -106,6 +114,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def getHint(self, secret: str, guess: str) -> str:

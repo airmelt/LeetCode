@@ -1,3 +1,5 @@
+# 36 Valid Sudoku 有效的数独
+
 __Description__:
 Determine if a 9x9 Sudoku board is valid. Only the filled cells need to be validated according to the following rules:
 
@@ -11,10 +13,12 @@ A partially filled sudoku which is valid.
 The Sudoku board could be partially filled, where empty cells are filled with the character '.'.
 
 __Example:__
+
 Example 1:
 
 Input:
-```
+
+```text
 [
   ["5","3",".",".","7",".",".",".","."],
   ["6",".",".","1","9","5",".",".","."],
@@ -27,12 +31,14 @@ Input:
   [".",".",".",".","8",".",".","7","9"]
 ]
 ```
+
 Output: true
 
 Example 2:
 
 Input:
-```
+
+```text
 [
   ["8","3",".",".","7",".",".",".","."],
   ["6",".",".","1","9","5",".",".","."],
@@ -45,8 +51,9 @@ Input:
   [".",".",".",".","8",".",".","7","9"]
 ]
 ```
+
 Output: false
-Explanation: Same as Example 1, except with the 5 in the top left corner being 
+Explanation: Same as Example 1, except with the 5 in the top left corner being
     modified to 8. Since there are two 8's in the top left 3x3 sub-box, it is invalid.
 
 __Note:__
@@ -62,16 +69,19 @@ __题目描述__:
 数字 1-9 在每一行只能出现一次。
 数字 1-9 在每一列只能出现一次。
 数字 1-9 在每一个以粗实线分隔的 3x3 宫内只能出现一次。
+
 ![有效的数独](https://upload-images.jianshu.io/upload_images/16639143-815e9a94f45c77d0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 上图是一个部分填充的有效的数独。
 
 数独部分空格内已填入了数字，空白格用 '.' 表示。
 
 __示例 :__
+
 示例 1:
 
 输入:
-```
+
+```text
 [
   ["5","3",".",".","7",".",".",".","."],
   ["6",".",".","1","9","5",".",".","."],
@@ -84,12 +94,14 @@ __示例 :__
   [".",".",".",".","8",".",".","7","9"]
 ]
 ```
+
 输出: true
 
 示例 2:
 
 输入:
-```
+
+```text
 [
   ["8","3",".",".","7",".",".",".","."],
   ["6",".",".","1","9","5",".",".","."],
@@ -102,6 +114,7 @@ __示例 :__
   [".",".",".",".","8",".",".","7","9"]
 ]
 ```
+
 输出: false
 解释: 除了第一行的第一个数字从 5 改为 8 以外，空格内其他数字均与 示例1 相同。
      但由于位于左上角的 3x3 宫内有两个 8 存在, 因此这个数独是无效的。
@@ -114,17 +127,21 @@ __说明:__
 给定数独永远是 9x9 形式的。
 
 __思路__:
+
 1. 3次遍历逐行, 逐列, 和对每个盒子都进行一次遍历
-2. 方法 1的三次遍历可以用一次遍历完成, row的下标对应最外层遍历下标 i, col的下标对应内层遍历下标 j, 盒子的下标可以用 (i / 3) * 3 + j / 3找到
+2. 方法 1的三次遍历可以用一次遍历完成, row的下标对应最外层遍历下标 i, col的下标对应内层遍历下标 j, 盒子的下标可以用 (i / 3) \* 3 + j / 3找到
 3. 由于下标最大为 9, 可以使用位运算代替建立数组, 加快运算速度, 用二进制上的 1表示该位已经访问过
-时间复杂度O(1), 空间复杂度O(1), 最多遍历 81(* 3)次, 最多建立 9 * 9数组 3个
+时间复杂度O(1), 空间复杂度O(1), 最多遍历 81(\* 3)次, 最多建立 9 \* 9数组 3个
 
 __代码__:
 __C++__:
+
 ```C++
-class Solution {
+class Solution 
+{
 public:
-    bool isValidSudoku(vector<vector<char>>& board) {
+    bool isValidSudoku(vector<vector<char>>& board) 
+    {
         int row[9][9]{0}, col[9][9]{0}, box[9][9]{0};
         for (int i = 0; i < 9; i++) 
         {
@@ -133,7 +150,7 @@ public:
                 if (board[i][j] != '.') 
                 {
                     int num = board[i][j] - '1', box_index = i / 3 * 3 + j / 3;
-                    if (row[i][num] || col[j][num] || box[box_index][num]) return false;
+                    if (row[i][num] or col[j][num] or box[box_index][num]) return false;
                     row[i][num] = 1;
                     col[j][num] = 1;
                     box[box_index][num] = 1;
@@ -146,6 +163,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public boolean isValidSudoku(char[][] board) {
@@ -169,6 +187,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:

@@ -1,3 +1,5 @@
+# 207 Course Schedule 课程表
+
 __Description__:
 There are a total of numCourses courses you have to take, labeled from 0 to numCourses-1.
 
@@ -6,20 +8,21 @@ Some courses may have prerequisites, for example to take course 0 you have to fi
 Given the total number of courses and a list of prerequisite pairs, is it possible for you to finish all courses?
 
 __Example:__
+
 Example 1:
 
 Input: numCourses = 2, prerequisites = [[1,0]]
 Output: true
-Explanation: There are a total of 2 courses to take. 
+Explanation: There are a total of 2 courses to take.
              To take course 1 you should have finished course 0. So it is possible.
 
 Example 2:
 
 Input: numCourses = 2, prerequisites = [[1,0],[0,1]]
 Output: false
-Explanation: There are a total of 2 courses to take. 
+Explanation: There are a total of 2 courses to take.
              To take course 1 you should have finished course 0, and to take course 0 you should
-             also have finished course 1. So it is impossible. 
+             also have finished course 1. So it is impossible.
 
 __Constraints:__
 
@@ -35,9 +38,10 @@ __题目描述__:
 给定课程总量以及它们的先决条件，请你判断是否可能完成所有课程的学习？
 
 __示例 :__
+
 示例 1:
 
-输入: 2, [[1,0]] 
+输入: 2, [[1,0]]
 输出: true
 解释: 总共有 2 门课程。学习课程 1 之前，你需要完成课程 0。所以这是可能的。
 
@@ -46,7 +50,7 @@ __示例 :__
 输入: 2, [[1,0],[0,1]]
 输出: false
 解释: 总共有 2 门课程。学习课程 1 之前，你需要先完成​课程 0；并且学习课程 0 之前，你还应先完成课程 1。这是不可能的。
- 
+
 __提示：__
 
 输入的先决条件是由 边缘列表 表示的图形，而不是 邻接矩阵 。详情请参见图的表示法。
@@ -54,6 +58,7 @@ __提示：__
 1 <= numCourses <= 10^5
 
 __思路__:
+
 拓扑排序
 先将入度为 0的顶点加入一个处理队列
 每次取出入度为 0的顶点, 将这个顶点的所有邻接点入度 - 1, 再将入度为 0的点加入队列
@@ -62,6 +67,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -96,6 +102,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public boolean canFinish(int numCourses, int[][] prerequisites) {
@@ -123,6 +130,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:

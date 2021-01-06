@@ -1,3 +1,5 @@
+# 113 Path Sum II 路径总和 II
+
 __Description__:
 Given a binary tree and a sum, find all root-to-leaf paths where each path's sum equals the given sum.
 
@@ -7,7 +9,8 @@ __Note:__
 __Example:__
 
 Given the below binary tree and sum = 22,
-```
+
+```text
       5
      / \
     4   8
@@ -16,6 +19,7 @@ Given the below binary tree and sum = 22,
  /  \    / \
 7    2  5   1
 ```
+
 Return:
 
 [
@@ -30,8 +34,10 @@ __说明:__
  叶子节点是指没有子节点的节点。
 
 __示例 :__
+
 给定如下二叉树，以及目标和 sum = 22，
-```
+
+```text
               5
              / \
             4   8
@@ -40,6 +46,7 @@ __示例 :__
          /  \    / \
         7    2  5   1
 ```
+
 返回:
 
 [
@@ -48,12 +55,14 @@ __示例 :__
 ]
 
 __思路__:
+
 回溯法
 参考[LeetCode #112 Path Sum 路径总和](https://www.jianshu.com/p/28393f816dab)
 时间复杂度O(n), 空间复杂度O(n)
 
 __代码__:
 __C++__:
+
 ```C++
 /**
  * Definition for a binary tree node.
@@ -79,7 +88,7 @@ private:
     {
         if (!root) return;
         temp.push_back(root -> val);
-        if (root -> val == target && !root -> left && !root -> right) result.push_back(temp);
+        if (root -> val == target and !root -> left and !root -> right) result.push_back(temp);
         helper(result, root -> left, target - root -> val, temp);
         helper(result, root -> right, target - root -> val, temp);
         temp.pop_back();
@@ -88,6 +97,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 /**
  * Definition for a binary tree node.
@@ -118,6 +128,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 # Definition for a binary tree node.
 # class TreeNode:

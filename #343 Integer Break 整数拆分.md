@@ -1,7 +1,10 @@
+# 343 Integer Break 整数拆分
+
 __Description__:
 Given a positive integer n, break it into the sum of at least two positive integers and maximize the product of those integers. Return the maximum product you can get.
 
 __Example:__
+
 Example 1:
 
 Input: 2
@@ -19,6 +22,7 @@ __题目描述__:
 给定一个正整数 n，将其拆分为至少两个正整数的和，并使这些整数的乘积最大化。 返回你可以获得的最大乘积。
 
 __示例 :__
+
 示例 1:
 
 输入: 2
@@ -33,16 +37,18 @@ __示例 :__
 说明: 你可以假设 n 不小于 2 且不大于 58。
 
 __思路__:
+
 1. 可以将这个整数拆分成最多的 3
 可以用数学方法证明此时为最大值
 时间复杂度O(1), 空间复杂度O(1)
 2. 动态规划
 设 dp[i]表示 i分解的最大乘积
-动态转移方程 dp[i] = max(dp[i - j] * (i - j), j * (i - j)), j = 1 ~ i - 1
+动态转移方程 dp[i] = max(dp[i - j] \* (i - j), j \* (i - j)), j = 1 ~ i - 1
 时间复杂度O(n ^ 2), 空间复杂度O(n)
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -57,6 +63,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int integerBreak(int n) {
@@ -69,6 +76,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def integerBreak(self, n: int) -> int:

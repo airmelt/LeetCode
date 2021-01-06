@@ -1,3 +1,5 @@
+# 140 Word Break II 单词拆分 II
+
 __Description__:
 Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, add spaces in s to construct a sentence where each word is a valid dictionary word. Return all such possible sentences.
 
@@ -7,6 +9,7 @@ The same word in the dictionary may be reused multiple times in the segmentation
 You may assume the dictionary does not contain duplicate words.
 
 __Example:__
+
 Example 1:
 
 Input:
@@ -48,6 +51,7 @@ __说明：__
 你可以假设字典中没有重复的单词。
 
 __示例 :__
+
 示例 1：
 
 输入:
@@ -81,6 +85,7 @@ wordDict = ["cats", "dog", "sand", "and", "cat"]
 []
 
 __思路__:
+
 动态规划 & 回溯法
 参考[LeetCode #139 Word Break 单词拆分](https://www.jianshu.com/p/94bfe7c2f243)
 先测试是否能够拆分, 不能拆分的直接返回空集
@@ -89,6 +94,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -118,6 +124,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public List<String> wordBreak(String s, List<String> wordDict) {
@@ -161,6 +168,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def wordBreak(self, s: str, wordDict: List[str]) -> List[str]:

@@ -1,7 +1,10 @@
+# 372 Super Pow 超级次方
+
 __Description__:
 Your task is to calculate ab mod 1337 where a is a positive integer and b is an extremely large positive integer given in the form of an array.
 
 __Example:__
+
 Example 1:
 
 Input: a = 2, b = [3]
@@ -21,10 +24,10 @@ Example 4:
 
 Input: a = 2147483647, b = [2,0,0]
 Output: 1198
- 
+
 __Constraints:__
 
-1 <= a <= 231 - 1
+1 <= a <= 2^31 - 1
 1 <= b.length <= 2000
 0 <= b[i] <= 9
 b doesn't contain leading zeros.
@@ -33,6 +36,7 @@ __题目描述__:
 你的任务是计算 ab 对 1337 取模，a 是一个正整数，b 是一个非常大的正整数且会以数组形式给出。
 
 __示例 :__
+
 示例 1：
 
 输入：a = 2, b = [3]
@@ -52,21 +56,22 @@ __示例 :__
 
 输入：a = 2147483647, b = [2,0,0]
 输出：1198
- 
+
 __提示：__
 
-1 <= a <= 231 - 1
+1 <= a <= 2^31 - 1
 1 <= b.length <= 2000
 0 <= b[i] <= 9
 b 不含前导 0
 
 __思路__:
+
 快速幂
-a ^ b = a * a ^ (b / 2), b为奇数
-a ^ b = a ^ (b / 2) * a ^ (b / 2), b为偶数
+a ^ b = a \* a ^ (b / 2), b为奇数
+a ^ b = a ^ (b / 2) \* a ^ (b / 2), b为偶数
 递归
-a ^ b = a ^ b[-1] * (a ^ b[:-1]) ^ 10, b为数组
-比如 2 ^ [1, 1] -> 2 ^ 1 * (2 ^ [1]) ^ 10 -> 2 * 1024 = 2048
+a ^ b = a ^ b[-1] \* (a ^ b[:-1]) ^ 10, b为数组
+比如 2 ^ [1, 1] -> 2 ^ 1 \* (2 ^ [1]) ^ 10 -> 2 \* 1024 = 2048
 取余
 ab % base = (a % base) * (b % base)
 所以每次只要有乘法, 就取一次余
@@ -74,6 +79,7 @@ ab % base = (a % base) * (b % base)
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -95,6 +101,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     private final int BASE = 1337;
@@ -112,6 +119,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def superPow(self, a: int, b: List[int]) -> int:

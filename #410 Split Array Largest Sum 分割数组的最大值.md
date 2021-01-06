@@ -6,6 +6,7 @@ Given an array nums which consists of non-negative integers and an integer m, yo
 Write an algorithm to minimize the largest sum among these m subarrays.
 
 __Example:__
+
 Example 1:
 
 Input: nums = [7,2,5,10,8], m = 2
@@ -55,6 +56,7 @@ m = 2
 因为此时这两个子数组各自的和的最大值为18，在所有情况中最小。
 
 __思路__:
+
 二分法, 贪心, 检测是否存在一种方案, 使得最大子数组之和的不超过 x
 如果 m == 1, 则输出 sum(nums)
 如果 m == len(nums), 则输出 max(nums)

@@ -1,3 +1,5 @@
+# 71 Simplify Path 简化路径
+
 __Description__:
 Given an absolute path for a file (Unix-style), simplify it. Or in other words, convert it to the canonical path.
 
@@ -6,6 +8,7 @@ In a UNIX-style file system, a period . refers to the current directory. Furthe
 Note that the returned canonical path must always begin with a slash /, and there must be only a single slash / between two directory names. The last directory name (if it exists) must not end with a trailing /. Also, the canonical path must be the shortest string representing the absolute path.
 
 __Example:__
+
 Example 1:
 
 Input: "/home/"
@@ -47,6 +50,7 @@ __题目描述__:
 请注意，返回的规范路径必须始终以斜杠 / 开头，并且两个目录名之间必须只有一个斜杠 /。最后一个目录名（如果存在）不能以 / 结尾。此外，规范路径必须是表示绝对路径的最短字符串。
 
 __示例 :__
+
 示例 1：
 
 输入："/home/"
@@ -81,6 +85,7 @@ __示例 :__
 输出："/a/b/c"
 
 __思路__:
+
 利用栈存储
 以 '/'作为分隔符插入输入字符, 碰到 '..'且栈非空就弹出
 碰到 '.'就跳过
@@ -90,6 +95,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -101,8 +107,8 @@ public:
         istringstream iss(path);
         while (getline(iss, result, '/'))
         {
-            if (!result.empty() && result != "." && result != "..") temp.push_back(result);
-            else if (!temp.empty() && result == "..") temp.pop_back();
+            if (!result.empty() and result != "." and result != "..") temp.push_back(result);
+            else if (!temp.empty() and result == "..") temp.pop_back();
         }
         result.clear();
         if (temp.empty()) result = "/";
@@ -113,6 +119,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public String simplifyPath(String path) {
@@ -129,6 +136,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def simplifyPath(self, path: str) -> str:

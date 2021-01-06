@@ -1,15 +1,21 @@
+# 85 Maximal Rectangle 最大矩形
+
 __Description__:
 Given a 2D binary matrix filled with 0's and 1's, find the largest rectangle containing only 1's and return its area.
 
 __Example:__
 
 Input:
+
+```text
 [
   ["1","0","1","0","0"],
   ["1","0","1","1","1"],
   ["1","1","1","1","1"],
   ["1","0","0","1","0"]
 ]
+```
+
 Output: 6
 
 __题目描述__:
@@ -18,15 +24,20 @@ __题目描述__:
 __示例 :__
 
 输入:
+
+```text
 [
   ["1","0","1","0","0"],
   ["1","0","1","1","1"],
   ["1","1","1","1","1"],
   ["1","0","0","1","0"]
 ]
+```
+
 输出: 6
 
 __思路__:
+
 1. 对每一行求[LeetCode #84 Largest Rectangle in Histogram 柱状图中最大的矩形](https://www.jianshu.com/p/154636b3e41b)
 时间复杂度O(mn), 空间复杂度O(m)
 2. 动态规划
@@ -35,6 +46,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -54,7 +66,7 @@ public:
             }
             for (int j = 0; j < n; j++) 
             {
-                if (matrix[i][j]=='1') left[j] = max(left[j], cur_left);
+                if (matrix[i][j] == '1') left[j] = max(left[j], cur_left);
                 else 
                 {
                     left[j] = 0; 
@@ -78,6 +90,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int maximalRectangle(char[][] matrix) {
@@ -108,6 +121,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def maximalRectangle(self, matrix: List[List[str]]) -> int:

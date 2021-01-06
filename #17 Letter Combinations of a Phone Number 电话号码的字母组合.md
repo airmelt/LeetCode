@@ -1,3 +1,5 @@
+# 17 Letter Combinations of a Phone Number 电话号码的字母组合
+
 __Description__:
 Given a string containing digits from 2-9 inclusive, return all possible letter combinations that the number could represent.
 
@@ -28,11 +30,13 @@ __示例 :__
 尽管上面的答案是按字典序排列的，但是你可以任意选择答案输出的顺序。
 
 __思路__:
+
 回溯法, 相当于决策树中选择分支, 比如 “23”, 第一次选择 2, 对应 “abc”, 对这个字符串进行遍历, 再选择 3, 对应 ”def“, 遍历并链接两个字符即可得到结果
 时间复杂度O(2 ^ n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -55,6 +59,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public List<String> letterCombinations(String digits) {
@@ -74,6 +79,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def letterCombinations(self, digits: str) -> List[str]:

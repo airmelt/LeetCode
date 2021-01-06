@@ -1,3 +1,5 @@
+# 306 Additive Number 累加数
+
 __Description__:
 Additive number is a string whose digits can form additive sequence.
 
@@ -9,18 +11,19 @@ __Note:__
 Numbers in the additive sequence cannot have leading zeros, so sequence 1, 2, 03 or 1, 02, 3 is invalid.
 
 __Example:__
+
 Example 1:
 
 Input: "112358"
 Output: true
-Explanation: The digits can form an additive sequence: 1, 1, 2, 3, 5, 8. 
+Explanation: The digits can form an additive sequence: 1, 1, 2, 3, 5, 8.
              1 + 1 = 2, 1 + 2 = 3, 2 + 3 = 5, 3 + 5 = 8
 
 Example 2:
 
 Input: "199100199"
 Output: true
-Explanation: The additive sequence is: 1, 99, 100, 199. 
+Explanation: The additive sequence is: 1, 99, 100, 199.
              1 + 99 = 100, 99 + 100 = 199
 
 __Constraints:__
@@ -42,25 +45,28 @@ __说明:__
 累加序列里的数不会以 0 开头，所以不会出现 1, 2, 03 或者 1, 02, 3 的情况。
 
 __示例 :__
+
 示例 1:
 
 输入: "112358"
-输出: true 
+输出: true
 解释: 累加序列为: 1, 1, 2, 3, 5, 8 。1 + 1 = 2, 1 + 2 = 3, 2 + 3 = 5, 3 + 5 = 8
 
 示例 2:
 
 输入: "199100199"
-输出: true 
+输出: true
 解释: 累加序列为: 1, 99, 100, 199。1 + 99 = 100, 99 + 100 = 199
 
 __进阶：__
 你如何处理一个溢出的过大的整数输入?
 
 __思路__:
+
 dfs ➕ 剪枝
 将字符串分成 3个部分, 第一个部分从 1开始(保证非空)最多到一半字符串位置, 第二个字符串从第一个部分的后 1个开始(保证非空)到结尾, 只要找到一条合适路径就返回 true
 剪枝操作:
+
 1. 判断前导 0
 2. 判断两个子字符串之和是否超出 num的范围
 3. 检查和是否在 num中
@@ -70,6 +76,7 @@ dfs ➕ 剪枝
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -107,6 +114,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public boolean isAdditiveNumber(String num) {
@@ -137,6 +145,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def isAdditiveNumber(self, num: str) -> bool:

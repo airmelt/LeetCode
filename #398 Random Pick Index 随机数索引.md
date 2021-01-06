@@ -1,3 +1,5 @@
+# 398 Random Pick Index 随机数索引
+
 __Description__:
 Given an array of integers with possible duplicates, randomly output the index of a given target number. You can assume that the given target number must exist in the array.
 
@@ -6,6 +8,7 @@ The array size can be very large. Solution that uses too much extra space will n
 
 __Example:__
 
+```Java
 int[] nums = new int[] {1,2,3,3,3};
 Solution solution = new Solution(nums);
 
@@ -14,6 +17,7 @@ solution.pick(3);
 
 // pick(1) should return 0. Since in the array only nums[0] is equal to 1.
 solution.pick(1);
+```
 
 __题目描述__:
 给定一个可能含有重复元素的整数数组，要求随机输出给定的数字的索引。 您可以假设给定的数字一定存在于数组中。
@@ -23,6 +27,7 @@ __注意:__
 
 __示例 :__
 
+```Java
 int[] nums = new int[] {1,2,3,3,3};
 Solution solution = new Solution(nums);
 
@@ -31,8 +36,10 @@ solution.pick(3);
 
 // pick(1) 应该返回 0。因为只有nums[0]等于1。
 solution.pick(1);
+```
 
 __思路__:
+
 蓄水池取样
 遍历数组, 每次查找到 target, 记录出现的次数
 选择一个 0-出现次数的随机数, 如果选到 0, 就交换结果和数组下标
@@ -40,6 +47,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -74,6 +82,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
 
@@ -105,6 +114,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
 

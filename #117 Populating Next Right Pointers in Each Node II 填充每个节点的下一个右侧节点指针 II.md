@@ -1,6 +1,9 @@
+# 117 Populating Next Right Pointers in Each Node II 填充每个节点的下一个右侧节点指针 II
+
 __Description__:
 Given a binary tree
-```
+
+```C
 struct Node {
   int val;
   Node *left;
@@ -17,14 +20,14 @@ __Follow up:__
 
 You may only use constant extra space.
 Recursive approach is fine, you may assume implicit stack space does not count as extra space for this problem.
- 
+
 __Example:__
+
 Example 1:
 ![binary tree](https://upload-images.jianshu.io/upload_images/16639143-7cdfba59149ec722.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 Input: root = [1,2,3,4,5,null,7]
 Output: [1,#,2,3,#,4,5,7,#]
 Explanation: Given the above binary tree (Figure A), your function should populate each next pointer to point to its next right node, just like in Figure B. The serialized output is in level order as connected by the next pointers, with '#' signifying the end of each level.
- 
 
 __Constraints:__
 
@@ -33,7 +36,8 @@ The number of nodes in the given tree is less than 6000.
 
 __题目描述__:
 给定一个二叉树
-```
+
+```C
 struct Node {
   int val;
   Node *left;
@@ -52,6 +56,7 @@ __进阶：__
 使用递归解题也符合要求，本题中递归程序占用的栈空间不算做额外的空间复杂度。
 
 __示例 :__
+
 ![二叉树](https://upload-images.jianshu.io/upload_images/16639143-21f401ef0af9a2c1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 输入：root = [1,2,3,4,5,null,7]
 输出：[1,#,2,3,#,4,5,7,#]
@@ -63,6 +68,7 @@ __提示：__
 -100 <= node.val <= 100
 
 __思路__:
+
 1. 递归法
 左子树的下一个是右子树或者由根节点的 next指针给定
 右子树的下一个由根节点的 next指针给定
@@ -76,6 +82,7 @@ next指针更新方式与递归法相同
 
 __代码__:
 __C++__:
+
 ```C++
 /*
 // Definition for a Node.
@@ -126,6 +133,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 /*
 // Definition for a Node.
@@ -175,6 +183,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 """
 # Definition for a Node.

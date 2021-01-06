@@ -1,36 +1,46 @@
+# 59 Spiral Matrix II 螺旋矩阵 II
+
 __Description__:
-Given a positive integer n, generate a square matrix filled with elements from 1 to n2 in spiral order.
+Given a positive integer n, generate a square matrix filled with elements from 1 to n^2 in spiral order.
 
 __Example:__
 
 Input: 3
 Output:
+
+```text
 [
  [ 1, 2, 3 ],
  [ 8, 9, 4 ],
  [ 7, 6, 5 ]
 ]
+```
 
 __题目描述__:
-给定一个正整数 n，生成一个包含 1 到 n2 所有元素，且元素按顺时针顺序螺旋排列的正方形矩阵。
+给定一个正整数 n，生成一个包含 1 到 n^2 所有元素，且元素按顺时针顺序螺旋排列的正方形矩阵。
 
 __示例 :__
 
 输入: 3
 输出:
+
+```text
 [
  [ 1, 2, 3 ],
  [ 8, 9, 4 ],
  [ 7, 6, 5 ]
 ]
+```
 
 __思路__:
+
 参考[LeetCode #54 Spiral Matrix 螺旋矩阵](https://www.jianshu.com/p/1de47741d08a)
 从左上右下四个方向模拟矩阵螺旋
 时间复杂度O(n ^ 2), 空间复杂度O(n ^ 2)
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -56,6 +66,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int[][] generateMatrix(int n) {
@@ -76,6 +87,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def generateMatrix(self, n: int) -> List[List[int]]:

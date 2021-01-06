@@ -1,3 +1,5 @@
+# 373 Find K Pairs with Smallest Sums 查找和最小的K对数字
+
 __Description__:
 You are given two integer arrays nums1 and nums2 sorted in ascending order and an integer k.
 
@@ -6,18 +8,19 @@ Define a pair (u,v) which consists of one element from the first array and one e
 Find the k pairs (u1,v1),(u2,v2) ...(uk,vk) with the smallest sums.
 
 __Example:__
+
 Example 1:
 
 Input: nums1 = [1,7,11], nums2 = [2,4,6], k = 3
-Output: [[1,2],[1,4],[1,6]] 
-Explanation: The first 3 pairs are returned from the sequence: 
+Output: [[1,2],[1,4],[1,6]]
+Explanation: The first 3 pairs are returned from the sequence:
              [1,2],[1,4],[1,6],[7,2],[7,4],[11,2],[7,6],[11,4],[11,6]
 
 Example 2:
 
 Input: nums1 = [1,1,2], nums2 = [1,2,3], k = 2
 Output: [1,1],[1,1]
-Explanation: The first 2 pairs are returned from the sequence: 
+Explanation: The first 2 pairs are returned from the sequence:
              [1,1],[1,1],[1,2],[2,1],[1,2],[2,2],[1,3],[1,3],[2,3]
 
 Example 3:
@@ -34,6 +37,7 @@ __题目描述__:
 找到和最小的 k 对数字 (u1,v1), (u2,v2) ... (uk,vk)。
 
 __示例 :__
+
 示例 1:
 
 输入: nums1 = [1,7,11], nums2 = [2,4,6], k = 3
@@ -50,17 +54,19 @@ __示例 :__
 
 示例 3:
 
-输入: nums1 = [1,2], nums2 = [3], k = 3 
+输入: nums1 = [1,2], nums2 = [3], k = 3
 输出: [1,3],[2,3]
 解释: 也可能序列中所有的数对都被返回:[1,3],[2,3]
 
 __思路__:
+
 求前 k个一般使用堆
 使用小顶堆, 固定 nums1中的数, 找到 nums2中的数加入结果中
 时间复杂度O((k + n)lgn), 空间复杂度O(n)
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -87,6 +93,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public List<List<Integer>> kSmallestPairs(int[] nums1, int[] nums2, int k) {
@@ -117,6 +124,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def kSmallestPairs(self, nums1: List[int], nums2: List[int], k: int) -> List[List[int]]:

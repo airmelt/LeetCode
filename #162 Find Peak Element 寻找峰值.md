@@ -1,3 +1,5 @@
+# 162 Find Peak Element 寻找峰值
+
 __Description__:
 A peak element is an element that is greater than its neighbors.
 
@@ -8,6 +10,7 @@ The array may contain multiple peaks, in that case return the index to any one o
 You may imagine that nums[-1] = nums[n] = -∞.
 
 __Example:__
+
 Example 1:
 
 Input: nums = [1,2,3,1]
@@ -17,7 +20,7 @@ Explanation: 3 is a peak element and your function should return the index numbe
 Example 2:
 
 Input: nums = [1,2,1,3,5,6,4]
-Output: 1 or 5 
+Output: 1 or 5
 Explanation: Your function can return either index number 1 where the peak element is 2, or index number 5 where the peak element is 6.
 
 __Follow up:__
@@ -33,6 +36,7 @@ __题目描述__:
 你可以假设 nums[-1] = nums[n] = -∞。
 
 __示例 :__
+
 示例 1:
 
 输入: nums = [1,2,3,1]
@@ -42,7 +46,7 @@ __示例 :__
 示例 2:
 
 输入: nums = [1,2,1,3,5,6,4]
-输出: 1 或 5 
+输出: 1 或 5
 解释: 你的函数可以返回索引 1，其峰值元素为 2；
      或者返回索引 5， 其峰值元素为 6。
 
@@ -51,6 +55,7 @@ __说明：__
 你的解法应该是 O(logN) 时间复杂度的。
 
 __思路__:
+
 1. 逐个搜索
 搜索到第一个递减的就是答案
 时间复杂度O(n), 空间复杂度O(1)
@@ -65,6 +70,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -84,6 +90,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int findPeakElement(int[] nums) {
@@ -100,6 +107,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def findPeakElement(self, nums: List[int]) -> int:

@@ -1,3 +1,5 @@
+# 378 Kth Smallest Element in a Sorted Matrix 有序矩阵中第K小的元素
+
 __Description__:
 Given a n x n matrix where each of the rows and columns are sorted in ascending order, find the kth smallest element in the matrix.
 
@@ -36,6 +38,7 @@ __提示：__
 你可以假设 k 的值永远是有效的，1 ≤ k ≤ n^2 。
 
 __思路__:
+
 1. 直接展开成一维数组, 再排序
 时间复杂度O(n ^ 2lgn), 空间复杂度O(n ^ 2)
 2. 归并排序, 将排序结果放入堆中
@@ -49,6 +52,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -68,7 +72,7 @@ private:
     bool helper(vector<vector<int>>& matrix, int mid, int k, int n) 
     {
         int i = n, j = 0, count = 0;
-        while (i >= 0 && j <= n) 
+        while (i >= 0 and j <= n) 
         {
             if (matrix[i][j] <= mid) 
             {
@@ -82,6 +86,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int kthSmallest(int[][] matrix, int k) {
@@ -101,6 +106,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def kthSmallest(self, matrix: List[List[int]], k: int) -> int:

@@ -1,7 +1,9 @@
+# 185 Department Top Three Salaries 部门工资前三高的所有员工
+
 __Description__:
 The Employee table holds all employees. Every employee has an Id, and there is also a column for the department Id.
 
-```
+```text
 +----+-------+--------+--------------+
 | Id | Name  | Salary | DepartmentId |
 +----+-------+--------+--------------+
@@ -17,7 +19,7 @@ The Employee table holds all employees. Every employee has an Id, and there is a
 
 The Department table holds all departments of the company.
 
-```
+```text
 +----+----------+
 | Id | Name     |
 +----+----------+
@@ -27,9 +29,10 @@ The Department table holds all departments of the company.
 ```
 
 __Example:__
+
 Write a SQL query to find employees who earn the top three salaries in each of the department. For the above tables, your SQL query should return the following rows (order of rows does not matter).
 
-```
+```text
 +------------+----------+--------+
 | Department | Employee | Salary |
 +------------+----------+--------+
@@ -49,7 +52,7 @@ In IT department, Max earns the highest salary, both Randy and Joe earn the seco
 __题目描述__:
 Employee 表包含所有员工信息，每个员工有其对应的工号 Id，姓名 Name，工资 Salary 和部门编号 DepartmentId 。
 
-```
+```text
 +----+-------+--------+--------------+
 | Id | Name  | Salary | DepartmentId |
 +----+-------+--------+--------------+
@@ -65,7 +68,7 @@ Employee 表包含所有员工信息，每个员工有其对应的工号 Id，�
 
 Department 表包含公司所有部门的信息。
 
-```
+```text
 +----+----------+
 | Id | Name     |
 +----+----------+
@@ -75,9 +78,10 @@ Department 表包含公司所有部门的信息。
 ```
 
 __示例 :__
+
 编写一个 SQL 查询，找出每个部门获得前三高工资的所有员工。例如，根据上述给定的表，查询结果应返回：
 
-```
+```text
 +------------+----------+--------+
 | Department | Employee | Salary |
 +------------+----------+--------+
@@ -95,6 +99,7 @@ __解释：__
 IT 部门中，Max 获得了最高的工资，Randy 和 Joe 都拿到了第二高的工资，Will 的工资排第三。销售部门（Sales）只有两名员工，Henry 的工资最高，Sam 的工资排第二。
 
 __思路__:
+
 INNER JOIN
 DISTINCT
 COUNT
@@ -102,7 +107,8 @@ DESC
 
 __代码__:
 __MySQL__:
-```
+
+```sql
 # Write your MySQL query statement below
 SELECT P2.Name AS Department, P1.Name AS Employee, P1.Salary AS Salary
 FROM Employee AS P1

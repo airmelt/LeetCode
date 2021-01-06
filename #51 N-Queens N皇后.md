@@ -12,6 +12,8 @@ Each solution contains a distinct board configuration of the n-queens' placement
 __Example:__
 
 Input: 4
+
+```text
 Output: [
  [".Q..",  // Solution 1
   "...Q",
@@ -23,6 +25,8 @@ Output: [
   "...Q",
   ".Q.."]
 ]
+```
+
 Explanation: There exist two distinct solutions to the 4-queens puzzle as shown above.
 
 __题目描述__:
@@ -39,6 +43,8 @@ n 皇后问题研究的是如何将 n 个皇后放置在 n×n 的棋盘上，�
 __示例 :__
 
 输入: 4
+
+```text
 输出: [
  [".Q..",  // 解法 1
   "...Q",
@@ -50,6 +56,8 @@ __示例 :__
   "...Q",
   ".Q.."]
 ]
+```
+
 解释: 4 皇后问题存在两个不同的解法。
 
 __提示：__
@@ -57,6 +65,7 @@ __提示：__
 皇后，是国际象棋中的棋子，意味着国王的妻子。皇后只做一件事，那就是“吃子”。当她遇见可以吃的棋子时，就迅速冲上去吃掉棋子。当然，她横、竖、斜都可走一或七步，可进可退。（引用自 百度百科 - 皇后 ）
 
 __思路__:
+
 回溯法
 
 1. 判断是否有效

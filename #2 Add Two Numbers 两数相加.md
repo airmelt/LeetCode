@@ -1,3 +1,5 @@
+# 2 Add Two Numbers 两数相加
+
 __Description__:
 You are given two __non-empty__ linked lists representing two non-negative integers. The digits are stored in __reverse order__ and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
 
@@ -23,11 +25,13 @@ __示例 :__
 原因：342 + 465 = 807
 
 __思路__:
+
 类似加法, 设置一个进位记录是否有进位, 对链表逐位进行加减, 长度不足的用 0代替
 时间复杂度O(n), 空间复杂度O(n)
 
 __代码__:
 __C++__:
+
 ```C++
 /**
  * Definition for singly-linked list.
@@ -45,7 +49,7 @@ public:
         ListNode* result = new ListNode(0);
         ListNode* r = result;
         int c = 0;
-        while (l1 || l2) 
+        while (l1 or l2) 
         {
             int x = l1 ? l1 -> val : 0, y = l2 ? l2 -> val : 0;
             r -> next = new ListNode((c + x + y) % 10);
@@ -61,6 +65,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 /**
  * Definition for singly-linked list.
@@ -90,6 +95,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 # Definition for singly-linked list.
 # class ListNode:

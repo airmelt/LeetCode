@@ -1,29 +1,40 @@
+# 329 Longest Increasing Path in a Matrix 矩阵中的最长递增路径
+
 __Description__:
 Given an integer matrix, find the length of the longest increasing path.
 
 From each cell, you can either move to four directions: left, right, up or down. You may NOT move diagonally or move outside of the boundary (i.e. wrap-around is not allowed).
 
 __Example:__
+
 Example 1:
 
-Input: nums = 
+Input: nums =
+
+```text
 [
   [9,9,4],
   [6,6,8],
   [2,1,1]
-] 
-Output: 4 
+]
+```
+
+Output: 4
 Explanation: The longest increasing path is [1, 2, 6, 9].
 
 Example 2:
 
-Input: nums = 
+Input: nums =
+
+```text
 [
   [3,4,5],
   [3,2,6],
   [2,2,1]
-] 
-Output: 4 
+]
+```
+
+Output: 4
 Explanation: The longest increasing path is [3, 4, 5, 6]. Moving diagonally is not allowed.
 
 __题目描述__:
@@ -32,35 +43,46 @@ __题目描述__:
 对于每个单元格，你可以往上，下，左，右四个方向移动。 你不能在对角线方向上移动或移动到边界外（即不允许环绕）。
 
 __示例 :__
+
 示例 1:
 
-输入: nums = 
+输入: nums =
+
+```text
 [
   [9,9,4],
   [6,6,8],
   [2,1,1]
 ] 
-输出: 4 
+```
+
+输出: 4
 解释: 最长递增路径为 [1, 2, 6, 9]。
 
 示例 2:
 
-输入: nums = 
+输入: nums =
+
+```text
 [
   [3,4,5],
   [3,2,6],
   [2,2,1]
 ] 
-输出: 4 
+```
+
+输出: 4
 解释: 最长递增路径是 [3, 4, 5, 6]。注意不允许在对角线方向上移动。
 
 __思路__:
+
 动态规划 ➕ dfs
 记忆化搜索
 时间复杂度O(mn), 空间复杂度O(mn)
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -90,6 +112,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int longestIncreasingPath(int[][] matrix) {
@@ -114,6 +137,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def longestIncreasingPath(self, matrix: List[List[int]]) -> int:

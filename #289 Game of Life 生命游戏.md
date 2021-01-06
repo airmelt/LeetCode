@@ -1,3 +1,5 @@
+# 289 Game of Life 生命游戏
+
 __Description__:
 According to the [Wikipedia's article](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life): "The Game of Life, also known simply as Life, is a cellular automaton devised by the British mathematician John Horton Conway in 1970."
 
@@ -11,8 +13,9 @@ Write a function to compute the next state (after one update) of the board given
 
 __Example:__
 
-Input: 
-```
+Input:
+
+```text
 [
   [0,1,0],
   [0,0,1],
@@ -20,8 +23,10 @@ Input:
   [0,0,0]
 ]
 ```
-Output: 
-```
+
+Output:
+
+```text
 [
   [0,0,0],
   [1,0,1],
@@ -48,8 +53,9 @@ __题目描述__:
 
 __示例 :__
 
-输入： 
-```
+输入：
+
+```text
 [
   [0,1,0],
   [0,0,1],
@@ -57,8 +63,10 @@ __示例 :__
   [0,0,0]
 ]
 ```
+
 输出：
-```
+
+```text
 [
   [0,0,0],
   [1,0,1],
@@ -72,6 +80,7 @@ __进阶：__
 本题中，我们使用二维数组来表示面板。原则上，面板是无限的，但当活细胞侵占了面板边界时会造成问题。你将如何解决这些问题？
 
 __思路__:
+
 先记录周围 8个位置的 1的个数, 这里 count需要和 1进行与运算(&), 因为用最后一位记录存活状态
 如果活细胞周围有 2个或者 3个活细胞, 则将该位置修改为 3(0b11),
 如果死细胞周围有 3个活细胞, 则将该位置修改为 2(0b10),
@@ -80,6 +89,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -106,6 +116,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public void gameOfLife(int[][] board) {
@@ -127,6 +138,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def gameOfLife(self, board: List[List[int]]) -> None:

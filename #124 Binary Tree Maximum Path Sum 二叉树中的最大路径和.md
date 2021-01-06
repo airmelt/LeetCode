@@ -1,29 +1,36 @@
+# 124 Binary Tree Maximum Path Sum 二叉树中的最大路径和
+
 __Description__:
 Given a non-empty binary tree, find the maximum path sum.
 
 For this problem, a path is defined as any sequence of nodes from some starting node to any node in the tree along the parent-child connections. The path must contain at least one node and does not need to go through the root.
 
 __Example:__
+
 Example 1:
 
 Input: [1,2,3]
-```
+
+```text
        1
       / \
      2   3
 ```
+
 Output: 6
 
 Example 2:
 
 Input: [-10,9,20,null,null,15,7]
-```
+
+```text
    -10
    / \
   9  20
     /  \
    15   7
 ```
+
 Output: 42
 
 __题目描述__:
@@ -32,29 +39,35 @@ __题目描述__:
 本题中，路径被定义为一条从树中任意节点出发，达到任意节点的序列。该路径至少包含一个节点，且不一定经过根节点。
 
 __示例 :__
+
 示例 1:
 
 输入: [1,2,3]
-```
+
+```text
        1
       / \
      2   3
 ```
+
 输出: 6
 
 示例 2:
 
 输入: [-10,9,20,null,null,15,7]
-```
+
+```text
    -10
    / \
   9  20
     /  \
    15   7
 ```
+
 输出: 42
 
 __思路__:
+
 递归法
 维护一个全局变量记录最大值
 只考虑节点对最大值的正的贡献值
@@ -62,6 +75,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 /**
  * Definition for a binary tree node.
@@ -93,6 +107,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 /**
  * Definition for a binary tree node.
@@ -122,6 +137,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 # Definition for a binary tree node.
 # class TreeNode:

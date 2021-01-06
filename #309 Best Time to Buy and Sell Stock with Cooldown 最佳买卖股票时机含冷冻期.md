@@ -1,3 +1,5 @@
+# 309 Best Time to Buy and Sell Stock with Cooldown 最佳买卖股票时机含冷冻期
+
 __Description__:
 Say you have an array for which the ith element is the price of a given stock on day i.
 
@@ -9,7 +11,7 @@ After you sell your stock, you cannot buy stock on next day. (ie, cooldown 1 day
 __Example:__
 
 Input: [1,2,3,0,2]
-Output: 3 
+Output: 3
 Explanation: transactions = [buy, sell, cooldown, buy, sell]
 
 __题目描述__:
@@ -23,10 +25,11 @@ __题目描述__:
 __示例 :__
 
 输入: [1,2,3,0,2]
-输出: 3 
+输出: 3
 解释: 对应的交易状态为: [买入, 卖出, 冷冻期, 买入, 卖出]
 
 __思路__:
+
 动态规划
 dp[i][0]表示第 i天没有股票的收益, dp[i][1]表示第 i天持有股票的收益
 这里因为有冷却期, 所以购买的时候要从前 2天开始
@@ -37,13 +40,16 @@ dp[i][1] = max(dp[i - 1][1], dp[i - 2][0] - prices[i])
 
 __代码__:
 __C++__:
+
 ```C++
-class Solution {
+class Solution 
+{
 public:
     int maxProfit(vector<int>& prices) 
     {
         int dp_i_0 = 0, dp_i_1 = INT_MIN, dp_pre_0 = 0;
-        for (int i = 0; i < prices.size(); i++) {
+        for (int i = 0; i < prices.size(); i++) 
+        {
             int temp = dp_i_0;
             dp_i_0 = max(dp_i_0, dp_i_1 + prices[i]);
             dp_i_1 = max(dp_i_1, dp_pre_0 - prices[i]);
@@ -55,6 +61,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int maxProfit(int[] prices) {
@@ -71,6 +78,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:

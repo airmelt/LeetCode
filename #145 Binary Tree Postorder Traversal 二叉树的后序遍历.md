@@ -1,16 +1,20 @@
+# 145 Binary Tree Postorder Traversal 二叉树的后序遍历
+
 __Description__:
 Given a binary tree, return the postorder traversal of its nodes' values.
 
 __Example:__
 
 Input: [1,null,2,3]
-```
+
+```text
    1
     \
      2
     /
    3
 ```
+
 Output: [3,2,1]
 
 __Follow up:__
@@ -22,19 +26,22 @@ __题目描述__:
 __示例 :__
 
 输入: [1,null,2,3]  
-```
+
+```text
    1
     \
      2
     /
    3 
 ```
+
 输出: [3,2,1]
 
 __进阶：__
 递归算法很简单，你可以通过迭代算法完成吗？
 
 __思路__:
+
 1. 递归法
 处理 root.left
 处理 root.right
@@ -48,6 +55,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 /**
  * Definition for a binary tree node.
@@ -81,6 +89,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 /**
  * Definition for a binary tree node.
@@ -108,6 +117,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 # Definition for a binary tree node.
 # class TreeNode:

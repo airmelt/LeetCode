@@ -1,11 +1,14 @@
+# 279 Perfect Squares 完全平方数
+
 __Description__:
 Given a positive integer n, find the least number of perfect square numbers (for example, 1, 4, 9, 16, ...) which sum to n.
 
 __Example:__
+
 Example 1:
 
 Input: n = 12
-Output: 3 
+Output: 3
 Explanation: 12 = 4 + 4 + 4.
 
 Example 2:
@@ -21,7 +24,7 @@ __示例 :__
 示例 1:
 
 输入: n = 12
-输出: 3 
+输出: 3
 解释: 12 = 4 + 4 + 4.
 
 示例 2:
@@ -31,6 +34,7 @@ __示例 :__
 解释: 13 = 4 + 9.
 
 __思路__:
+
 动态规划
 dp[i]表示能用 i个平方数之和表示该数
 令 s[i]表示小于 n的平方数
@@ -39,10 +43,13 @@ dp[i] = min(dp[i - s1], dp[i - s2], ..., dp[i - sn])
 
 __代码__:
 __C++__:
+
 ```C++
-class Solution {
+class Solution 
+{
 public:
-    int numSquares(int n) {
+    int numSquares(int n) 
+    {
         vector<int> dp(n + 1, INT_MAX), sq;
         dp[0] = 0;
         for (int i = 1; i < (int)sqrt(n) + 2; i++) sq.push_back(i * i);
@@ -57,6 +64,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int numSquares(int n) {
@@ -75,6 +83,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def numSquares(self, n: int) -> int:

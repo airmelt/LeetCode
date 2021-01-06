@@ -1,3 +1,5 @@
+# 376 Wiggle Subsequence 摆动序列
+
 __Description__:
 A sequence of numbers is called a wiggle sequence if the differences between successive numbers strictly alternate between positive and negative. The first difference (if one exists) may be either positive or negative. A sequence with fewer than two elements is trivially a wiggle sequence.
 
@@ -6,6 +8,7 @@ For example, [1,7,4,9,2,5] is a wiggle sequence because the differences (6,-3,5,
 Given a sequence of integers, return the length of the longest subsequence that is a wiggle sequence. A subsequence is obtained by deleting some number of elements (eventually, also zero) from the original sequence, leaving the remaining elements in their original order.
 
 __Example:__
+
 Example 1:
 
 Input: [1,7,4,9,2,5]
@@ -34,10 +37,11 @@ __题目描述__:
 给定一个整数序列，返回作为摆动序列的最长子序列的长度。 通过从原始序列中删除一些（也可以不删除）元素来获得子序列，剩下的元素保持其原始顺序。
 
 __示例 :__
+
 示例 1:
 
 输入: [1,7,4,9,2,5]
-输出: 6 
+输出: 6
 解释: 整个序列均为摆动序列。
 
 示例 2:
@@ -55,6 +59,7 @@ __进阶:__
 你能否用 O(n) 时间复杂度完成此题?
 
 __思路__:
+
 动态规划
 dp[i]表示 nums前 i个数中的摆动序列
 如果 nums[i]和前后两个数一正一负, 则 dp[i] = dp[i - 1] + 1
@@ -65,6 +70,7 @@ dp[i][1] 表示前 i个数中的摆动序列, 且 nums[i] < nums[i - 1]
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -72,7 +78,8 @@ public:
     int wiggleMaxLength(vector<int>& nums) 
     {
         int up = nums.empty() ? 0 : 1, down = nums.empty() ? 0 : 1;
-        for (int i = 1; i < nums.size(); i++) {
+        for (int i = 1; i < nums.size(); i++) 
+        {
             if (nums[i] > nums[i - 1]) up = down + 1;
             if (nums[i] < nums[i - 1]) down = up + 1;
         }
@@ -82,6 +89,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int wiggleMaxLength(int[] nums) {
@@ -96,6 +104,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def wiggleMaxLength(self, nums: List[int]) -> int:

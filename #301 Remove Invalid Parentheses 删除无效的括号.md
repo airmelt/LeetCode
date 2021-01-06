@@ -1,3 +1,5 @@
+# 301 Remove Invalid Parentheses 删除无效的括号
+
 __Description__:
 Remove the minimum number of invalid parentheses in order to make the input string valid. Return all possible results.
 
@@ -5,6 +7,7 @@ __Note:__
 The input string may contain letters other than the parentheses ( and ).
 
 __Example:__
+
 Example 1:
 
 Input: "()())()"
@@ -27,6 +30,7 @@ __说明:__
 输入可能包含了除 ( 和 ) 以外的字符。
 
 __示例 :__
+
 示例 1:
 
 输入: "()())()"
@@ -43,6 +47,7 @@ __示例 :__
 输出: [""]
 
 __思路__:
+
 BFS
 对每一个 s的字符串进行删除一个多余字符操作
 可以保证最少删除字符
@@ -53,6 +58,7 @@ BFS
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -68,7 +74,7 @@ public:
             q.pop();
             string ss = p.first;
             if (is_valid(ss)) result.push_back(ss);
-            else if (result.empty()) for (int i = p.second; i < ss.size(); i++) if ((ss[i] == ')' || ss[i] == '(') && (i == p.second || ss[i] != ss[i - 1])) q.push(make_pair(ss.substr(0, i) + ss.substr(i + 1), i));
+            else if (result.empty()) for (int i = p.second; i < ss.size(); i++) if ((ss[i] == ')' or ss[i] == '(') and (i == p.second or ss[i] != ss[i - 1])) q.push(make_pair(ss.substr(0, i) + ss.substr(i + 1), i));
         }
         return result;
     }
@@ -91,6 +97,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     class Pair {
@@ -140,6 +147,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def removeInvalidParentheses(self, s: str) -> List[str]:

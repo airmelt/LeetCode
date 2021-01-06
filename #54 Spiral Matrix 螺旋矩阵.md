@@ -1,25 +1,36 @@
+# 54 Spiral Matrix 螺旋矩阵
+
 __Description__:
 Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.
 
 __Example:__
+
 Example 1:
 
 Input:
+
+```text
 [
  [ 1, 2, 3 ],
  [ 4, 5, 6 ],
  [ 7, 8, 9 ]
 ]
+```
+
 Output: [1,2,3,6,9,8,7,4,5]
 
 Example 2:
 
 Input:
+
+```text
 [
   [1, 2, 3, 4],
   [5, 6, 7, 8],
   [9,10,11,12]
 ]
+```
+
 Output: [1,2,3,4,8,12,11,10,9,5,6,7]
 
 __题目描述__:
@@ -29,30 +40,40 @@ __示例 :__
 示例 1:
 
 输入:
+
+```text
 [
  [ 1, 2, 3 ],
  [ 4, 5, 6 ],
  [ 7, 8, 9 ]
 ]
+```
+
 输出: [1,2,3,6,9,8,7,4,5]
 
 示例 2:
 
 输入:
+
+```text
 [
   [1, 2, 3, 4],
   [5, 6, 7, 8],
   [9,10,11,12]
 ]
+```
+
 输出: [1,2,3,4,8,12,11,10,9,5,6,7]
 
 __思路__:
+
 按照螺旋的方法遍历整个矩阵
 每一次遍历就更换方向
 时间复杂度O(n), 空间复杂度O(n)
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -60,7 +81,7 @@ public:
     vector<int> spiralOrder(vector<vector<int>>& matrix) 
     {
         vector<int> result;
-        if (matrix.empty() || matrix[0].empty()) return result;
+        if (matrix.empty() or matrix[0].empty()) return result;
         int up = 0, down = matrix.size() - 1, left = 0, right = matrix[0].size() - 1;
         while (true)
         {
@@ -79,6 +100,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public List<Integer> spiralOrder(int[][] matrix) {
@@ -101,6 +123,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def spiralOrder(self, matrix: List[List[int]]) -> List[int]:

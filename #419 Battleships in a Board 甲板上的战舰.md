@@ -8,7 +8,7 @@ At least one horizontal or vertical cell separates between two battleships - the
 
 __Example:__
 
-```C
+```text
 X..X
 ...X
 ...X
@@ -17,7 +17,7 @@ X..X
 In the above board there are 2 battleships.
 Invalid Example:
 
-```C
+```text
 ...X
 XXXX
 ...X
@@ -38,7 +38,7 @@ __题目描述__:
 
 __示例 :__
 
-```C
+```text
 X..X
 ...X
 ...X
@@ -48,7 +48,7 @@ X..X
 
 无效样例 :
 
-```C
+```text
 ...X
 XXXX
 ...X
@@ -75,7 +75,7 @@ public:
     int countBattleships(vector<vector<char>>& board) 
     {
         int result = 0;
-        for (int i = 0; i < board.size(); i++) for (int j = 0; j < board[0].size(); j++) if (board[i][j] == 'X' && (i == 0 || board[i - 1][j] == '.') && (j == 0 || board[i][j - 1] == '.')) ++result;
+        for (int i = 0; i < board.size(); i++) for (int j = 0; j < board[0].size(); j++) if (board[i][j] == 'X' and (i == 0 or board[i - 1][j] == '.') and (j == 0 or board[i][j - 1] == '.')) ++result;
         return result;
     }
 };

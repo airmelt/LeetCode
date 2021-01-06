@@ -14,6 +14,8 @@ __Example:__
 Input: 4
 Output: 2
 Explanation: There exist two distinct solutions to the 4-queens puzzle as shown above.
+
+```text
 [
  [".Q..",  // Solution 1
   "...Q",
@@ -25,6 +27,7 @@ Explanation: There exist two distinct solutions to the 4-queens puzzle as shown 
   "...Q",
   ".Q.."]
 ]
+```
 
 __题目描述__:
 n 皇后问题研究的是如何将 n 个皇后放置在 n×n 的棋盘上，并且使皇后彼此之间不能相互攻击。
@@ -42,6 +45,8 @@ __示例 :__
 输入: 4
 输出: 2
 解释: 4 皇后问题存在两个不同的解法。
+
+```text
 [
  [".Q..",  // 解法 1
   "...Q",
@@ -53,6 +58,7 @@ __示例 :__
   "...Q",
   ".Q.."]
 ]
+```
 
 __提示：__
 

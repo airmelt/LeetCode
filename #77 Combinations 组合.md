@@ -1,3 +1,5 @@
+# 77 Combinations 组合
+
 __Description__:
 Given two integers n and k, return all possible combinations of k numbers out of 1 ... n.
 
@@ -31,11 +33,13 @@ __示例 :__
 ]
 
 __思路__:
+
 回溯法
 时间复杂度O(kC(n, k)), 空间复杂度O(k)
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -66,6 +70,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public List<List<Integer>> combine(int n, int k) {
@@ -90,6 +95,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def combine(self, n: int, k: int) -> List[List[int]]:

@@ -1,7 +1,10 @@
+# 273 Integer to English Words 整数转换英文表示
+
 __Description__:
 Convert a non-negative integer to its english words representation. Given input is guaranteed to be less than 2^31 - 1.
 
 __Example:__
+
 Example 1:
 
 Input: 123
@@ -26,6 +29,7 @@ __题目描述__:
 将非负整数转换为其对应的英文表示。可以保证给定输入小于 2^31 - 1 。
 
 __示例 :__
+
 示例 1:
 
 输入: 123
@@ -47,11 +51,13 @@ __示例 :__
 输出: "One Billion Two Hundred Thirty Four Million Five Hundred Sixty Seven Thousand Eight Hundred Ninety One"
 
 __思路__:
+
 按照每 1000分开数字, 转换成英文即可
 时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -101,6 +107,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     
@@ -137,6 +144,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def numberToWords(self, num: int) -> str:

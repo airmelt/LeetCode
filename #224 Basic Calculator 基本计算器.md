@@ -1,9 +1,12 @@
+# 224 Basic Calculator 基本计算器
+
 __Description__:
 Implement a basic calculator to evaluate a simple expression string.
 
 The expression string may contain open ( and closing parentheses ), the plus + or minus sign -, non-negative integers and empty spaces .
 
 __Example:__
+
 Example 1:
 
 Input: "1 + 1"
@@ -29,6 +32,7 @@ __题目描述__:
 字符串表达式可以包含左括号 ( ，右括号 )，加号 + ，减号 -，非负整数和空格  。
 
 __示例 :__
+
 示例 1:
 
 输入: "1 + 1"
@@ -50,6 +54,7 @@ __说明：__
 请不要使用内置的库函数 eval。
 
 __思路__:
+
 用栈记录
 因为这里只有加减法运算, 可以用一个符号, 记录加减符号, 1代表 ‘+’, -1代表 ‘-’
 当遇到左括号时, 当前结果和符号入栈, 重置结果和符号
@@ -58,6 +63,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -72,7 +78,7 @@ public:
             if (isdigit(c)) 
             {
                 auto cur = c - '0';
-                while (i < n - 1 && isdigit(s[i + 1])) cur = 10 * cur + (s[++i] - '0');
+                while (i < n - 1 and isdigit(s[i + 1])) cur = 10 * cur + (s[++i] - '0');
                 result += sign * cur;
             } 
             else if (c == '+') sign = 1;
@@ -98,6 +104,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int calculate(String s) {
@@ -124,6 +131,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def calculate(self, s: str) -> int:

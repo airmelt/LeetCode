@@ -1,3 +1,5 @@
+# 106 Construct Binary Tree from Inorder and Postorder Traversal 从中序与后序遍历序列构造二叉树
+
 __Description__:
 Given inorder and postorder traversal of a tree, construct the binary tree.
 
@@ -5,12 +7,14 @@ __Note:__
 You may assume that duplicates do not exist in the tree.
 
 __Example:__
+
 For example, given
 
 inorder = [9,3,15,20,7]
 postorder = [9,15,7,20,3]
 Return the following binary tree:
-```
+
+```text
     3
    / \
   9  20
@@ -25,12 +29,14 @@ __注意:__
 你可以假设树中没有重复的元素。
 
 __示例 :__
+
 例如，给出
 
 中序遍历 inorder = [9,3,15,20,7]
 后序遍历 postorder = [9,15,7,20,3]
 返回如下的二叉树：
-```
+
+```text
     3
    / \
   9  20
@@ -39,6 +45,7 @@ __示例 :__
 ```
 
 __思路__:
+
 递归法
 后序遍历最后一个为根节点
 找到后序遍历最后一个元素在中序遍历的下标, 将中序遍历列表分为 2个部分, 前半部分为左子树, 后半部分为右子树
@@ -46,6 +53,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 /**
  * Definition for a binary tree node.
@@ -76,6 +84,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 /**
  * Definition for a binary tree node.
@@ -99,6 +108,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 # Definition for a binary tree node.
 # class TreeNode:

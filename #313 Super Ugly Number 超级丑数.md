@@ -1,3 +1,5 @@
+# 313 Super Ugly Number 超级丑数
+
 __Description__:
 Write a program to find the nth super ugly number.
 
@@ -6,8 +8,8 @@ Super ugly numbers are positive numbers whose all prime factors are in the given
 __Example:__
 
 Input: n = 12, primes = [2,7,13,19]
-Output: 32 
-Explanation: [1,2,4,7,8,13,14,16,19,26,28,32] is the sequence of the first 12 
+Output: 32
+Explanation: [1,2,4,7,8,13,14,16,19,26,28,32] is the sequence of the first 12
              super ugly numbers given primes = [2,7,13,19] of size 4.
 
 __Note:__
@@ -25,7 +27,7 @@ __题目描述__:
 __示例 :__
 
 输入: n = 12, primes = [2,7,13,19]
-输出: 32 
+输出: 32
 解释: 给定长度为 4 的质数列表 primes = [2,7,13,19]，前 12 个超级丑数序列为：[1,2,4,7,8,13,14,16,19,26,28,32] 。
 
 __说明:__
@@ -36,8 +38,10 @@ __说明:__
 第 n 个超级丑数确保在 32 位有符整数范围内。
 
 __思路__:
+
 动态规划
 参考[LeetCode #264 Ugly Number II 丑数 II](https://www.jianshu.com/p/f6f1f3879733)
+
 1. 设置 primes.size()个指针, 每次选择最小的进行更新 dp中的内容
 dp[i] = min(dp[i], dp[pointer[j]] * primes[j], 0 <= j <= primes.size() - 1
 时间复杂度O(nm), 空间复杂度O(Max(n, m)), 其中 m为 primes数组的长度
@@ -46,6 +50,7 @@ dp[i] = min(dp[i], dp[pointer[j]] * primes[j], 0 <= j <= primes.size() - 1
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -66,6 +71,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int nthSuperUglyNumber(int n, int[] primes) {
@@ -83,6 +89,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def nthSuperUglyNumber(self, n: int, primes: List[int]) -> int:

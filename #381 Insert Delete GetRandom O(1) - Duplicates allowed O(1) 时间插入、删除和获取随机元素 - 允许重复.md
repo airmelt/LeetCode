@@ -1,3 +1,5 @@
+# 381 Insert Delete GetRandom O(1) - Duplicates allowed O(1) 时间插入、删除和获取随机元素 - 允许重复
+
 __Description__:
 Design a data structure that supports all following operations in average O(1) time.
 
@@ -10,6 +12,7 @@ getRandom: Returns a random element from current collection of elements. The pro
 
 __Example:__
 
+```Java
 // Init an empty collection.
 RandomizedCollection collection = new RandomizedCollection();
 
@@ -30,6 +33,7 @@ collection.remove(1);
 
 // getRandom should return 1 and 2 both equally likely.
 collection.getRandom();
+```
 
 __题目描述__:
 设计一个支持在平均 时间复杂度 O(1) 下， 执行以下操作的数据结构。
@@ -43,6 +47,7 @@ getRandom：从现有集合中随机获取一个元素。每个元素被返回�
 
 __示例 :__
 
+```Java
 // 初始化一个空的集合。
 RandomizedCollection collection = new RandomizedCollection();
 
@@ -63,8 +68,10 @@ collection.remove(1);
 
 // getRandom 应有相同概率返回 1 和 2 。
 collection.getRandom();
+```
 
 __思路__:
+
 使用 map记录值和下标, 将下标存入一个 set中
 使用 vector(列表)记录值
 插入时存入 map和插在列表的结尾, 返回 map中对应的 set的长度是否为 1
@@ -74,6 +81,7 @@ insert()时间复杂度O(1), remove()时间复杂度O(1), getRandom()时间复�
 
 __代码__:
 __C++__:
+
 ```C++
 class RandomizedCollection 
 {
@@ -123,6 +131,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class RandomizedCollection {
     private Map<Integer, Set<Integer>> map;
@@ -173,6 +182,7 @@ class RandomizedCollection {
 ```
 
 __Python__:
+
 ```Python
 class RandomizedCollection:
 

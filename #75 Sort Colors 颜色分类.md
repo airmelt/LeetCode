@@ -1,3 +1,5 @@
+# 75 Sort Colors 颜色分类
+
 __Description__:
 Given an array with n objects colored red, white or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white and blue.
 
@@ -37,12 +39,14 @@ __进阶：__
 你能想出一个仅使用常数空间的一趟扫描算法吗？
 
 __思路__:
+
 双指针
 left指向 1的左边, right指向 1的右边, i指向当前数组元素
 时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -50,16 +54,18 @@ public:
     void sortColors(vector<int>& nums) 
     {
         int left = 0, right = nums.size() - 1, i = 0;
-        while (i <= right) {
+        while (i <= right) 
+        {
             if (nums[i] == 0) swap(nums[left++], nums[i++]);
             else if (nums[i] == 1) ++i;
-            else if (i <= right && nums[i] == 2) swap(nums[right--], nums[i]);
+            else if (i <= right and nums[i] == 2) swap(nums[right--], nums[i]);
         }
     }
 };
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public void sortColors(int[] nums) {
@@ -80,6 +86,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def sortColors(self, nums: List[int]) -> None:

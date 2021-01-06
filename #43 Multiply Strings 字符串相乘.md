@@ -1,7 +1,10 @@
+# 43 Multiply Strings 字符串相乘
+
 __Description__:
 Given two non-negative integers num1 and num2 represented as strings, return the product of num1 and num2, also represented as a string.
 
 __Example:__
+
 Example 1:
 
 Input: num1 = "2", num2 = "3"
@@ -23,6 +26,7 @@ __题目描述__:
 给定两个以字符串形式表示的非负整数 num1 和 num2，返回 num1 和 num2 的乘积，它们的乘积也表示为字符串形式。
 
 __示例 :__
+
 示例 1:
 
 输入: num1 = "2", num2 = "3"
@@ -41,6 +45,7 @@ __说明:__
 4. 不能使用任何标准库的大数类型（比如 BigInteger）或直接将输入转换为整数来处理。
 
 __思路__:
+
 参考[LeetCode #415 Add Strings 字符串相加](https://www.jianshu.com/p/39cc4837d2f3)
 两个数相乘结果的位数最多不会超过两个数的位数之和
 如 99 * 99 = 9801
@@ -51,6 +56,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -68,7 +74,7 @@ public:
         }
         string result = "";
         int i = 0;
-        while (i < m + n + 1 && value[i] == 0) ++i;
+        while (i < m + n + 1 and value[i] == 0) ++i;
         for (; i < m + n + 2; i++) result += to_string(value[i]);
         return result;
     }
@@ -76,6 +82,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public String multiply(String num1, String num2) {
@@ -96,6 +103,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def multiply(self, num1: str, num2: str) -> str:

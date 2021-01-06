@@ -1,7 +1,9 @@
+# 178 Rank Scores 分数排名
+
 __Description__:
 Write a SQL query to rank scores. If there is a tie between two scores, both should have the same ranking. Note that after a tie, the next ranking number should be the next consecutive integer value. In other words, there should be no "holes" between ranks.
 
-```
+```text
 +----+-------+
 | Id | Score |
 +----+-------+
@@ -15,9 +17,10 @@ Write a SQL query to rank scores. If there is a tie between two scores, both sho
 ```
 
 __Example:__
+
 For example, given the above Scores table, your query should generate the following report (order by highest score):
 
-```
+```text
 +-------+---------+
 | score | Rank    |
 +-------+---------+
@@ -38,7 +41,7 @@ __题目描述__:
 
 如果两个分数相同，则两个分数排名（Rank）相同。请注意，平分后的下一个名次应该是下一个连续的整数值。换句话说，名次之间不应该有“间隔”。
 
-```
+```text
 +----+-------+
 | Id | Score |
 +----+-------+
@@ -52,9 +55,10 @@ __题目描述__:
 ```
 
 __示例 :__
+
 例如，根据上述给定的 Scores 表，你的查询应该返回（按分数从高到低排列）：
 
-```
+```text
 +-------+------+
 | Score | Rank |
 +-------+------+
@@ -71,13 +75,15 @@ __重要提示：__
 对于 MySQL 解决方案，如果要转义用作列名的保留字，可以在关键字之前和之后使用撇号。例如 `Rank`
 
 __思路__:
+
 COUNT
 DISTINCT
 DESC
 
 __代码__:
 __MySQL__:
-```
+
+```sql
 # Write your MySQL query statement below
 SELECT
     S1.score,

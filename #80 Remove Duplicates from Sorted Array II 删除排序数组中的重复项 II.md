@@ -1,9 +1,12 @@
+# 80 Remove Duplicates from Sorted Array II 删除排序数组中的重复项 II
+
 __Description__:
 Given a sorted array nums, remove the duplicates in-place such that duplicates appeared at most twice and return the new length.
 
 Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.
 
 __Example:__
+
 Example 1:
 
 Given nums = [1,1,1,2,2,3],
@@ -28,6 +31,7 @@ Note that the input array is passed in by reference, which means modification to
 
 Internally you can think of this:
 
+```Java
 // nums is passed in by reference. (i.e., without making a copy)
 int len = removeDuplicates(nums);
 
@@ -36,6 +40,7 @@ int len = removeDuplicates(nums);
 for (int i = 0; i < len; i++) {
     print(nums[i]);
 }
+```
 
 __题目描述__:
 给定一个排序数组，你需要在原地删除重复出现的元素，使得每个元素最多出现两次，返回移除后数组的新长度。
@@ -43,6 +48,7 @@ __题目描述__:
 不要使用额外的数组空间，你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。
 
 __示例 :__
+
 示例 1:
 
 给定 nums = [1,1,1,2,2,3],
@@ -67,6 +73,7 @@ __说明：__
 
 你可以想象内部操作如下:
 
+```Java
 // nums 是以“引用”方式传递的。也就是说，不对实参做任何拷贝
 int len = removeDuplicates(nums);
 
@@ -75,14 +82,17 @@ int len = removeDuplicates(nums);
 for (int i = 0; i < len; i++) {
     print(nums[i]);
 }
+```
 
 __思路__:
+
 设置一个指针指向下标, 用 count记录重复元素的数目, count重置为 1
 注意当数组为空的时候可能会越界
 时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -103,6 +113,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int removeDuplicates(int[] nums) {
@@ -114,6 +125,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:

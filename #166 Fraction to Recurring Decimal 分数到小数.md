@@ -1,3 +1,5 @@
+# 166 Fraction to Recurring Decimal 分数到小数
+
 __Description__:
 Given two integers representing the numerator and denominator of a fraction, return the fraction in string format.
 
@@ -6,6 +8,7 @@ If the fractional part is repeating, enclose the repeating part in parentheses.
 If multiple answers are possible, just return any of them.
 
 __Example:__
+
 Example 1:
 
 Input: numerator = 1, denominator = 2
@@ -27,6 +30,7 @@ __题目描述__:
 如果小数部分为循环小数，则将循环的部分括在括号内。
 
 __示例 :__
+
 示例 1:
 
 输入: numerator = 1, denominator = 2
@@ -43,7 +47,9 @@ __示例 :__
 输出: "0.(6)"
 
 __思路__:
+
 模拟除法运算
+
 1. 如果分子为 0直接输出 0
 2. 用异或决定是否添加负号, 将分子分母取绝对值
 3. 用一个变量 remain记录取余结果, 每次循环 remain自乘 10之后去➗分子, remain记录取余结果
@@ -53,13 +59,14 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
 public:
     string fractionToDecimal(int numerator, int denominator) 
     {
-        if (!numerator | !denominator) return "0";
+        if (!numerator or !denominator) return "0";
         string result = "";
         if (numerator < 0 ^ denominator < 0) result += "-";
         long long up = llabs(static_cast<long long>(numerator)), down = llabs(static_cast<long long>(denominator));
@@ -86,10 +93,11 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public String fractionToDecimal(int numerator, int denominator) {
-        if (numerator == 0 | denominator == 0) return "0";
+        if (numerator == 0 || denominator == 0) return "0";
         StringBuilder result = new StringBuilder();
         if (numerator < 0 ^ denominator < 0) result.append("-");
         long up = Math.abs(Long.valueOf(numerator)), down = Math.abs(Long.valueOf(denominator));
@@ -115,6 +123,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def fractionToDecimal(self, numerator: int, denominator: int) -> str:

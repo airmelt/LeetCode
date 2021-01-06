@@ -1,3 +1,5 @@
+# 8 String to Integer (atoi) 字符串转换整数 (atoi)
+
 __Description__:
 Implement atoi which converts a string to an integer.
 
@@ -15,6 +17,7 @@ Only the space character ' ' is considered as whitespace character.
 Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−231,  231 − 1]. If the numerical value is out of the range of representable values, INT_MAX (231 − 1) or INT_MIN (−231) is returned.
 
 __Example:__
+
 Example 1:
 
 Input: "42"
@@ -37,7 +40,7 @@ Example 4:
 
 Input: "words and 987"
 Output: 0
-Explanation: The first non-whitespace character is 'w', which is not a numerical 
+Explanation: The first non-whitespace character is 'w', which is not a numerical
              digit or a +/- sign. Therefore no valid conversion could be performed.
 
 Example 5:
@@ -65,6 +68,7 @@ __说明：__
 假设我们的环境只能存储 32 位大小的有符号整数，那么其数值范围为 [−231,  231 − 1]。如果数值超过这个范围，请返回  INT_MAX (231 − 1) 或 INT_MIN (−231) 。
 
 __示例 :__
+
 示例 1:
 
 输入: "42"
@@ -94,15 +98,17 @@ __示例 :__
 
 输入: "-91283472332"
 输出: -2147483648
-解释: 数字 "-91283472332" 超过 32 位有符号整数范围。 
+解释: 数字 "-91283472332" 超过 32 位有符号整数范围。
      因此返回 INT_MIN (−231) 。
 
 __思路__:
+
 记录下标, 先找到第一个不为空格的字符, 记录正负, 再记录数值, 可用 long或者字符串记录数字, 最后再与 32位整数比较即可
 时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -111,7 +117,7 @@ public:
     {
         int index = 0, positive = 1, n = str.size();
         long temp = 0;
-        while (index < n && str[index] == ' ') ++index;
+        while (index < n and str[index] == ' ') ++index;
         if (index == n) return 0;
         if (str[index] == '+') ++index;
         else if (str[index] == '-')
@@ -119,7 +125,7 @@ public:
             positive = -1;
             ++index;
         }
-        while (index < n && str[index] >= '0' && str[index] <= '9')
+        while (index < n and str[index] >= '0' && str[index] <= '9')
         {
             temp *= 10;
             temp += str[index++] - '0';
@@ -135,6 +141,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int myAtoi(String str) {
@@ -164,6 +171,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def myAtoi(self, str: str) -> int:

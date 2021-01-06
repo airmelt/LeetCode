@@ -66,10 +66,10 @@ public:
         while (end < n) 
         {
             c = password[end];
-            if (c >= '0' && c <= '9') num = 0;
-            if (c >= 'a' && c <= 'z') lower = 0;
-            if (c >= 'A' && c <= 'Z') upper = 0;
-            while (end < n && password[end] == c) ++end;
+            if (c >= '0' and c <= '9') num = 0;
+            if (c >= 'a' and c <= 'z') lower = 0;
+            if (c >= 'A' and c <= 'Z') upper = 0;
+            while (end < n and password[end] == c) ++end;
             len = end - start;
             if (len > 2) 
             {

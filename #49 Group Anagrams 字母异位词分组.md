@@ -1,3 +1,5 @@
+# 49 Group Anagrams 字母异位词分组
+
 __Description__:
 Given an array of strings, group anagrams together.
 
@@ -35,6 +37,7 @@ __说明:__
 不考虑答案输出的顺序。
 
 __思路__:
+
 1. 对每个字符串进行排序后分组
 时间复杂度O(mnlgn), 空间复杂度O(mn), 其中 m为 strs数组的长度, n为 strs中字符串的最大长度
 2. 将每个字符串进行 hash, 可以用质数乘积表示, 也可以用一个字符串表示
@@ -42,6 +45,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -64,6 +68,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public List<List<String>> groupAnagrams(String[] strs) {
@@ -81,6 +86,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:

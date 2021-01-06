@@ -1,7 +1,9 @@
+# 184 Department Highest Salary 部门工资最高的员工
+
 __Description__:
 The Employee table holds all employees. Every employee has an Id, a salary, and there is also a column for the department Id.
 
-```
+```text
 +----+-------+--------+--------------+
 | Id | Name  | Salary | DepartmentId |
 +----+-------+--------+--------------+
@@ -15,7 +17,7 @@ The Employee table holds all employees. Every employee has an Id, a salary, and 
 
 The Department table holds all departments of the company.
 
-```
+```text
 +----+----------+
 | Id | Name     |
 +----+----------+
@@ -25,9 +27,10 @@ The Department table holds all departments of the company.
 ```
 
 __Example:__
+
 Write a SQL query to find employees who have the highest salary in each of the departments. For the above tables, your SQL query should return the following rows (order of rows does not matter).
 
-```
+```text
 +------------+----------+--------+
 | Department | Employee | Salary |
 +------------+----------+--------+
@@ -44,7 +47,7 @@ Max and Jim both have the highest salary in the IT department and Henry has the
 __题目描述__:
 Employee 表包含所有员工信息，每个员工有其对应的 Id, salary 和 department Id。
 
-```
+```text
 +----+-------+--------+--------------+
 | Id | Name  | Salary | DepartmentId |
 +----+-------+--------+--------------+
@@ -58,7 +61,7 @@ Employee 表包含所有员工信息，每个员工有其对应的 Id, salary �
 
 Department 表包含公司所有部门的信息。
 
-```
+```text
 +----+----------+
 | Id | Name     |
 +----+----------+
@@ -68,9 +71,10 @@ Department 表包含公司所有部门的信息。
 ```
 
 __示例 :__
+
 编写一个 SQL 查询，找出每个部门工资最高的员工。对于上述表，您的 SQL 查询应返回以下行（行的顺序无关紧要）。
 
-```
+```text
 +------------+----------+--------+
 | Department | Employee | Salary |
 +------------+----------+--------+
@@ -85,12 +89,14 @@ __解释：__
 Max 和 Jim 在 IT 部门的工资都是最高的，Henry 在销售部的工资最高。
 
 __思路__:
+
 INNER JOIN
 MAX
 
 __代码__:
 __MySQL__:
-```
+
+```sql
 # Write your MySQL query statement below
 SELECT Department.Name AS Department, Employee.Name AS Employee, Employee.Salary AS Salary
 FROM Department

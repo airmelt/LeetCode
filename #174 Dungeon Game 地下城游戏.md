@@ -1,3 +1,5 @@
+# 174 Dungeon Game 地下城游戏
+
 __Description__:
 The demons had captured the princess (P) and imprisoned her in the bottom-right corner of a dungeon. The dungeon consists of M x N rooms laid out in a 2D grid. Our valiant knight (K) was initially positioned in the top-left room and must fight his way through the dungeon to rescue the princess.
 
@@ -10,14 +12,14 @@ In order to reach the princess as quickly as possible, the knight decides to mov
 Write a function to determine the knight's minimum initial health so that he is able to rescue the princess.
 
 __Example:__
+
 For example, given the dungeon below, the initial health of the knight must be at least 7 if he follows the optimal path RIGHT-> RIGHT -> DOWN -> DOWN.
 
 | | | |
 | :---- | :---- | :---- |
-|-2 (K)	|-3	|3|
-|-5	|-10	|1|
-|10	|30	|-5 (P)|
-
+|-2 (K)|-3|3|
+|-5|-10|1|
+|10|30|-5 (P)|
 
 __Note:__
 
@@ -36,14 +38,15 @@ __题目描述__:
 编写一个函数来计算确保骑士能够拯救到公主所需的最低初始健康点数。
 
 __示例 :__
+
 例如，考虑到如下布局的地下城，如果骑士遵循最佳路径 右 -> 右 -> 下 -> 下，则骑士的初始健康点数至少为 7。
 
 | | | |
 | :---- | :---- | :---- |
-|-2 (K)	|-3	|3|
-|-5	|-10	|1|
-|10	|30	|-5 (P)|
- 
+|-2 (K)|-3|3|
+|-5|-10|1|
+|10|30|-5 (P)|
+
 __说明：__
 
 骑士的健康点数没有上限。
@@ -51,6 +54,7 @@ __说明：__
 任何房间都可能对骑士的健康点数造成威胁，也可能增加骑士的健康点数，包括骑士进入的左上角房间以及公主被监禁的右下角房间。
 
 __思路__:
+
 参考[LeetCode #64 Minimum Path Sum 最小路径和](https://www.jianshu.com/p/b1ca6a1445a6)
 动态规划
 因为数组的值受到后面的状态影响, 应该从后往前遍历, 找最小值
@@ -63,6 +67,7 @@ dp.back().back() = max(1, 1 - dungeon.back().back())
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -82,6 +87,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int calculateMinimumHP(int[][] dungeon) {
@@ -101,6 +107,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def calculateMinimumHP(self, dungeon: List[List[int]]) -> int:

@@ -1,3 +1,5 @@
+# 62 Unique Paths 不同路径
+
 __Description__:
 A robot is located at the top-left corner of a m x n grid (marked 'Start' in the diagram below).
 
@@ -8,20 +10,22 @@ How many possible unique paths are there?
 ![Above is a 7 x 3 grid. How many possible unique paths are there?](https://upload-images.jianshu.io/upload_images/16639143-2f36e609236421af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 __Example:__
+
 Example 1:
 
 Input: m = 3, n = 2
 Output: 3
 Explanation:
 From the top-left corner, there are a total of 3 ways to reach the bottom-right corner:
+
 1. Right -> Right -> Down
 2. Right -> Down -> Right
 3. Down -> Right -> Right
+
 Example 2:
 
 Input: m = 7, n = 3
 Output: 28
- 
 
 __Constraints:__
 
@@ -37,12 +41,14 @@ __题目描述__:
 ![例如，上图是一个7 x 3 的网格。有多少可能的路径？](https://upload-images.jianshu.io/upload_images/16639143-a1942e3d7987a836.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 __示例 :__
+
 示例 1:
 
 输入: m = 3, n = 2
 输出: 3
 解释:
 从左上角开始，总共有 3 条路径可以到达右下角。
+
 1. 向右 -> 向右 -> 向下
 2. 向右 -> 向下 -> 向右
 3. 向下 -> 向右 -> 向右
@@ -51,13 +57,14 @@ __示例 :__
 
 输入: m = 7, n = 3
 输出: 28
- 
+
 __提示：__
 
 1 <= m, n <= 100
 题目数据保证答案小于等于 2 * 10 ^ 9
 
 __思路__:
+
 1. 数学法
 本质上是从 m + n - 2步中选出 m - 1(n - 1)步
 时间复杂度O(1), 空间复杂度O(1)
@@ -67,6 +74,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -75,12 +83,13 @@ public:
     {
         vector<vector<int>> dp(m, vector<int>(n, 1));
         for (int i = 1; i < m; i++) for (int j = 1; j < n; j++) dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
-        return dp[m - 1][n - 1];
+        return dp.back().back();
     }
 };
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int uniquePaths(int m, int n) {
@@ -97,6 +106,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def uniquePaths(self, m: int, n: int) -> int:

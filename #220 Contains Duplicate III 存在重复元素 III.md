@@ -1,7 +1,10 @@
+# 220 Contains Duplicate III 存在重复元素 III
+
 __Description__:
 Given an array of integers, find out whether there are two distinct indices i and j in the array such that the absolute difference between nums[i] and nums[j] is at most t and the absolute difference between i and j is at most k.
 
 __Example:__
+
 Example 1:
 
 Input: nums = [1,2,3,1], k = 3, t = 0
@@ -23,6 +26,7 @@ __题目描述__:
 如果存在则返回 true，不存在返回 false。
 
 __示例 :__
+
 示例 1:
 
 输入: nums = [1,2,3,1], k = 3, t = 0
@@ -39,6 +43,7 @@ __示例 :__
 输出: false
 
 __思路__:
+
 桶排序
 将数字分成 t + 1个区间, 相同的区间内两个元素差必定小于等于 t
 相邻区间才需要判断绝对值是否在区间内
@@ -48,18 +53,21 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
-class Solution {
+class Solution 
+{
 public:
-    bool containsNearbyAlmostDuplicate(vector<int>& nums, int k, int t) {
-        if (t < 0 | k < 0) return false;
+    bool containsNearbyAlmostDuplicate(vector<int>& nums, int k, int t) 
+    {
+        if (t < 0 or k < 0) return false;
         long bucket_size = (long)t + 1;
         unordered_map<long, long> m;
         for (int i = 0; i < nums.size(); i++)
         {
             int bucket = nums[i] < 0 ? nums[i] / bucket_size - 1 : nums[i] / bucket_size;
             if (m.find(bucket) != m.end()) return true;
-            if ((m.find(bucket + 1) != m.end() && labs(m[bucket + 1] - nums[i]) <= t) | (m.find(bucket - 1) != m.end() && labs(m[bucket - 1] - nums[i]) <= t)) return true;
+            if ((m.find(bucket + 1) != m.end() and labs(m[bucket + 1] - nums[i]) <= t) or (m.find(bucket - 1) != m.end() and labs(m[bucket - 1] - nums[i]) <= t)) return true;
             m[bucket] = nums[i];
             if (i >= k) m.erase(nums[i - k] / bucket_size);
         }
@@ -69,6 +77,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public boolean containsNearbyAlmostDuplicate(int[] nums, int k, int t) {
@@ -92,6 +101,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def containsNearbyAlmostDuplicate(self, nums: List[int], k: int, t: int) -> bool:

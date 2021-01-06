@@ -1,7 +1,10 @@
+# 338 Counting Bits 比特位计数
+
 __Description__:
 Given a non negative integer number num. For every numbers i in the range 0 ≤ i ≤ num calculate the number of 1's in their binary representation and return them as an array.
 
 __Example:__
+
 Example 1:
 
 Input: 2
@@ -22,6 +25,7 @@ __题目描述__:
 给定一个非负整数 num。对于 0 ≤ i ≤ num 范围中的每个数字 i ，计算其二进制数中的 1 的数目并将它们作为数组返回。
 
 __示例 :__
+
 示例 1:
 
 输入: 2
@@ -39,6 +43,7 @@ __进阶:__
 你能进一步完善解法吗？要求在C++或任何其他语言中不使用任何内置函数（如 C++ 中的 __builtin_popcount）来执行此操作。
 
 __思路__:
+
 动态规划
 dp[i]表示这一位对应的整数有 n个 1
 对于每一个 i, i >> 1是已经计算过的, 如果 i是偶数, 则 i和 i >> 1的 1的个数相同, 如果 i是奇数, 则 i比 i >> 1的 1个个数多 1, 就是加上 i % 2的结果(即 i & 1)
@@ -48,6 +53,7 @@ dp[i]表示这一位对应的整数有 n个 1
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -62,6 +68,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int[] countBits(int num) {
@@ -73,6 +80,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def countBits(self, num: int) -> List[int]:

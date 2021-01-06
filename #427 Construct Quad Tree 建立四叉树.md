@@ -12,7 +12,7 @@ A Quad-Tree is a tree data structure in which each internal node has exactly fou
 val: True if the node represents a grid of 1's or False if the node represents a grid of 0's.
 isLeaf: True if the node is leaf node on the tree or False if the node has the four children.
 
-```C
+```Java
 class Node {
     public boolean val;
     public boolean isLeaf;
@@ -42,21 +42,28 @@ If the value of isLeaf or val is True we represent it as 1 in the list [isLeaf,
 __Example:__
 
 Example 1:
+
 ![grid 1](https://upload-images.jianshu.io/upload_images/16639143-9e99c1aa0fd6f3c6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 Input: grid = [[0,1],[1,0]]
 Output: [[0,1],[1,0],[1,1],[1,1],[1,0]]
 Explanation: The explanation of this example is shown below:
+
 ![Explanation 1](https://upload-images.jianshu.io/upload_images/16639143-e353d01cbeb90274.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 Notice that 0 represnts False and 1 represents True in the photo representing the Quad-Tree.
 
 Example 2:
+
 ![grid 2](https://upload-images.jianshu.io/upload_images/16639143-e2a56481328f218c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 Input: grid = [[1,1,1,1,0,0,0,0],[1,1,1,1,0,0,0,0],[1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1],[1,1,1,1,0,0,0,0],[1,1,1,1,0,0,0,0],[1,1,1,1,0,0,0,0],[1,1,1,1,0,0,0,0]]
 Output: [[0,1],[1,1],[0,1],[1,1],[1,0],null,null,null,null,[1,0],[1,0],[1,1],[1,1]]
 Explanation: All values in the grid are not the same. We divide the grid into four sub-grids.
 The topLeft, bottomLeft and bottomRight each has the same value.
 The topRight have different values so we divide it into 4 sub-grids where each has the same value.
 Explanation is shown in the photo below:
+
 ![Explanation 2](https://upload-images.jianshu.io/upload_images/16639143-7ca5045b297f330b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 Example 3:
@@ -91,7 +98,7 @@ __题目描述__:
 val：储存叶子结点所代表的区域的值。1 对应 True，0 对应 False；
 isLeaf: 当这个节点是一个叶子结点时为 True，如果它有 4 个子节点则为 False 。
 
-```C
+```Java
 class Node {
     public boolean val;
     public boolean isLeaf;
@@ -121,21 +128,28 @@ class Node {
 __示例 :__
 
 示例 1：
+
 ![grid 1](https://upload-images.jianshu.io/upload_images/16639143-49165b3ccb6c6d97.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 输入：grid = [[0,1],[1,0]]
 输出：[[0,1],[1,0],[1,1],[1,1],[1,0]]
 解释：此示例的解释如下：
+
 ![Explanation 1](https://upload-images.jianshu.io/upload_images/16639143-6bb72c9521deb6a9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 请注意，在下面四叉树的图示中，0 表示 false，1 表示 True 。
 
 示例 2：
+
 ![grid 2](https://upload-images.jianshu.io/upload_images/16639143-1a48d72714dffd26.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 输入：grid = [[1,1,1,1,0,0,0,0],[1,1,1,1,0,0,0,0],[1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1],[1,1,1,1,0,0,0,0],[1,1,1,1,0,0,0,0],[1,1,1,1,0,0,0,0],[1,1,1,1,0,0,0,0]]
 输出：[[0,1],[1,1],[0,1],[1,1],[1,0],null,null,null,null,[1,0],[1,0],[1,1],[1,1]]
 解释：网格中的所有值都不相同。我们将网格划分为四个子网格。
 topLeft，bottomLeft 和 bottomRight 均具有相同的值。
 topRight 具有不同的值，因此我们将其再分为 4 个子网格，这样每个子网格都具有相同的值。
 解释如下图所示：
+
 ![Explanation 2](https://upload-images.jianshu.io/upload_images/16639143-f9ca68d1081af336.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 示例 3：

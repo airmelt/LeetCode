@@ -1,7 +1,10 @@
+# 97 Interleaving String 交错字符串
+
 __Description__:
 Given s1, s2, s3, find whether s3 is formed by the interleaving of s1 and s2.
 
 __Example:__
+
 Example 1:
 
 Input: s1 = "aabcc", s2 = "dbbca", s3 = "aadbbcbcac"
@@ -16,6 +19,7 @@ __题目描述__:
 给定三个字符串 s1, s2, s3, 验证 s3 是否是由 s1 和 s2 交错组成的。
 
 __示例 :__
+
 示例 1:
 
 输入: s1 = "aabcc", s2 = "dbbca", s3 = "aadbbcbcac"
@@ -27,6 +31,7 @@ __示例 :__
 输出: false
 
 __思路__:
+
 交错字符串应该是指的, s1和 s2中的字符按原字符串顺序交错排列是否可以组成 s3
 参考[LeetCode #10 Regular Expression Matching 正则表达式匹配](https://www.jianshu.com/p/43a16636dc1a)
 动态规划
@@ -40,25 +45,29 @@ dp[i][j] = (dp[i - 1][j] && s1.charAt(i - 1) == s3.charAt(i + j - 1)) || (dp[i][
 
 __代码__:
 __C++__:
+
 ```C++
-class Solution {
+class Solution 
+{
 public:
-    bool isInterleave(string s1, string s2, string s3) {
+    bool isInterleave(string s1, string s2, string s3) 
+    {
         if (s1.size() + s2.size() != s3.size()) return false;
         vector<bool> dp(s2.size() + 1, false);
         for (int i = 0; i <= s1.size(); i++) for (int j = 0; j <= s2.size(); j++) 
         {
-               if (i == 0 && j == 0) dp[j] = true;
-               else if (i == 0) dp[j] = dp[j - 1] && s2[j - 1] == s3[i + j - 1];
-               else if (j == 0) dp[j] = dp[j] && s1[i - 1] == s3[i + j - 1];
-               else dp[j] = (dp[j] && s1[i - 1] == s3[i + j - 1]) || (dp[j - 1] && s2[j - 1] == s3[i + j - 1]);
+               if (i == 0 and j == 0) dp[j] = true;
+               else if (i == 0) dp[j] = dp[j - 1] and s2[j - 1] == s3[i + j - 1];
+               else if (j == 0) dp[j] = dp[j] and s1[i - 1] == s3[i + j - 1];
+               else dp[j] = (dp[j] and s1[i - 1] == s3[i + j - 1]) or (dp[j - 1] and s2[j - 1] == s3[i + j - 1]);
         }
-       return dp[s2.size()];
+       return dp.back();
     }
 };
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public boolean isInterleave(String s1, String s2, String s3) {
@@ -75,6 +84,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def isInterleave(self, s1: str, s2: str, s3: str) -> bool:

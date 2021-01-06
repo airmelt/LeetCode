@@ -1,3 +1,5 @@
+# 4 Median of Two Sorted Arrays 寻找两个有序数组的中位数
+
 __Description__:
 There are two sorted arrays nums1 and nums2 of size m and n respectively.
 
@@ -6,6 +8,7 @@ Find the median of the two sorted arrays. The overall run time complexity should
 You may assume nums1 and nums2 cannot be both empty.
 
 __Example:__
+
 Example 1:
 
 nums1 = [1, 3]
@@ -28,6 +31,7 @@ __题目描述__:
 你可以假设 nums1 和 nums2 不会同时为空。
 
 __示例 :__
+
 示例 1:
 
 nums1 = [1, 3]
@@ -43,15 +47,19 @@ nums2 = [3, 4]
 则中位数是 (2 + 3)/2 = 2.5
 
 __思路__:
+
 注意到数组为有序数组, 每次找到两个数组中位数比较大小, 将中位数较大的大于中位数的部分(右边)丢弃, 将中位数较小的小于中位数的部分(左边)丢弃, 直到剩下 1(两个数组元素和为奇数)或者2(两个数组元素和为偶数)数组元素, 返回结果的平均值即可
 时间复杂度O(log(m + n)), 空间复杂度O(1)
 
 __代码__:
 __C++__:
+
 ```C++
-class Solution {
+class Solution 
+{
 public:
-    double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
+    double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) 
+    {
         if (nums1.size() > nums2.size()) return findMedianSortedArrays(nums2, nums1);
         int m = nums1.size(), n = nums2.size(), left = 0, right = nums1.size();
         while (left <= right) 
@@ -59,7 +67,7 @@ public:
             int i = (left + right) >> 1;
             int j = ((m + n + 1) >> 1) - i;
             int left_max1 = i == 0 ? INT_MIN : nums1[i - 1], right_min1 = i == m ? INT_MAX : nums1[i], left_max2 = j == 0 ? INT_MIN : nums2[j - 1], right_min2 = j == n ? INT_MAX : nums2[j];
-            if (left_max1 <= right_min2 && left_max2 <= right_min1) 
+            if (left_max1 <= right_min2 and left_max2 <= right_min1) 
             {
                 if ((m + n) & 1) return max(left_max1, left_max2);
                 else return ((max(left_max1, left_max2) + min(right_min1, right_min2))) / 2.0;
@@ -72,6 +80,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
@@ -92,6 +101,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:

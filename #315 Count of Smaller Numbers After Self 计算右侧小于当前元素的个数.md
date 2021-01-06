@@ -1,7 +1,10 @@
+# 315 Count of Smaller Numbers After Self 计算右侧小于当前元素的个数
+
 __Description__:
 You are given an integer array nums and you have to return a new counts array. The counts array has the property where counts[i] is the number of smaller elements to the right of nums[i].
 
 __Example:__
+
 Example 1:
 
 Input: nums = [5,2,6,1]
@@ -11,7 +14,7 @@ To the right of 5 there are 2 smaller elements (2 and 1).
 To the right of 2 there is only 1 smaller element (1).
 To the right of 6 there is 1 smaller element (1).
 To the right of 1 there is 0 smaller element.
- 
+
 __Constraints:__
 
 0 <= nums.length <= 10^5
@@ -23,7 +26,7 @@ __题目描述__:
 __示例 :__
 
 输入：nums = [5,2,6,1]
-输出：[2,1,1,0] 
+输出：[2,1,1,0]
 解释：
 5 的右侧有 2 个更小的元素 (2 和 1)
 2 的右侧仅有 1 个更小的元素 (1)
@@ -36,6 +39,7 @@ __提示：__
 -10^4 <= nums[i] <= 10^4
 
 __思路__:
+
 1. 插入排序
 每次用二分查找查找位置, 再插入临时数组
 时间复杂度O(n ^ 2), 空间复杂度O(n), 插入需要 O(n)的时间复杂度
@@ -50,8 +54,10 @@ lowbit(int x) -> x & (-x)用来返回 x的最后一位 1
 
 __代码__:
 __C++__:
+
 ```C++
-class Solution {
+class Solution 
+{
 private:
     int lowbit(int x) 
     {
@@ -62,14 +68,15 @@ private:
     {
         while (i < C.size()) 
         {
-            C[i]++;
+            ++C[i];
             i += lowbit(i);
         }
     }
     
     void query (int i, int j, vector<int> &C, vector<int> &result)
     {
-        while (i >= 1) {
+        while (i >= 1) 
+        {
             result[j] += C[i];
             i -= lowbit(i);
         }
@@ -98,6 +105,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
 
@@ -145,6 +153,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def countSmaller(self, nums: List[int]) -> List[int]:

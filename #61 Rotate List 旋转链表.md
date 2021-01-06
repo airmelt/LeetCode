@@ -1,7 +1,10 @@
+# 61 Rotate List 旋转链表
+
 __Description__:
 Given a linked list, rotate the list to the right by k places, where k is non-negative.
 
 __Example:__
+
 Example 1:
 
 Input: 1->2->3->4->5->NULL, k = 2
@@ -24,6 +27,7 @@ __题目描述__:
 给定一个链表，旋转链表，将链表每个节点向右移动 k 个位置，其中 k 是非负数。
 
 __示例 :__
+
 示例 1:
 
 输入: 1->2->3->4->5->NULL, k = 2
@@ -43,7 +47,9 @@ __示例 :__
 向右旋转 4 步: 2->0->1->NULL
 
 __思路__:
+
 本质上相当于将链表成环找到尾结点和头结点即可
+
 1. 先遍历一次链表找到链表长度, 此时可以找到尾结点
 2. 循环次数 = 链表长度 - (k % 链表长度)
 3. 将链表成环, 循环找到头结点和尾结点
@@ -52,6 +58,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 /**
  * Definition for singly-linked list.
@@ -66,7 +73,7 @@ class Solution
 public:
     ListNode* rotateRight(ListNode* head, int k) 
     {
-        if (!head || k == 0) return head;
+        if (!head or k == 0) return head;
         int n = 1;
         ListNode *result = head, *tail = nullptr;
         while (result -> next)
@@ -90,6 +97,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 /**
  * Definition for singly-linked list.
@@ -123,6 +131,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 # Definition for singly-linked list.
 # class ListNode:

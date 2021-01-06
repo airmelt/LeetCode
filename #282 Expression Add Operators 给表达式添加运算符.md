@@ -1,60 +1,64 @@
+# 282 Expression Add Operators 给表达式添加运算符
+
 __Description__:
-Given a string that contains only digits 0-9 and a target value, return all possibilities to add binary operators (not unary) +, -, or * between the digits so they evaluate to the target value.
+Given a string that contains only digits 0-9 and a target value, return all possibilities to add binary operators (not unary) +, -, or \* between the digits so they evaluate to the target value.
 
 __Example:__
+
 Example 1:
 
 Input: num = "123", target = 6
-Output: ["1+2+3", "1*2*3"] 
+Output: ["1+2+3", "1\*2\*3"]
 
 Example 2:
 
 Input: num = "232", target = 8
-Output: ["2*3+2", "2+3*2"]
+Output: ["2\*3+2", "2+3\*2"]
 
 Example 3:
 
 Input: num = "105", target = 5
-Output: ["1*0+5","10-5"]
+Output: ["1\*0+5","10-5"]
 
 Example 4:
 
 Input: num = "00", target = 0
-Output: ["0+0", "0-0", "0*0"]
+Output: ["0+0", "0-0", "0\*0"]
 
 Example 5:
 
 Input: num = "3456237490", target = 9191
 Output: []
- 
+
 __Constraints:__
 
 0 <= num.length <= 10
 num only contain digits.
 
 __题目描述__:
-给定一个仅包含数字 0-9 的字符串和一个目标值，在数字之间添加二元运算符（不是一元）+、- 或 * ，返回所有能够得到目标值的表达式。
+给定一个仅包含数字 0-9 的字符串和一个目标值，在数字之间添加二元运算符（不是一元）+、- 或 \* ，返回所有能够得到目标值的表达式。
 
 __示例 :__
+
 示例 1:
 
 输入: num = "123", target = 6
-输出: ["1+2+3", "1*2*3"] 
+输出: ["1+2+3", "1\*2\*3"]
 
 示例 2:
 
 输入: num = "232", target = 8
-输出: ["2*3+2", "2+3*2"]
+输出: ["2\*3+2", "2+3\*2"]
 
 示例 3:
 
 输入: num = "105", target = 5
-输出: ["1*0+5","10-5"]
+输出: ["1\*0+5","10-5"]
 
 示例 4:
 
 输入: num = "00", target = 0
-输出: ["0+0", "0-0", "0*0"]
+输出: ["0+0", "0-0", "0\*0"]
 
 示例 5:
 
@@ -62,6 +66,7 @@ __示例 :__
 输出: []
 
 __思路__:
+
 回溯法
 每次选择一种运算符号
 当遍历到 num的结尾且运算结果等于 target, 加入结果列表
@@ -69,6 +74,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -93,7 +99,8 @@ private:
         now = now * 10 + num[pos] - '0';
         exp[exp_p++] = num[pos];
         long long cur_val = now * last;
-        if (pos == num.size() - 1) {
+        if (pos == num.size() - 1) 
+        {
             if (target == cur_val) result.emplace_back(exp.substr(0, exp_p));
             return 0;
         }
@@ -112,6 +119,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public List<String> addOperators(String num, int target) {
@@ -137,6 +145,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def addOperators(self, num: str, target: int) -> List[str]:

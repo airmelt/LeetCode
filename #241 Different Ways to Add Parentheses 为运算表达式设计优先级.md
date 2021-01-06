@@ -1,53 +1,58 @@
+# 241 Different Ways to Add Parentheses 为运算表达式设计优先级
+
 __Description__:
-Given a string of numbers and operators, return all possible results from computing all the different possible ways to group numbers and operators. The valid operators are +, - and *.
+Given a string of numbers and operators, return all possible results from computing all the different possible ways to group numbers and operators. The valid operators are +, - and \*.
 
 __Example:__
+
 Example 1:
 
 Input: "2-1-1"
 Output: [0, 2]
-Explanation: 
-((2-1)-1) = 0 
+Explanation:
+((2-1)-1) = 0
 (2-(1-1)) = 2
 
 Example 2:
 
-Input: "2*3-4*5"
+Input: "2\*3-4\*5"
 Output: [-34, -14, -10, -10, 10]
-Explanation: 
-(2*(3-(4*5))) = -34 
-((2*3)-(4*5)) = -14 
-((2*(3-4))*5) = -10 
-(2*((3-4)*5)) = -10 
-(((2*3)-4)*5) = 10
+Explanation:
+(2\*(3-(4\*5))) = -34
+((2\*3)-(4\*5)) = -14
+((2\*(3-4))\*5) = -10
+(2\*((3-4)\*5)) = -10
+(((2\*3)-4)\*5) = 10
 
 __题目描述__:
-给定一个含有数字和运算符的字符串，为表达式添加括号，改变其运算优先级以求出不同的结果。你需要给出所有可能的组合的结果。有效的运算符号包含 +, - 以及 * 。
+给定一个含有数字和运算符的字符串，为表达式添加括号，改变其运算优先级以求出不同的结果。你需要给出所有可能的组合的结果。有效的运算符号包含 +, - 以及 \* 。
 
 __示例 :__
+
 示例 1:
 
 输入: "2-1-1"
 输出: [0, 2]
-解释: 
-((2-1)-1) = 0 
+解释:
+((2-1)-1) = 0
 (2-(1-1)) = 2
 
 示例 2:
 
-输入: "2*3-4*5"
+输入: "2\*3-4\*5"
 输出: [-34, -14, -10, -10, 10]
-解释: 
-(2*(3-(4*5))) = -34 
-((2*3)-(4*5)) = -14 
-((2*(3-4))*5) = -10 
-(2*((3-4)*5)) = -10 
-(((2*3)-4)*5) = 10
+解释:
+(2\*(3-(4\*5))) = -34
+((2\*3)-(4\*5)) = -14
+((2\*(3-4))\*5) = -10
+(2\*((3-4)\*5)) = -10
+(((2\*3)-4)\*5) = 10
 
 __思路__:
+
 1. 分而治之
 递归➕回溯
-比如 "2*3-4*5"可以划分成 a: "2", "3-4*5"; b: "2*3", "4*5", c: "2*3-4", "5"
+比如 "2\*3-4\*5"可以划分成 a: "2", "3-4\*5"; b: "2\*3", "4\*5", c: "2\*3-4", "5"
 递归的终点是纯数字, 要么是运算结果, 要么是一个单个的数字
 回溯是将分开的两个数字再得到运算结果, 比如 b: "6" - "20" -> -14
 时间复杂度O(Cn), 空间复杂度O(Cn), 其中 Cn为卡塔兰数
@@ -58,6 +63,7 @@ dp[i][i]表示一个数字, 就是 input中的数字
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -86,7 +92,7 @@ public:
 private:
     bool is_operator(const char& c)
     {
-        return c == '+' || c == '-' || c == '*';
+        return c == '+' or c == '-' or c == '*';
     }
 
     int calculate(const int& num1, const char& op, const int& num2)
@@ -97,6 +103,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public List<Integer> diffWaysToCompute(String input) {
@@ -118,6 +125,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def diffWaysToCompute(self, input: str) -> List[int]:

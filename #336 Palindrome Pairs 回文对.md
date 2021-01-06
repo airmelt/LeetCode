@@ -1,7 +1,10 @@
+# 336 Palindrome Pairs 回文对
+
 __Description__:
 Given a list of unique words, return all the pairs of the distinct indices (i, j) in the given list, so that the concatenation of the two words words[i] + words[j] is a palindrome.
 
 __Example:__
+
 Example 1:
 
 Input: words = ["abcd","dcba","lls","s","sssll"]
@@ -18,7 +21,7 @@ Example 3:
 
 Input: words = ["a",""]
 Output: [[0,1],[1,0]]
- 
+
 __Constraints:__
 
 1 <= words.length <= 5000
@@ -29,19 +32,21 @@ __题目描述__:
 给定一组 互不相同 的单词， 找出所有不同 的索引对(i, j)，使得列表中的两个单词， words[i] + words[j] ，可拼接成回文串。
 
 __示例 :__
+
 示例 1：
 
 输入：["abcd","dcba","lls","s","sssll"]
-输出：[[0,1],[1,0],[3,2],[2,4]] 
+输出：[[0,1],[1,0],[3,2],[2,4]]
 解释：可拼接成的回文串为 ["dcbaabcd","abcddcba","slls","llssssll"]
 
 示例 2：
 
 输入：["bat","tab","cat"]
-输出：[[0,1],[1,0]] 
+输出：[[0,1],[1,0]]
 解释：可拼接成的回文串为 ["battab","tabbat"]
 
 __思路__:
+
 1. 暴力解
 两层遍历, 查询每次组成的字符串是否是回文串
 时间复杂度O(mn ^ 2), 空间复杂度O(m), n为字符串数组的长度, m为字符串的平均长度
@@ -58,6 +63,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 struct Trie 
 {
@@ -96,7 +102,8 @@ struct Trie
     {
         int len = s.length(), add = 0;
         vector<int> result(len + 1, -1);
-        for (int i = 0; i < len; i++) {
+        for (int i = 0; i < len; i++) 
+        {
             result[i] = tree[add].flag;
             int x = s[i] - 'a';
             if (!tree[add].ch[x]) return result;
@@ -148,24 +155,25 @@ public:
             trie2.insert(tmp, i);
         }
         vector<vector<int>> result;
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++) 
+        {
             const vector<pair<int, int>>& rec = manacher(words[i]);
             const vector<int>& id1 = trie2.query(words[i]);
             reverse(words[i].begin(), words[i].end());
             const vector<int>& id2 = trie1.query(words[i]);
             int m = words[i].size(), all_id = id1[m];
-            if (all_id != -1 && all_id != i) result.push_back({i, all_id});
+            if (all_id != -1 and all_id != i) result.push_back({i, all_id});
             for (int j = 0; j < m; j++) 
             {
                 if (rec[j].first) 
                 {
                     int left_id = id2[m - j - 1];
-                    if (left_id != -1 && left_id != i) result.push_back({left_id, i});
+                    if (left_id != -1 and left_id != i) result.push_back({left_id, i});
                 }
                 if (rec[j].second) 
                 {
                     int right_id = id1[j];
-                    if (right_id != -1 && right_id != i) result.push_back({i, right_id});
+                    if (right_id != -1 and right_id != i) result.push_back({i, right_id});
                 }
             }
         }
@@ -175,6 +183,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     private Node root;
@@ -229,6 +238,7 @@ class Node {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def palindromePairs(self, words: List[str]) -> List[List[int]]:

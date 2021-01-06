@@ -1,3 +1,5 @@
+# 209 Minimum Size Subarray Sum 长度最小的子数组
+
 __Description__:
 Given an array of n positive integers and a positive integer s, find the minimal length of a contiguous subarray of which the sum ≥ s. If there isn't one, return 0 instead.
 
@@ -8,7 +10,7 @@ Output: 2
 Explanation: the subarray [4,3] has the minimal length under the problem constraint.
 
 __Follow up:__
-If you have figured out the O(n) solution, try coding another solution of which the time complexity is O(n log n). 
+If you have figured out the O(n) solution, try coding another solution of which the time complexity is O(n log n).
 
 __题目描述__:
 给定一个含有 n 个正整数的数组和一个正整数 s ，找出该数组中满足其和 ≥ s 的长度最小的 连续 子数组，并返回其长度。如果不存在符合条件的子数组，返回 0。
@@ -18,12 +20,13 @@ __示例 :__
 输入：s = 7, nums = [2,3,1,2,4,3]
 输出：2
 解释：子数组 [4,3] 是该条件下的长度最小的子数组。
- 
+
 __进阶：__
 
 如果你已经完成了 O(n) 时间复杂度的解法, 请尝试 O(n log n) 时间复杂度的解法。(怎么会有人提出这么奇怪的要求, Python)
 
 __思路__:
+
 1. 暴力法(Java)
 可以以每一个下标出发, 找到最短能满足题意的长度
 时间复杂度O(n ^ 2), 空间复杂度O(1)
@@ -41,6 +44,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -65,6 +69,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int minSubArrayLen(int s, int[] nums) {
@@ -86,6 +91,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def minSubArrayLen(self, s: int, nums: List[int]) -> int:

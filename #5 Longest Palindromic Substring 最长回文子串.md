@@ -1,7 +1,10 @@
+# 5 Longest Palindromic Substring 最长回文子串
+
 __Description__:
 Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.
 
 __Example:__
+
 Example 1:
 
 Input: "babad"
@@ -17,6 +20,7 @@ __题目描述__:
 给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为 1000。
 
 __示例 :__
+
 示例 1：
 
 输入: "babad"
@@ -29,11 +33,13 @@ __示例 :__
 输出: "bb"
 
 __思路__:
+
 马拉车算法(Manacher's Algorithm)
 时间复杂度O(n), 空间复杂度O(n)
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -70,6 +76,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public String longestPalindrome(String s) {
@@ -101,6 +108,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def longestPalindrome(self, s: str) -> str:

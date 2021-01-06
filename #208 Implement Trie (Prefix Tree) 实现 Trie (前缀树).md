@@ -1,16 +1,20 @@
+# 208 Implement Trie (Prefix Tree) 实现 Trie (前缀树)
+
 __Description__:
 Implement a trie with insert, search, and startsWith methods.
 
 __Example:__
 
+```Java
 Trie trie = new Trie();
 
 trie.insert("apple");
 trie.search("apple");   // returns true
 trie.search("app");     // returns false
 trie.startsWith("app"); // returns true
-trie.insert("app");   
+trie.insert("app");
 trie.search("app");     // returns true
+```
 
 __Note:__
 
@@ -22,6 +26,7 @@ __题目描述__:
 
 __示例 :__
 
+```Java
 Trie trie = new Trie();
 
 trie.insert("apple");
@@ -30,6 +35,7 @@ trie.search("app");     // 返回 false
 trie.startsWith("app"); // 返回 true
 trie.insert("app");   
 trie.search("app");     // 返回 true
+```
 
 __说明：__
 
@@ -37,6 +43,7 @@ __说明：__
 保证所有输入均为非空字符串。
 
 __思路__:
+
 用一个变量 is_word记录, 方便查找
 用一个字符数组记录出现过的字符
 查询单词或者前缀时没有这个字符就返回 false
@@ -49,6 +56,7 @@ Trie就是维护公共前缀的树
 
 __代码__:
 __C++__:
+
 ```C++
 class Trie 
 {
@@ -110,6 +118,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Trie {
 
@@ -169,6 +178,7 @@ class Trie {
 ```
 
 __Python__:
+
 ```Python
 class Trie:
 

@@ -1,3 +1,5 @@
+# 90 Subsets II 子集 II
+
 __Description__:
 Given a collection of integers that might contain duplicates, nums, return all possible subsets (the power set).
 
@@ -37,12 +39,14 @@ __示例 :__
 ]
 
 __思路__:
+
 参考[LeetCode #78 Subsets 子集](https://www.jianshu.com/p/a25ff5bceed9)和[LeetCode #47 Permutations II 全排列 II](https://www.jianshu.com/p/669ed9a64a9c)
 在回溯的基础上加上去重
-时间复杂度O(n * 2 ^ n), 空间复杂度O(n * 2 ^ n)
+时间复杂度O(n \* 2 ^ n), 空间复杂度O(n \* 2 ^ n)
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -60,11 +64,11 @@ public:
             {
                 if (i & (1 << j))
                 {
-                    if (j != 0 && nums[j] == nums[j - 1] && ((i & (1 << (j - 1))) == 0))
+                    if (j != 0 and nums[j] == nums[j - 1] and ((i & (1 << (j - 1))) == 0))
                     {
                         flag = false;
                         break;
-                    }	
+                    }
                     temp.push_back(nums[j]);
                 }
             }
@@ -76,6 +80,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public List<List<Integer>> subsetsWithDup(int[] nums) {
@@ -99,6 +104,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:

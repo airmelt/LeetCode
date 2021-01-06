@@ -1,7 +1,10 @@
+# 30 Substring with Concatenation of All Words 串联所有单词的子串
+
 __Description__:
 You are given a string, s, and a list of words, words, that are all of the same length. Find all starting indices of substring(s) in s that is a concatenation of each word in words exactly once and without any intervening characters.
 
 __Example:__
+
 Example 1:
 
 Input:
@@ -24,6 +27,7 @@ __题目描述__:
 注意子串要与 words 中的单词完全匹配，中间不能有其他字符，但不需要考虑 words 中单词串联的顺序。
 
 __示例 :__
+
 示例 1：
 
 输入：
@@ -42,6 +46,7 @@ __示例 :__
 输出：[]
 
 __思路__:
+
 1. 对 words进行排序, 遍历字符串 s, 找出 words中的长度的字符串并排序再与排序后的 words的拼接结果比较, 相同就加入结果中
 时间复杂度O(nmlgm), 空间复杂度O(m), 其中 n表示 s的长度, m表示 words拼接之后的长度
 2. 对于 方法1, 可以用哈希表存放 words并比较, 可以减少排序带来的时间
@@ -51,6 +56,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -58,7 +64,7 @@ public:
     vector<int> findSubstring(string s, vector<string>& words) 
     {
         vector<int> result;
-        if (s.size() == 0 || words.size() == 0) return result;
+        if (s.size() == 0 or words.size() == 0) return result;
         unordered_map<string, int> m;
         int word_size = words[0].size(), words_size = words.size(), s_size = s.size();
         for (auto word : words) ++m[word];
@@ -97,6 +103,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public List<Integer> findSubstring(String s, String[] words) {
@@ -134,6 +141,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def findSubstring(self, s: str, words: List[str]) -> List[int]:

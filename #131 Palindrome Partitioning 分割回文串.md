@@ -1,3 +1,5 @@
+# 131 Palindrome Partitioning 分割回文串
+
 __Description__:
 Given a string s, partition s such that every substring of the partition is a palindrome.
 
@@ -27,6 +29,7 @@ __示例 :__
 ]
 
 __思路__:
+
 回溯法
 拆分一个回文串加入临时列表
 满足条件的加入结果, 并终止递归, 条件为字符串边界跳出字符串
@@ -36,6 +39,7 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
 class Solution 
 {
@@ -47,14 +51,14 @@ public:
         for (int i = 0; i < n; i++) 
         {
             dp[i][i] = 1;
-            if (i < n - 1 && s[i] == s[i + 1]) dp[i][i + 1] = 1;
+            if (i < n - 1 and s[i] == s[i + 1]) dp[i][i + 1] = 1;
         }
         for (int l = 3; l <= n; l++)
         {
             for (int i = 0; i + l - 1 < n; i++)
             {
                 int j = i + l - 1;
-                if (s[i] == s[j] && dp[i+1][j-1] == 1) dp[i][j] = 1;
+                if (s[i] == s[j] and dp[i+1][j-1] == 1) dp[i][j] = 1;
             }
         }
 
@@ -86,6 +90,7 @@ private:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public List<List<String>> partition(String s) {
@@ -118,6 +123,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def partition(self, s: str) -> List[List[str]]:

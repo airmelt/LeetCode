@@ -1,3 +1,5 @@
+# 153 Find Minimum in Rotated Sorted Array 寻找旋转排序数组中的最小值
+
 __Description__:
 Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand.
 
@@ -8,9 +10,10 @@ Find the minimum element.
 You may assume no duplicate exists in the array.
 
 __Example:__
+
 Example 1:
 
-Input: [3,4,5,1,2] 
+Input: [3,4,5,1,2]
 Output: 1
 
 Example 2:
@@ -28,6 +31,7 @@ __题目描述__:
 你可以假设数组中不存在重复元素。
 
 __示例 :__
+
 示例 1:
 
 输入: [3,4,5,1,2]
@@ -39,6 +43,7 @@ __示例 :__
 输出: 0
 
 __思路__:
+
 1. 可以逐个搜索最小值
 搜索到第一次增加的下标, 后一个即为最小值
 时间复杂度O(n), 空间复杂度O(1)
@@ -50,10 +55,13 @@ __思路__:
 
 __代码__:
 __C++__:
+
 ```C++
-class Solution {
+class Solution 
+{
 public:
-    int findMin(vector<int>& nums) {
+    int findMin(vector<int>& nums) 
+    {
         int left = 0, right = nums.size() - 1;
         while (left < right)
         {
@@ -67,6 +75,7 @@ public:
 ```
 
 __Java__:
+
 ```Java
 class Solution {
     public int findMin(int[] nums) {
@@ -82,6 +91,7 @@ class Solution {
 ```
 
 __Python__:
+
 ```Python
 class Solution:
     def findMin(self, nums: List[int]) -> int:
