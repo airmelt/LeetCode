@@ -73,11 +73,13 @@ public:
                 swap(f(i), f(j));
                 ++i;
                 ++j;
-            } else if (f(j) < mid) 
+            } 
+            else if (f(j) < mid) 
             {
                 swap(f(j), f(k));
                 --k;
-            } else ++j;
+            } 
+            else ++j;
         }
     }
 };
