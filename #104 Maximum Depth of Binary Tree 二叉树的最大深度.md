@@ -102,21 +102,20 @@ __C++__:
      int maxDepth(TreeNode* root) 
      {
          if (!root) return 0;
-         stack<TreeNode*> s;
-         s.push(root);
+         queue<TreeNode*> q;
+         q.push(root);
          int result = 0;
-         while (!s.empty()) 
+         while (!q.empty()) 
          {
-             int nums = s.size();
-             while (nums > 0) 
+             int n = q.size();
+             while (n-- > 0) 
              {
-                 TreeNode* current = s.top();
-                 s.pop();
-                 if (current -> left) s.push(current -> left);
-                 if (current -> right) s.push(current -> right);
-                 nums--;
+                 TreeNode* cur = q.front();
+                 q.pop();
+                 if (cur -> left) q.push(cur -> left);
+                 if (cur -> right) q.push(cur -> right);
              }
-             result++;
+             ++result;
          }
          return result;
      }
