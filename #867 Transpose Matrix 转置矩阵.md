@@ -80,8 +80,7 @@ class Solution {
 __Python__:
 
 ```Python
-import numpy as np
 class Solution:
     def transpose(self, A: List[List[int]]) -> List[List[int]]:
-        return list(np.array(A).T)
+        return [list(i) for i in zip(*A)]
 ```
