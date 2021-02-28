@@ -100,7 +100,7 @@ public:
         {
             increasing |= A[i] > A[i - 1];
             decreasing |= A[i] < A[i - 1];
-            if (increasing && decreasing) return false;
+            if (increasing and decreasing) return false;
         }
         return true;
     }
