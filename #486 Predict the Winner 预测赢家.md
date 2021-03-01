@@ -71,6 +71,7 @@ dp[i][j]表示从 nums的区间 [i, j]中玩家 1能取到的最大领先
 对于选择 j的情况为 nums[j] - dp[i][j - 1]
 dp[i][j] = max(nums[i] - dp[i + 1][j], nums[j] - dp[i][j - 1])
 初始化 dp[i][i] = nums[i]即对角线上的数字对应为 nums中的元素
+时间复杂度O(n ^ 2), 空间复杂度O(n)
 
 __代码__:
 __C++__:
