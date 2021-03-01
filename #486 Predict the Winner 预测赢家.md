@@ -71,6 +71,7 @@ dp[i][j]表示从 nums的区间 [i, j]中玩家 1能取到的最大领先
 对于选择 j的情况为 nums[j] - dp[i][j - 1]
 dp[i][j] = max(nums[i] - dp[i + 1][j], nums[j] - dp[i][j - 1])
 初始化 dp[i][i] = nums[i]即对角线上的数字对应为 nums中的元素
+注意到 dp只由前一行决定, 可以将空间压缩到 O(n)
 时间复杂度O(n ^ 2), 空间复杂度O(n)
 
 __代码__:
@@ -112,11 +113,9 @@ __Python__:
 ```Python
 class Solution:
     def PredictTheWinner(self, nums: List[int]) -> bool:
-        n, dp = len(nums), [[0] * len(nums) for _ in range(len(nums))]
-        for i in range(n):
-            dp[i][i] = nums[i]
-        for k in range(1, n):
-            for i in range(n - k):
-                dp[i][i + k] = max(nums[i] - dp[i + 1][i + k], nums[i + k] - dp[i][i + k - 1])
-        return dp[0][n - 1] >= 0
+        n, dp = len(nums), nums[:]
+        for i in range(n - 2, -1, -1):
+            for j in range(i + 1, n):
+                dp[j] = max(nums[i] - dp[j], nums[j] - dp[j - 1])
+        return dp[-1] >= 0
 ```
