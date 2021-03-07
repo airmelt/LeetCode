@@ -128,7 +128,7 @@ __Python__:
 class Solution:
     def partition(self, s: str) -> List[List[str]]:
         result = []
-        def helper(s: str, temp: List[str]):
+        def helper(s: str, temp: List[str]) -> None:
             if not s:
                 result.append(temp[:])
                 return
