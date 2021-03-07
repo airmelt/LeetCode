@@ -125,7 +125,7 @@ private:
     {
         if (!root) return 0;
         int result = path * 10 + root -> val;
-        if (!root -> left && !root -> right) return result;
+        if (!root -> left and !root -> right) return result;
         return helper(root -> left, result) + helper(root -> right, result);
     }
 };
