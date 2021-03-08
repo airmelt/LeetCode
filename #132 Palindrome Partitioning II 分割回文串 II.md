@@ -106,11 +106,11 @@ class Solution:
         for i in range(n):
             for j in range(min(n - i, i + 1)):
                 if s[i + j] != s[i - j]:
-                    breaj
+                    break
                 dp[i + j + 1] = min(dp[i + j + 1], dp[i - j] + 1)
             for j in range(1, min(n - i, i + 2)):    
                 if s[i + j] != s[i - j + 1]:
-                    breaj
+                    break
                 dp[i + j + 1] = min(dp[i + j + 1], dp[i - j + 1] + 1)
         return dp[-1]
 ```
