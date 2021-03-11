@@ -81,13 +81,10 @@ __Python__:
 ```Python
 class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
-        result, nums = 0, set(nums)
+        d, result = defaultdict(int), 0
         for num in nums:
-            if num - 1 not in nums:
-                cur, temp = num, 1
-                while cur + 1 in nums:
-                    cur += 1
-                    temp += 1
-                result = max(result, temp)
+            if not d[num]:
+                result = max(cur := (left := d[num - 1]) + (right := d[num + 1]) + 1, result)
+                d[num] = d[num - left] = d[num + right] = cur
         return result
 ```
