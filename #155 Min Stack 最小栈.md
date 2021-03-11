@@ -64,30 +64,30 @@ class MinStack
 {
 public:
     /** initialize your data structure here. */
-    stack<int> data;
-    stack<int> minstack;
+    vector<int> data;
     MinStack() {}
 
     void push(int x) 
     {
-        data.push(x);
-        if (minstack.empty() or x <= minstack.top()) minstack.push(x);
+        if (data.empty()) data.push_back(x);
+        else data.push_back(min(x, data[data.size() - 2]));
+        data.push_back(x);
     }
 
     void pop() 
     {
-        if (data.top() == minstack.top()) minstack.pop();
-        data.pop();
+        data.pop_back();
+        data.pop_back();
     }
 
     int top() 
     {
-        return data.top();
+        return data.back();
     }
 
     int getMin() 
     {
-        return minstack.top();
+        return data[data.size() - 2];
     }
 };
 
@@ -107,35 +107,29 @@ __Java__:
 class MinStack {
 
     /** initialize your data structure here. */
-    private Stack<Integer> stack;
+    private List<Integer> list;
     public MinStack() {
-        stack = new Stack<>();
+        list = new ArrayList<>();
     }
 
     public void push(int x) {
-        if (stack.empty()) {
-            stack.push(x);
-            stack.push(x);
-        } else {
-            int temp = stack.peek();
-            stack.push(x);
-            if (temp < x) stack.push(temp);
-            else stack.push(x);
-        }
+        if (list.isEmpty()) list.add(x);
+        else list.add(Math.min(x, list.get(list.size() - 2)));
+        list.add(x);
     }
 
     public void pop() {
-        stack.pop();
-        stack.pop();
+        list.remove(list.size() - 1);
+        list.remove(list.size() - 1);
     }
 
     public int top() {
-        if (stack.size() != 0) return stack.get(stack.size() - 2);
+        if (list.size() != 0) return list.get(list.size() - 1);
         return 0;
     }
 
     public int getMin() {
-        if (stack.size() != 0) return stack.get(stack.size() - 1);
+        if (list.size() != 0) return list.get(list.size() - 2);
         return 0;
     }
 }
@@ -162,28 +156,23 @@ class MinStack:
         self.data = []
 
     def push(self, x: int) -> None:
-        if not len(self.data):
-            self.data.append(x)
+        if not self.data:
             self.data.append(x)
         else:
-            temp = self.data[-1]
-            self.data.append(x)
-            if temp < x:
-                self.data.append(temp)
-            else:
-                self.data.append(x)
+            self.data.append(min(self.data[-2], x))
+        self.data.append(x)
 
     def pop(self) -> None:
         self.data.pop()
         self.data.pop()
 
     def top(self) -> int:
-        if len(self.data):
-            return self.data[-2]
+        if self.data:
+            return self.data[-1]
 
     def getMin(self) -> int:
-        if len(self.data):
-            return self.data[-1]
+        if self.data:
+            return self.data[-2]
 
 
 # Your MinStack object will be instantiated and called as such:
