@@ -15,7 +15,7 @@ Input:
 Output:  [1,2,4,7,5,3,6,8,9]
 
 Explanation:
-![diagonal_traverse](https://assets.leetcode.com/uploads/2018/10/12/diagonal_traverse.png)
+![diagonal_traverse](https://upload-images.jianshu.io/upload_images/16639143-b7f77278fc8eb5d1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 __Note:__
 
@@ -36,7 +36,7 @@ __示例 :__
 输出:  [1,2,4,7,5,3,6,8,9]
 
 解释:
-![对角线遍历](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/12/diagonal_traverse.png)
+![对角线遍历](https://upload-images.jianshu.io/upload_images/16639143-18ce3ee8cbebc796.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 __说明:__
 
@@ -51,7 +51,7 @@ __思路__:
 
 设 x为遍历的次数 i + j = x, 分为奇偶讨论
 每次遍历的范围为 range(max(0, x + 1 - n), min(x + 1, m))
-时间复杂度O(n ^ 2), 空间复杂度O(1)
+时间复杂度O(mn), 空间复杂度O(1)
 
 __代码__:
 __C++__:
