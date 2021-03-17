@@ -30,7 +30,7 @@ __示例 :__
 
 __思路__:
 
-可以采用快速排序或者归并排序
+可以采用归并排序
 注意要把左链表的尾端置空
 并防止断链
 时间复杂度O(nlgn), 空间复杂度O(1)
@@ -47,36 +47,66 @@ __C++__:
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
+
 class Solution 
 {
 public:
     ListNode* sortList(ListNode* head) 
     {
-        if (!head or !head -> next) return head;
-        ListNode *result = new ListNode(0);
+        ListNode *result = new ListNode(0), *p = head;
         result -> next = head;
-        return quick_sort(result, nullptr);
+        int len = 0;
+        while (p) 
+        {
+            ++len;
+            p = p -> next;
+        }
+        for (int step = 1; step < len; step <<= 1) 
+        {
+            ListNode *cur = result -> next;
+            p = result;
+            while (cur) 
+            {
+                ListNode *left = cur, *right = cut(left, step);
+                cur = cut(right, step);
+                p -> next = merge(left, right);
+                while (p -> next) p = p -> next;
+            }
+        }
+        return result -> next;
     }
 private:
-    ListNode* quick_sort(ListNode* l1, ListNode* l2)
+    ListNode* cut(ListNode *head, int n) 
     {
-        if (l1 == l2 or l1 -> next == l2 or l1 -> next -> next == l2) return l1;
-        ListNode *temp = new ListNode(0), *partition = l1 -> next, *p = partition, *q = temp;
-        while (p -> next != l2)
+        ListNode *p = head;
+        while (--n and p) p = p -> next;
+        if (!p) return p;
+        ListNode *q = p -> next;
+        p -> next = nullptr;
+        return q;
+    }
+    
+    ListNode *merge(ListNode *l1, ListNode *l2) 
+    {
+        ListNode *result = new ListNode(0);
+        ListNode *p = result;
+        while (l1 and l2) 
         {
-            if (p -> next -> val < partition -> val)
+            if (l1 -> val < l2 -> val) 
             {
-                q -> next = p -> next;
-                q = q -> next;
-                p -> next = p -> next -> next;
+                p -> next = l1;
+                p = l1;
+                l1 = l1 -> next;
+            } 
+            else 
+            {
+                p -> next = l2;
+                p = l2;
+                l2 = l2 -> next;
             }
-            else p = p -> next;
         }
-        q -> next = l1 -> next;
-        l1 -> next = temp -> next;
-        quick_sort(l1, partition);
-        quick_sort(partition, l2);
-        return l1 -> next;
+        p -> next = l1 ? l1 : l2;
+        return result -> next;
     }
 };
 ```
