@@ -177,7 +177,7 @@ class Solution:
     def evalRPN(self, tokens: List[str]) -> int:
         stack, m = [], {'+': lambda a, b: a + b, '-': lambda a, b: a - b, '*': lambda a, b: a * b, '/': lambda a, b: int(a / b)}
         for i in tokens:
-            if i.isdigit():
+            if i.isdigit() or (i[0] == '-' and len(i) > 1):
                 stack.append(int(i))
             else:
                 a, b = stack.pop(), stack.pop()
