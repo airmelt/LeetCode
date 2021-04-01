@@ -76,11 +76,8 @@ public:
     {
         int dp[dungeon[0].size() + 1], row = dungeon.size(), col = dungeon[0].size();
         for (int j = 0; j <= col; j++) dp[j] = INT_MAX;
-        for (int i = row - 1; ~i; i--)
-        {
-            dp[row] = (i == row - 1) ? 1 : INT_MAX;
-            for (int j = col - 1; ~j; j--) dp[j] = max(min(dp[j + 1], dp[j]) - dungeon[i][j], 1);
-        }
+        dp[col - 1] = 1;
+        for (int i = row - 1; ~i; i--) for (int j = col - 1; ~j; j--) dp[j] = max(min(dp[j + 1], dp[j]) - dungeon[i][j], 1);
         return dp[0];
     }
 };
