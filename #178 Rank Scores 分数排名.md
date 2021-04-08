@@ -87,10 +87,10 @@ __MySQL__:
 # Write your MySQL query statement below
 SELECT
     S1.score,
-    COUNT(DISTINCT S2.score) Rank
+    COUNT(DISTINCT S2.score) AS 'Rank'
 FROM
-    Scores as S1
-    INNER JOIN Scores as S2
+    Scores AS S1
+    INNER JOIN Scores AS S2
     ON S1.score <= S2.score
 GROUP BY
     S1.id, S1.score
