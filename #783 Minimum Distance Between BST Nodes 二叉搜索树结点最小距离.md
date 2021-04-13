@@ -75,11 +75,11 @@ __C++__:
 class Solution 
 {
 public:
-    int getMinimumDifference(TreeNode* root) 
+    int minDiffInBST(TreeNode* root) 
     {
         stack<TreeNode*> s;
         TreeNode* pre = NULL;
-        int result = (1 << 31) - 1;
+        int result = INT_MAX;
         while (root or s.size()) 
         {
             if (root) 
@@ -116,7 +116,7 @@ __Java__:
 class Solution {
     int result = Integer.MAX_VALUE;
     TreeNode pre = null;
-    public int getMinimumDifference(TreeNode root) {
+    public int minDiffInBST(TreeNode root) {
         inOrder(root);
         return result;
     }
@@ -142,7 +142,7 @@ __Python__:
 #         self.right = None
 
 class Solution:
-    def getMinimumDifference(self, root: TreeNode) -> int:
+    def minDiffInBST(self, root: TreeNode) -> int:
         result, pre = (1 << 31) - 1, 1 - (1 << 31)
         def in_order(root: TreeNode):
             nonlocal pre, result
