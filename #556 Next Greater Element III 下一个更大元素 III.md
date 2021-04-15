@@ -44,8 +44,7 @@ __提示:__
 
 __思路__:
 
-参考[LeetCode #31 Next Permutation 下一个排列]([LeetCode #31 Next Permutation 下一个排列 - 简书 (jianshu.com)](https://www.jianshu.com/p/ad45640f4198)
-)
+参考[LeetCode #31 Next Permutation 下一个排列](https://www.jianshu.com/p/ad45640f4198)
 从后往前找到第一个逆序的数对
 交换之后将逆序数对之后的元素逆序
 时间复杂度 O(n), 空间复杂度 O(n)
