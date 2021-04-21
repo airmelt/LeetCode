@@ -72,7 +72,7 @@ public:
         while (i < s.size() and hash[s[i]] >= k) ++i;
         if (i == s.size()) return s.size();
         int l = longestSubstring(s.substr(0, i), k);
-        while (i < s.size() && hash[s[i]] < k) ++i;
+        while (i < s.size() and hash[s[i]] < k) ++i;
         int r = longestSubstring(s.substr(i), k);
         return max(l, r);
     }
