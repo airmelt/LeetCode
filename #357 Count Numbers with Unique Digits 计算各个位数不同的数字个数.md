@@ -1,7 +1,7 @@
 # 357 Count Numbers with Unique Digits 计算各个位数不同的数字个数
 
  __Description__:
-Given a non-negative integer n, count all numbers with unique digits, x, where 0 ≤ x < 10n.
+Given a non-negative integer n, count all numbers with unique digits, x, where 0 ≤ x < 10^n.
 
 __Example:__
 
@@ -15,7 +15,7 @@ __Constraints:__
 0 <= n <= 8
 
 __题目描述__:
-给定一个非负整数 n，计算各位数字都不同的数字 x 的个数，其中 0 ≤ x < 10n 。
+给定一个非负整数 n，计算各位数字都不同的数字 x 的个数，其中 0 ≤ x < 10^n 。
 
 __示例 :__
 
