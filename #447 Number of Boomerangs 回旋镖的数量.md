@@ -1,3 +1,5 @@
+# 447 Number of Boomerangs 回旋镖的数量
+
 __Description__:
 Given n points in the plane that are all pairwise distinct, a "boomerang" is a tuple of points (i, j, k) such that the distance between i and j equals the distance between i and k (the order of the tuple matters).
 
@@ -39,7 +41,8 @@ __思路__:
 
 __代码__:
 __C++__:
-```
+
+```C++
 class Solution {
 public:
     int numberOfBoomerangs(vector<vector<int>>& points) {
@@ -67,7 +70,8 @@ private:
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public int numberOfBoomerangs(int[][] points) {
         int result = 0, s = points.length;
@@ -96,7 +100,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def numberOfBoomerangs(self, points: List[List[int]]) -> int:
         result = 0
