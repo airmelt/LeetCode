@@ -2,6 +2,7 @@
 
 __Description__:
 Given a List of words, return the words that can be typed using letters of alphabet on only one row's of American keyboard like the image below.
+
 ![keyboard](https://assets.leetcode.com/uploads/2018/10/12/keyboard.png)
 
 __Example:__
@@ -16,6 +17,7 @@ You may assume the input string will only contain letters of alphabet.
 
 __题目描述__:
 给定一个单词列表，只返回可以使用在键盘同一行的字母打印出来的单词。键盘如下图所示。
+
 ![键盘](https://assets.leetcode.com/uploads/2018/10/12/keyboard.png)
 
 __示例：__
