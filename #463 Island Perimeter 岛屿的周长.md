@@ -21,6 +21,7 @@ Input:
 Output: 16
 
 __Explanation:__ The perimeter is the 16 yellow stripes in the image below:
+
 ![Map](https://upload-images.jianshu.io/upload_images/16639143-169a44ba3698852b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 __题目描述__:
