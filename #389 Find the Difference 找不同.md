@@ -1,3 +1,5 @@
+# 389 Find the Difference 找不同
+
 __Description__:
 Given two strings s and t which consist of only lowercase letters.
 
@@ -37,16 +39,20 @@ __解释：__
 'e' 是那个被添加的字母。
 
 __思路__:
+
 参考[LeetCode #136 Single Number 只出现一次的数字](https://www.jianshu.com/p/d8050ac9d91d)
 将字符转换为数字, 利用异或求得唯一值
 时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
 __C++__:
-```
-class Solution {
+
+```C++
+class Solution 
+{
 public:
-    char findTheDifference(string s, string t) {
+    char findTheDifference(string s, string t) 
+    {
         char result = 0;
         for (int i = 0; i < s.size(); i++) result ^= s[i];
         for (int i = 0; i < t.size(); i++) result ^= t[i];
@@ -56,7 +62,8 @@ public:
 ```
 
 __Java__:
-```
+
+```Java
 class Solution {
     public char findTheDifference(String s, String t) {
         char result = 0;
@@ -68,7 +75,8 @@ class Solution {
 ```
 
 __Python__:
-```
+
+```Python
 class Solution:
     def findTheDifference(self, s: str, t: str) -> str:
         return list(collections.Counter(t) - collections.Counter(s))[0]
