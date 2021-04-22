@@ -5,7 +5,8 @@ Given a string s consists of upper/lower-case alphabets and empty space characte
 
 If the last word does not exist, return 0.
 
-Note: A word is defined as a character sequence consists of non-space characters only.
+__Note:__
+A word is defined as a character sequence consists of non-space characters only.
 
 __Example__:
 
@@ -17,7 +18,8 @@ __题目描述__:
 
 如果不存在最后一个单词，请返回 0 。
 
-说明：一个单词是指由字母组成，但不包含任何空格的字符串。
+__说明:__
+一个单词是指由字母组成，但不包含任何空格的字符串。
 
 __示例__:
 
