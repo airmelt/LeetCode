@@ -48,7 +48,8 @@ public:
 private:
     void reverse(string &s, int i, int j) 
     {
-        while (i < j) {
+        while (i < j) 
+        {
             s[i] ^= s[j];
             s[j] ^= s[i];
             s[i++] ^= s[j--];
