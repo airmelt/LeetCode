@@ -46,11 +46,11 @@ private:
     void backtrack(vector<string>& result, string& s, int start, int n, string temp)
     {
         if (start > s.size()) return;
-        for (int i = start; i < s.size() && i < start + 3; i++)
+        for (int i = start; i < s.size() and i < start + 3; i++)
         {
             if (s.size() - 1 - i > 3 * (4 - n) or s.size() - 1 - i < 4 - n) continue;
             const string num = s.substr(start, i - start + 1);
-            if (num[0] == '0' && num.size() > 1) continue;
+            if (num[0] == '0' and num.size() > 1) continue;
             const int address = stoi(num);
             if (address < 256 and n == 4) 
             {
