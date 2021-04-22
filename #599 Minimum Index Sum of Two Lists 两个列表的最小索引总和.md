@@ -87,7 +87,8 @@ public:
                 result.clear();
                 result.push_back(m -> first);
                 temp = m -> second;
-            } else if (temp == m -> second) result.push_back(m -> first);
+            } 
+            else if (temp == m -> second) result.push_back(m -> first);
         }
         return result;
     }
