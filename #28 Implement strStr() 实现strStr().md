@@ -60,7 +60,7 @@ __C++__:
 ```C++
 class Solution 
 {
-public:
+private:
     // 求next数组
     void ComputePrefix(string s, int next[]) 
     {
@@ -109,7 +109,7 @@ public:
             next[j] = i;
         }
     }
- private:
+ public:
  int strStr(string haystack, string needle) 
     {
         if (!needle.length()) return 0;
