@@ -58,7 +58,7 @@ public:
             for (int i = 0; i + l - 1 < n; i++)
             {
                 int j = i + l - 1;
-                if (s[i] == s[j] and dp[i+1][j-1] == 1) dp[i][j] = 1;
+                if (s[i] == s[j] and dp[i + 1][j - 1] == 1) dp[i][j] = 1;
             }
         }
 
