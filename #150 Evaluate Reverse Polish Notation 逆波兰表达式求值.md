@@ -116,7 +116,7 @@ public:
                 s[index - 2] += s[index - 1];
                 --index;
             }
-            else if (token[0] == '-' && token.size() == 1)
+            else if (token[0] == '-' and token.size() == 1)
             {
                 s[index - 2] -= s[index - 1];
                 --index;
