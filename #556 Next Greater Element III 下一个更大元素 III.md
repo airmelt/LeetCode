@@ -61,7 +61,7 @@ public:
         string str = to_string(n);
         next_permutation(str.begin(), str.end());
         long num = stol(str);
-        return num > INT_MAX || num <= n ? -1 : num;
+        return num > INT_MAX or num <= n ? -1 : num;
     }
 };
 ```
