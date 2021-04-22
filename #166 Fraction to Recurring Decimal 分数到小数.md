@@ -77,7 +77,8 @@ public:
         unordered_map<int,int> m;
         while (remain) 
         {
-            if (m.find(remain) != m.end()) {
+            if (m.find(remain) != m.end()) 
+            {
                 result.insert(m[remain], "(");
                 result += ")";
                 break;
