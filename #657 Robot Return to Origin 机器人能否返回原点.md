@@ -59,7 +59,7 @@ public:
     {
         int count[26] = {0};
         for (char c : moves) ++count[c - 'A'];
-        return count['L' - 'A'] == count['R' - 'A'] && count['U' - 'A'] == count['D' - 'A'];
+        return count['L' - 'A'] == count['R' - 'A'] and count['U' - 'A'] == count['D' - 'A'];
     }
 };
 ```
