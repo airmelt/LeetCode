@@ -24,6 +24,7 @@ Example 2:
 
 Input: boxes = [1,1,1]
 Output: 9
+
 Example 3:
 
 Input: boxes = [1]
@@ -58,6 +59,7 @@ __示例 :__
 
 输入：boxes = [1,1,1]
 输出：9
+
 示例 3：
 
 输入：boxes = [1]
