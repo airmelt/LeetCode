@@ -75,7 +75,8 @@ public:
         for (auto a : A) s += a;
         if (s % 3) return false;
         s /= 3;
-        while (i < j) {
+        while (i < j) 
+        {
             if (l - s) l += A[i++];
             if (r - s) r += A[j--];
             if (l == s and r == s) return true;
