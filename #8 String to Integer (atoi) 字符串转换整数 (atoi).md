@@ -125,7 +125,7 @@ public:
             positive = -1;
             ++index;
         }
-        while (index < n and str[index] >= '0' && str[index] <= '9')
+        while (index < n and str[index] >= '0' and str[index] <= '9')
         {
             temp *= 10;
             temp += str[index++] - '0';
