@@ -139,8 +139,7 @@ class Solution:
         stack, result = [], 0
         for i in range(len(heights)):
             while stack and heights[stack[-1]] > heights[i]:
-                cur = stack.pop()
-                result = max(result, (i - stack[-1] - 1 if stack else i) * heights[cur])
+                result = max(result, (i - stack[-2] - 1 if len(stack) > 1 else i) * heights[stack.pop()])
             stack.append(i)
         return result
 ```
