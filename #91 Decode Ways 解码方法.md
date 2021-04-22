@@ -68,7 +68,7 @@ public:
         for (int i = 0; i < s.size(); i++)
         {
             result = s[i] == '0' ? 0 : one;
-            if (i > 0 and (s[i - 1] == '1' || s[i - 1] == '2' and s[i] < '7')) result += two;
+            if (i > 0 and (s[i - 1] == '1' or s[i - 1] == '2' and s[i] < '7')) result += two;
             two = one;
             one = result;
         }
