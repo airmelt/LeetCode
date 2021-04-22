@@ -6,6 +6,7 @@ A 3 x 3 magic square is a 3 x 3 grid filled with distinct numbers from 1 to 9 su
 Given an grid of integers, how many 3 x 3 "magic square" subgrids are there?  (Each subgrid is contiguous).
 
 __Example:__
+
 Example 1:
 
 ```text
