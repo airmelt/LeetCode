@@ -89,7 +89,7 @@ private:
     {
         if (!root) return;
         in_order(root -> left, pre, cur_count, max_count, result);
-        if (pre) cur_count = (root->val == pre->val) ? cur_count + 1 : 1;
+        if (pre) cur_count = (root -> val == pre -> val) ? cur_count + 1 : 1;
         if (cur_count == max_count) result.push_back(root -> val);
         else if (cur_count > max_count) 
         {
@@ -98,7 +98,7 @@ private:
             max_count = cur_count;
         }
         pre = root;
-        in_order(root->right, pre, cur_count, max_count, result);
+        in_order(root -> right, pre, cur_count, max_count, result);
     }
 public:
     vector<int> findMode(TreeNode* root) 
