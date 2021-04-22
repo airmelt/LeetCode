@@ -40,19 +40,20 @@ public:
         int j = s.find(" ") == s.npos ? s.size() : s.find(" "), i = 0;
         while (j <= s.size()) 
         {
-            if (s[j] == ' ' || j == s.size()) 
+            if (s[j] == ' ' or j == s.size()) 
             {
                 reverse(s, i, j - 1);
                 i = j + 1;
             }
-            j++;
+            ++j;
         }
         return s;
     }
 private:
     void reverse(string &s, int i, int j) 
     {
-        while (i < j) {
+        while (i < j) 
+        {
             s[i] ^= s[j];
             s[j] ^= s[i];
             s[i++] ^= s[j--];
