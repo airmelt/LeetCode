@@ -74,9 +74,10 @@ public:
     {
         if (k < 0) return 0;
         map<int, int> m;
-        for (int num : nums) m[num]++;
+        for (int num : nums) ++m[num];
         int result = 0;
-        for (auto p : m) {
+        for (auto p : m) 
+        {
             if (!k) if (p.second > 1) result++;
             else if (m.find(p.first + k) != m.end()) ++result;
         }
