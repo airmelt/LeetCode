@@ -30,7 +30,7 @@ Example 2:
 Input: 0
 Output: [0]
 Explanation: We define the gray code sequence to begin with 0.
-             A gray code sequence of n has size = 2n, which for n = 0 the size is 20 = 1.
+             A gray code sequence of n has size = 2n, which for n = 0 the size is 2^0 = 1.
              Therefore, for n = 0 the gray code sequence is [0].
 
 __题目描述__:
@@ -65,7 +65,7 @@ __示例 :__
 输入: 0
 输出: [0]
 解释: 我们定义格雷编码序列必须以 0 开头。
-     给定编码总位数为 n 的格雷编码序列，其长度为 2n。当 n = 0 时，长度为 20 = 1。
+     给定编码总位数为 n 的格雷编码序列，其长度为 2n。当 n = 0 时，长度为 2^0 = 1。
      因此，当 n = 0 时，其格雷编码序列为 [0]。
 
 __思路__:
