@@ -13,12 +13,16 @@ Return the 2D grid after applying shift operation k times.
 __Example:__
 
 Example 1:
+
 ![Matrix 1](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/11/16/e1-1.png)
+
 Input: grid = [[1,2,3],[4,5,6],[7,8,9]], k = 1
 Output: [[9,1,2],[3,4,5],[6,7,8]]
 
 Example 2:
+
 ![Matrix 2](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/11/16/e2-1.png)
+
 Input: grid = [[3,8,1,9],[19,7,2,5],[4,6,11,10],[12,0,21,13]], k = 4
 Output: [[12,0,21,13],[3,8,1,9],[19,7,2,5],[4,6,11,10]]
 
@@ -49,12 +53,16 @@ __题目描述__:
 __示例 :__
 
 示例 1：
+
 ![矩阵1](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/11/16/e1-1.png)
+
 输入：grid = [[1,2,3],[4,5,6],[7,8,9]], k = 1
 输出：[[9,1,2],[3,4,5],[6,7,8]]
 
 示例 2：
+
 ![矩阵2](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/11/16/e2-1.png)
+
 输入：grid = [[3,8,1,9],[19,7,2,5],[4,6,11,10],[12,0,21,13]], k = 4
 输出：[[12,0,21,13],[3,8,1,9],[19,7,2,5],[4,6,11,10]]
 

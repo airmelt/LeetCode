@@ -15,7 +15,7 @@ __Example:__
 
 Example 1:
 
-![Delete Node 1](https://upload-images.jianshu.io/upload_images/16639143-89762794442b43bd.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![Delete Node 1](https://assets.leetcode.com/uploads/2020/09/04/del_node_1.jpg)
 
 Input: root = [5,3,6,2,4,null,7], key = 3
 Output: [5,4,6,2,null,null,7]
@@ -25,7 +25,7 @@ Please notice that another valid answer is [5,2,6,null,4,null,7] and it's also a
 
 Example 2:
 
-![Delete Node 2](https://upload-images.jianshu.io/upload_images/16639143-436cfe0a521e0c1a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![Delete Node 2](https://assets.leetcode.com/uploads/2020/09/04/del_node_supp.jpg)
 
 Input: root = [5,3,6,2,4,null,7], key = 0
 Output: [5,3,6,2,4,null,7]

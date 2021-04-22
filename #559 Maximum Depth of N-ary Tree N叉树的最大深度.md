@@ -8,7 +8,8 @@ The maximum depth is the number of nodes along the longest path from the root no
 __Example:__
 
 For example, given a 3-ary tree:
-![3-ary tree](https://upload-images.jianshu.io/upload_images/16639143-caf24b6dedfe7889.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![3-ary tree](https://assets.leetcode.com/uploads/2018/10/12/narytreeexample.png)
 
 We should return its max depth, which is 3.
 
@@ -25,7 +26,8 @@ __题目描述__:
 __示例 :__
 
 例如，给定一个 3叉树 :
-![3叉树](https://upload-images.jianshu.io/upload_images/16639143-caf24b6dedfe7889.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![3叉树](https://assets.leetcode.com/uploads/2018/10/12/narytreeexample.png)
 
 我们应返回其最大深度，3。
 

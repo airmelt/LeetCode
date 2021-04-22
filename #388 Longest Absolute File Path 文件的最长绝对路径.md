@@ -3,7 +3,7 @@
 __Description__:
 Suppose we have a file system that stores both files and directories. An example of one system is represented in the following picture:
 
-![dir](https://upload-images.jianshu.io/upload_images/16639143-2d94f16274e4d539.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![dir](https://assets.leetcode.com/uploads/2020/08/28/mdir.jpg)
 
 Here, we have dir as the only directory in the root. dir contains two subdirectories, subdir1 and subdir2. subdir1 contains a file file1.ext and subdirectory subsubdir1. subdir2 contains a subdirectory subsubdir2, which contains a file file2.ext.
 
@@ -29,7 +29,7 @@ __Example:__
 
 Example 1:
 
-![dir 1](https://upload-images.jianshu.io/upload_images/16639143-e5cf4e54bf326704.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![dir 1](https://assets.leetcode.com/uploads/2020/08/28/dir1.jpg)
 
 Input: input = "dir\n\tsubdir1\n\tsubdir2\n\t\tfile.ext"
 Output: 20
@@ -37,7 +37,7 @@ Explanation: We have only one file, and the absolute path is "dir/subdir2/file.e
 
 Example 2:
 
-![dir 2](https://upload-images.jianshu.io/upload_images/16639143-d9dc6d6863a75619.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![dir 2](https://assets.leetcode.com/uploads/2020/08/28/dir2.jpg)
 
 Input: input = "dir\n\tsubdir1\n\t\tfile1.ext\n\t\tsubsubdir1\n\tsubdir2\n\t\tsubsubdir2\n\t\t\tfile2.ext"
 Output: 32
@@ -67,7 +67,7 @@ input may contain lowercase or uppercase English letters, a new line character '
 __题目描述__:
 假设文件系统如下图所示：
 
-![文件夹](https://upload-images.jianshu.io/upload_images/16639143-c38044ad514017ac.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![文件夹](https://assets.leetcode.com/uploads/2020/08/28/mdir.jpg)
 
 这里将 dir 作为根目录中的唯一目录。dir 包含两个子目录 subdir1 和 subdir2 。subdir1 包含文件 file1.ext 和子目录 subsubdir1；subdir2 包含子目录 subsubdir2，该子目录下包含文件 file2.ext 。
 
@@ -93,7 +93,7 @@ __示例 :__
 
 示例 1：
 
-![文件夹 1](https://upload-images.jianshu.io/upload_images/16639143-50e930e3bad64544.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![文件夹 1](https://assets.leetcode.com/uploads/2020/08/28/dir1.jpg)
 
 输入：input = "dir\n\tsubdir1\n\tsubdir2\n\t\tfile.ext"
 输出：20
@@ -102,7 +102,7 @@ __示例 :__
 
 示例 2：
 
-![文件夹 2](https://upload-images.jianshu.io/upload_images/16639143-8a733fe9e7932501.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![文件夹 2](https://assets.leetcode.com/uploads/2020/08/28/dir2.jpg)
 
 输入：input = "dir\n\tsubdir1\n\t\tfile1.ext\n\t\tsubsubdir1\n\tsubdir2\n\t\tsubsubdir2\n\t\t\tfile2.ext"
 输出：32

@@ -3,7 +3,7 @@
 __Description__:
 Given a non-negative integer *numRows*, generate the first *numRows* of Pascal's triangle.
 
-![In Pascal's triangle, each number is the sum of the two numbers directly above it.](http://upload-images.jianshu.io/upload_images/16639143-4492288ba931415f.gif?imageMogr2/auto-orient/strip)
+![In Pascal's triangle, each number is the sum of the two numbers directly above it.](https://upload.wikimedia.org/wikipedia/commons/0/0d/PascalTriangleAnimated2.gif)
 
 **Example:**
 
@@ -23,7 +23,7 @@ Given a non-negative integer *numRows*, generate the first *numRows* of Pasca
 __题目描述__:
 给定一个非负整数 *numRows*生成杨辉三角的前 *numRows*行。
 
-![在杨辉三角中，每个数是它左上方和右上方的数的和。](http://upload-images.jianshu.io/upload_images/16639143-635269ec9e469820.gif?imageMogr2/auto-orient/strip)
+![在杨辉三角中，每个数是它左上方和右上方的数的和。](https://upload.wikimedia.org/wikipedia/commons/0/0d/PascalTriangleAnimated2.gif)
 
 **示例:**
 

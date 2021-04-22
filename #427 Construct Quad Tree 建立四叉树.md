@@ -43,19 +43,19 @@ __Example:__
 
 Example 1:
 
-![grid 1](https://upload-images.jianshu.io/upload_images/16639143-9e99c1aa0fd6f3c6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![grid 1](https://assets.leetcode.com/uploads/2020/02/11/grid1.png)
 
 Input: grid = [[0,1],[1,0]]
 Output: [[0,1],[1,0],[1,1],[1,1],[1,0]]
 Explanation: The explanation of this example is shown below:
 
-![Explanation 1](https://upload-images.jianshu.io/upload_images/16639143-e353d01cbeb90274.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![Explanation 1](https://assets.leetcode.com/uploads/2020/02/12/e1tree.png)
 
 Notice that 0 represnts False and 1 represents True in the photo representing the Quad-Tree.
 
 Example 2:
 
-![grid 2](https://upload-images.jianshu.io/upload_images/16639143-e2a56481328f218c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![grid 2](https://assets.leetcode.com/uploads/2020/02/12/e2mat.png)
 
 Input: grid = [[1,1,1,1,0,0,0,0],[1,1,1,1,0,0,0,0],[1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1],[1,1,1,1,0,0,0,0],[1,1,1,1,0,0,0,0],[1,1,1,1,0,0,0,0],[1,1,1,1,0,0,0,0]]
 Output: [[0,1],[1,1],[0,1],[1,1],[1,0],null,null,null,null,[1,0],[1,0],[1,1],[1,1]]
@@ -64,7 +64,7 @@ The topLeft, bottomLeft and bottomRight each has the same value.
 The topRight have different values so we divide it into 4 sub-grids where each has the same value.
 Explanation is shown in the photo below:
 
-![Explanation 2](https://upload-images.jianshu.io/upload_images/16639143-7ca5045b297f330b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![Explanation 2](https://assets.leetcode.com/uploads/2020/02/12/e2tree.png)
 
 Example 3:
 
@@ -129,19 +129,19 @@ __示例 :__
 
 示例 1：
 
-![grid 1](https://upload-images.jianshu.io/upload_images/16639143-49165b3ccb6c6d97.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![网格 1](https://assets.leetcode.com/uploads/2020/02/11/grid1.png)
 
 输入：grid = [[0,1],[1,0]]
 输出：[[0,1],[1,0],[1,1],[1,1],[1,0]]
 解释：此示例的解释如下：
 
-![Explanation 1](https://upload-images.jianshu.io/upload_images/16639143-6bb72c9521deb6a9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![解释 1](https://assets.leetcode.com/uploads/2020/02/12/e1tree.png)
 
 请注意，在下面四叉树的图示中，0 表示 false，1 表示 True 。
 
 示例 2：
 
-![grid 2](https://upload-images.jianshu.io/upload_images/16639143-1a48d72714dffd26.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![网格 2](https://assets.leetcode.com/uploads/2020/02/12/e2mat.png)
 
 输入：grid = [[1,1,1,1,0,0,0,0],[1,1,1,1,0,0,0,0],[1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1],[1,1,1,1,0,0,0,0],[1,1,1,1,0,0,0,0],[1,1,1,1,0,0,0,0],[1,1,1,1,0,0,0,0]]
 输出：[[0,1],[1,1],[0,1],[1,1],[1,0],null,null,null,null,[1,0],[1,0],[1,1],[1,1]]
@@ -150,7 +150,7 @@ topLeft，bottomLeft 和 bottomRight 均具有相同的值。
 topRight 具有不同的值，因此我们将其再分为 4 个子网格，这样每个子网格都具有相同的值。
 解释如下图所示：
 
-![Explanation 2](https://upload-images.jianshu.io/upload_images/16639143-f9ca68d1081af336.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![解释 2](https://assets.leetcode.com/uploads/2020/02/12/e2tree.png)
 
 示例 3：
 

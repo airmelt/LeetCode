@@ -7,7 +7,7 @@ Calling next() will return the next smallest number in the BST.
 
 __Example:__
 
-![BST](https://upload-images.jianshu.io/upload_images/16639143-ae24bdc7547b5324.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![BST](https://assets.leetcode.com/uploads/2018/12/25/bst-tree.png)
 
 ```Java
 BSTIterator iterator = new BSTIterator(root);
@@ -34,7 +34,7 @@ __题目描述__:
 
 __示例 :__
 
-![二叉搜索树](https://upload-images.jianshu.io/upload_images/16639143-dde20ac632694797.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![二叉搜索树](https://assets.leetcode.com/uploads/2018/12/25/bst-tree.png)
 
 ```Java
 BSTIterator iterator = new BSTIterator(root);

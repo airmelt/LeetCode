@@ -10,9 +10,9 @@ Each of the digits 1-9 must occur exactly once in each column.
 Each of the the digits 1-9 must occur exactly once in each of the 9 3x3 sub-boxes of the grid.
 Empty cells are indicated by the character '.'.
 
-![A sudoku puzzle...](https://upload-images.jianshu.io/upload_images/16639143-54e5fa13d98357c1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![A sudoku puzzle...](https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Sudoku-by-L2G-20050714.svg/250px-Sudoku-by-L2G-20050714.svg.png)
 
-![...and its solution numbers marked in red.](https://upload-images.jianshu.io/upload_images/16639143-836093cfecce8b6c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![...and its solution numbers marked in red.](https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Sudoku-by-L2G-20050714_solution.svg/250px-Sudoku-by-L2G-20050714_solution.svg.png)
 
 __Note:__
 
@@ -30,9 +30,9 @@ __题目描述__:
 数字 1-9 在每一个以粗实线分隔的 3x3 宫内只能出现一次。
 空白格用 '.' 表示。
 
-![一个数独。](https://upload-images.jianshu.io/upload_images/16639143-891537358cb8473c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![一个数独。](https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Sudoku-by-L2G-20050714.svg/250px-Sudoku-by-L2G-20050714.svg.png)
 
-![答案被标成红色。](https://upload-images.jianshu.io/upload_images/16639143-0b1ca721a5ad4a7c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![答案被标成红色。](https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Sudoku-by-L2G-20050714_solution.svg/250px-Sudoku-by-L2G-20050714_solution.svg.png)
 
 __说明:__
 

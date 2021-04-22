@@ -5,7 +5,7 @@ Given n non-negative integers a1, a2, ..., an , where each represents a point a
 
 __Note:__ You may not slant the container and n is at least 2.
 
-![The above vertical lines are represented by array [1,8,6,2,5,4,8,3,7]. In this case, the max area of water (blue section) the container can contain is 49.](https://upload-images.jianshu.io/upload_images/16639143-0e263c7d718dde51.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![The above vertical lines are represented by array [1,8,6,2,5,4,8,3,7]. In this case, the max area of water (blue section) the container can contain is 49.](https://s3-lc-upload.s3.amazonaws.com/uploads/2018/07/17/question_11.jpg)
 
 __Example:__
 
@@ -15,8 +15,10 @@ Output: 49
 __题目描述__:
 给定 n 个非负整数 a1，a2，...，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai) 和 (i, 0)。找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。
 
-__说明：__你不能倾斜容器，且 n 的值至少为 2。
-![图中垂直线代表输入数组 [1,8,6,2,5,4,8,3,7]。在此情况下，容器能够容纳水（表示为蓝色部分）的最大值为 49。](https://upload-images.jianshu.io/upload_images/16639143-5920999ce19f226e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+__说明：__
+你不能倾斜容器，且 n 的值至少为 2。
+
+![图中垂直线代表输入数组 [1,8,6,2,5,4,8,3,7]。在此情况下，容器能够容纳水（表示为蓝色部分）的最大值为 49。](https://s3-lc-upload.s3.amazonaws.com/uploads/2018/07/17/question_11.jpg)
 
 __示例 :__
 

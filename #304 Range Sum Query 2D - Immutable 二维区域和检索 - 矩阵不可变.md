@@ -3,7 +3,7 @@
 __Description__:
 Given a 2D matrix matrix, find the sum of the elements inside the rectangle defined by its upper left corner (row1, col1) and lower right corner (row2, col2).
 
-![The above rectangle (with the red border) is defined by (row1, col1) = (2, 1) and (row2, col2) = (4, 3), which contains sum = 8.](https://upload-images.jianshu.io/upload_images/16639143-9a40febb0b8d6666.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![The above rectangle (with the red border) is defined by (row1, col1) = (2, 1) and (row2, col2) = (4, 3), which contains sum = 8.](https://assets.leetcode.com/uploads/2021/03/14/sum-grid.jpg)
 
 __Example:__
 
@@ -29,7 +29,7 @@ You may assume that row1 ≤ row2 and col1 ≤ col2.
 __题目描述__:
 给定一个二维矩阵，计算其子矩形范围内元素的总和，该子矩阵的左上角为 (row1, col1) ，右下角为 (row2, col2)。
 
-![上图子矩阵左上角 (row1, col1) = (2, 1) ，右下角(row2, col2) = (4, 3)，该子矩形内元素的总和为 8。](https://upload-images.jianshu.io/upload_images/16639143-9a40febb0b8d6666.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![上图子矩阵左上角 (row1, col1) = (2, 1) ，右下角(row2, col2) = (4, 3)，该子矩形内元素的总和为 8。](https://assets.leetcode.com/uploads/2021/03/14/sum-grid.jpg)
 
 __示例 :__
 

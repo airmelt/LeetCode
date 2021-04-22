@@ -5,7 +5,7 @@ Given a non-negative index *k* where *k* ≤ 33, return the *kth* index 
 
 Note that the row index starts from 0.
 
-![In Pascal's triangle, each number is the sum of the two numbers directly above it.](http://upload-images.jianshu.io/upload_images/16639143-9338ee189dec63e7.gif?imageMogr2/auto-orient/strip)
+![In Pascal's triangle, each number is the sum of the two numbers directly above it.](https://upload.wikimedia.org/wikipedia/commons/0/0d/PascalTriangleAnimated2.gif)
 
 **Example:**
 
@@ -17,7 +17,8 @@ Could you optimize your algorithm to use only *O*(*k*) extra space?
 
 __题目描述__:
 给定一个非负索引 *k*，其中 *k* ≤ 33，返回杨辉三角的第 *k*行。
-![在杨辉三角中，每个数是它左上方和右上方的数的和。](http://upload-images.jianshu.io/upload_images/16639143-4691b1f6ba34c583.gif?imageMogr2/auto-orient/strip)
+
+![在杨辉三角中，每个数是它左上方和右上方的数的和。](https://upload.wikimedia.org/wikipedia/commons/0/0d/PascalTriangleAnimated2.gif)
 
 **示例:**
 

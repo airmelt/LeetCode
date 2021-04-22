@@ -5,7 +5,7 @@ Given a string containing digits from 2-9 inclusive, return all possible letter 
 
 A mapping of digit to letters (just like on the telephone buttons) is given below. Note that 1 does not map to any letters.
 
-![Telephone-keypad](https://upload-images.jianshu.io/upload_images/16639143-2c54d76a1d15c4bc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![Telephone-keypad](https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Telephone-keypad2.svg/200px-Telephone-keypad2.svg.png)
 
 __Example:__
 
@@ -20,7 +20,7 @@ __题目描述__:
 
 给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。
 
-![电话按键](https://upload-images.jianshu.io/upload_images/16639143-c7b8de1df160b17b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![电话按键](https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Telephone-keypad2.svg/200px-Telephone-keypad2.svg.png)
 
 __示例 :__
 

@@ -12,7 +12,7 @@ __Example:__
 
 Example 1:
 
-![Binary Tree](https://upload-images.jianshu.io/upload_images/16639143-e46425aa7190beb6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![Binary Tree](https://assets.leetcode.com/uploads/2020/09/15/serdeser.jpg)
 
 Input: root = [1,2,3,null,null,4,5]
 Output: [1,2,3,null,null,4,5]

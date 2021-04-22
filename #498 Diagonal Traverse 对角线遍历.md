@@ -15,7 +15,8 @@ Input:
 Output:  [1,2,4,7,5,3,6,8,9]
 
 Explanation:
-![diagonal_traverse](https://upload-images.jianshu.io/upload_images/16639143-b7f77278fc8eb5d1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![diagonal_traverse](https://assets.leetcode.com/uploads/2021/04/10/diag1-grid.jpg)
 
 __Note:__
 
@@ -36,7 +37,8 @@ __示例 :__
 输出:  [1,2,4,7,5,3,6,8,9]
 
 解释:
-![对角线遍历](https://upload-images.jianshu.io/upload_images/16639143-18ce3ee8cbebc796.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![对角线遍历](https://assets.leetcode.com/uploads/2021/04/10/diag1-grid.jpg)
 
 __说明:__
 

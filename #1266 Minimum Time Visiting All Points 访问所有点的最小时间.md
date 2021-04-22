@@ -11,7 +11,9 @@ You have to visit the points in the same order as they appear in the array.
 __Example:__
 
 Example 1:
-![Coordinate](https://upload-images.jianshu.io/upload_images/16639143-0716fc9ca81eab25.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![Coordinate](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/11/24/1626_example_1.png)
+
 Input: points = [[1,1],[3,4],[-1,0]]
 Output: 7
 Explanation: One optimal path is [1,1] -> [2,2] -> [3,3] -> [3,4] -> [2,3] -> [1,2] -> [0,1] -> [-1,0]
@@ -42,7 +44,9 @@ __题目描述__:
 __示例 :__
 
 示例 1：
-![坐标系](https://upload-images.jianshu.io/upload_images/16639143-8273fb7cf4e036ce.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![坐标系](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/11/24/1626_example_1.png)
+
 输入：points = [[1,1],[3,4],[-1,0]]
 输出：7
 解释：一条最佳的访问路径是： [1,1] -> [2,2] -> [3,3] -> [3,4] -> [2,3] -> [1,2] -> [0,1] -> [-1,0]

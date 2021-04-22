@@ -7,7 +7,7 @@ According to the [definition of LCA on Wikipedia](https://en.wikipedia.org/wiki
 
 Given binary search tree:  root = [6,2,8,0,4,7,9,null,null,3,5]
 
-![Binary Search Tree](http://upload-images.jianshu.io/upload_images/16639143-c196720af1f6ce69.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![Binary Search Tree](https://assets.leetcode.com/uploads/2018/12/14/binarysearchtree_improved.png)
 
 **Example:**
 
@@ -33,7 +33,7 @@ __题目描述__:
 
 例如，给定如下二叉搜索树:  root = [6,2,8,0,4,7,9,null,null,3,5]
 
-![二叉搜索树](http://upload-images.jianshu.io/upload_images/16639143-1c89c3214d035cd5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![二叉搜索树](https://assets.leetcode.com/uploads/2018/12/14/binarysearchtree_improved.png)
 
 **示例 1:**
 **输入:** root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 8

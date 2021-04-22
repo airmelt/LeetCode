@@ -9,6 +9,7 @@ Input: points = [[0,0],[0,1],[1,0],[0,2],[2,0]]
 Output: 2
 Explanation:
 The five points are show in the figure below. The red triangle is the largest.
+
 ![triangle](https://s3-lc-upload.s3.amazonaws.com/uploads/2018/04/04/1027.png)
 
 __Notes:__
@@ -27,6 +28,7 @@ __示例 :__
 输出: 2
 解释:
 这五个点如下图所示。组成的橙色三角形是最大的，面积为2。
+
 ![三角形](https://s3-lc-upload.s3.amazonaws.com/uploads/2018/04/04/1027.png)
 
 __注意：__

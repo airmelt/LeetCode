@@ -10,7 +10,9 @@ Return the sum of these numbers.
 __Example:__
 
 Example 1:
+
 ![Binary Tree](https://assets.leetcode.com/uploads/2019/04/04/sum-of-root-to-leaf-binary-numbers.png)
+
 Input: [1,0,1,0,1,0,1]
 Output: 22
 Explanation: (100) + (101) + (110) + (111) = 4 + 5 + 6 + 7 = 22
@@ -31,6 +33,7 @@ __题目描述__:
 __示例 :__
 
 ![二叉树](https://assets.leetcode.com/uploads/2019/04/04/sum-of-root-to-leaf-binary-numbers.png)
+
 输入：[1,0,1,0,1,0,1]
 输出：22
 解释：(100) + (101) + (110) + (111) = 4 + 5 + 6 + 7 = 22

@@ -14,21 +14,21 @@ __Example:__
 
 Example 1:
 
-![graph 1](https://upload-images.jianshu.io/upload_images/16639143-dd37f2b7272cf688.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![graph 1](https://assets.leetcode.com/uploads/2019/12/18/e1.png)
 
 Input: head = [[7,null],[13,0],[11,4],[10,2],[1,0]]
 Output: [[7,null],[13,0],[11,4],[10,2],[1,0]]
 
 Example 2:
 
-![graph 2](https://upload-images.jianshu.io/upload_images/16639143-5ab044f5f287170e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![graph 2](https://assets.leetcode.com/uploads/2019/12/18/e2.png)
 
 Input: head = [[1,1],[2,1]]
 Output: [[1,1],[2,1]]
 
 Example 3:
 
-![graph 3](https://upload-images.jianshu.io/upload_images/16639143-fd09d9175032443f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![graph 3](https://assets.leetcode.com/uploads/2019/12/18/e3.png)
 
 Input: head = [[3,null],[3,0],[3,null]]
 Output: [[3,null],[3,0],[3,null]]
@@ -58,21 +58,22 @@ random_index：随机指针指向的节点索引（范围从 0 到 n-1）；�
 __示例 :__
 
 示例 1：
-![图 1](https://upload-images.jianshu.io/upload_images/16639143-dd37f2b7272cf688.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![图 1](https://assets.leetcode.com/uploads/2019/12/18/e1.png)
 
 输入：head = [[7,null],[13,0],[11,4],[10,2],[1,0]]
 输出：[[7,null],[13,0],[11,4],[10,2],[1,0]]
 
 示例 2：
 
-![图 2](https://upload-images.jianshu.io/upload_images/16639143-5ab044f5f287170e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![图 2](https://assets.leetcode.com/uploads/2019/12/18/e2.png)
 
 输入：head = [[1,1],[2,1]]
 输出：[[1,1],[2,1]]
 
 示例 3：
 
-![图 3](https://upload-images.jianshu.io/upload_images/16639143-fd09d9175032443f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![图 3](https://assets.leetcode.com/uploads/2019/12/18/e3.png)
 
 输入：head = [[3,null],[3,0],[3,null]]
 输出：[[3,null],[3,0],[3,null]]

@@ -8,12 +8,16 @@ Return true if and only if the given tree is univalued.
 __Example:__
 
 Example 1:
+
 ![Binary Tree 1](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/29/screen-shot-2018-12-25-at-50104-pm.png)
+
 Input: [1,1,1,1,1,null,1]
 Output: true
 
 Example 2:
+
 ![Binary Tree 2](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/29/screen-shot-2018-12-25-at-50050-pm.png)
+
 Input: [2,2,2,5,2]
 Output: false
 
@@ -30,12 +34,16 @@ __题目描述__:
 __示例 :__
 
 示例 1：
+
 ![二叉树1](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/29/screen-shot-2018-12-25-at-50104-pm.png)
+
 输入：[1,1,1,1,1,null,1]
 输出：true
 
 示例 2：
+
 ![二叉树2](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/29/screen-shot-2018-12-25-at-50050-pm.png)
+
 输入：[2,2,2,5,2]
 输出：false
 

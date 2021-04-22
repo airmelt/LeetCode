@@ -17,11 +17,11 @@ Given the following 3x6 height map:
 
 Return 4.
 
-![elevation map](https://upload-images.jianshu.io/upload_images/16639143-a2ef6ae7e5c75caa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![elevation map](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/12/rainwater_empty.png)
 
 The above image represents the elevation map [[1,4,3,1,3,2],[3,2,1,3,2,4],[2,3,3,2,3,1]] before the rain.
 
-![rain](https://upload-images.jianshu.io/upload_images/16639143-67e28c608afe33ee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![rain](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/12/rainwater_fill.png)
 
 After the rain, water is trapped between the blocks. The total volume of water trapped is 4.
 
@@ -47,11 +47,11 @@ __示例 :__
 
 返回 4 。
 
-![高度图](https://upload-images.jianshu.io/upload_images/16639143-94d9ab9057045975.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![高度图](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/12/rainwater_empty.png)
 
 如上图所示，这是下雨前的高度图[[1,4,3,1,3,2],[3,2,1,3,2,4],[2,3,3,2,3,1]] 的状态。
 
-![雨](https://upload-images.jianshu.io/upload_images/16639143-4ba53cd2a06129e9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![雨](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/12/rainwater_fill.png)
 
 下雨后，雨水将会被存储在这些方块中。总的接雨水量是4。
 

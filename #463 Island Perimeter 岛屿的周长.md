@@ -22,7 +22,7 @@ Output: 16
 
 __Explanation:__ The perimeter is the 16 yellow stripes in the image below:
 
-![Map](https://upload-images.jianshu.io/upload_images/16639143-169a44ba3698852b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![Map](https://assets.leetcode.com/uploads/2018/10/12/island.png)
 
 __题目描述__:
 给定一个包含 0 和 1 的二维网格地图，其中 1 表示陆地 0 表示水域。
@@ -45,7 +45,8 @@ __示例 :__
 输出: 16
 
 __解释__: 它的周长是下面图片中的 16 个黄色的边：
-![地图](https://upload-images.jianshu.io/upload_images/16639143-169a44ba3698852b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![地图](https://assets.leetcode.com/uploads/2018/10/12/island.png)
 
 __思路__:
 

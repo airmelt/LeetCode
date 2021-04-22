@@ -8,12 +8,16 @@ You can use each character in text at most once. Return the maximum number of in
 __Example:__
 
 Example 1:
-![string 1](https://upload-images.jianshu.io/upload_images/16639143-7b25b66b59bd1335.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![string 1](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/09/14/1536_ex1_upd.jpeg)
+
 Input: text = "nlaebolko"
 Output: 1
 
 Example 2:
-![string 2](https://upload-images.jianshu.io/upload_images/16639143-3c8636cd75685805.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![string 2](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/09/14/1536_ex2_upd.jpeg)
+
 Input: text = "loonbalxballpoon"
 Output: 2
 
@@ -35,12 +39,16 @@ __题目描述__:
 __示例 :__
 
 示例 1：
-![字符串1](https://upload-images.jianshu.io/upload_images/16639143-e25ca9bb32b35687.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![字符串1](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/09/14/1536_ex1_upd.jpeg)
+
 输入：text = "nlaebolko"
 输出：1
 
 示例 2：
-![字符串2](https://upload-images.jianshu.io/upload_images/16639143-3c8636cd75685805.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![字符串2](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/09/14/1536_ex2_upd.jpeg)
+
 输入：text = "loonbalxballpoon"
 输出：2
 

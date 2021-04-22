@@ -6,7 +6,9 @@ Given an n-ary tree, return the preorder traversal of its nodes' values.
 __Example:__
 
 For example, given a 3-ary tree:
-![3-ary tree](https://upload-images.jianshu.io/upload_images/16639143-caf24b6dedfe7889.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![3-ary tree](https://assets.leetcode.com/uploads/2018/10/12/narytreeexample.png)
+
 Return its preorder traversal as: [1,3,5,6,2,4].
 
 __Note:__
@@ -19,7 +21,9 @@ __题目描述__:
 __示例 :__
 
 例如，给定一个 3叉树 :
-![3叉树](https://upload-images.jianshu.io/upload_images/16639143-caf24b6dedfe7889.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![3叉树](https://assets.leetcode.com/uploads/2018/10/12/narytreeexample.png)
+
 返回其前序遍历: [1,3,5,6,2,4]。
 
 __说明:__

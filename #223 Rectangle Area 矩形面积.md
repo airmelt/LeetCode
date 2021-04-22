@@ -7,7 +7,7 @@ Each rectangle is defined by its bottom left corner and top right corner as show
 
 __Example:__
 
-![rectangle area](https://upload-images.jianshu.io/upload_images/16639143-40972ec071dfefb9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![rectangle area](https://assets.leetcode.com/uploads/2021/03/16/rectangle-plane.jpg)
 
 Input: A = -3, B = 0, C = 3, D = 4, E = 0, F = -1, G = 9, H = 2
 Output: 45
@@ -23,7 +23,7 @@ __题目描述__:
 
 __示例 :__
 
-![矩形](https://upload-images.jianshu.io/upload_images/16639143-40972ec071dfefb9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![矩形](https://assets.leetcode.com/uploads/2021/03/16/rectangle-plane.jpg)
 
 输入: -3, 0, 3, 4, 0, -1, 9, 2
 输出: 45

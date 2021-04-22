@@ -5,24 +5,30 @@ Write a program to find the node at which the intersection of two singly linked 
 
 For example, the following two linked lists:
 
-![begin to intersect at node c1.](http://upload-images.jianshu.io/upload_images/16639143-348b5e896614d8a0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![begin to intersect at node c1.](https://assets.leetcode.com/uploads/2021/03/05/160_statement.png)
 
 **Example:**
 
 **Example 1:**
-![Example 1](http://upload-images.jianshu.io/upload_images/16639143-8d696a5194f34d29.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![Example 1](https://assets.leetcode.com/uploads/2021/03/05/160_example_1_1.png)
+
 **Input:** intersectVal = 8, listA = [4,1,8,4,5], listB = [5,0,1,8,4,5], skipA = 2, skipB = 3
 **Output:** Reference of the node with value = 8
 **Input Explanation:** The intersected node's value is 8 (note that this must not be 0 if the two lists intersect). From the head of A, it reads as [4,1,8,4,5]. From the head of B, it reads as [5,0,1,8,4,5]. There are 2 nodes before the intersected node in A; There are 3 nodes before the intersected node in B.
 
 **Example 2:**
-![Example 2](http://upload-images.jianshu.io/upload_images/16639143-1ed1c8167936468d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![Example 2](https://assets.leetcode.com/uploads/2021/03/05/160_example_2.png)
+
 **Input:** intersectVal = 2, listA = [0,9,1,2,4], listB = [3,2,4], skipA = 3, skipB = 1
 **Output:** Reference of the node with value = 2
 **Input Explanation:** The intersected node's value is 2 (note that this must not be 0 if the two lists intersect). From the head of A, it reads as [0,9,1,2,4]. From the head of B, it reads as [3,2,4]. There are 3 nodes before the intersected node in A; There are 1 node before the intersected node in B.
 
 **Example 3:**
-![Example 3](http://upload-images.jianshu.io/upload_images/16639143-1a78d20283d58283.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![Example 3](https://assets.leetcode.com/uploads/2021/03/05/160_example_3.png)
+
 **Input:** intersectVal = 0, listA = [2,6,4], listB = [1,5], skipA = 3, skipB = 2
 **Output:** null
 **Input Explanation:** From the head of A, it reads as [2,6,4]. From the head of B, it reads as [1,5]. Since the two lists do not intersect, intersectVal must be 0, while skipA and skipB can be arbitrary values.
@@ -39,13 +45,14 @@ __题目描述__:
 编写一个程序，找到两个单链表相交的起始节点。
 
 如下面的两个链表
-![在节点 c1 开始相交。](http://upload-images.jianshu.io/upload_images/16639143-83f90f164b21120a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![在节点 c1 开始相交。](https://assets.leetcode.com/uploads/2021/03/05/160_statement.png)
 
 **示例：**
 
 **示例 1：**
 
-![示例 1](http://upload-images.jianshu.io/upload_images/16639143-be7d536652d208bd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![示例 1](https://assets.leetcode.com/uploads/2021/03/05/160_example_1_1.png)
 
 **输入：**
 intersectVal = 8, listA = [4,1,8,4,5], listB = [5,0,1,8,4,5], skipA = 2, skipB = 3
@@ -56,7 +63,7 @@ Reference of the node with value = 8
 
 **示例 2：**
 
-![示例 2](http://upload-images.jianshu.io/upload_images/16639143-faaeb1ed1f9def72.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![示例 2](https://assets.leetcode.com/uploads/2021/03/05/160_example_2.png)
 
 **输入：**
 intersectVal = 2, listA = [0,9,1,2,4], listB = [3,2,4], skipA = 3, skipB = 1
@@ -67,7 +74,7 @@ Reference of the node with value = 2
 
 **示例 3：**
 
-![示例 3](http://upload-images.jianshu.io/upload_images/16639143-1747bf35ae64a1f3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![示例 3](https://assets.leetcode.com/uploads/2021/03/05/160_example_3.png)
 
 **输入：**
 intersectVal = 0, listA = [2,6,4], listB = [1,5], skipA = 3, skipB = 2

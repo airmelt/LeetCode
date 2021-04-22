@@ -13,7 +13,7 @@ __Example:__
 
 Example 1:
 
-![Trees 1](https://upload-images.jianshu.io/upload_images/16639143-c928b8e86bb95ffc.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![Trees 1](https://assets.leetcode.com/uploads/2020/09/01/e1.jpg)
 
 Input: n = 4, edges = [[1,0],[1,2],[1,3]]
 Output: [1]
@@ -21,7 +21,7 @@ Explanation: As shown, the height of the tree is 1 when the root is the node wit
 
 Example 2:
 
-![Trees 2](https://upload-images.jianshu.io/upload_images/16639143-342c40bd63e087cd.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![Trees 2](https://assets.leetcode.com/uploads/2020/09/01/e2.jpg)
 
 Input: n = 6, edges = [[3,0],[3,1],[3,2],[3,4],[5,4]]
 Output: [3,4]

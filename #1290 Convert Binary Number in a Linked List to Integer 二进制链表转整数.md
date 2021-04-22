@@ -8,7 +8,9 @@ Return the decimal value of the number in the linked list.
 __Example:__
 
 Example 1:
-![Linked List](https://upload-images.jianshu.io/upload_images/16639143-3da180847a9ce307.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![Linked List](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/12/15/graph-1.png)
+
 Input: head = [1,0,1]
 Output: 5
 Explanation: (101) in base 2 = (5) in base 10
@@ -47,7 +49,9 @@ __题目描述__:
 __示例 :__
 
 示例 1：
-![单链表](https://upload-images.jianshu.io/upload_images/16639143-a8c3b0be8f77ea9e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![单链表](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/12/15/graph-1.png)
+
 输入：head = [1,0,1]
 输出：5
 解释：二进制数 (101) 转化为十进制数 (5)

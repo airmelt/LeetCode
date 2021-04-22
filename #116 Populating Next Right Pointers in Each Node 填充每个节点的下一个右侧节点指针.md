@@ -24,7 +24,7 @@ Recursive approach is fine, you may assume implicit stack space does not count a
 __Example:__
 
 Example 1:
-![perfect binary tree](https://upload-images.jianshu.io/upload_images/16639143-3e28305418f6b371.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![perfect binary tree](https://assets.leetcode.com/uploads/2019/02/14/116_sample.png)
 
 Input: root = [1,2,3,4,5,6,7]
 Output: [1,#,2,3,#,4,5,6,7,#]
@@ -53,7 +53,7 @@ struct Node {
 
 __示例 :__
 
-![完美二叉树](https://upload-images.jianshu.io/upload_images/16639143-06ae57b77dde34ae.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![完美二叉树](https://assets.leetcode.com/uploads/2019/02/14/116_sample.png)
 
 输入：{"$id":"1","left":{"$id":"2","left":{"$id":"3","left":null,"next":null,"right":null,"val":4},"next":null,"right":{"$id":"4","left":null,"next":null,"right":null,"val":5},"val":2},"next":null,"right":{"$id":"5","left":{"$id":"6","left":null,"next":null,"right":null,"val":6},"next":null,"right":{"$id":"7","left":null,"next":null,"right":null,"val":7},"val":3},"val":1}
 

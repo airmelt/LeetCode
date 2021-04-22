@@ -5,8 +5,8 @@ A binary watch has 4 LEDs on the top which represent the hours (0-11), and the 6
 
 Each LED represents a zero or one, with the least significant bit on the right.
 
-![Binary_clock](https://upload.wikimedia.org/wikipedia/commons/8/8b/Binary_clock_samui_moon.jpg)
-For example, the above binary watch reads "3:25".
+![Binary_clock](https://assets.leetcode.com/uploads/2021/04/08/binarywatch.jpg)
+For example, the above binary watch reads "4:51".
 
 Given a non-negative integer n which represents the number of LEDs that are currently on, return all possible times the watch could represent.
 
@@ -25,7 +25,7 @@ __题目描述__:
 
 每个 LED 代表一个 0 或 1，最低位在右侧。
 
-![二进制手表(淘宝无货)](https://upload.wikimedia.org/wikipedia/commons/8/8b/Binary_clock_samui_moon.jpg)
+![二进制手表(淘宝无货)](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/03/29/binary_clock_samui_moon.jpg)
 例如，上面的二进制手表读取 “3:25”。
 
 给定一个非负整数 n 代表当前 LED 亮着的数量，返回所有可能的时间。

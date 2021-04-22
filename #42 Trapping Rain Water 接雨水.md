@@ -3,7 +3,7 @@
 __Description__:
 Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it is able to trap after raining.
 
-![The above elevation map is represented by array [0,1,0,2,1,0,1,3,2,1,2,1]. In this case, 6 units of rain water (blue section) are being trapped.](https://upload-images.jianshu.io/upload_images/16639143-e2c4da8efa55c3ee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![The above elevation map is represented by array [0,1,0,2,1,0,1,3,2,1,2,1]. In this case, 6 units of rain water (blue section) are being trapped.](https://assets.leetcode.com/uploads/2018/10/22/rainwatertrap.png)
 
 __Example:__
 
@@ -14,7 +14,7 @@ __题目描述__:
 给定 n 个非负整数表示每个宽度为 1 的柱子的高度图，计算按此排列的柱子，下雨之后能接多少雨水。
 
 ![
-上面是由数组 [0,1,0,2,1,0,1,3,2,1,2,1] 表示的高度图，在这种情况下，可以接 6 个单位的雨水（蓝色部分表示雨水）。](https://upload-images.jianshu.io/upload_images/16639143-e2c4da8efa55c3ee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+上面是由数组 [0,1,0,2,1,0,1,3,2,1,2,1] 表示的高度图，在这种情况下，可以接 6 个单位的雨水（蓝色部分表示雨水）。](https://assets.leetcode.com/uploads/2018/10/22/rainwatertrap.png)
 
 __示例 :__
 

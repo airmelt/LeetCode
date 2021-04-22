@@ -9,7 +9,7 @@ __Example:__
 
 Example 1:
 
-![rectangle_perfect](https://upload-images.jianshu.io/upload_images/16639143-8920a70a237bde71.gif?imageMogr2/auto-orient/strip)
+![rectangle_perfect](https://assets.leetcode.com/uploads/2021/03/27/perectrec1-plane.jpg)
 
 rectangles = [
   [1,1,3,3],
@@ -23,7 +23,7 @@ Return true. All 5 rectangles together form an exact cover of a rectangular regi
 
 Example 2:
 
-![rectangle_separated](https://upload-images.jianshu.io/upload_images/16639143-8b21e76ba7366962.gif?imageMogr2/auto-orient/strip)
+![rectangle_separated](https://assets.leetcode.com/uploads/2021/03/27/perfectrec2-plane.jpg)
 
 rectangles = [
   [1,1,2,3],
@@ -36,7 +36,7 @@ Return false. Because there is a gap between the two rectangular regions.
 
 Example 3:
 
-![rectangle_hole](https://upload-images.jianshu.io/upload_images/16639143-774eb0d5d9e3b1c5.gif?imageMogr2/auto-orient/strip)
+![rectangle_hole](https://assets.leetcode.com/uploads/2021/03/27/perfectrec3-plane.jpg)
 
 rectangles = [
   [1,1,3,3],
@@ -49,7 +49,7 @@ Return false. Because there is a gap in the top center.
 
 Example 4:
 
-![rectangle_intersect](https://upload-images.jianshu.io/upload_images/16639143-d5f8aaf6b5341ca5.gif?imageMogr2/auto-orient/strip)
+![rectangle_intersect](https://assets.leetcode.com/uploads/2021/03/27/perfecrrec4-plane.jpg)
 
 rectangles = [
   [1,1,3,3],
@@ -69,7 +69,7 @@ __示例 :__
 
 示例 1:
 
-![完美矩形](https://upload-images.jianshu.io/upload_images/16639143-91511600f13791f9.gif?imageMogr2/auto-orient/strip)
+![完美矩形](https://assets.leetcode.com/uploads/2021/03/27/perectrec1-plane.jpg)
 
 rectangles = [
   [1,1,3,3],
@@ -83,7 +83,7 @@ rectangles = [
 
 示例 2:
 
-![分隔矩形](https://upload-images.jianshu.io/upload_images/16639143-d9e2fef09c0e0754.gif?imageMogr2/auto-orient/strip)
+![分隔矩形](https://assets.leetcode.com/uploads/2021/03/27/perfectrec2-plane.jpg)
 
 rectangles = [
   [1,1,2,3],
@@ -96,7 +96,7 @@ rectangles = [
 
 示例 3:
 
-![间隔矩形](https://upload-images.jianshu.io/upload_images/16639143-f9c5eb67eebbab5e.gif?imageMogr2/auto-orient/strip)
+![间隔矩形](https://assets.leetcode.com/uploads/2021/03/27/perfectrec3-plane.jpg)
 
 rectangles = [
   [1,1,3,3],
@@ -109,7 +109,7 @@ rectangles = [
 
 示例 4:
 
-![相交矩形](https://upload-images.jianshu.io/upload_images/16639143-02b1ec6dcf13acf4.gif?imageMogr2/auto-orient/strip)
+![相交矩形](https://assets.leetcode.com/uploads/2021/03/27/perfecrrec4-plane.jpg)
 
 rectangles = [
   [1,1,3,3],

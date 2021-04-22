@@ -13,7 +13,9 @@ Return the minimum number of minutes that must elapse until no cell has a fresh 
 __Example:__
 
 Example 1:
-![Rotting Oranges](https://upload-images.jianshu.io/upload_images/16639143-2c68896066b4b28f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![Rotting Oranges](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/02/16/oranges.png)
+
 Input: [[2,1,1],[1,1,0],[0,1,1]]
 Output: 4
 
@@ -48,7 +50,9 @@ __题目描述__:
 __示例 :__
 
 示例 1：
-![腐烂的橘子](https://upload-images.jianshu.io/upload_images/16639143-56224de7f36a702c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![腐烂的橘子](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/02/16/oranges.png)
+
 输入：[[2,1,1],[1,1,0],[0,1,1]]
 输出：4
 

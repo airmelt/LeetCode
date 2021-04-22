@@ -6,7 +6,7 @@ A robot is located at the top-left corner of a m x n grid (marked 'Start' in the
 The robot can only move either down or right at any point in time. The robot is trying to reach the bottom-right corner of the grid (marked 'Finish' in the diagram below).
 
 Now consider if some obstacles are added to the grids. How many unique paths would there be?
-![Paths II](https://upload-images.jianshu.io/upload_images/16639143-3c0db7062884e067.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 An obstacle and empty space is marked as 1 and 0 respectively in the grid.
 
 __Note:__
@@ -15,6 +15,8 @@ m and n will be at most 100.
 __Example:__
 
 Example 1:
+
+![robot1](https://assets.leetcode.com/uploads/2020/11/04/robot1.jpg)
 
 Input:
 [
@@ -36,7 +38,7 @@ __题目描述__:
 机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为“Finish”）。
 
 现在考虑网格中有障碍物。那么从左上角到右下角将会有多少条不同的路径？
-![路径 II](https://upload-images.jianshu.io/upload_images/16639143-76549f8d8151e909.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 网格中的障碍物和空位置分别用 1 和 0 来表示。
 
 __说明：__
@@ -45,6 +47,8 @@ m 和 n 的值均不超过 100。
 __示例 :__
 
 示例 1:
+
+![机器人1](https://assets.leetcode.com/uploads/2020/11/04/robot1.jpg)
 
 输入:
 [

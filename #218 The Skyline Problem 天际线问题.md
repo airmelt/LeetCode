@@ -3,9 +3,7 @@
 __Description__:
 A city's skyline is the outer contour of the silhouette formed by all the buildings in that city when viewed from a distance. Now suppose you are given the locations and height of all the buildings as shown on a cityscape photo (Figure A), write a program to output the skyline formed by these buildings collectively (Figure B).
 
-![Figure A](https://upload-images.jianshu.io/upload_images/16639143-208e8a01b5d7206b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-![Figure B](https://upload-images.jianshu.io/upload_images/16639143-e97f54faa473517a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![Figure](https://assets.leetcode.com/uploads/2020/12/01/merged.jpg)
 
 The geometric information of each building is represented by a triplet of integers [Li, Ri, Hi], where Li and Ri are the x coordinates of the left and right edge of the ith building, respectively, and Hi is its height. It is guaranteed that 0 ≤ Li, Ri ≤ INT_MAX, 0 < Hi ≤ INT_MAX, and Ri - Li > 0. You may assume all buildings are perfect rectangles grounded on an absolutely flat surface at height 0.
 
@@ -27,9 +25,7 @@ There must be no consecutive horizontal lines of equal height in the output skyl
 __题目描述__:
 城市的天际线是从远处观看该城市中所有建筑物形成的轮廓的外部轮廓。现在，假设您获得了城市风光照片（图A）上显示的所有建筑物的位置和高度，请编写一个程序以输出由这些建筑物形成的天际线（图B）。
 
-![图A](https://upload-images.jianshu.io/upload_images/16639143-208e8a01b5d7206b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-![图B](https://upload-images.jianshu.io/upload_images/16639143-e97f54faa473517a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![图](https://assets.leetcode.com/uploads/2020/12/01/merged.jpg)
 
 每个建筑物的几何信息用三元组 [Li，Ri，Hi] 表示，其中 Li 和 Ri 分别是第 i 座建筑物左右边缘的 x 坐标，Hi 是其高度。可以保证 0 ≤ Li, Ri ≤ INT_MAX, 0 < Hi ≤ INT_MAX 和 Ri - Li > 0。您可以假设所有建筑物都是在绝对平坦且高度为 0 的表面上的完美矩形。
 

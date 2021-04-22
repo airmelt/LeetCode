@@ -10,21 +10,27 @@ Return the number of pawns the rook can capture in one move.
 __Example:__
 
 Example 1:
-![Chessboard  1](https://upload-images.jianshu.io/upload_images/16639143-70376cde87ff812d.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![Chessboard  1](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/02/23/1253_example_1_improved.PNG)
+
 Input: [[".",".",".",".",".",".",".","."],[".",".",".","p",".",".",".","."],[".",".",".","R",".",".",".","p"],[".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".","."],[".",".",".","p",".",".",".","."],[".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".","."]]
 Output: 3
 Explanation:
 In this example the rook is able to capture all the pawns.
 
 Example 2:
-![Chessboard 2](https://upload-images.jianshu.io/upload_images/16639143-98ae4bc15cd3ee18.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![Chessboard 2](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/02/23/1253_example_2_improved.PNG)
+
 Input: [[".",".",".",".",".",".",".","."],[".","p","p","p","p","p",".","."],[".","p","p","B","p","p",".","."],[".","p","B","R","B","p",".","."],[".","p","p","B","p","p",".","."],[".","p","p","p","p","p",".","."],[".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".","."]]
 Output: 0
 Explanation:
 Bishops are blocking the rook to capture any pawn.
 
 Example 3:
-![Chessboard  3](https://upload-images.jianshu.io/upload_images/16639143-704327c4aed5f241.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![Chessboard  3](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/02/23/1253_example_3_improved.PNG)
+
 Input: [[".",".",".",".",".",".",".","."],[".",".",".","p",".",".",".","."],[".",".",".","p",".",".",".","."],["p","p",".","R",".","p","B","."],[".",".",".",".",".",".",".","."],[".",".",".","B",".",".",".","."],[".",".",".","p",".",".",".","."],[".",".",".",".",".",".",".","."]]
 Output: 3
 Explanation:
@@ -46,21 +52,27 @@ __题目描述__:
 __示例 :__
 
 示例 1：
-![棋盘  1](https://upload-images.jianshu.io/upload_images/16639143-78d221af51f0ff3c.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![棋盘  1](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/02/23/1253_example_1_improved.PNG)
+
 输入：[[".",".",".",".",".",".",".","."],[".",".",".","p",".",".",".","."],[".",".",".","R",".",".",".","p"],[".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".","."],[".",".",".","p",".",".",".","."],[".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".","."]]
 输出：3
 解释：
 在本例中，车能够捕获所有的卒。
 
 示例 2：
-![棋盘  2](https://upload-images.jianshu.io/upload_images/16639143-dc0cfba4879fd2ed.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![棋盘  2](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/02/23/1253_example_2_improved.PNG)
+
 输入：[[".",".",".",".",".",".",".","."],[".","p","p","p","p","p",".","."],[".","p","p","B","p","p",".","."],[".","p","B","R","B","p",".","."],[".","p","p","B","p","p",".","."],[".","p","p","p","p","p",".","."],[".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".","."]]
 输出：0
 解释：
 象阻止了车捕获任何卒。
 
 示例 3：
-![棋盘  3](https://upload-images.jianshu.io/upload_images/16639143-345623ffff6ddb1f.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![棋盘  3](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/02/23/1253_example_3_improved.PNG)
+
 输入：[[".",".",".",".",".",".",".","."],[".",".",".","p",".",".",".","."],[".",".",".","p",".",".",".","."],["p","p",".","R",".","p","B","."],[".",".",".",".",".",".",".","."],[".",".",".","B",".",".",".","."],[".",".",".","p",".",".",".","."],[".",".",".",".",".",".",".","."]]
 输出：3
 解释：

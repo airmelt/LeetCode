@@ -7,7 +7,8 @@ Each row must contain the digits 1-9 without repetition.
 Each column must contain the digits 1-9 without repetition.
 Each of the 9 3x3 sub-boxes of the grid must contain the digits 1-9 without repetition.
 
-![Valid Sudoku](https://upload-images.jianshu.io/upload_images/16639143-dd18b80dbabfdace.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![Valid Sudoku](https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Sudoku-by-L2G-20050714.svg/250px-Sudoku-by-L2G-20050714.svg.png)
+
 A partially filled sudoku which is valid.
 
 The Sudoku board could be partially filled, where empty cells are filled with the character '.'.
@@ -70,7 +71,8 @@ __题目描述__:
 数字 1-9 在每一列只能出现一次。
 数字 1-9 在每一个以粗实线分隔的 3x3 宫内只能出现一次。
 
-![有效的数独](https://upload-images.jianshu.io/upload_images/16639143-815e9a94f45c77d0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![有效的数独](https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Sudoku-by-L2G-20050714.svg/250px-Sudoku-by-L2G-20050714.svg.png)
+
 上图是一个部分填充的有效的数独。
 
 数独部分空格内已填入了数字，空白格用 '.' 表示。

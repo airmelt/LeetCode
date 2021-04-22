@@ -26,6 +26,7 @@ Input: [[1,2],[3,4]]
 Output: 17
 Explanation:
 Here are the three projections ("shadows") of the shape made with each axis-aligned plane.
+
 ![projection](https://s3-lc-upload.s3.amazonaws.com/uploads/2018/08/02/shadow.png)
 
 Example 3:
@@ -74,6 +75,7 @@ __示例 :__
 输出：17
 解释：
 这里有该形体在三个轴对齐平面上的三个投影(“阴影部分”)。
+
 ![投影](https://s3-lc-upload.s3.amazonaws.com/uploads/2018/08/02/shadow.png)
 
 示例 3：

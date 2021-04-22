@@ -5,7 +5,7 @@ Write a function to delete a node (except the tail) in a singly linked list, giv
 
 Given linked list -- head = [4,5,1,9], which looks like following:
 
-![head](http://upload-images.jianshu.io/upload_images/16639143-bae672f418b8a0d6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![head](https://assets.leetcode.com/uploads/2020/09/01/node1.jpg)
 
 **Example:**
 
@@ -31,7 +31,7 @@ __题目描述__:
 
 现有一个链表 -- head = [4,5,1,9]，它可以表示为:
 
-![head](http://upload-images.jianshu.io/upload_images/16639143-bae672f418b8a0d6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![head](https://assets.leetcode.com/uploads/2020/09/01/node1.jpg)
 
 **示例:**
 

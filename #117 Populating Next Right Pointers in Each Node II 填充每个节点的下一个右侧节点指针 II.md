@@ -24,7 +24,9 @@ Recursive approach is fine, you may assume implicit stack space does not count a
 __Example:__
 
 Example 1:
-![binary tree](https://upload-images.jianshu.io/upload_images/16639143-7cdfba59149ec722.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![binary tree](https://assets.leetcode.com/uploads/2019/02/15/117_sample.png)
+
 Input: root = [1,2,3,4,5,null,7]
 Output: [1,#,2,3,#,4,5,7,#]
 Explanation: Given the above binary tree (Figure A), your function should populate each next pointer to point to its next right node, just like in Figure B. The serialized output is in level order as connected by the next pointers, with '#' signifying the end of each level.
@@ -57,7 +59,8 @@ __进阶：__
 
 __示例 :__
 
-![二叉树](https://upload-images.jianshu.io/upload_images/16639143-21f401ef0af9a2c1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![二叉树](https://assets.leetcode.com/uploads/2019/02/15/117_sample.png)
+
 输入：root = [1,2,3,4,5,null,7]
 输出：[1,#,2,3,#,4,5,7,#]
 解释：给定二叉树如图 A 所示，你的函数应该填充它的每个 next 指针，以指向其下一个右侧节点，如图 B 所示。

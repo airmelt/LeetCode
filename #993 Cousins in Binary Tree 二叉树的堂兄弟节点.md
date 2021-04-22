@@ -12,17 +12,23 @@ Return true if and only if the nodes corresponding to the values x and y are c
 __Example:__
 
 Example 1:
+
 ![Binary Tree 1](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/02/16/q1248-01.png)
+
 Input: root = [1,2,3,4], x = 4, y = 3
 Output: false
 
 Example 2:
+
 ![Binary Tree 2](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/02/16/q1248-02.png)
+
 Input: root = [1,2,3,null,4,null,5], x = 5, y = 4
 Output: true
 
 Example 3:
+
 ![Binary Tree 3](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/02/16/q1248-03.png)
+
 Input: root = [1,2,3,null,4], x = 2, y = 3
 Output: false
 
@@ -43,17 +49,23 @@ __题目描述__:
 __示例 :__
 
 示例 1：
+
 ![二叉树1](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/02/16/q1248-01.png)
+
 输入：root = [1,2,3,4], x = 4, y = 3
 输出：false
 
 示例 2：
+
 ![二叉树2](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/02/16/q1248-02.png)
+
 输入：root = [1,2,3,null,4,null,5], x = 5, y = 4
 输出：true
 
 示例 3：
+
 ![二叉树3](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/02/16/q1248-03.png)
+
 输入：root = [1,2,3,null,4], x = 2, y = 3
 输出：false
 

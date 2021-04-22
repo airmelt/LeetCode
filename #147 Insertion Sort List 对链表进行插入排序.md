@@ -5,7 +5,8 @@ Sort a linked list using insertion sort.
 
 A graphical example of insertion sort. The partial sorted list (black) initially contains only the first element in the list.
 With each iteration one element (red) is removed from the input data and inserted in-place into the sorted list
-![Insertion-sort-example](https://upload-images.jianshu.io/upload_images/16639143-367a2af5bcacb2d0.gif?imageMogr2/auto-orient/strip)
+
+![Insertion-sort-example](https://upload.wikimedia.org/wikipedia/commons/0/0f/Insertion-sort-example-300px.gif)
 
 Algorithm of Insertion Sort:
 
@@ -27,7 +28,9 @@ Output: -1->0->3->4->5
 
 __题目描述__:
 对链表进行插入排序。
-![插入排序](https://upload-images.jianshu.io/upload_images/16639143-a88700905814607e.gif?imageMogr2/auto-orient/strip)
+
+![插入排序](https://upload.wikimedia.org/wikipedia/commons/0/0f/Insertion-sort-example-300px.gif)
+
 插入排序的动画演示如上。从第一个元素开始，该链表可以被认为已经部分排序（用黑色表示）。
 每次迭代时，从输入数据中移除一个元素（用红色表示），并原地将其插入到已排好序的链表中。
 

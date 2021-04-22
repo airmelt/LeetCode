@@ -26,7 +26,7 @@ __Example:__
 
 Example 1:
 
-![graph 1](https://upload-images.jianshu.io/upload_images/16639143-2ca9ab1c2ebf627e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![graph 1](https://assets.leetcode.com/uploads/2019/11/04/133_clone_graph_question.png)
 
 Input: adjList = [[2,4],[1,3],[2,4],[1,3]]
 Output: [[2,4],[1,3],[2,4],[1,3]]
@@ -38,7 +38,7 @@ Explanation: There are 4 nodes in the graph.
 
 Example 2:
 
-![graph 2](https://upload-images.jianshu.io/upload_images/16639143-b7bfbeffec7240bd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![graph 2](https://assets.leetcode.com/uploads/2020/01/07/graph.png)
 
 Input: adjList = [[]]
 Output: [[]]
@@ -51,7 +51,7 @@ Explanation: This an empty graph, it does not have any nodes.
 
 Example 4:
 
-![graph 4](https://upload-images.jianshu.io/upload_images/16639143-0c43d095d7f355a2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![graph 4](https://assets.leetcode.com/uploads/2020/01/07/graph-1.png)
 
 Input: adjList = [[2],[1]]
 Output: [[2],[1]]
@@ -88,7 +88,7 @@ __示例 :__
 
 示例 1：
 
-![图 1](https://upload-images.jianshu.io/upload_images/16639143-d71dbe7d0aee8db3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![图 1](https://assets.leetcode.com/uploads/2019/11/04/133_clone_graph_question.png)
 
 输入：adjList = [[2,4],[1,3],[2,4],[1,3]]
 输出：[[2,4],[1,3],[2,4],[1,3]]
@@ -101,7 +101,7 @@ __示例 :__
 
 示例 2：
 
-![图 2](https://upload-images.jianshu.io/upload_images/16639143-1903cdd899b402d1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![图 2](https://assets.leetcode.com/uploads/2020/01/07/graph.png)
 
 输入：adjList = [[]]
 输出：[[]]
@@ -114,7 +114,7 @@ __示例 :__
 
 示例 4：
 
-![图 4](https://upload-images.jianshu.io/upload_images/16639143-e1df3fc59fdc5d14.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![图 4](https://assets.leetcode.com/uploads/2020/01/07/graph-1.png)
 
 输入：adjList = [[2],[1]]
 输出：[[2],[1]]

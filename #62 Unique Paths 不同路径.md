@@ -7,7 +7,7 @@ The robot can only move either down or right at any point in time. The robot is 
 
 How many possible unique paths are there?
 
-![Above is a 7 x 3 grid. How many possible unique paths are there?](https://upload-images.jianshu.io/upload_images/16639143-2f36e609236421af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![Above is a 7 x 3 grid. How many possible unique paths are there?](https://assets.leetcode.com/uploads/2018/10/22/robot_maze.png)
 
 __Example:__
 
@@ -38,7 +38,8 @@ __题目描述__:
 机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为“Finish”）。
 
 问总共有多少条不同的路径？
-![例如，上图是一个7 x 3 的网格。有多少可能的路径？](https://upload-images.jianshu.io/upload_images/16639143-a1942e3d7987a836.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![例如，上图是一个7 x 3 的网格。有多少可能的路径？](https://assets.leetcode.com/uploads/2018/10/22/robot_maze.png)
 
 __示例 :__
 

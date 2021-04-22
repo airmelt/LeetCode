@@ -7,7 +7,7 @@ According to the [definition of LCA on Wikipedia](https://en.wikipedia.org/wiki/
 
 Given the following binary tree:  root = [3,5,1,6,2,0,8,null,null,7,4]
 
-![Binary Tree](https://upload-images.jianshu.io/upload_images/16639143-ae43f8ddab3b8b3d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![Binary Tree](https://assets.leetcode.com/uploads/2018/12/14/binarytree.png)
 
 __Example:__
 
@@ -35,7 +35,7 @@ __题目描述__:
 
 例如，给定如下二叉树:  root = [3,5,1,6,2,0,8,null,null,7,4]
 
-![二叉树](https://upload-images.jianshu.io/upload_images/16639143-ae43f8ddab3b8b3d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![二叉树](https://assets.leetcode.com/uploads/2018/12/14/binarytree.png)
 
 __示例 :__
 

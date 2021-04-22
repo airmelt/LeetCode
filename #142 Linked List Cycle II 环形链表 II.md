@@ -12,7 +12,7 @@ __Example:__
 
 Example 1:
 
-![Linked List 1](https://upload-images.jianshu.io/upload_images/16639143-af53d4e3632809a1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![Linked List 1](https://assets.leetcode.com/uploads/2018/12/07/circularlinkedlist.png)
 
 Input: head = [3,2,0,-4], pos = 1
 Output: tail connects to node index 1
@@ -20,7 +20,7 @@ Explanation: There is a cycle in the linked list, where tail connects to the sec
 
 Example 2:
 
-![Linked List 2](https://upload-images.jianshu.io/upload_images/16639143-d1be7b3484a3b1fb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![Linked List 2](https://assets.leetcode.com/uploads/2018/12/07/circularlinkedlist_test2.png)
 
 Input: head = [1,2], pos = 0
 Output: tail connects to node index 0
@@ -28,7 +28,7 @@ Explanation: There is a cycle in the linked list, where tail connects to the fir
 
 Example 3:
 
-![Linked List 3](https://upload-images.jianshu.io/upload_images/16639143-9953fcfe66340896.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![Linked List 3](https://assets.leetcode.com/uploads/2018/12/07/circularlinkedlist_test3.png)
 
 Input: head = [1], pos = -1
 Output: no cycle
@@ -49,7 +49,7 @@ __示例 :__
 
 示例 1：
 
-![链表 1](https://upload-images.jianshu.io/upload_images/16639143-af53d4e3632809a1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![链表 1](https://assets.leetcode.com/uploads/2018/12/07/circularlinkedlist.png)
 
 输入：head = [3,2,0,-4], pos = 1
 输出：tail connects to node index 1
@@ -57,7 +57,7 @@ __示例 :__
 
 示例 2：
 
-![Linked List 2](https://upload-images.jianshu.io/upload_images/16639143-d1be7b3484a3b1fb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![Linked List 2](https://assets.leetcode.com/uploads/2018/12/07/circularlinkedlist_test2.png)
 
 输入：head = [1,2], pos = 0
 输出：tail connects to node index 0
@@ -65,7 +65,7 @@ __示例 :__
 
 示例 3：
 
-![Linked List 3](https://upload-images.jianshu.io/upload_images/16639143-9953fcfe66340896.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![Linked List 3](https://assets.leetcode.com/uploads/2018/12/07/circularlinkedlist_test3.png)
 
 输入：head = [1], pos = -1
 输出：no cycle

@@ -4,7 +4,7 @@ __Description__:
 Given an n-ary tree, return the level order traversal of its nodes' values. (ie, from left to right, level by level).
 
 For example, given a 3-ary tree:
-![3-ary tree](https://upload-images.jianshu.io/upload_images/16639143-e48a64a29deee174.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![3-ary tree](https://assets.leetcode.com/uploads/2018/10/12/narytreeexample.png)
 
 We should return its level order traversal:
 
@@ -25,7 +25,7 @@ __题目描述__:
 给定一个 N 叉树，返回其节点值的层序遍历。 (即从左到右，逐层遍历)。
 
 例如，给定一个 3叉树 :
-![3叉树](https://upload-images.jianshu.io/upload_images/16639143-e48a64a29deee174.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![3叉树](https://assets.leetcode.com/uploads/2018/10/12/narytreeexample.png)
 
 返回其层序遍历:
 

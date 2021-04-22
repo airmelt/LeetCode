@@ -8,7 +8,9 @@ Return the number of cells with odd values in the matrix after applying the incr
 __Example:__
 
 Example 1:
+
 ![Matrix 1](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/11/06/e1.png)
+
 Input: n = 2, m = 3, indices = [[0,1],[1,1]]
 Output: 6
 Explanation: Initial matrix = [[0,0,0],[0,0,0]].
@@ -16,7 +18,9 @@ After applying first increment it becomes [[1,2,1],[0,1,0]].
 The final matrix will be [[1,3,1],[1,3,1]] which contains 6 odd numbers.
 
 Example 2:
+
 ![Matrix 2](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/11/06/e2.png)
+
 Input: n = 2, m = 2, indices = [[1,1],[0,0]]
 Output: 0
 Explanation: Final matrix = [[2,2],[2,2]]. There is no odd number in the final matrix.
@@ -41,7 +45,9 @@ __题目描述__:
 __示例 :__
 
 示例 1：
+
 ![矩阵1](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/11/06/e1.png)
+
 输入：n = 2, m = 3, indices = [[0,1],[1,1]]
 输出：6
 解释：最开始的矩阵是 [[0,0,0],[0,0,0]]。
@@ -49,7 +55,9 @@ __示例 :__
 最后的矩阵是 [[1,3,1],[1,3,1]]，里面有 6 个奇数。
 
 示例 2：
+
 ![矩阵2](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/11/06/e2.png)
+
 输入：n = 2, m = 2, indices = [[1,1],[0,0]]
 输出：0
 解释：最后的矩阵是 [[2,2],[2,2]]，里面没有奇数。

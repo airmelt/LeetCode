@@ -15,11 +15,11 @@ Explanation:
 
 The multilevel linked list in the input is as follows:
 
-![Multilevel Linked List](https://upload-images.jianshu.io/upload_images/16639143-e0320efae55d2935.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![Multilevel Linked List](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/12/multilevellinkedlist.png)
 
 After flattening the multilevel linked list it becomes:
 
-![Flatten Linked List](https://upload-images.jianshu.io/upload_images/16639143-91e5b6c74a2a464d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![Flatten Linked List](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/12/multilevellinkedlistflattened.png)
 
 Example 2:
 
@@ -94,11 +94,11 @@ __示例 :__
 
 输入的多级列表如下图所示：
 
-![多级链表 1](https://upload-images.jianshu.io/upload_images/16639143-8ab2c51b495cc772.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![多级链表 1](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/12/multilevellinkedlist.png)
 
 扁平化后的链表如下图：
 
-![扁平的链表 1](https://upload-images.jianshu.io/upload_images/16639143-231ab6695ec0a0b1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![扁平的链表 1](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/12/multilevellinkedlistflattened.png)
 
 示例 2：
 

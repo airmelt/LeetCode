@@ -4,6 +4,7 @@ __Description__:
 Consider all the leaves of a binary tree.  From left to right order, the values of those leaves form a leaf value sequence.
 
 ![binary tree](https://s3-lc-upload.s3.amazonaws.com/uploads/2018/07/16/tree.png)
+
 For example, in the given tree above, the leaf value sequence is (6, 7, 4, 9, 8).
 
 Two binary trees are considered leaf-similar if their leaf value sequence is the same.
@@ -18,6 +19,7 @@ __题目描述__:
 请考虑一颗二叉树上所有的叶子，这些叶子的值按从左到右的顺序排列形成一个 叶值序列 。
 
 ![二叉树](https://s3-lc-upload.s3.amazonaws.com/uploads/2018/07/16/tree.png)
+
 举个例子，如上图所示，给定一颗叶值序列为 (6, 7, 4, 9, 8) 的树。
 
 如果有两颗二叉树的叶值序列是相同，那么我们就认为它们是 叶相似 的。

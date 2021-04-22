@@ -10,19 +10,25 @@ Return the shortest distance between the given start and destination stops.
 __Example:__
 
 Example 1:
-![Bus Stops 1](https://upload-images.jianshu.io/upload_images/16639143-55deca3ace410285.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![Bus Stops 1](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/09/08/untitled-diagram-1.jpg)
+
 Input: distance = [1,2,3,4], start = 0, destination = 1
 Output: 1
 Explanation: Distance between 0 and 1 is 1 or 9, minimum is 1.
 
 Example 2:
-![Bus Stops 2](https://upload-images.jianshu.io/upload_images/16639143-0b68f917249488a1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![Bus Stops 2](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/09/08/untitled-diagram-1-1.jpg)
+
 Input: distance = [1,2,3,4], start = 0, destination = 2
 Output: 3
 Explanation: Distance between 0 and 2 is 3 or 7, minimum is 3.
 
 Example 3:
-![Bus Stops 3](https://upload-images.jianshu.io/upload_images/16639143-b661774c13cf5a0a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![Bus Stops 3](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/09/08/untitled-diagram-1-2.jpg)
+
 Input: distance = [1,2,3,4], start = 0, destination = 3
 Output: 4
 Explanation: Distance between 0 and 3 is 6 or 4, minimum is 4.
@@ -43,19 +49,25 @@ __题目描述__:
 __示例 :__
 
 示例 1：
-![环形公交路线1](https://upload-images.jianshu.io/upload_images/16639143-4efad7869bf8df59.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![环形公交路线1](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/09/08/untitled-diagram-1.jpg)
+
 输入：distance = [1,2,3,4], start = 0, destination = 1
 输出：1
 解释：公交站 0 和 1 之间的距离是 1 或 9，最小值是 1。
 
 示例 2：
-![环形公交路线2](https://upload-images.jianshu.io/upload_images/16639143-59e7ed8d0ceb8409.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![环形公交路线2](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/09/08/untitled-diagram-1-1.jpg)
+
 输入：distance = [1,2,3,4], start = 0, destination = 2
 输出：3
 解释：公交站 0 和 2 之间的距离是 3 或 7，最小值是 3。
 
 示例 3：
-![环形公交路线3](https://upload-images.jianshu.io/upload_images/16639143-b0c6307706148625.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![环形公交路线3](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/09/08/untitled-diagram-1-2.jpg)
+
 输入：distance = [1,2,3,4], start = 0, destination = 3
 输出：4
 解释：公交站 0 和 3 之间的距离是 6 或 4，最小值是 4。
