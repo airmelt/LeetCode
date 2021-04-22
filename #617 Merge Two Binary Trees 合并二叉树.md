@@ -91,7 +91,7 @@ public:
     TreeNode* mergeTrees(TreeNode* t1, TreeNode* t2) 
     {
         stack<TreeNode*> s;
-        if (!t1 && !t2) return NULL;
+        if (!t1 and !t2) return NULL;
         TreeNode* result = !t1 ? t1 : t2;
         TreeNode* temp = !t2 ? t2 : t1;
         if (temp) result -> val += temp -> val;
@@ -116,7 +116,8 @@ public:
                 p -> right -> val += q -> right -> val;
                 s.push(p -> right);
                 s.push(q -> right);
-            } else if (!p -> right && q -> right) p -> right = q -> right;
+            } 
+            else if (!p -> right and q -> right) p -> right = q -> right;
         }
         return result;
     }
