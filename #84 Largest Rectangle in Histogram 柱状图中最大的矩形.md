@@ -3,11 +3,9 @@
 __Description__:
 Given n non-negative integers representing the histogram's bar height where the width of each bar is 1, find the area of largest rectangle in the histogram.
 
-![Above is a histogram where width of each bar is 1, given height = [2,1,5,6,2,3].](https://upload-images.jianshu.io/upload_images/16639143-2817cc2b0a94cca8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-![The largest rectangle is shown in the shaded area, which has area = 10 unit.](https://upload-images.jianshu.io/upload_images/16639143-a70e79fada9bed24.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
 __Example:__
+
+![histogram](https://assets.leetcode.com/uploads/2021/01/04/histogram.jpg)
 
 Input: [2,1,5,6,2,3]
 Output: 10
@@ -17,11 +15,9 @@ __题目描述__:
 
 求在该柱状图中，能够勾勒出来的矩形的最大面积。
 
- ![以上是柱状图的示例，其中每个柱子的宽度为 1，给定的高度为 [2,1,5,6,2,3]。](https://upload-images.jianshu.io/upload_images/16639143-d0d9c3510542f26b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-![图中阴影部分为所能勾勒出的最大矩形面积，其面积为 10 个单位。](https://upload-images.jianshu.io/upload_images/16639143-0da82a6d87430360.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
 __示例 :__
+
+![柱状图](https://assets.leetcode.com/uploads/2021/01/04/histogram.jpg)
 
 输入: [2,1,5,6,2,3]
 输出: 10
@@ -93,8 +89,7 @@ class Solution:
         stack, result = [], 0
         for i in range(len(heights)):
             while stack and heights[stack[-1]] > heights[i]:
-                cur = stack.pop()
-                result = max(result, (i - stack[-1] - 1 if stack else i) * heights[cur])
+                result = max(result, (i - stack[-2] - 1 if len(stack) > 1 else i) * heights[stack.pop()])
             stack.append(i)
         return result
 ```
