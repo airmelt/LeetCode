@@ -68,9 +68,11 @@ __代码__:
 __C++__:
 
 ```C++
-class Solution {
+class Solution 
+{
 public:
-    int countArrangement(int n) {
+    int countArrangement(int n) 
+    {
         int result = 0, visited = 0;
         helper(visited, 1, n, result);
         return result;
