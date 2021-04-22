@@ -20,7 +20,7 @@ Output: "acdb"
 
 __Constraints:__
 
-1 <= s.length <= 104
+1 <= s.length <= 10^4
 s consists of lowercase English letters.
 
 __题目描述__:
@@ -43,7 +43,7 @@ __示例 :__
 
 __提示：__
 
-1 <= s.length <= 104
+1 <= s.length <= 10^4
 s 由小写英文字母组成
 
 __思路__:
