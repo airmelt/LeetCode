@@ -71,7 +71,8 @@ public:
             {
                 if ((m + n) & 1) return max(left_max1, left_max2);
                 else return ((max(left_max1, left_max2) + min(right_min1, right_min2))) / 2.0;
-            } else if (left_max2 > right_min1) left = i + 1;
+            } 
+            else if (left_max2 > right_min1) left = i + 1;
             else right = i - 1;
         }
         return 0.0;
