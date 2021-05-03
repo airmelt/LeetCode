@@ -69,7 +69,7 @@ public:
             int last = x % 10;
             x /= 10;
             if (result > INT_MAX / 10 or (result == INT_MAX / 10 and last > 7)) return 0;
-            if (result < INT_MIN / 10 or (rev == INT_MIN / 10 and last < -8)) return 0;
+            if (result < INT_MIN / 10 or (result == INT_MIN / 10 and last < -8)) return 0;
             result = result * 10 + last;
         }
         return result;
