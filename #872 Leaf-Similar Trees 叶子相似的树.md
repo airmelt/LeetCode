@@ -95,7 +95,7 @@ class Solution {
     
     private String leaves(TreeNode root, String result) {
         if (root == null) return result;
-        if (root.left == null && root.right == null) return result + root.val;
+        if (root.left == null && root.right == null) return result + ", " + root.val;
         return leaves(root.left, result) + leaves(root.right, result);
     }
 }
