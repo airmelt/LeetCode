@@ -186,5 +186,5 @@ class Solution:
                 if word.startswith(prefix):
                     word = prefix
             result += word + " "
-        return result.strip();
+        return result.strip()
 ```
