@@ -25,7 +25,7 @@ Output: [[1]]
 
 Example 3:
 
-![tree 2](https://assets.leetcode.com/uploads/2020/08/16/e33.jpg)
+![tree 3](https://assets.leetcode.com/uploads/2020/08/16/e33.jpg)
 
 Input: root = [2,2,2,3,null,3,null]
 Output: [[2,3],[3]]
