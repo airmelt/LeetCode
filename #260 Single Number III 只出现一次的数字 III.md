@@ -64,12 +64,12 @@ class Solution
 public:
     vector<int> singleNumber(vector<int>& nums) 
     {
-        int mask = 0, a = 0, b = 0;
+        int mask = 0, a = 0, b = 0, div = 1;
         for (auto &num : nums) mask ^= num;
-        mask &= (-mask);
+        while (!(div & mask)) div <<= 1;
         for (auto &num : nums)
         {
-            if (num & mask) a ^= num;
+            if (num & div) a ^= num;
             else b ^= num;
         }
         return vector<int>{a, b};
