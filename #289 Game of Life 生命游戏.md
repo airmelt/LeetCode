@@ -153,14 +153,13 @@ class Solution:
                 count = 0
                 for k in range(8):
                     x, y = i + dx[k], j + dy[k]
-                    if (x < 0 or x > len(board) - 1 or y < 0 or y > len(board[0]) - 1):
+                    if x < 0 or x > len(board) - 1 or y < 0 or y > len(board[0]) - 1:
                         continue
                     count += (board[x][y] & 1)
-                if board[i][j] & 1:
-                    if count > 1 and count < 4:
-                        board[i][j] = 3
-                    elif count == 3:
-                        board[i][j] = 2
+                if board[i][j] & 1 and 1 < count < 4:
+                    board[i][j] = 3
+                elif count == 3:
+                    board[i][j] = 2
         for i in range(len(board)):
             for j in range(len(board[0])):
                 board[i][j] >>= 1
