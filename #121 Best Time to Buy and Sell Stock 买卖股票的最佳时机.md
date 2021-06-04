@@ -55,7 +55,7 @@ class Solution
 public:
     int maxProfit(vector<int>& prices) 
     {
-        int result = 0, purchase = (1 << 31) - 1;
+        int result = 0, purchase = 1e5;
         for (int i = 0; i < prices.size(); i++) 
         {
             if (prices[i] < purchase) purchase = prices[i];
