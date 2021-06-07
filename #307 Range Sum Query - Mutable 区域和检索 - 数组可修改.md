@@ -179,15 +179,33 @@ __Python__:
 class NumArray:
 
     def __init__(self, nums: List[int]):
-        self.nums = nums
-        
+        self.tree = [sum(nums[i - self.lowbit(i):i]) for i in range(len(nums) + 1)]
 
-    def update(self, i: int, val: int) -> None:
-        self.nums[i] = val
-        
+    def lowbit(self, x):
+        return x & -x
 
-    def sumRange(self, i: int, j: int) -> int:
-        return sum(self.nums[i:j + 1])
+    def update(self, index: int, val: int) -> None:
+        add = val - self.sumRange(index, index)
+        index += 1
+        while index < len(self.tree):
+            self.tree[index] += add
+            index += self.lowbit(index)
+
+    def query(self, x):
+        res = 0
+        while x > 0:
+            res += self.tree[x]
+            x -= self.lowbit(x)
+        return res
+
+    def sumRange(self, left: int, right: int) -> int:
+        return self.query(right + 1) - self.query(left)
+
+
+# Your NumArray object will be instantiated and called as such:
+# obj = NumArray(nums)
+# obj.update(i,val)
+# param_2 = obj.sumRange(i,j)
 
 
 # Your NumArray object will be instantiated and called as such:
