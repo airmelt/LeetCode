@@ -185,21 +185,32 @@ __Python__:
 ```Python
 class Solution:
     def findMinHeightTrees(self, n: int, edges: List[List[int]]) -> List[int]:
-        graph, in_degree, q, visited, count = [[False] * n for _ in range(n)], [0] * n, [], [False] * n, n
+        if n == 2:
+            return [0, 1]
+        if n == 1:
+            return [0]
+        graph, in_degree, q, visited, count = defaultdict(list), [0] * n, deque(), [False] * n, n
         for edge in edges:
-            graph[edge[0]][edge[1]] = graph[edge[1]][edge[0]] = True
+            graph[edge[0]].append(edge[1])
+            graph[edge[1]].append(edge[0])
             in_degree[edge[0]] += 1
             in_degree[edge[1]] += 1
-        while count > 2:
-            q += [i for i in range(n) if in_degree[i] == 1]
-            while q:
-                v = q.pop(0)
+        for i in range(n):
+            if in_degree[i] == 1:
+                q.append(i)
+        while q:
+            size = len(q)
+            n -= size
+            for _ in range(size):
+                v = q.popleft()
+                w = graph[v].pop()
+                graph[w].remove(v)
                 in_degree[v] -= 1
-                count -= 1
-                visited[v] = True
-                for i in range(n):
-                    if graph[v][i]:
-                        in_degree[i] -= 1
-                        graph[v][i] = graph[i][v] = False
-        return [i for i in range(n) if not visited[i]]
+                in_degree[w] -= 1 
+                if in_degree[w] == 1:
+                    q.append(w)
+            if n == 1:
+                return [q.popleft()]
+            if n == 2:
+                return [q.popleft(), q.popleft()]
 ```
