@@ -1,7 +1,7 @@
 # 730 Count Different Palindromic Subsequences 统计不同回文子序列
 
 __Description__:
-Given a string s, return the number of different non-empty palindromic subsequences in s. Since the answer may be very large, return it modulo 109 + 7.
+Given a string s, return the number of different non-empty palindromic subsequences in s. Since the answer may be very large, return it modulo 10^9 + 7.
 
 A subsequence of a string is obtained by deleting zero or more characters from the string.
 
