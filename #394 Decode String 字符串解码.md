@@ -146,6 +146,6 @@ __Python__:
 class Solution:
     def decodeString(self, s: str) -> str:
         while '[' in s:
-            s = re.sub(r'(\d+)\[([A-Za-z]*)\]', lambda m: int(m.group(1))* m.group(2), s)
+            s = re.sub(r'(\d+)\[([A-Za-z]*)\]', lambda m: int(m.group(1)) * m.group(2), s)
         return s
 ```
