@@ -102,7 +102,7 @@ __Python__:
 class Solution:
     def findNthDigit(self, n: int) -> int:
         num, i = 0, 1
-        while(n > num + i * 9 * 10 ** (i - 1)):
+        while n > num + i * 9 * 10 ** (i - 1):
             num += i * 9 * 10 ** (i - 1)
             i += 1
         a, b = 10 ** (i - 1) - 1 + (n - num) // i, (n - num) % i
