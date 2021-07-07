@@ -102,5 +102,5 @@ __Python__:
 
 class Solution:
     def sumOfLeftLeaves(self, root: TreeNode) -> int:
-        return 0 if not root else root.left.val + self.sumOfLeftLeaves(root.right) if root.left and not root.left.left and not root.left.right else return self.sumOfLeftLeaves(root.left) + self.sumOfLeftLeaves(root.right)
+        return 0 if not root else root.left.val + self.sumOfLeftLeaves(root.right) if root.left and not root.left.left and not root.left.right else self.sumOfLeftLeaves(root.left) + self.sumOfLeftLeaves(root.right)
 ```
