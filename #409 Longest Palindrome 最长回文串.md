@@ -67,7 +67,7 @@ __Java__:
 ```Java
 class Solution {
     public int longestPalindrome(String s) {
-        int count[] = new int[128];
+        int count[] = new int[128], result = 0;
         for (char c: s.toCharArray()) ++count[c];
         for (int i = 65; i < 123; i++) result += count[i] > 1 ? (count[i] >> 1) << 1 : 0;
         return result + (result == s.length() ? 0 : 1);
