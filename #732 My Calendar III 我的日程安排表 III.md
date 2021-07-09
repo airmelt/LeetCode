@@ -75,8 +75,7 @@ __提示:__
 __思路__:
 
 有序字典
-参考[LeetCode #731 My Calendar II 我的日程安排表 II]([LeetCode #731 My Calendar II 我的日程安排表 II - 简书 (jianshu.com)](https://www.jianshu.com/p/1ba84b61455e)
-)
+参考 [LeetCode #731 My Calendar II 我的日程安排表 II](https://www.jianshu.com/p/1ba84b61455e)
 使用 C++ 中的 map 或者 Java 中的 TreeMap 或者 Python 中的 sortedcontainers.SortedDict 实现
 记录开始和结束的时间(边界值)
 开始时间 + 1, 结束时间 - 1
