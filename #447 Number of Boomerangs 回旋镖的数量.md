@@ -43,17 +43,23 @@ __代码__:
 __C++__:
 
 ```C++
-class Solution {
+class Solution 
+{
 public:
-    int numberOfBoomerangs(vector<vector<int>>& points) {
-        int result = 0, s = points.size(), distance[s][s] = {0};
+    int numberOfBoomerangs(vector<vector<int>>& points) 
+    {
+        int result = 0, s = points.size(); 
+        vector<vector<int>> distance(s, vector<int>(s));
         for (int i = 0; i < s - 1; i++) for (int j = i + 1; j < s; j++) distance[i][j] = distance[j][i] = getDistance(points[i], points[j]);
-        for (int i = 0; i < s; i++) {
-            sort(distance[i], distance[i] + s);
+        for (int i = 0; i < s; i++) 
+        {
+            sort(distance[i].begin(), distance[i].begin() + s);
             int temp = 1;
-            for (int j = 1; j < s; j++) {
+            for (int j = 1; j < s; j++) 
+            {
                 if (distance[i][j] == distance[i][j - 1]) temp++;
-                else {
+                else 
+                {
                     result += temp * (temp - 1);
                     temp = 1;
                 }
@@ -63,7 +69,8 @@ public:
         return result;
     }
 private:
-    int getDistance(vector<int> pointX, vector<int> pointY) {
+    int getDistance(vector<int> pointX, vector<int> pointY) 
+    {
         return (pointX[0] - pointY[0]) * (pointX[0] - pointY[0]) + (pointX[1] - pointY[1]) * (pointX[1] - pointY[1]);
     }
 };
@@ -96,7 +103,6 @@ class Solution {
         return (pointX[0] - pointY[0]) * (pointX[0] - pointY[0]) + (pointX[1] - pointY[1]) * (pointX[1] - pointY[1]);
     }
 }
-
 ```
 
 __Python__:
