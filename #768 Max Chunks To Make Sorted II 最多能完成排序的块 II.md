@@ -118,14 +118,5 @@ __Python__:
 ```Python
 class Solution:
     def maxChunksToSorted(self, arr: List[int]) -> int:
-        stack, n = [], len(arr)
-        for i in range(n):
-            if stack and stack[-1] > arr[i]:
-                cur = stack[-1]
-                while stack and stack[-1] > arr[i]:
-                    stack.pop()
-                stack.append(cur)
-            else:
-                stack.append(arr[i])
-        return len(stack)
+        return sum([max(arr[:i + 1]) <= min(arr[i + 1:]) for i in range(len(arr) - 1)]) + 1
 ```
