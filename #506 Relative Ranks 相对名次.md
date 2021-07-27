@@ -53,27 +53,27 @@ public:
         vector<string> result(nums.size());
         int max_nums = 0, flag = 1;
         for (int i = 0; i < nums.size(); i++) max_nums = max(max_nums, nums[i]);
-        int temp[max_nums + 1] = {0};
-        for (int i = 0; i < nums.size(); i++) temp[nums[i]] = i + 1;
+        map<int, int> m;
+        for (int i = 0; i < nums.size(); i++) m[nums[i]] = i + 1;
         for (int i = max_nums; i >= 0; i--) 
         {
-            if (temp[i] > 0) 
+            if (m[i] > 0) 
             {
                 switch (flag) 
                 {
                     case 1:
-                        result[temp[i] - 1] = "Gold Medal";
+                        result[m[i] - 1] = "Gold Medal";
                         break;
                     case 2:
-                        result[temp[i] - 1] = "Silver Medal";
+                        result[m[i] - 1] = "Silver Medal";
                         break;
                     case 3:
-                        result[temp[i] - 1] = "Bronze Medal";
+                        result[m[i] - 1] = "Bronze Medal";
                         break;
                     default:
-                        result[temp[i] - 1] = to_string(flag);
+                        result[m[i] - 1] = to_string(flag);
                 }
-                flag++;
+                ++flag;
             }
         }
         return result;
