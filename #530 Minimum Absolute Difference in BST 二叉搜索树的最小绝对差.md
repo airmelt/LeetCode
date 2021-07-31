@@ -72,8 +72,8 @@ public:
     int getMinimumDifference(TreeNode* root) 
     {
         stack<TreeNode*> s;
-        TreeNode* pre = NULL;
-        int result = (1 << 31) - 1;
+        TreeNode* pre = nullptr;
+        int result = INT_MAX;
         while (root or s.size()) 
         {
             if (root) 
