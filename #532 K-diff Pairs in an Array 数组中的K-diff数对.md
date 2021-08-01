@@ -78,8 +78,8 @@ public:
         int result = 0;
         for (auto p : m) 
         {
-            if (!k) if (p.second > 1) result++;
-            else if (m.find(p.first + k) != m.end()) ++result;
+            if (!k) {if (p.second > 1) result++;}
+            else if (m.count(p.first + k)) ++result;
         }
         return result;
     }
