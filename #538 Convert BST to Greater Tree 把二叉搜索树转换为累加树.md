@@ -141,11 +141,11 @@ __Python__:
 class Solution:
     def convertBST(self, root: TreeNode) -> TreeNode:
         s, l, p, pre = 0, [], root, 0
-        def summary(root: TreeNode) -> int:
+        def dfs(root: TreeNode) -> int:
             if not root:
                 return 0
             return root.val + dfs(root.left) + dfs(root.right)
-        s = summary(root)
+        s = dfs(root)
         while p or l:
             if p:
                 l.append(p)
