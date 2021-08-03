@@ -106,7 +106,7 @@ __Java__:
 class Solution {
     public int kthGrammar(int n, int k) {
         int result = 0;
-        k--;
+        --k;
         while (k != 0) {
             k = (k & (k - 1));
             ++result;
