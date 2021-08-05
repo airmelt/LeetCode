@@ -58,7 +58,7 @@ public:
         {
             s += num;
             result += m[s - k];
-            m[s - k];
+            ++m[s];
         }
         return result;
     }
