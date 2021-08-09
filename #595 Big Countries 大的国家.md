@@ -80,6 +80,6 @@ SELECT
 FROM
     World
 WHERE
-    name > 3000000
+    area > 3000000
     OR population > 25000000
 ```
