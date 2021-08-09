@@ -131,8 +131,8 @@ class Solution:
     def findCheapestPrice(self, n: int, flights: List[List[int]], src: int, dst: int, k: int) -> int:
         dist = [float('inf') if i != src else 0 for i in range(n)]
         for i in range(k + 1):
-            dist_old = dist[:]
+            pre = dist[:]
             for u, v, w in flights:
-                dist[v] = min(dist[v], dist_old[u] + w)
+                dist[v] = min(dist[v], pre[u] + w)
         return dist[dst] if dist[dst] != float('inf') else -1
 ```
