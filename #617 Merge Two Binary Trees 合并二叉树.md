@@ -92,6 +92,8 @@ public:
     {
         stack<TreeNode*> s;
         if (!t1 and !t2) return NULL;
+        if (!t1) return t2;
+        if (!t2) return t1;
         TreeNode* result = !t1 ? t1 : t2;
         TreeNode* temp = !t2 ? t2 : t1;
         if (temp) result -> val += temp -> val;
