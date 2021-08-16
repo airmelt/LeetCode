@@ -134,7 +134,7 @@ public:
     {
         if (root) 
         {
-            while (root -> val < L or root -> val > R) 
+            while (root and (root -> val < L or root -> val > R))
             {
                 if (root -> val < L) root = root -> right;
                 else root = root -> left;
