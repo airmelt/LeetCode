@@ -46,8 +46,13 @@ L, R  和 A[i] 都是整数，范围在 [0, 10^9]。
 
 __思路__:
 
-滑动窗口
-记录 pre 为当前元素小于等于 right 的下标
+动态规划
+dp[i] 表示包括下标 i 的子数组个数
+初始化均为 0
+nums[i] > right, dp[i] = 0, 记录 pre 为上一个大于 right 的下标
+nums[i] >= left, dp[i] = i - pre
+nums[i] < left, dp[i] = dp[i - 1], dp[i] 不能单独组成满足题意的数组, dp[i - 1] 加上 nums[i] 可以
+可以看到 dp[i] 只取决于 i 和 pre, 空间可优化为 O(1)
 记录 cur 为当前元素不小于 left 的时候子数组的个数
 遍历数组, 若当前元素大于 right, 则 pre 移动到当前元素下标, 若当前元素不大于 left, 则当前元素到 pre 的数组都满足题意, 更新 cur
 时间复杂度为 O(n), 空间复杂度为 O(1)
@@ -94,10 +99,5 @@ __Python__:
 ```Python
 class Solution:
     def numSubarrayBoundedMax(self, nums: List[int], left: int, right: int) -> int:
-        pre, cur, result, n = -1, 0, 0, len(nums)
-        for i in range(n):
-            nums[i] > right and (pre := i)
-            nums[i] >= left and (cur := i - pre)
-            result += cur
-        return result
+        return (f := lambda n: sum(accumulate([i <= n for i in nums], lambda a, b: a * b + b)))(right) - f(left - 1)
 ```
