@@ -229,7 +229,6 @@ private:
 __Java__:
 
 ```Java
-
 class MyLinkedList {
     private class Node{
         int val;
@@ -395,6 +394,6 @@ class MyLinkedList:
         node = self.head
         for _ in range(index):
             node = node.next
-        if node.next:
+        if node and node.next:
             node.next = node.next.next
 ```
