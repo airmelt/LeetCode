@@ -91,10 +91,9 @@ __Java__:
 
 ```Java
 class Solution {
-public:
-    int dominantIndex(vector<int>& nums) {
-        int result = -1, first = 0, second = 0;
-        for (int i = 0; i < nums.size(); i++) {
+    public int dominantIndex(int[] nums) {
+        int result = -1, first = 0, second = 0, n = nums.length;
+        for (int i = 0; i < n; i++) {
             if (first < nums[i]) {
                 second = first;
                 first = nums[i];
@@ -103,7 +102,7 @@ public:
         }
         return first < 2 * second ? -1 : result;
     }
-};
+}
 ```
 
 __Python__:
