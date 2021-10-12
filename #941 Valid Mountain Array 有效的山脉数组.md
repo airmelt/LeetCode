@@ -14,7 +14,7 @@ A[0] < A[1] < ... A[i-1] < A[I]
 A[i] > A[i+1] > ... > A[A.length - 1]
 ```
 
-![Mountain Array](https://assets.leetcode.com/uploads/2019/10/20/hint_valid_mountain_array.png)
+![Mountain Array](https://upload-images.jianshu.io/upload_images/16639143-9252c8d688d8fd40.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 __Example:__
 
@@ -118,5 +118,5 @@ class Solution:
             i += 1
         while i < j and A[j] < A[j - 1]:
             j -= 1
-        return i == j and i and j != len(A) - 1
+        return i == j and not not i and j != len(A) - 1
 ```
