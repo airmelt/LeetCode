@@ -116,6 +116,6 @@ class Solution:
                 result[pos] = j
                 j -= 1
             pos += 1
-        result[pos] = j;
-        return result;
+        result[pos] = j
+        return result
 ```
