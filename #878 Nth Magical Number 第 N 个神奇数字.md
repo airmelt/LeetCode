@@ -104,6 +104,7 @@ class Solution {
     private int gcd(int a, int b) {
         return b == 0 ? a : gcd(b, a % b);
     }
+    
     public int nthMagicalNumber(int n, int a, int b) {
         int MOD = 1_000_000_007, lcm = a * b / gcd(a, b);
         long left = 0, right = (long)1e15;
