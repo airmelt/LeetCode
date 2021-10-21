@@ -107,8 +107,8 @@ class Solution
 public:
     int findJudge(int N, vector<vector<int>>& trust) 
     {
-        int count[N] = {0};
-        for (auto person : trust) 
+        vector<int> count(N, 0);
+        for (const auto& person : trust) 
         {
             --count[person[0] - 1];
             ++count[person[1] - 1];
