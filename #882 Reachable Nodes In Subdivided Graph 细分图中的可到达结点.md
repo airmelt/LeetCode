@@ -15,7 +15,7 @@ __Example:__
 
 Example 1:
 
-![graph](https://s3-lc-upload.s3.amazonaws.com/uploads/2018/08/01/origfinal.png)
+![graph](https://upload-images.jianshu.io/upload_images/16639143-3200ad605dcd6b32.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 Input: edges = [[0,1,10],[0,2,1],[1,2,2]], maxMoves = 6, n = 3
 Output: 13
@@ -58,7 +58,7 @@ __示例 :__
 
 示例 1：
 
-![图](https://s3-lc-upload.s3.amazonaws.com/uploads/2018/08/01/origfinal.png)
+![图](https://upload-images.jianshu.io/upload_images/16639143-4d122c0371a3dd82.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 输入：edges = [[0,1,10],[0,2,1],[1,2,2]], maxMoves = 6, n = 3
 输出：13
@@ -155,7 +155,7 @@ class Solution {
         Map<Integer, Map<Integer, Integer>> graph = new HashMap();
         for (int[] edge: edges) {
             graph.computeIfAbsent(edge[0], x -> new HashMap()).put(edge[1], edge[2]);
-            graph.computeIfAbsent(edge[1a], x -> new HashMap()).put(edge[0], edge[2]);
+            graph.computeIfAbsent(edge[1], x -> new HashMap()).put(edge[0], edge[2]);
         }
         PriorityQueue<Node> pq = new PriorityQueue<Node>( (a, b) -> Integer.compare(a.dist, b.dist));
         pq.offer(new Node(0, 0));
