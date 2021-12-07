@@ -1,4 +1,4 @@
-# 936 Stamping The Sequence 戳印序列
+# 939 Minimum Area Rectangle 最小面积矩形
 
 __Description__:
 You are given an array of points in the X-Y plane points where points[i] = [xi, yi].
@@ -9,14 +9,14 @@ __Example:__
 
 Example 1:
 
-![rec1](https://assets.leetcode.com/uploads/2021/08/03/rec1.JPG)
+![rec1](https://upload-images.jianshu.io/upload_images/16639143-88af1fa4057ab0fd.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 Input: points = [[1,1],[1,3],[3,1],[3,3],[2,2]]
 Output: 4
 
 Example 2:
 
-![rec2](https://assets.leetcode.com/uploads/2021/08/03/rec2.JPG)
+![rec2](https://upload-images.jianshu.io/upload_images/16639143-74483c98c4895690.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 Input: points = [[1,1],[1,3],[3,1],[3,3],[4,1],[4,3]]
 Output: 2
