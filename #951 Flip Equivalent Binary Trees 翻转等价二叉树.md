@@ -99,18 +99,24 @@ public:
 __Java__:
 
 ```Java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
 class Solution {
-    public int[] deckRevealedIncreasing(int[] deck) {
-        Arrays.sort(deck);
-        Queue<Integer> queue = new LinkedList<>();
-        for (int i = deck.length - 1; i > -1; i--) {
-            if (!queue.isEmpty()) {
-                queue.add(queue.poll());
-            }
-            queue.add(deck[i]);
-        }
-        for (int i = deck.length - 1; i > -1; i--) deck[i] = queue.poll();
-        return deck;
+    public boolean flipEquiv(TreeNode root1, TreeNode root2) {
+        return (root1 == root2) ? true : (root1 == null || root2 == null || root1.val != root2.val) ? false : (flipEquiv(root1.left, root2.left) && flipEquiv(root1.right, root2.right) || flipEquiv(root1.left, root2.right) && flipEquiv(root1.right, root2.left));
     }
 }
 ```
