@@ -136,7 +136,7 @@ __Python__:
 ```Python
 class Solution:
     def prisonAfterNDays(self, cells: List[int], n: int) -> List[int]:
-        n, cell = (n - 1) % 14 + 1, sum([cells[i] * (2 ** (7 - i)) for _ in range(len(cells))])
+        n, cell = (n - 1) % 14 + 1, sum([cells[i] * (2 ** (7 - i)) for i in range(len(cells))])
         for _ in range(n):
             cell = ~(cell << 1 ^ cell >> 1) & 0x7E
         return list(map(int, list('{:08b}'.format(cell))))
