@@ -141,5 +141,5 @@ __Python__:
 ```Python
 class Solution:
     def isRationalEqual(self, s: str, t: str) -> bool:
-        return abs(float(s[:pos1] + s[pos1 + 1:-1] * 3 if (pos1 := s.find('(')) != -1 else s) - float(t[:pos2] + t[pos2 + 1:-1] * 3 if (pos2 := t.find('(')) != -1 else t)) < 10 ** -8
+        return abs(float(s[:pos1] + s[pos1 + 1:-1] * 12 if (pos1 := s.find('(')) != -1 else s) - float(t[:pos2] + t[pos2 + 1:-1] * 12 if (pos2 := t.find('(')) != -1 else t)) < 10 ** -8
 ```
