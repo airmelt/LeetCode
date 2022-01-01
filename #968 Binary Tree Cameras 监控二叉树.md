@@ -9,7 +9,7 @@ __Example:__
 
 Example 1:
 
-![bst_cameras_01](https://assets.leetcode.com/uploads/2018/12/29/bst_cameras_01.png)
+![bst_cameras_01](https://upload-images.jianshu.io/upload_images/16639143-a2b4fc9899d93aad.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 Input: root = [0,0,null,0,0]
 Output: 1
@@ -17,7 +17,7 @@ Explanation: One camera is enough to monitor all nodes if placed as shown.
 
 Example 2:
 
-![bst_cameras_02](https://assets.leetcode.com/uploads/2018/12/29/bst_cameras_02.png)
+![bst_cameras_02](https://upload-images.jianshu.io/upload_images/16639143-fa29bc7e9f0d4e5d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 Input: root = [0,0,null,0,null,0,null,null,0]
 Output: 2
@@ -39,7 +39,7 @@ __示例 :__
 
 示例 1：
 
-![监控二叉树 1](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/29/bst_cameras_01.png)
+![监控二叉树 1](https://upload-images.jianshu.io/upload_images/16639143-8f4e9a44de4827af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 输入：[0,0,null,0,0]
 输出：1
@@ -47,7 +47,7 @@ __示例 :__
 
 示例 2：
 
-![监控二叉树 2](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/29/bst_cameras_02.png)
+![监控二叉树 2](https://upload-images.jianshu.io/upload_images/16639143-abe4a31e1b610646.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 输入：[0,0,null,0,null,0,null,null,0]
 输出：2
@@ -117,22 +117,22 @@ __Java__:
 
 ```Java
 class Solution {
-    public int[] numsSameConsecDiff(int n, int k) {
-        Set<Integer> set = new HashSet<>();
-        for (int i = 0; i < 10; i++) set.add(i);
-        for (int i = 1; i < n; i++) {
-            Set<Integer> cur = new HashSet<>();
-            for (int num : set) {
-                if (num == 0) continue;
-                int last = num % 10;
-                if (last - k >= 0) cur.add(10 * num + last - k);
-                if (last + k <= 9) cur.add(10 * num + last + k);
-            }
-            set = cur;
-        }
-        int index = 0, result[] = new int[set.size()];
-        for (int num : set) result[index++] = num;
+    private int result = 0;
+    
+    public int minCameraCover(TreeNode root) {
+        result = 0;
+        if (dfs(root) == 2) ++result;
         return result;
+    }
+    
+    private int dfs(TreeNode root) {
+        if (root == null) return 1;
+        int left = dfs(root.left), right = dfs(root.right);
+        if (left == 2 || right == 2) {
+            ++result;
+            return 0;
+        } else if (left == 0 || right == 0) return 1;
+        return 2;
     }
 }
 ```
