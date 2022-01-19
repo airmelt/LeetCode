@@ -27,7 +27,7 @@ Explanation: left = [1,1,1,0], right = [6,12]
 __Constraints:__
 
 2 <= nums.length <= 10^5
-0 <= nums[i] <= 106
+0 <= nums[i] <= 10^6
 There is at least one valid answer for the given input.
 
 __题目描述__:
