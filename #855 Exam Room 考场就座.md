@@ -39,7 +39,7 @@ __Constraints:__
 
 1 <= n <= 10^9
 It is guaranteed that there is a student sitting at seat p.
-At most 104 calls will be made to seat and leave.
+At most 10^4 calls will be made to seat and leave.
 
 __题目描述__:
 在考场里，一排有 N 个座位，分别编号为 0, 1, 2, ..., N-1 。
