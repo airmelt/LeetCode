@@ -5,7 +5,7 @@ Given an array of unique integers, arr, where each integer arr[i] is strictly gr
 
 We make a binary tree using these integers, and each number may be used for any number of times. Each non-leaf node's value should be equal to the product of the values of its children.
 
-Return the number of binary trees we can make. The answer may be too large so return the answer modulo 109 + 7.
+Return the number of binary trees we can make. The answer may be too large so return the answer modulo 10^9 + 7.
 
 __Example:__
 
@@ -32,7 +32,7 @@ __题目描述__:
 
 用这些整数来构建二叉树，每个整数可以使用任意次数。其中：每个非叶结点的值应等于它的两个子结点的值的乘积。
 
-满足条件的二叉树一共有多少个？答案可能很大，返回 对 109 + 7 取余 的结果。
+满足条件的二叉树一共有多少个？答案可能很大，返回 对 10^9 + 7 取余 的结果。
 
 __示例 :__
 
