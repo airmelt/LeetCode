@@ -59,9 +59,6 @@ __思路__:
 
 有序哈希表
 使用 multiset(C++)/TreeMap(Java)/sortedcontainers.SortedDict(Python) 记录每个元素出现次数
-固定左侧山脚 left, left + 2 < n, 山脉长度至少为 3, 且 arr[left] < arr[left + 1], 否则查找下一个元素
-右侧山脚从 left + 1 开始查找, 找到第一个不再递增的元素, 这时为山顶, 判断是否为山顶再找到第一个不递减的元素, 就为右侧山脚, 更新结果长度
-将 right 赋给 left 继续查找下一个山脉
 时间复杂度为 O(nlgn), 空间复杂度为 O(n)
 
 __代码__:
