@@ -50,7 +50,7 @@ __思路__:
 假设 cur = nums[left] \* nums[left + 1] \* ... \* nums[right - 1] \* nums[right]
 则如果 cur < k, 说明以 nums[left:right + 1] 之间的子数组都满足
 result += right - left + 1(区间长度)
-时间复杂度为 O(mn), 空间复杂度为 O(n)
+时间复杂度为 O(n), 空间复杂度为 O(1)
 
 __代码__:
 __C++__:
