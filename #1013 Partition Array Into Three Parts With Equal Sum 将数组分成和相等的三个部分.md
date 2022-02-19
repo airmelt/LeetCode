@@ -59,7 +59,8 @@ __提示：__
 -10000 <= A[i] <= 10000
 
 __思路__:
-双指针法, 先求出数组和, 判断是否是 3的倍数, 然后从两端找到和等于数组和的 1 / 3的分界点, 剩下的部分之和必相等
+模拟
+找到是否有 3 段相等
 时间复杂度O(n), 空间复杂度O(1)
 
 __代码__:
@@ -71,15 +72,17 @@ class Solution
 public:
     bool canThreePartsEqualSum(vector<int>& A) 
     {
-        int s = 0, i = 0, j = A.size() - 1, l = 0, r = 0;
-        for (auto a : A) s += a;
+        int s = accumulate(A.begin(), A.end(), 0), n = A.size(), cur_sum = 0, count = 0;
         if (s % 3) return false;
         s /= 3;
-        while (i < j) 
+        for (int i = 0; i < n - 1; i++) 
         {
-            if (l - s) l += A[i++];
-            if (r - s) r += A[j--];
-            if (l == s and r == s) return true;
+            cur_sum += A[i];
+            if (cur_sum == s) {
+                ++count;
+                if (count == 2) return true;
+                cur_sum = 0;
+            }
         }
         return false;
     }
@@ -91,14 +94,17 @@ __Java__:
 ```Java
 class Solution {
     public boolean canThreePartsEqualSum(int[] A) {
-        int s = 0, i = 0, j = A.length - 1, l = 0, r = 0;
+        int s = 0, n = A.length, curSum = 0, count = 0;
         for (int a : A) s += a;
         if (s % 3 != 0) return false;
         s /= 3;
-        while (i < j) {
-            if (l != s) l += A[i++];
-            if (r != s) r += A[j--];
-            if (l == s && r == s) return true;
+        for (int i = 0; i < n - 1; i++) {
+            curSum += A[i];
+            if (curSum == s) {
+                ++count;
+                if (count == 2) return true;
+                curSum = 0;
+            }
         }
         return false;
     }
@@ -109,19 +115,17 @@ __Python__:
 
 ```Python
 class Solution:
-    def canThreePartsEqualSum(self, A: List[int]) -> bool:
-        s = sum(A)
-        if s % 3:
+    def canThreePartsEqualSum(self, arr: List[int]) -> bool:
+        if (s := sum(arr)) % 3:
             return False
-        i, j, s, l, r = 0, len(A) - 1, s // 3, 0, 0
-        while i < j:
-            if l != s:
-                l += A[i]
-                i += 1
-            if r != s:
-                r += A[j]
-                j -= 1
-            if l == s == r:
-                return True
+        n, cur_sum, count = len(arr), 0, 0
+        s //= 3
+        for i in range(n - 1):
+            cur_sum += arr[i];
+            if cur_sum == s:
+                count += 1
+                if count == 2:
+                    return True
+                cur_sum = 0
         return False
 ```
