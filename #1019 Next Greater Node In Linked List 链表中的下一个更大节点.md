@@ -11,14 +11,14 @@ __Example:__
 
 Example 1:
 
-![Linked List 1](https://assets.leetcode.com/uploads/2021/08/05/linkedlistnext1.jpg)
+![Linked List 1](https://upload-images.jianshu.io/upload_images/16639143-4020f73df0543313.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 Input: head = [2,1,5]
 Output: [5,5,0]
 
 Example 2:
 
-![Linked List 2](https://assets.leetcode.com/uploads/2021/08/05/linkedlistnext2.jpg)
+![Linked List 2](https://upload-images.jianshu.io/upload_images/16639143-e26d175f7cb479dd.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 Input: head = [2,7,4,3,5]
 Output: [7,0,5,5,0]
@@ -40,14 +40,14 @@ __示例 :__
 
 示例 1：
 
-![链表 1](https://assets.leetcode.com/uploads/2021/08/05/linkedlistnext1.jpg)
+![链表 1](https://upload-images.jianshu.io/upload_images/16639143-c38a63e2b590dd35.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 输入：head = [2,1,5]
 输出：[5,5,0]
 
 示例 2：
 
-![链表 2](https://assets.leetcode.com/uploads/2021/08/05/linkedlistnext2.jpg)
+![链表 2](https://upload-images.jianshu.io/upload_images/16639143-5bc9b6a7c095e7e2.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 输入：head = [2,7,4,3,5]
 输出：[7,0,5,5,0]
@@ -131,7 +131,7 @@ class Solution {
         int n = list.size(), result[] = new int[n];
         Stack<Integer> stack = new Stack<>();
         for (int i = 0; i < n; i++) {
-            while (!stack.isEmpty() && list.get(i) > list.get(stack.peek())     result[stack.pop()] = list.get(i);
+            while (!stack.isEmpty() && list.get(i) > list.get(stack.peek()))     result[stack.pop()] = list.get(i);
             stack.push(i);
         }
         return result;
