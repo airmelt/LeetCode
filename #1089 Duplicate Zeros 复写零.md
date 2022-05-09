@@ -115,9 +115,9 @@ class Solution:
             if not arr[i]:
                 zero -= 1
                 if i + zero < s:
-                    arr[i + zero] = 0;
+                    arr[i + zero] = 0
                 if i + zero + 1 < s:
-                    arr[i + zero + 1] = 0;
+                    arr[i + zero + 1] = 0
             elif i + zero < s:
-                arr[i + zero] = arr[i]; 
+                arr[i + zero] = arr[i]
 ```
