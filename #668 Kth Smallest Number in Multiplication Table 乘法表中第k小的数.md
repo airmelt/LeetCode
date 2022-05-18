@@ -9,7 +9,7 @@ __Example:__
 
 Example 1:
 
-![multtable1-grid](https://assets.leetcode.com/uploads/2021/05/02/multtable1-grid.jpg)
+![multtable1-grid](https://upload-images.jianshu.io/upload_images/16639143-533cea5ab1ee690e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 Input: m = 3, n = 3, k = 5
 Output: 3
@@ -17,7 +17,7 @@ Explanation: The 5th smallest number is 3.
 
 Example 2:
 
-![multtable2-grid](https://assets.leetcode.com/uploads/2021/05/02/multtable2-grid.jpg)
+![multtable2-grid](https://upload-images.jianshu.io/upload_images/16639143-5b677df2e272588a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 Input: m = 2, n = 3, k = 6
 Output: 6
@@ -127,12 +127,5 @@ __Python__:
 ```Python
 class Solution:
     def findKthNumber(self, m: int, n: int, k: int) -> int:
-        left, right = 1, m * n
-        while left < right:
-            mid = left + ((right - left) >> 1)
-            if sum(min(mid // i, n) for i in range(1, m + 1)) < k:
-                left = mid + 1
-            else:
-                right = mid
-        return left
+        return bisect_left(range(int(m * n + 10)), k, key=lambda mid: sum(min(n, mid // row) for row in range(1, m + 1)))
 ```
