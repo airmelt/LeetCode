@@ -146,5 +146,4 @@ class Solution:
         while q:
             q.next, q = d[s := s + q.val].next, q.next
         return p.next
-            
 ```
