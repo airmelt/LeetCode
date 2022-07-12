@@ -71,7 +71,8 @@ __C++__:
 ```C++
 class Solution 
 {
-    public int countCharacters(String[] words, String chars) 
+public:
+    int countCharacters(vector<string>& words, string chars) 
     {
         int count[26] = {0}, result = 0;
         for (auto c : chars) ++count[c - 'a'];
@@ -92,7 +93,7 @@ class Solution
         }
         return result;
     }
-}
+};
 ```
 
 __Java__:
