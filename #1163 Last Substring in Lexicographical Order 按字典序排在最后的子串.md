@@ -44,11 +44,13 @@ s 仅含有小写英文字符。
 
 __思路__:
 
-后缀数组
+后缀数组 ➕ 双指针
 最大子字符串一定是以最大字符开头的直到字符串结尾的子串
-先从后往前找到最大字符第一次出现的位置
-然后找到每一个最大字符判断是否需要更新
-更新可以直接比较两个待选子串的大小
+设 left 表示最大字符位置, right 为工作指针, step 为步长
+当 s[left] < s[right + step] 时, 包括 step 为 0 的情况, 说明 s[left] 不是最大字符, left 移动到 right + step 处, right 移动到下一个位置继续遍历
+当 s[left + step] == s[right + step] 时, step 自增, 直到找到不相等的位置
+当 s[left + step] < s[right + step] 时, 注意到 step 为 0 时应该有 s[left] == s[right], 所以 s[right] 应该也是最大字符, left 移动到 right, right 移动到下一个位置
+否则 right 自增遍历字符串
 时间复杂度为 O(n), 空间复杂度为 O(1)
 
 __代码__:
@@ -60,34 +62,28 @@ class Solution
 public:
     string lastSubstring(string s) 
     {
-        int n = s.size(), pos = n - 1, max_value = s.back();
-        for (int i = n - 2; i > -1; i--) if (s[i] >= max_value) pos = i, max_value = s[i];
-        int start = pos + 1, left, right;
-        while (start < n) 
+        int n = s.size(), left = 0, right = 1, step = 0;
+        while (right + step < n) 
         {
-            if (s[start] != max_value) ++start;
-            else 
+            if (s[left + step] == s[right + step]) ++step;
+            else if (s[left] < s[right + step]) 
             {
-                left = pos + 1;
-                right = start + 1;
-                while (left < start and right < n) 
-                {
-                    if (s[left] == s[right])
-                    {
-                        ++left;
-                        ++right;
-                    }
-                    else 
-                    {
-                        if (s[left] < s[right]) pos = start;
-                        start = right;
-                        break;
-                    } 
-                }
-                if (left == start or right == n) start = right;
+                left = right + step;
+                right = left + 1;
+                step = 0;
+            }
+            else if (s[left + step] < s[right + step]) 
+            {
+                left = right++;
+                step = 0;
+            }
+            else
+            {
+                ++right;
+                step = 0;
             }
         }
-        return s.substr(pos);
+       return s.substr(left);
     }
 };
 ```
@@ -97,33 +93,22 @@ __Java__:
 ```Java
 class Solution {
     public String lastSubstring(String s) {
-        int n = s.length(), pos = n - 1, max = s.charAt(pos);
-        for (int i = n - 2; i > -1; i--) {
-            if (s.charAt(i) >= max) {
-                pos = i;
-                max = s.charAt(i);
+        int n = s.length(), left = 0, right = left + 1, step = 0;
+        while (right + step < n) {
+            if (s.charAt(left + step) == s.charAt(right + step)) ++step;
+            else if (s.charAt(left) < s.charAt(right + step)) {
+                left = right + step;
+                right = left + 1;
+                step = 0;
+            } else if (s.charAt(left + step) < s.charAt(right + step)) {
+                left = right++;
+                step = 0;
+            } else {
+                ++right;
+                step = 0;
             }
         }
-        int start = pos + 1, left = 0, right = 0;
-        while (start < n) {
-            if (s.charAt(start) != max) ++start;
-            else {
-                left = pos + 1;
-                right = start + 1;
-                while (left < start && right < n) {
-                    if (s.charAt(left) == s.charAt(right)) {
-                        ++left; 
-                        ++right;
-                    } else {
-                        if (s.charAt(left) < s.charAt(right)) pos = start;
-                        start = right;
-                        break;
-                    } 
-                }
-                if (left == start || right == n) start = right;
-            }
-        }
-        return s.substring(pos);
+        return s.substring(left);
     }
 }
 ```
