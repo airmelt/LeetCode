@@ -1,4 +1,4 @@
-# 1223 Dice Roll Simulation 掷骰子模拟
+# 1224 Maximum Equal Frequency 最大相等频率
 
 __Description:__
 
