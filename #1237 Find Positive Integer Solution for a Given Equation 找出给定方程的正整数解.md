@@ -108,7 +108,7 @@ public:
         int left = 1, right = 1000;
         while (left < 1001 && right > 0) 
         {
-            int temp = customfunction.f(left,right);
+            int temp = customfunction.f(left, right);
             if (temp == z) result.push_back({left, right});
             if (temp > z) --right;
             else ++left;
@@ -136,7 +136,7 @@ class Solution {
         List<List<Integer>> result = new ArrayList<>();
         int left = 1, right = 1000;
         while (left < 1001 && right > 0) {
-            int temp = customfunction.f(left,right);
+            int temp = customfunction.f(left, right);
             if (temp == z) result.add(Arrays.asList(left, right));
             if (temp > z) right--;
             else left++;
@@ -159,7 +159,8 @@ __Python__:
        def f(self, x, y):
   
 """
+
 class Solution:
     def findSolution(self, customfunction: 'CustomFunction', z: int) -> List[List[int]]:
-        return filter(lambda x: customfunction.f(*x) == z, itertools.product(range(1, z + 1), repeat = 2))
+        return filter(lambda x: customfunction.f(*x) == z, itertools.product(range(1, z + 1), repeat=2))
 ```
