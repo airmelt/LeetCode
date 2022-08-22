@@ -10,7 +10,7 @@ __Example:__
 
 Example 1:
 
-![Servers 1](https://assets.leetcode.com/uploads/2019/11/14/untitled-diagram-6.jpg)
+[图片上传失败...(image-f3ce88-1660993325019)]
 
 Input: grid = [[1,0],[0,1]]
 Output: 0
@@ -18,7 +18,7 @@ Explanation: No servers can communicate with others.
 
 Example 2:
 
-![Servers 2](https://assets.leetcode.com/uploads/2019/11/13/untitled-diagram-4.jpg)
+[图片上传失败...(image-1d460e-1660993325019)]
 
 Input: grid = [[1,0],[1,1]]
 Output: 3
@@ -26,7 +26,7 @@ Explanation: All three servers can communicate with at least one other server.
 
 Example 3:
 
-![Servers 3](https://assets.leetcode.com/uploads/2019/11/14/untitled-diagram-1-3.jpg)
+[图片上传失败...(image-fc8c24-1660993325019)]
 
 Input: grid = [[1,1,0,0],[0,0,1,0],[0,0,1,0],[0,0,0,1]]
 Output: 4
@@ -52,7 +52,7 @@ __示例：__
 
 示例 1：
 
-![服务器 1](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/11/24/untitled-diagram-6.jpg)
+[图片上传失败...(image-cc0a52-1660993325019)]
 
 输入：grid = [[1,0],[0,1]]
 输出：0
@@ -60,7 +60,7 @@ __示例：__
 
 示例 2：
 
-![服务器 2](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/11/24/untitled-diagram-4-1.jpg)
+[图片上传失败...(image-2033ba-1660993325019)]
 
 输入：grid = [[1,0],[1,1]]
 输出：3
@@ -68,7 +68,7 @@ __示例：__
 
 示例 3：
 
-![服务器 3](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/11/24/untitled-diagram-1-3.jpg)
+[图片上传失败...(image-feb2ee-1660993325019)]
 
 输入：grid = [[1,1,0,0],[0,0,1,0],[0,0,1,0],[0,0,0,1]]
 输出：4
@@ -99,9 +99,9 @@ class Solution
 public:
     int countServers(vector<vector<int>>& grid) 
     {
-        int result = 0, n = grid.size();
-        vector<int> row(n), col(n);
-        for (int i = 0; i < n; i++) 
+        int result = 0, m = grid.size(), n = grid.front().size();
+        vector<int> row(m), col(n);
+        for (int i = 0; i < m; i++) 
         {
             for (int j = 0; j < n; j++) 
             {
@@ -112,7 +112,7 @@ public:
                 }
             }
         }
-        for (int i = 0; i < n; i++) for (int j = 0; j < n; j++) if (grid[i][j] and (row[i] > 1 or col[j] > 1)) ++result;
+        for (int i = 0; i < m; i++) for (int j = 0; j < n; j++) if (grid[i][j] and (row[i] > 1 or col[j] > 1)) ++result;
         return result;
     }
 };
@@ -123,8 +123,8 @@ __Java__:
 ```Java
 class Solution {
     public int countServers(int[][] grid) {
-        int result = 0, n = grid.length, row[] = new int[n], col[] = new int[n];
-        for (int i = 0; i < n; i++) {
+        int result = 0, m = grid.length, n = grid[0].length, row[] = new int[m], col[] = new int[n];
+        for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 if (grid[i][j] != 0) {
                     ++row[i];
@@ -132,7 +132,7 @@ class Solution {
                 }
             }
         }
-        for (int i = 0; i < n; i++) for (int j = 0; j < n; j++) if (grid[i][j] != 0 && (row[i] > 1 || col[j] > 1)) ++result;
+        for (int i = 0; i < m; i++) for (int j = 0; j < n; j++) if (grid[i][j] != 0 && (row[i] > 1 || col[j] > 1)) ++result;
         return result;
     }
 }
