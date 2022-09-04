@@ -183,25 +183,25 @@ class ExamRoom {
 __Python__:
 
 ```Python
-from sortedcontainers import SortedList
 class ExamRoom:
 
     def __init__(self, n: int):
-        self.seats = SortedList()
+        self.seats = []
         self.n = n
 
 
     def seat(self) -> int:
         if not self.seats:
-            self.seats.add(0)
-            return 0
+            seat = 0
         else:
             dist, seat = self.seats[0], 0
             for i, s in enumerate(self.seats):
                 if i and (d := ((s - (prev := self.seats[i - 1])) >> 1)) > dist:
                     dist, seat = d, prev + d
-            self.seats.add((seat := self.n - 1 if (self.n - 1 - self.seats[-1]) > dist else seat))
-            return seat        
+            if (d := self.n - 1 - self.seats[-1]) > dist:
+                seat = self.n - 1
+        bisect.insort(self.seats, seat)
+        return seat        
 
 
     def leave(self, p: int) -> None:
