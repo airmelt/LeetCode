@@ -48,6 +48,7 @@ __思路__:
 准备 k 个容量为 sum / k 的桶
 对数组进行排序
 然后按顺序放入数组元素
+需要对桶进行去重, 如果不是第一个桶, 与前面的桶元素相同就跳过
 只有两种情况可以放入元素, 第一是桶剩下的空间刚好等于数组元素, 第二种是桶剩下的空间不小于数组元素和最小元素之和, 这时候可以尝试一个桶放入多个数组元素
 直到遍历完数组元素
 时间复杂度为 O(2 ^ n * k), 空间复杂度为 O(n)
@@ -74,6 +75,7 @@ private:
         if (cur < 0) return true;
         for (int i = 0; i < k; i++)
         {
+            if (i and bucket[i] == bucket[i - 1]) continue;
             if (bucket[i] == nums[cur] or bucket[i] >= nums[cur] + nums.front())
             {
                 bucket[i] -= nums[cur];
@@ -104,6 +106,7 @@ class Solution {
     private boolean trackback(int[] nums, int[] bucket, int k, int cur) {
         if (cur < 0) return true;
         for (int i = 0; i < k; i++) {
+            if (i > 0 && bucket[i] == bucket[i - 1]) continue;
             if (bucket[i] == nums[cur] || bucket[i] >= nums[cur] + nums[0]) {
                 bucket[i] -= nums[cur];
                 if (trackback(nums, bucket, k, cur - 1)) return true;
@@ -131,6 +134,8 @@ class Solution:
             if cur < 0:
                 return True
             for i in range(k):
+                if i and bucket[i] == bucket[i - 1]:
+                    continue
                 if bucket[i] == nums[cur] or bucket[i] >= nums[cur] + nums[0]:
                     bucket[i] -= nums[cur]
                     if trackback(cur - 1):
@@ -139,4 +144,5 @@ class Solution:
             return False
         
         return trackback(n - 1)
+        
 ```
