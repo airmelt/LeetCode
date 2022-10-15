@@ -132,11 +132,12 @@ __Python__:
 
 ```Python
 class Solution:
-    def watchedVideosByFriends(self, watchedVideos: List[List[str]], friends: List[List[int]], id: int, level: int) -> List[str]:
-        friend, cur = set(), {id}
-        for i in range(level):
-            friend |= cur
-            cur = set(sum([friends[r] for r in cur], [])) - friend
-        result = Counter(sum([watchedVideos[r] for r in cur], []))
-        return sorted(result, key=lambda a: (result[a], a))
+    def minInsertions(self, s: str) -> int:
+        dp = [0] * (n := len(s))
+        for i in range(n - 1, -1, -1):
+            cur = [0] * n
+            for j in range(i + 1, n):
+                cur[j] = dp[j - 1] if s[i] == s[j] else min(dp[j], cur[j - 1]) + 1
+            dp = cur
+        return dp[-1]
 ```
