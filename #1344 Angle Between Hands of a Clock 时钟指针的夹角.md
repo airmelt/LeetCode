@@ -1,4 +1,4 @@
-# 1343 Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold 大小为 K 且平均值大于等于阈值的子数组数目
+# 1344 Angle Between Hands of a Clock 时钟指针的夹角
 
 __Description:__
 
@@ -10,21 +10,21 @@ __Example:__
 
 Example 1:
 
-![Clock 1](https://assets.leetcode.com/uploads/2019/12/26/sample_1_1673.png)
+[图片上传失败...(image-4a27e-1665736537538)]
 
 Input: hour = 12, minutes = 30
 Output: 165
 
 Example 2:
 
-![Clock 2](https://assets.leetcode.com/uploads/2019/12/26/sample_2_1673.png)
+[图片上传失败...(image-ca5a12-1665736537539)]
 
 Input: hour = 3, minutes = 30
 Output: 75
 
 Example 3:
 
-![Clock 3](https://assets.leetcode.com/uploads/2019/12/26/sample_3_1673.png)
+[图片上传失败...(image-35a6ef-1665736537539)]
 
 Input: hour = 3, minutes = 15
 Output: 7.5
@@ -42,21 +42,21 @@ __示例：__
 
 示例 1：
 
-![时钟 1](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/02/08/sample_1_1673.png)
+[图片上传失败...(image-b646f4-1665736537539)]
 
 输入：hour = 12, minutes = 30
 输出：165
 
 示例 2：
 
-![时钟 2](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/02/08/sample_2_1673.png)
+[图片上传失败...(image-80c538-1665736537539)]
 
 输入：hour = 3, minutes = 30
 输出；75
 
 示例 3：
 
-![时钟 3](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/02/08/sample_3_1673.png)
+[图片上传失败...(image-961a19-1665736537539)]
 
 输入：hour = 3, minutes = 15
 输出：7.5
