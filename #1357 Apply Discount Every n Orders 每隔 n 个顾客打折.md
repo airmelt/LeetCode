@@ -129,10 +129,8 @@ private:
     int n, discount, count;
     unordered_map<int, int> m;
 public:
-    Cashier(int n, int discount, vector<int>& products, vector<int>& prices) 
+    Cashier(int _n, int _discount, vector<int>& products, vector<int>& prices) : n(_n), discount(_discount), count(0)
     {
-        this -> n = n;
-        this -> discount = discount;
         for (int i = 0, s = products.size(); i < s; i++) m[products[i]] = prices[i];
     }
     
@@ -141,7 +139,7 @@ public:
         ++count;
         double result = 0;
         for (int i = 0, s = product.size(); i < s; i++) result += m[product[i]] * amount[i];
-        return result - (count % n == 0 ? (discount * result) / 100 : 0);
+        return result - (!(count % n) ? (discount * result) / 100 : 0);
     }
 };
 
