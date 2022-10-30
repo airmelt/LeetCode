@@ -2,7 +2,7 @@
 
 __Description:__
 
-![keyboard](https://assets.leetcode.com/uploads/2020/01/02/leetcode_keyboard.png)
+[图片上传失败...(image-8a268-1663948138656)]
 
 You have a keyboard layout as shown above in the X-Y plane, where each English uppercase letter is located at some coordinate.
 
@@ -45,7 +45,7 @@ word consists of uppercase English letters.
 
 __题目描述：__
 
-![键盘](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/01/11/leetcode_keyboard.png)
+[图片上传失败...(image-a4743b-1663948138656)]
 
 二指输入法定制键盘在 X-Y 平面上的布局如上图所示，其中每个大写英文字母都位于某个坐标处。
 
@@ -118,8 +118,8 @@ public:
         {
             for (int cur = word[i] - 'A', prev = word[i - 1] - 'A', d = abs(cur / 6 - prev / 6) + abs(cur % 6 - prev % 6), j = 0; j < 26; j++)
             {
-                dp\[i][j] = min(dp\[i][j], dp\[i - 1][j] + d);
-                if (prev == j) for (int k = 0; k < 26; k++) dp\[i][j] = min(dp\[i][j], dp\[i - 1][k] + abs(k / 6 - cur / 6) + abs(k % 6 - cur % 6));
+                dp[i][j] = min(dp[i][j], dp[i - 1][j] + d);
+                if (prev == j) for (int k = 0; k < 26; k++) dp[i][j] = min(dp[i][j], dp[i - 1][k] + abs(k / 6 - cur / 6) + abs(k % 6 - cur % 6));
             }
         }
         return *min_element(dp.back().begin(), dp.back().end());
@@ -132,15 +132,15 @@ __Java__:
 ```Java
 class Solution {
     public int minimumDistance(String word) {
-        int n = word.length(), result = 0x3f3f3f3f, dp\[][] = new int[n][26];
-        for (int i = 1; i < n; i++) Arrays.fill(dp\[i], result);
+        int n = word.length(), result = 0x3f3f3f3f, dp[][] = new int[n][26];
+        for (int i = 1; i < n; i++) Arrays.fill(dp[i], result);
         for (int i = 1; i < n; i++) {
             for (int cur = word.charAt(i) - 'A', prev = word.charAt(i - 1) - 'A', d = Math.abs(cur / 6 - prev / 6) + Math.abs(cur % 6 - prev % 6), j = 0; j < 26; j++) {
-                dp\[i][j] = Math.min(dp\[i][j], dp\[i - 1][j] + d);
-                if (prev == j) for (int k = 0; k < 26; k++) dp\[i][j] = Math.min(dp\[i][j], dp\[i - 1][k] + Math.abs(k / 6 - cur / 6) + Math.abs(k % 6 - cur % 6));
+                dp[i][j] = Math.min(dp[i][j], dp[i - 1][j] + d);
+                if (prev == j) for (int k = 0; k < 26; k++) dp[i][j] = Math.min(dp[i][j], dp[i - 1][k] + Math.abs(k / 6 - cur / 6) + Math.abs(k % 6 - cur % 6));
             }
         }
-        for (int i = 0; i < 26; i++) result = Math.min(result, dp\[n - 1][i]);
+        for (int i = 0; i < 26; i++) result = Math.min(result, dp[n - 1][i]);
         return result;
     }
 }
