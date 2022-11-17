@@ -46,7 +46,7 @@ __Constraints:__
 0 <= val <= 100
 At most 1000 calls will be made to each method of increment, push and pop each separately.
 
-__描述:__
+__题目描述:__
 
 请你设计一个支持下述操作的栈。
 

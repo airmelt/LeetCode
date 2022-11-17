@@ -28,7 +28,7 @@ __Constraints:__
 The number of nodes in the tree is in the range [1, 10^4].
 1 <= Node.val <= 10^5
 
-__描述:__
+__题目描述:__
 
 给你一棵二叉搜索树，请你返回一棵 平衡后 的二叉搜索树，新生成的树应该与原来的树有着相同的节点值。如果有多种构造方法，请你返回任意一种。
 

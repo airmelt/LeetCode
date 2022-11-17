@@ -43,7 +43,7 @@ target node is a node from the original tree and is not null.
 __Follow up:__
 Could you solve the problem if repeated values on the tree are allowed?
 
-__描述:__
+__题目描述:__
 
 给你两棵二叉树，原始树 original 和克隆树 cloned，以及一个位于原始树 original 中的目标节点 target。
 

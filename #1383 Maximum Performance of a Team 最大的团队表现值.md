@@ -39,7 +39,7 @@ efficiency.length == n
 1 <= speed[i] <= 10^5
 1 <= efficiency[i] <= 10^8
 
-__描述:__
+__题目描述:__
 
 公司有编号为 1 到 n 的 n 个工程师，给你两个数组 speed 和 efficiency ，其中 speed[i] 和 efficiency[i] 分别代表第 i 位工程师的速度和效率。请你返回由最多 k 个工程师组成的 最大团队表现值 ，由于答案可能很大，请你返回结果对 10^9 + 7 取余后的结果。
 

@@ -39,7 +39,7 @@ reservedSeats[i].length == 2
 1 <= reservedSeats\[i][1] <= 10
 All reservedSeats[i] are distinct.
 
-__描述:__
+__题目描述:__
 
 ![1386-3](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/03/21/cinema_seats_1.png)
 
