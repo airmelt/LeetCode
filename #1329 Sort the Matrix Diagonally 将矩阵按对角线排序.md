@@ -70,7 +70,7 @@ class Solution
 public:
     vector<vector<int>> diagonalSort(vector<vector<int>>& mat) 
     {
-        for (int k = 0, m = mat.size(), n = mat.front().size(), r = min(m, n); k < r; k++) for (int i = 1; i < m; i++) for (int j = 1; j < n; j++) if (mat\[i][j] < mat\[i - 1][j - 1]) swap(mat\[i][j], mat\[i - 1][j - 1]);
+        for (int k = 0, m = mat.size(), n = mat.front().size(), r = min(m, n); k < r; k++) for (int i = 1; i < m; i++) for (int j = 1; j < n; j++) if (mat[i][j] < mat[i - 1][j - 1]) swap(mat[i][j], mat[i - 1][j - 1]);
         return mat;
     }
 };
@@ -81,15 +81,15 @@ __Java__:
 ```Java
 class Solution {
     public int[][] diagonalSort(int[][] mat) {
-        int m = mat.length, n = mat\[0].length;
+        int m = mat.length, n = mat[0].length;
         HashMap<Integer, PriorityQueue<Integer>> map = new HashMap<>();
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 map.putIfAbsent(i - j, new PriorityQueue<>());
-                map.get(i - j).offer(mat\[i][j]);
+                map.get(i - j).offer(mat[i][j]);
             }
         }
-        for (int i = 0; i < m; i++) for (int j = 0; j < n; j++) mat\[i][j] = map.get(i - j).poll();
+        for (int i = 0; i < m; i++) for (int j = 0; j < n; j++) mat[i][j] = map.get(i - j).poll();
         return mat;
     }
 }
@@ -100,12 +100,12 @@ __Python__:
 ```Python
 class Solution:
     def diagonalSort(self, mat: List[List[int]]) -> List[List[int]]:
-        m, n, nums = len(mat), len(mat\[0]), defaultdict(list)
+        m, n, nums = len(mat), len(mat[0]), defaultdict(list)
         for i in range(m):
             for j in range(n):
-                heappush(nums[i - j], mat\[i][j])
+                heappush(nums[i - j], mat[i][j])
         for i in range(m):
             for j in range(n):
-                mat\[i][j] = heappop(nums[i - j])
+                mat[i][j] = heappop(nums[i - j])
         return mat
 ```
