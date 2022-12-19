@@ -141,31 +141,33 @@ __Java__:
 
 ```Java
 class Solution {
+    private Map<Character, List<Integer>> count = new HashMap<>();
+    
     public String rankTeams(String[] votes) {
-        HashMap<Character, List<Integer>> count = new HashMap<>();
-        char[] chars = votes[0].toCharArray();
         int n = votes[0].length();
-        for (Character c : chars) {
-            List<Integer> list = new ArrayList<>();
-            for (int i = 0; i < n; i++) list.add(0);
-            count.put(c, list);
-        }
-        for (String vote : votes) for (int i = 0; i < n; i++) count.get(vote.charAt(i)).set(i, count.get(vote.charAt(i)).get(i) + 1);
-        List<Character> keyList = new ArrayList<>(count.keySet());
-        Collections.sort(keyList, new Comparator<Character>() {
-            @Override
-            public int compare(Character c1, Character c2) {
-                List<Integer> list1 = count.get(c1), list2 = count.get(c2);
-                for (int i = 0; i < n; i++) {
-                    if (list1.get(i) > list2.get(i)) return -1;
-                    if (list1.get(i) < list2.get(i)) return 1;
+        for (String vote : votes) {
+            for (int i = 0; i < n; i++) {
+                Character c = vote.charAt(i);
+                if (!count.containsKey(c)) {
+                    count.put(c, new ArrayList<>());
+                    for (int j = 0; j < n; j++) count.get(c).add(0);
                 }
-                return c1.compareTo(c2);
+                count.get(c).set(i, count.get(c).get(i) - 1);
             }
+        }
+        char[] chars = votes[0].toCharArray();
+        Character[] cs = new Character[n];
+        for (int i = 0; i < n; i++) cs[i] = chars[i];
+        Arrays.sort(cs, (a, b) -> {
+            List<Integer> list1 = count.get(a), list2 = count.get(b);
+            for (int i = 0; i < n; i++) {
+                if (list1.get(i) > list2.get(i)) return 1;
+                if (list1.get(i) < list2.get(i)) return -1;
+            }
+            return a - b;
         });
-        StringBuilder sb = new StringBuilder();
-        for (Character c : keyList) sb.append(c);
-        return sb.toString();
+        for (int i = 0; i < n; i++) chars[i] = cs[i];
+        return new String(chars);
     }
 }
 ```
