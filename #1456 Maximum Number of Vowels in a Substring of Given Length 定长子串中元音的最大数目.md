@@ -96,8 +96,11 @@ __提示：__
 __思路:__
 
 ```text
-
-时间复杂度为 O(N), 空间复杂度为 O(N)
+滑动窗口
+用哈希表或者直接比较字符记录是否有元音字符
+初始窗口为 k, 如果 k 比字符串的长度还大直接返回当前元音字符数
+然后分别滑动窗口的左右两端, 更新元音字符数, 取最大的即可
+时间复杂度为 O(N), 空间复杂度为 O(1)
 ```
 
 __代码:__
@@ -117,7 +120,7 @@ public:
         st.insert('o');
         st.insert('u');
         int r = 0, cur = 0, n = s.size();
-        for (r = 0; r < k; r++) 
+        for (; r < k; r++) 
         {
             if (r == n) return cur;
             if (st.count(s[r])) ++cur;
@@ -146,7 +149,7 @@ class Solution {
         set.add('o');
         set.add('u');
         int r = 0, cur = 0, n = s.length();
-        for (r = 0; r < k; r++) {
+        for (; r < k; r++) {
             if (r >= n) return cur;
             if (set.contains(s.charAt(r))) cur++;
         }
@@ -172,6 +175,7 @@ class Solution:
                 return cur
             if s[r] in st:
                 cur += 1
+            r += 1
         result = cur
         while r < n:
             if s[l] in st:
