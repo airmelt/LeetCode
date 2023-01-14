@@ -161,59 +161,36 @@ public:
 __Java__:
 
 ```Java
-class Solution 
-{
-public:
-    int numOfArrays(int n, int m, int k) 
-    {
-        vector<vector<long>> cur(k + 1, vector<long>(m + 1)), pre(k + 1, vector<long>(m + 1)), zero(k + 1, vector<long>(m + 1));
-        long mod = 1e9 + 7, pre_sum = 0;
-        for (int i = 1; i <= m; i++) pre[1][i] = 1;
-        for (int i = 2; i <= n; i++)
-        {
-            for (int j = 1; j <= min(k, i); j++)
-            {
-                pre_sum = 0;
-                for (int x = 1; x <= m; x++)
-                {
-                    cur[j][x] = (pre[j][x] * x + pre_sum) % mod;
-                    pre_sum += pre[j - 1][x];
+class Solution {
+    public int numOfArrays(int n, int m, int k) {
+        long dp[][][] = new long[n + 1][m + 1][k + 1], mod = 1_000_000_007;
+        for (int i = 1; i <= m; i++) dp[1][i][1] = 1;
+        for (int i = 2; i <= n; i++) {
+            for (int j = 1; j <= m; j++) {
+                for (int p = 1; p <= k; p++) {
+                    dp[i][j][p] += j * dp[i - 1][j][p];
+                    for (int q = 1; q < j; q++) dp[i][j][p] += dp[i - 1][q][p - 1];
+                    dp[i][j][p] %= mod;
                 }
             }
-            pre = cur;
-            cur = zero;
         }
-        return accumulate(pre.back().begin(), pre.back().end(), 0L) % mod;
+        for (int i = 1; i < m; i++) dp[n][m][k] += dp[n][i][k];
+        return (int)(dp[n][m][k] % mod);
     }
-};
+}
 ```
 
 __Python__:
 
 ```Python
-class Solution 
-{
-public:
-    int numOfArrays(int n, int m, int k) 
-    {
-        vector<vector<long>> cur(k + 1, vector<long>(m + 1)), pre(k + 1, vector<long>(m + 1)), zero(k + 1, vector<long>(m + 1));
-        long mod = 1e9 + 7, pre_sum = 0;
-        for (int i = 1; i <= m; i++) pre[1][i] = 1;
-        for (int i = 2; i <= n; i++)
-        {
-            for (int j = 1; j <= min(k, i); j++)
-            {
-                pre_sum = 0;
-                for (int x = 1; x <= m; x++)
-                {
-                    cur[j][x] = (pre[j][x] * x + pre_sum) % mod;
-                    pre_sum += pre[j - 1][x];
-                }
-            }
-            pre = cur;
-            cur = zero;
-        }
-        return accumulate(pre.back().begin(), pre.back().end(), 0L) % mod;
-    }
-};
+class Solution:
+    def numOfArrays(self, n: int, m: int, k: int) -> int:
+        @lru_cache(None)
+        def dp(i: int, j: int, c: int) -> int:
+            if j > i or not j: 
+                return 0
+            if i == 1: 
+                return 1
+            return (sum(dp(i - 1, j - 1, d) for d in range(1, c)) + dp(i - 1, j, c) * c) % (10 ** 9 + 7)
+        return sum(dp(n, k, c) for c in range(1, m + 1)) % (10 ** 9 + 7)
 ```
