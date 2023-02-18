@@ -103,8 +103,11 @@ __提示：__
 __思路:__
 
 ```text
-
-时间复杂度为 O(N), 空间复杂度为 O(N)
+Dijkstra 算法
+注意到路径的概率为 [0, 1] 均为正数, 才能使用 Dijkstra 算法
+从一个节点到另一个节点不能往回, 否则概率必然越乘越小
+所以从 start 出发, 选择它的一个邻居结点, 更新从这个邻居结点出发的所有概率, 即松弛
+时间复杂度为 O(ElogE), 空间复杂度为 O(E), E 为边的数量, 最大为 N ^ 2
 ```
 
 __代码:__
@@ -112,9 +115,11 @@ __代码:__
 __C++__:
 
 ```C++
-class Solution {
+class Solution 
+{
 public:
-    double maxProbability(int n, vector<vector<int>>& edges, vector<double>& succProb, int start, int end) {
+    double maxProbability(int n, vector<vector<int>>& edges, vector<double>& succProb, int start, int end) 
+    {
         vector<vector<pair<int, double>>> graph(n);
         for (int i = 0; i<edges.size(); i++) 
         {
@@ -128,9 +133,11 @@ public:
         {
             auto node = q.top();
             q.pop();
-            if (node.first <= p[node.second]) continue;
-            p[node.second] = node.first;
-            for (const auto& e: graph[node.second]) q.push({node.first * e.second, e.first});
+            if (node.first > p[node.second])
+            {
+                p[node.second] = node.first;
+                for (const auto& e: graph[node.second]) q.push({node.first * e.second, e.first});
+            }
         }
         return p[end];
     }
@@ -156,7 +163,7 @@ class Solution {
             Pair pair = pq.poll();
             if (pair.probability < p[pair.node]) continue;
             for (Pair neighbor : graph.get(pair.node)) {
-                if (p[neighbor.node] < p[pair.node] * neighbor.probability) {
+                if (p[pair.node] * neighbor.probability > p[neighbor.node]) {
                     p[neighbor.node] = p[pair.node] * neighbor.probability;
                     pq.offer(new Pair(neighbor.node, p[neighbor.node]));
                 }
