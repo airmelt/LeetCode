@@ -179,10 +179,8 @@ __Python__:
 class Solution:
     def maxCoins(self, piles: List[int]) -> int:
         piles.sort()
-        result = 0
-        while piles:
-            piles.pop(0)
-            piles.pop()
-            result += piles.pop()
+        result, n = 0, len(piles)
+        for i in range(n // 3, n, 2):
+            result += piles[i]
         return result
 ```
