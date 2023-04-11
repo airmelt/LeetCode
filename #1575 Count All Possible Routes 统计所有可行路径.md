@@ -130,9 +130,11 @@ __代码:__
 __C++__:
 
 ```C++
-class Solution {
+class Solution 
+{
 public:
-    int countRoutes(vector<int>& locations, int start, int finish, int fuel) {
+    int countRoutes(vector<int>& locations, int start, int finish, int fuel) 
+    {
         int MOD = 1e9 + 7, n = locations.size(), start_pos = locations[start], finish_pos = locations[finish], result = 0;
         sort(locations.begin(), locations.end());
         for (int i = 0; i < n; i++) 
