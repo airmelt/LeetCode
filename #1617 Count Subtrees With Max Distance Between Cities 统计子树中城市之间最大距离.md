@@ -101,8 +101,15 @@ __提示：__
 __思路:__
 
 ```text
-
-时间复杂度为 O(N), 空间复杂度为 O(N)
+枚举
+枚举所有点对, 计算以该点对为直径的所有点的数目
+根据乘法原理求取子树的数目
+先计算每个点对之间的距离 dis[a][b]
+从小到大计算每个点对为直径的子树
+记录所有 dis[a][x] + dis[b][x] = d, 其中 dis[a][b] = d
+不用记录 dis[a][x] > d 或 dis[b][x] > d
+dis[a][x] = d 或 dis[b][x] = d 的点, 如果 x < a 或 x < b 的点不需记录, 其他满足的点需要记录
+时间复杂度为 O(N ^ 3), 空间复杂度为 O(N ^ 2)
 ```
 
 __代码:__
@@ -110,19 +117,80 @@ __代码:__
 __C++__:
 
 ```C++
-class Solution {
-    public int[] countSubgraphsForEachDiameter(int n, int[][] edges) {
-
+class Solution 
+{
+public:
+    vector<int> countSubgraphsForEachDiameter(int n, vector<vector<int>> &edges) 
+    {
+        vector<vector<int>> graph(n);
+        for (const auto &edge : edges) 
+        {
+            graph[edge.front() - 1].emplace_back(edge.back() - 1);
+            graph[edge.back() - 1].emplace_back(edge.front() - 1);
+        }
+        int dis[n][n]; 
+        memset(dis, 0, sizeof(dis));
+        function<void(int, int, int)> dfs = [&](int i, int x, int fa) 
+        {
+            for (int y : graph[x]) 
+            {
+                if (y != fa) 
+                {
+                    dis[i][y] = dis[i][x] + 1;
+                    dfs(i, y, x);
+                }
+            }
+        };
+        for (int i = 0; i < n; i++) dfs(i, i, -1);
+        function<int(int, int, int, int, int)> dfs2 = [&](int i, int j, int d, int x, int fa) 
+        {
+            int count = 1;
+            for (int y : graph[x]) if (y != fa and (dis[i][y] < d or dis[i][y] == d and y > j) and (dis[j][y] < d or dis[j][y] == d and y > i)) count *= dfs2(i, j, d, y, x);
+            if (dis[i][x] + dis[j][x] > d) ++count;
+            return count;
+        };
+        vector<int> result(n - 1);
+        for (int i = 0; i < n; i++) for (int j = i + 1; j < n; j++) result[dis[i][j] - 1] += dfs2(i, j, dis[i][j], i, -1);
+        return result;
     }
-}
+};
 ```
 
 __Java__:
 
 ```Java
 class Solution {
-    public int[] countSubgraphsForEachDiameter(int n, int[][] edges) {
+    private List<Integer>[] graph;
+    private int[][] dis;
 
+    public int[] countSubgraphsForEachDiameter(int n, int[][] edges) {
+        graph = new ArrayList[n];
+        Arrays.setAll(graph, e -> new ArrayList<>());
+        for (int[] edge : edges) {
+            graph[edge[0] - 1].add(edge[1] - 1);
+            graph[edge[1] - 1].add(edge[0] - 1);
+        }
+        dis = new int[n][n];
+        for (int i = 0; i < n; i++) dfs(i, i, -1);
+        int[] result = new int[n - 1];
+        for (int i = 0; i < n; i++) for (int j = i + 1; j < n; j++) result[dis[i][j] - 1] += dfs2(i, j, dis[i][j], i, -1);
+        return result;
+    }
+
+    private void dfs(int i, int x, int fa) {
+        for (int y : graph[x]) {
+            if (y != fa) {
+                dis[i][y] = dis[i][x] + 1;
+                dfs(i, y, x);
+            }
+        }
+    }
+
+    private int dfs2(int i, int j, int d, int x, int fa) {
+        int count = 1;
+        for (int y : graph[x]) if (y != fa && (dis[i][y] < d || dis[i][y] == d && y > j) && (dis[j][y] < d || dis[j][y] == d && y > i)) count *= dfs2(i, j, d, y, x);
+        if (dis[i][x] + dis[j][x] > d) ++count;
+        return count;
     }
 }
 ```
