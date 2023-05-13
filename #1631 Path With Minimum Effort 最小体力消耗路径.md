@@ -99,8 +99,11 @@ __提示：__
 __思路:__
 
 ```text
-
-时间复杂度为 O(N), 空间复杂度为 O(N)
+最短路径
+这道题应该将所有格子抽象成点, 两个格子之间的距离为高度差的绝对值
+用优先队列记录所有的点以及消耗的体力
+直到找到右下角的点
+时间复杂度为 O(MNlogMN), 空间复杂度为 O(MN)
 ```
 
 __代码:__
@@ -108,35 +111,43 @@ __代码:__
 __C++__:
 
 ```C++
-class Solution 
+struct Dist 
 {
+    int x, y, z;
+    Dist(int _x, int _y, int _z): x(_x), y(_y), z(_z) {}
+    bool operator< (const Dist& that) const 
+    {
+        return z > that.z;
+    }
+};
+
+class Solution
+{
+private:
+    static constexpr int dirs[4][2] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
 public:
     int minimumEffortPath(vector<vector<int>>& heights) 
     {
-        int n = heights.size(), m = heights.front().size();
-        vector<vector<int>> f(n, vector<int>(m, INT_MAX));
-        int dx[4] = {0, 1, 0, -1}, dy[4] = {1, 0, -1, 0};
-        f.front().front() = 0;
-        queue<int> q;
-        q.push(0);
-        while(!q.empty()) 
+        int m = heights.size(), n = heights.front().size();
+        priority_queue<Dist> q;
+        vector<int> visited(m * n);
+        vector<int> dist(m * n, INT_MAX);
+        q.emplace(0, 0, 0);
+        dist.front() = 0;
+        while (!q.empty()) 
         {
-            auto t = q.front();
+            auto [x, y, z] = q.top();
             q.pop();
-            int x = t / m, y = t % m;
-            for (int d = 0; d < 4; d++) 
+            if (visited[x * n + y]) continue;
+            visited[x * n + y] = 1;
+            dist[x * n + y] = z;
+            for (int i = 0; i < 4; i++) 
             {
-                int a = x + dx[d], b = y + dy[d];
-                if (a >= 0 and a < n and b >= 0 and b < m) 
-                {
-                    int cur = max(f[x][y], abs(heights[a][b] - heights[x][y]));
-                    if (cur >= f[a][b]) continue;
-                    f[a][b] = cur;
-                    q.push(a * m + b);
-                }
+                int nx = x + dirs[i][0], ny = y + dirs[i][1];
+                if (nx > -1 and nx < m and ny > -1 and ny < n and !visited[nx * n + ny]) q.emplace(nx, ny, max(z, abs(heights[x][y] - heights[nx][ny])));
             }
         }
-        return f.back().back();
+        return dist.back();
     }
 };
 ```
@@ -145,8 +156,35 @@ __Java__:
 
 ```Java
 class Solution {
-    public int minimumEffortPath(int[][] heights) {
+    int[][] dirs = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
 
+    public int minimumEffortPath(int[][] heights) {
+        int m = heights.length, n = heights[0].length;
+        PriorityQueue<int[]> pq = new PriorityQueue<int[]>(new Comparator<int[]>() {
+            public int compare(int[] edge1, int[] edge2) {
+                return edge1[2] - edge2[2];
+            }
+        });
+        pq.offer(new int[]{0, 0, 0});
+        int[] dist = new int[m * n];
+        Arrays.fill(dist, Integer.MAX_VALUE);
+        dist[0] = 0;
+        boolean[] visited = new boolean[m * n];
+        while (!pq.isEmpty()) {
+            int[] edge = pq.poll();
+            int x = edge[0], y = edge[1], d = edge[2], id = x * n + y;
+            if (visited[id]) continue;
+            if (x == m - 1 && y == n - 1) break;
+            visited[id] = true;
+            for (int i = 0; i < 4; i++) {
+                int nx = x + dirs[i][0], ny = y + dirs[i][1];
+                if (nx > -1 && nx < m && ny > -1 && ny < n && Math.max(d, Math.abs(heights[x][y] - heights[nx][ny])) < dist[nx * n + ny]) {
+                    dist[nx * n + ny] = Math.max(d, Math.abs(heights[x][y] - heights[nx][ny]));
+                    pq.offer(new int[]{nx, ny, dist[nx * n + ny]});
+                }
+            }
+        }
+        return dist[m * n - 1];
     }
 }
 ```
