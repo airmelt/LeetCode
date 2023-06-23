@@ -96,7 +96,27 @@ __思路:__
 
 ```text
 差分数组
-时间复杂度为 O(N), 空间复杂度为 O(N)
+假设 result[k] 表示要求 nums[i] + nums[n - i - 1] = k 的操作数
+由数据范围可得, 2 <= k <= 2 * limit
+我们可以用一个长度为 2 * limit + 1 的数组来记录
+如果 nums[i] + nums[n - i - 1] = k, 那么 result[k] += 0
+如果 1 + min(nums[i], nums[n - i - 1]) <= k <= limit + max(nums[i], nums[n - i - 1]), 那么 result[k] += 1, 仅需要一次修改就能满足要求
+否则需要两次修改
+对每一组 nums[i] 和 nums[n - i - 1], 先将 result[k] 都加上 2
+然后对于 [1 + min(nums[i], nums[n - i - 1]), limit + max(nums[i], nums[n - i - 1])] 区间内, 将 result[k] 都减去 1
+最后将 nums[i] + nums[n - i - 1] 位置上的再减去 1, 即为 nums[i] + nums[n - i - 1] 这一组需要的最少操作次数
+将所有数堆都遍历一边, 取最小值即可
+这种算法时间复杂度为 O(NM), 需要对每一对进行 M 次操作, M 为 limit 的上限
+可以使用差分数组来优化
+设 delta[k] = result[k] - result[k - 1] 则 sum(delta[:i]) 就是 result[i] 的值
+对于每一组 nums[i] 和 nums[n - i - 1], 先将 delta[1 + min(nums[i], nums[n - i - 1])] 减去 1
+将 delta[nums[i] + nums[n - i - 1]] 减去 1
+将 delta[nums[i] + nums[n - i - 1] + 1] 加上 1
+将 delta[limit + max(nums[i], nums[n - i - 1]) + 1] 加上 1
+这样就完成了差分数组的初始化
+然后累加 delta 数组取最小的累加和即可
+由于 delta[2] 每次都需要加上 2, 可以用初始值 n 代替其的求和, 求和范围为 [2, limit * 2]
+时间复杂度为 O(N + M), 空间复杂度为 O(M), M 为 limit 的上限
 ```
 
 __代码:__
