@@ -196,10 +196,15 @@ class Solution:
                     subs[sub] = max(freq) - min(freq)
         for mask in range(1, 1 << n):
             if not bin(mask).count("1") % m:
-                sub = mask
-                while sub > 0:
-                    if sub in subs and mask ^ sub in dp:
-                        dp[mask] = (dp[mask ^ sub] + subs[sub]) if mask not in dp else min(dp[mask], dp[mask ^ sub] + subs[sub])
-                    sub = (sub - 1) & mask
+                if (1 << bin(mask).count("1")) < len(subs):
+                    sub = mask
+                    while sub > 0:
+                        if sub in subs and mask ^ sub in dp:
+                            dp[mask] = (dp[mask ^ sub] + subs[sub]) if mask not in dp else min(dp[mask], dp[mask ^ sub] + subs[sub])
+                        sub = (sub - 1) & mask
+                else:
+                    for sub, v in subs.items():
+                        if (mask & sub) == sub and mask ^ sub in dp:
+                            dp[mask] = (dp[mask ^ sub] + v) if mask not in dp else min(dp[mask], dp[mask ^ sub] + v)
         return -1 if (1 << n) - 1 not in dp else dp[(1 << n) - 1]
 ```
