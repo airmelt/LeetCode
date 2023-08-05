@@ -1,4 +1,4 @@
-# 1738 Find Kth Largest XOR Coordinate Value 
+# 1738 Find Kth Largest XOR Coordinate Value 找出第 K 大的异或坐标值
 
 __Description:__
 
@@ -95,7 +95,14 @@ __提示：__
 __思路:__
 
 ```text
-
+前缀和 ➕ 堆
+题目的意思是求出前缀和中的第 k 大的值
+比如 matrix = [[5, 2],[1, 6]], k = 4
+前缀和为 [[5, 7],[4, 0]], 第 4 大的值为 0
+设前缀和 pre[i][j] 表示以 (i, j) 为右下角的矩形的异或和
+pre[i][j] = pre[i - 1][j] ^ pre[i][j - 1] ^ pre[i - 1][j - 1] ^ matrix[i][j]
+注意到 pre[i] 只和 pre[i - 1] 有关, 所以可以使用滚动数组优化空间
+使用堆保留前 k 大的值
 时间复杂度为 O(N), 空间复杂度为 O(N)
 ```
 
@@ -109,20 +116,24 @@ class Solution
 public:
     int kthLargestValue(vector<vector<int>>& matrix, int k) 
     {
-        int m = matrix.length, n = matrix[0].length, pre[] = new int[n];
-        PriorityQueue<Integer> pq = new PriorityQueue();
-        for (int i = 0, p = 0; i < m; i++, p = 0) {
-            for (int j = 0; j < n; j++) {
+        int m = matrix.size(), n = matrix.front().size(), cur = 0;
+        vector<int> pre(n);
+        priority_queue<int, vector<int>, greater<int>> pq;
+        for (int i = 0, p = 0; i < m; i++, p = 0) 
+        {
+            for (int j = 0; j < n; j++) 
+            {
                 p ^= matrix[i][j];
-                if (pq.size() < k) pq.offer(p ^ pre[j]);
-                else if ((p ^ pre[j]) > pq.peek()) {
-                    pq.poll();
-                    pq.offer(p ^ pre[j]);
+                if (pq.size() < k) pq.push(p ^ pre[j]);
+                else if ((cur = p ^ pre[j]) > pq.top()) 
+                {
+                    pq.pop();
+                    pq.push(cur);
                 }
                 pre[j] ^= p;
             }
         }
-        return pq.peek();
+        return pq.top();
     }
 };
 ```
