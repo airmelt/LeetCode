@@ -1,4 +1,4 @@
-# 1750 Minimum Length of String After Deleting Similar Ends
+# 1750 Minimum Length of String After Deleting Similar Ends 删除字符串两端相同字符后的最短长度
 
 __Description:__
 

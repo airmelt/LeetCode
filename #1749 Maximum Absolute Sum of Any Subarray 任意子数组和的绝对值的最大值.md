@@ -1,4 +1,4 @@
-# 1749 Maximum Absolute Sum of Any Subarray
+# 1749 Maximum Absolute Sum of Any Subarray 任意子数组和的绝对值的最大值
 
 __Description:__
 
