@@ -81,8 +81,10 @@ __提示：__
 __思路:__
 
 ```text
-
-时间复杂度为 O(N), 空间复杂度为 O(N)
+模拟
+转化的结果要么为 '0101010' 要么为 '10101010'
+比较较少的修改次数并返回即可
+时间复杂度为 O(N), 空间复杂度为 O(1)
 ```
 
 __代码:__
@@ -90,10 +92,14 @@ __代码:__
 __C++__:
 
 ```C++
-class Solution {
+class Solution 
+{
 public:
-    int minOperations(string s) {
-
+    int minOperations(string s) 
+    {
+        int a = 0, n = s.size();
+        for (int i = 0; i < n; i++) a += s[i] ^ '0' ^ (i & 1);
+        return min(a, n - a);
     }
 };
 ```
@@ -103,7 +109,10 @@ __Java__:
 ```Java
 class Solution {
     public int minOperations(String s) {
-
+        int a = 0, n = s.length();
+        char[] arr = s.toCharArray();
+        for (int i = 0; i < n; i++) a += arr[i] ^ '0' ^ (i & 1);
+        return Math.min(a, n - a);
     }
 }
 ```
@@ -113,4 +122,5 @@ __Python__:
 ```Python
 class Solution:
     def minOperations(self, s: str) -> int:
+        return min(count, len(s) - count) if (count := sum(int(c) != i % 2 for i, c in enumerate(s))) else 0
 ```
