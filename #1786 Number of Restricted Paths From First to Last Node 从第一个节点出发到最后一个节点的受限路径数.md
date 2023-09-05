@@ -95,8 +95,15 @@ __提示：__
 __思路:__
 
 ```text
-
-时间复杂度为 O(N), 空间复杂度为 O(N)
+Dijkstra ➕ 动态规划
+题意是从 1 出发找到所有路径使得路径上的点到点 n 的最短路径依次递减
+将点 n 到点 n 的距离视为 0
+反向查询各点到点 n 的最短路径依次递增的点直到点 1
+使用堆优化的 Dijkstra 算法得到每个点到点 n 的最短距离 dist 数组
+设 dp[i] 表示从 1 出发到 i 的路径的数量
+dp[i] = dp[i] + dp[j], if dist[i] > dist[j]
+将下标按照 dist 对应的下标大小进行排序
+时间复杂度为 O(MlogN), 空间复杂度为 O(N + M), 其中 M 为 edges 数组的大小
 ```
 
 __代码:__
@@ -104,10 +111,46 @@ __代码:__
 __C++__:
 
 ```C++
-class Solution {
+class Solution 
+{
 public:
-    int countRestrictedPaths(int n, vector<vector<int>>& edges) {
-
+    int countRestrictedPaths(int n, vector<vector<int>>& edges) 
+    {
+        unordered_map<int, unordered_map<int, int>> graph;
+        for (const auto& edge : edges)
+        {
+            int u = edge[0], v = edge[1], w = edge[2];
+            graph[u - 1][v - 1] = w;
+            graph[v - 1][u - 1] = w;
+        }
+        vector<int> dist(n, INT_MAX), dp(n), arr(n);
+        int cur = 0, MOD = 1e9 + 7;
+        iota(arr.begin(), arr.end(), 0);
+        dist.back() = 0;
+        dp.back() = 1;
+        priority_queue<pair<int, int>> heap;
+        heap.push({0, n - 1});
+        while (!heap.empty()) 
+        {
+            int d = -heap.top().first, x = heap.top().second;
+            heap.pop();
+            if (d > dist[x]) continue;
+            for (const auto& [y, w] : graph[x])
+            {
+                if ((cur = dist[x] + w) < dist[y]) 
+                {
+                    dist[y] = cur;
+                    heap.push({-cur, y});
+                }
+            }
+        }
+        sort(arr.begin(), arr.end(), [&](auto a, auto b) { return dist[a] < dist[b]; });
+        for (int i = 0; i < n; i++) 
+        {
+            for (const auto& [y, w] : graph[arr[i]]) if (dist[arr[i]] > dist[y]) dp[arr[i]] = (dp[arr[i]] + dp[y]) % MOD;
+            if (!arr[i]) break;
+        }
+        return dp.front();
     }
 };
 ```
@@ -117,7 +160,38 @@ __Java__:
 ```Java
 class Solution {
     public int countRestrictedPaths(int n, int[][] edges) {
-
+        Map<Integer, Map<Integer, Integer>> graph = new HashMap<>();
+        int dist[] = new int[n], d = 0, x = 0, cur = 0, arr[][] = new int[n][2], dp[] = new int[n], MOD = 1_000_000_007;
+        for (int[] edge : edges) {
+            int u = edge[0], v = edge[1], w = edge[2];
+            graph.putIfAbsent(u - 1, new HashMap<>());
+            graph.putIfAbsent(v - 1, new HashMap<>());
+            graph.get(u - 1).put(v - 1, w);
+            graph.get(v - 1).put(u - 1, w);
+        }
+        Arrays.fill(dist, Integer.MAX_VALUE);
+        dist[n - 1] = 0;
+        dp[n - 1] = 1;
+        Queue<int[]> heap = new PriorityQueue<>((a, b) -> a[0] - b[0]);
+        heap.offer(new int[]{0, n - 1});
+        while (!heap.isEmpty()) {
+            int[] edge = heap.poll();
+            if ((d = edge[0]) > dist[x = edge[1]]) continue;
+            for (int y : graph.get(x).keySet()) {
+                if ((cur = dist[x] + graph.get(x).get(y)) < dist[y]) {
+                    dist[y] = cur;
+                    heap.offer(new int[]{cur, y});
+                }
+            }
+        }
+        for (int i = 0; i < n; i++) arr[i] = new int[]{i, dist[i]};
+        Arrays.sort(arr, (a, b) -> a[1] - b[1]);
+        for (int i = 0; i < n; i++) {
+            if (!graph.containsKey(x = arr[i][0])) continue;
+            for (int y : graph.get(x).keySet()) if (arr[i][1] > dist[y]) dp[x] = (dp[x] + dp[y]) % MOD;
+            if (x == 0) break;
+        }
+        return dp[0];
     }
 }
 ```
@@ -125,37 +199,32 @@ class Solution {
 __Python__:
 
 ```Python
-def dijkstra(g: List[List[Tuple[int]]], start: int) -> List[int]:
-    dist = [inf] * len(g)
-    dist[start] = 0
-    h = [(0, start)]
-    while h:
-        d, x = heappop(h)
-        if d > dist[x]:
-            continue
-        for y, wt in g[x]:
-            new_d = dist[x] + wt
-            if new_d < dist[y]:
-                dist[y] = new_d
-                heappush(h, (new_d, y))
-    return dist
-mod=10**9+7
+
 class Solution:
     def countRestrictedPaths(self, n: int, edges: List[List[int]]) -> int:
-        g=[[] for _ in range(n)]
-        for u,v,w in edges:
-            g[u-1].append((v-1,w))
-            g[v-1].append((u-1,w))
-        dij=dijkstra(g,n-1)
-        @cache
-        def dfs(x):
-            if x==0:
+        graph, MOD = defaultdict(list), 10 ** 9 + 7
+        for u, v, w in edges:
+            graph[u - 1].append((v - 1, w))
+            graph[v - 1].append((u - 1, w))
+        dist, heap = [inf] * (n - 1) + [0], [(0, n - 1)] 
+        while heap:
+            d, x = heappop(heap)
+            if d > dist[x]:
+                continue
+            for y, w in graph[x]:
+                if (cur := dist[x] + w) < dist[y]:
+                    dist[y] = cur
+                    heappush(heap, (cur, y))
+
+        @lru_cache(None)
+        def dfs(x: int) -> int:
+            if not x:
                 return 1
             else:
-                ans=0
-                for nx,w in g[x]:
-                    if dij[x]<dij[nx]:
-                        ans=(ans+dfs(nx))%mod
-                return ans
-        return dfs(n-1)
+                result = 0
+                for y, w in graph[x]:
+                    if dist[x] < dist[y]:
+                        result = (result + dfs(y)) % MOD
+                return result
+        return dfs(n - 1)
 ```
