@@ -76,8 +76,16 @@ __提示：__
 __思路:__
 
 ```text
-
-时间复杂度为 O(N), 空间复杂度为 O(N)
+1. 贪心 ➕ 二分查找
+令 index 对应的元素为山峰
+两边依次递减 1 直到边界或者减到 1
+利用等差数列求和公式求出两边的和
+用二分查找得到最大值
+时间复杂度为 O(logM), 空间复杂度为 O(1), M 为 maxSum
+2. 数学
+通过解一元二次方程得到上限
+比较其与 maxSum 的大小得到结果
+时间复杂度为 O(1), 空间复杂度为 O(1)
 ```
 
 __代码:__
@@ -94,15 +102,15 @@ public:
         while (l <= r)
         {
             int mid = ((l + r) >> 1);
-            if (check(mid, l, r, maxSum)) r = mid - 1;
+            if (check(mid, left, right, maxSum)) r = mid - 1;
             else l = mid + 1; 
         }
         return l - 1;
     }
 private:
-    bool check(int mid, int l, int r, int maxSum)
+    bool check(int mid, int left, int right, int maxSum)
     {
-        return (long)mid + (mid > l ? (long)l * (((mid << 1) - 1 - l) >> 1) : (long)((mid - 3) * (mid >> 1) + l + 1)) + (mid > r ? (long)r * (((mid << 1) - 1 - r) >> 1) : (long)((mid - 3) * (mid >> 1) + r + 1)) > maxSum;
+        return (long)mid + (mid > left ? ((long)left * ((mid << 1) - 1 - left) >> 1) : ((((long)mid - 3) * mid >> 1) + left + 1)) + (mid > right ? ((long)right * ((mid << 1) - 1 - right) >> 1) : ((((long)mid - 3) * mid >> 1) + right + 1)) > (long)maxSum;
     }
 };
 ```
@@ -112,18 +120,18 @@ __Java__:
 ```Java
 class Solution {
     public int maxValue(int n, int index, int maxSum) {
-        int left = index, right = n - index - 1, l = 0, r = 0, result = 1, cur = n;
-        while (cur < maxSum) {
-            if (l == left && r == right) {
-                result += maxSum - cur;
-                break;
-            }
-            cur += 1 + l + r;
-            l = Math.min(l + 1, left);
-            r = Math.min(r + 1, right);
-            ++result;
+        int left = index, right = n - 1 - index, l = 1, r = maxSum;
+        while (l <= r) {
+            int mid = ((l + r) >> 1);
+            if (check(mid, left, right, maxSum)) r = mid - 1;
+            else l = mid + 1; 
         }
-        return result - (cur > maxSum ? 1 : 0);
+        return l - 1;
+    }
+
+    private boolean check(int mid, int left, int right, int maxSum)
+    {
+        return (long)mid + (mid > left ? ((long)left * ((mid << 1) - 1 - left) >> 1) : ((((long)mid - 3) * mid >> 1) + left + 1)) + (mid > right ? ((long)right * ((mid << 1) - 1 - right) >> 1) : ((((long)mid - 3) * mid >> 1) + right + 1)) > (long)maxSum;
     }
 }
 ```
