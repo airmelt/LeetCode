@@ -158,14 +158,12 @@ class Solution {
         for (int i = 0; i < n; i++) orderTasks[i] = new int[]{tasks[i][0], tasks[i][1], i};
         Arrays.sort(orderTasks, (a, b) -> a[0] - b[0]);
         PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> a[1] == b[1] ? a[2] - b[2] : a[1] - b[1]);
-        for (int i = 0, cur = 0, idx = 0; idx < n;) {
-            while (i < n && tasks[i][0] <= cur) pq.add(orderTasks[i++]);
-            if (pq.isEmpty()) cur = tasks[i][0];
-            else {
-                int[] task = pq.poll();
-                result[idx++] = task[2];
-                cur += task[1];
-            }
+        for (int i = 0, cur = 0, idx = 0; i < n; i++) {
+            if (pq.isEmpty()) cur = Math.max(cur, orderTasks[idx][0]);
+            while (idx < n && orderTasks[idx][0] <= cur) pq.add(orderTasks[idx++]);
+            int[] task = pq.poll();
+            cur += task[1];
+            result[i] = task[2];
         }
         return result;
     }
@@ -178,14 +176,14 @@ __Python__:
 class Solution:
     def getOrder(self, tasks: List[List[int]]) -> List[int]:
         orders, queue, result, n, cur, idx = sorted(list(range(len(tasks))), key=lambda x: tasks[x][0]), [], deque(), len(tasks), 0, 0
-            for i in range(n):
-                if not queue:
-                    cur = max(cur, tasks[orders[idx]][0])
-                while idx < n and tasks[orders[idx]][0] <= cur:
-                    heappush(queue, (tasks[idx][1], orders[idx]))
-                    idx += 1
-                process, r = heappop(queue)
-                cur += process
-                result.append(r)
+        for i in range(n):
+            if not queue:
+                cur = max(cur, tasks[orders[idx]][0])
+            while idx < n and tasks[orders[idx]][0] <= cur:
+                heappush(queue, (tasks[orders[idx]][1], orders[idx]))
+                idx += 1
+            process, r = heappop(queue)
+            cur += process
+            result.append(r)
         return list(result)
 ```
