@@ -1,73 +1,158 @@
-# 1943 describe the painting 描述绘画结果
+# 1943 Describe the Painting 描述绘画结果
 
 __Description:__
 
-Given a string `s`, return `true` _if_ `s` _is a __good__ string, or_ `false` _otherwise_.
+There is a long and thin painting that can be represented by a number line. The painting was painted with multiple overlapping segments where each segment was painted with a __unique__ color. You are given a 2D integer array `segments`, where `segments[i] = [starti, endi, colori]` represents the __half-closed segment__ `[starti, endi)` with `colori` as the color.
 
-A string `s` is __good__ if __all__ the characters that appear in `s` have the __same__ number of occurrences (i.e., the same frequency).
+The colors in the overlapping segments of the painting were mixed when it was painted. When two or more colors mix, they form a new color that can be represented as a set of mixed colors.
+
+- For example, if colors `2`, `4`, and `6` are mixed, then the resulting mixed color is `{2,4,6}`.
+
+For the sake of simplicity, you should only output the sum of the elements in the set rather than the full set.
+
+You want to __describe__ the painting with the __minimum__ number of non-overlapping __half-closed segments__ of these mixed colors. These segments can be represented by the 2D array `painting` where `painting[j] = [leftj, rightj, mixj]` describes a __half-closed segment__ `[leftj, rightj)` with the mixed color __sum__ of `mixj`.
+
+- For example, the painting created with `segments = [[1,4,5],[1,7,7]]` can be described by `painting = [[1,4,12],[4,7,7]]` because:
+
+- `[1,4)` is colored `{5,7}` (with a sum of `12`) from both the first and second segments.
+- `[4,7)` is colored `{7}` from only the second segment.
+
+Return _the 2D array_ `painting` _describing the finished painting (excluding any parts that are __not__ painted). You may return the segments in __any order___.
+
+A __half-closed segment__ `[a, b)` is the section of the number line between points `a` and `b` __including__ point `a` and __not including__ point `b`.
 
 __Example:__
 
 Example 1:
 
+![1943-1](https://assets.leetcode.com/uploads/2021/06/18/1.png)
+
 ```text
-Input: s = "abacbc"
-Output: true
-Explanation: The characters that appear in s are 'a', 'b', and 'c'. All characters occur 2 times in s.
+Input: segments = [[1,4,5],[4,7,7],[1,7,9]]
+Output: [[1,4,14],[4,7,16]]
+Explanation: The painting can be described as follows:
 ```
+
+- [1,4) is colored {5,9} (with a sum of 14) from the first and third segments.
+- [4,7) is colored {7,9} (with a sum of 16) from the second and third segments.
 
 Example 2:
 
+![1943-2](https://assets.leetcode.com/uploads/2021/06/18/2.png)
+
 ```text
-Input: s = "aaabb"
-Output: false
-Explanation: The characters that appear in s are 'a' and 'b'.
-'a' occurs 3 times while 'b' occurs 2 times, which is not the same number of times.
+Input: segments = [[1,7,9],[6,8,15],[8,10,7]]
+Output: [[1,6,9],[6,7,24],[7,8,15],[8,10,7]]
+Explanation: The painting can be described as follows:
 ```
+
+- [1,6) is colored 9 from the first segment.
+- [6,7) is colored {9,15} (with a sum of 24) from the first and second segments.
+- [7,8) is colored 15 from the second segment.
+- [8,10) is colored 7 from the third segment.
+
+Example 3:
+
+![1943-3](https://assets.leetcode.com/uploads/2021/07/04/c1.png)
+
+```text
+Input: segments = [[1,4,5],[1,4,7],[4,7,1],[4,7,11]]
+Output: [[1,4,12],[4,7,12]]
+Explanation: The painting can be described as follows:
+```
+
+- [1,4) is colored {5,7} (with a sum of 12) from the first and second segments.
+- [4,7) is colored {1,11} (with a sum of 12) from the third and fourth segments.
+Note that returning a single segment [1,7) is incorrect because the mixed color sets are different.
 
 __Constraints:__
 
-- `1 <= s.length <= 1000`
-- `s` consists of lowercase English letters.
+- `1 <= segments.length <= 2 * 10 ^ 4`
+- `segments[i].length == 3`
+- `1 <= starti < endi <= 10 ^ 5`
+- `1 <= colori <= 10 ^ 9`
+- Each `colori` is distinct.
 
 __题目描述:__
 
-给你一个字符串 `s` ，如果 `s` 是一个 __好__ 字符串，请你返回 `true` ，否则请返回 `false` 。
+给你一个细长的画，用数轴表示。这幅画由若干有重叠的线段表示，每个线段有 __独一无二__ 的颜色。给你二维整数数组 `segments` ，其中 `segments[i] = [starti, endi, colori]` 表示线段为 __半开区间__ `[starti, endi)` 且颜色为 `colori` 。
 
-如果 `s` 中出现过的 __所有__ 字符的出现次数 __相同__ ，那么我们称字符串 `s` 是 __好__ 字符串。
+线段间重叠部分的颜色会被 混合 。如果有两种或者更多颜色混合时，它们会形成一种新的颜色，用一个 集合 表示这个混合颜色。
+
+- 比方说，如果颜色 `2` ， `4` 和 `6` 被混合，那么结果颜色为 `{2,4,6}` 。
+
+为了简化题目，你不需要输出整个集合，只需要用集合中所有元素的 和 来表示颜色集合。
+
+你想要用 __最少数目__ 不重叠 __半开区间__ 来 _表示_ 这幅混合颜色的画。这些线段可以用二维数组 `painting` 表示，其中 `painting[j] = [leftj, rightj, mixj]` 表示一个 __半开区间__`[leftj, rightj)` 的颜色 __和__ 为 `mixj` 。
+
+- 比方说，这幅画由 `segments = [[1,4,5],[1,7,7]]` 组成，那么它可以表示为 `painting = [[1,4,12],[4,7,7]]` ，因为:
+
+- `[1,4)` 由颜色 `{5,7}` 组成（和为 `12`），分别来自第一个线段和第二个线段。
+- `[4,7)` 由颜色 `{7}` 组成，来自第二个线段。
+
+请你返回二维数组 `painting` ，它表示最终绘画的结果（__没有__ 被涂色的部分不出现在结果中）。你可以按 __任意顺序__ 返回最终数组的结果。
+
+__半开区间__ `[a, b)` 是数轴上点 `a` 和点 `b` 之间的部分，__包含__ 点 `a` 且 __不包含__ 点 `b` 。
 
 __示例:__
 
 示例 1：
 
+![1943-4](https://assets.leetcode.com/uploads/2021/06/18/1.png)
+
 ```text
-输入：s = "abacbc"
-输出：true
-解释：s 中出现过的字符为 'a'，'b' 和 'c' 。s 中所有字符均出现 2 次。
+输入：segments = [[1,4,5],[4,7,7],[1,7,9]]
+输出：[[1,4,14],[4,7,16]]
+解释：绘画结果可以表示为：
 ```
+
+- [1,4) 颜色为 {5,9} （和为 14），分别来自第一和第二个线段。
+- [4,7) 颜色为 {7,9} （和为 16），分别来自第二和第三个线段。
 
 示例 2：
 
+![1943-5](https://assets.leetcode.com/uploads/2021/06/18/2.png)
+
 ```text
-输入：s = "aaabb"
-输出：false
-解释：s 中出现过的字符为 'a' 和 'b' 。
-'a' 出现了 3 次，'b' 出现了 2 次，两者出现次数不同。
+输入：segments = [[1,7,9],[6,8,15],[8,10,7]]
+输出：[[1,6,9],[6,7,24],[7,8,15],[8,10,7]]
+解释：绘画结果可以以表示为：
+```
+
+- [1,6) 颜色为 9 ，来自第一个线段。
+- [6,7) 颜色为 {9,15} （和为 24），来自第一和第二个线段。
+- [7,8) 颜色为 15 ，来自第二个线段。
+- [8,10) 颜色为 7 ，来自第三个线段。
+
+示例 3：
+
+![1943-6](https://assets.leetcode.com/uploads/2021/07/04/c1.png)
+
+```text
+输入：segments = [[1,4,5],[1,4,7],[4,7,1],[4,7,11]]
+输出：[[1,4,12],[4,7,12]]
+解释：绘画结果可以表示为：
+- [1,4) 颜色为 {5,7} （和为 12），分别来自第一和第二个线段。
+- [4,7) 颜色为 {1,11} （和为 12），分别来自第三和第四个线段。
+注意，只返回一个单独的线段 [1,7) 是不正确的，因为混合颜色的集合不相同。
 ```
 
 __提示：__
 
-- `1 <= s.length <= 1000`
-- `s` 只包含小写英文字母。
+- `1 <= segments.length <= 2 * 10 ^ 4`
+- `segments[i].length == 3`
+- `1 <= starti < endi <= 10 ^ 5`
+- `1 <= colori <= 10 ^ 9`
+- 每种颜色 `colori` 互不相同。
 
 __思路:__
 
 ```text
-模拟
-记录所有字符的出现次数
-要么出现次数为 0
-要么出现次数是相同的
-时间复杂度为 O(N), 空间复杂度为 O(1)
+差分 ➕ 前缀和
+先将每一段颜色做差分数组
+求出差分数组的前缀和
+最后将不为 0 的区间加入结果
+时间复杂度为 O(NlogN), 空间复杂度为 O(N)
 ```
 
 __代码:__
