@@ -73,8 +73,11 @@ __提示：__
 __思路:__
 
 ```text
-
-时间复杂度为 O(N), 空间复杂度为 O(N)
+模拟
+逐个检查字符是否匹配
+直到遇到不匹配的字符或者遍历完字符串
+最后判断是否遍历完字符串数组的某个字符串
+时间复杂度为 O(N), 空间复杂度为 O(1), N 为字符串数组的长度及字符串的长度之积
 ```
 
 __代码:__
@@ -82,10 +85,21 @@ __代码:__
 __C++__:
 
 ```C++
-class Solution {
+class Solution 
+{
 public:
-    bool isPrefixString(string s, vector<string>& words) {
-
+    bool isPrefixString(string s, vector<string>& words) 
+    {
+        int i = 0, n = s.size();
+        for (const auto& word : words) 
+        {
+            for (int j = 0, m = word.size(); j < m; j++) 
+            {
+                if (s[i++] != word[j]) return false;
+                if (i == n) return j == m - 1;
+            }
+        }
+        return false;
     }
 };
 ```
@@ -95,7 +109,14 @@ __Java__:
 ```Java
 class Solution {
     public boolean isPrefixString(String s, String[] words) {
-
+        int i = 0, n = s.length();
+        for (String word : words) {
+            for (int j = 0, m = word.length(); j < m; j++) {
+                if (s.charAt(i++) != word.charAt(j)) return false;
+                if (i == n) return j == m - 1;
+            }
+        }
+        return false;
     }
 }
 ```
@@ -105,4 +126,5 @@ __Python__:
 ```Python
 class Solution:
     def isPrefixString(self, s: str, words: List[str]) -> bool:
+        return any(s == i for i in list(accumulate(words)))
 ```
