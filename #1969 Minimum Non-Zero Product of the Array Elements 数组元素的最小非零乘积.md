@@ -159,8 +159,5 @@ __Python__:
 ```Python
 class Solution:
     def minNonZeroProduct(self, p: int) -> int:
-        def a(i):
-            return (2 ** p - 1) * pow(2 ** p - 2 , 2 ** (p - 1) - 1 , (10 ** 9 + 7)) % (10 ** 9 + 7)
-        print([a(i) for i in range(1, 61)])
         return (2 ** p - 1) * pow(2 ** p - 2 , 2 ** (p - 1) - 1 , (10 ** 9 + 7)) % (10 ** 9 + 7)
 ```
