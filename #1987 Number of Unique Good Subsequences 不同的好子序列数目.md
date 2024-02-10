@@ -95,8 +95,16 @@ __提示：__
 __思路:__
 
 ```text
-
-时间复杂度为 O(N), 空间复杂度为 O(N)
+动态规划
+设 dp0[i] 表示以 '0' 开头的子序列的数目
+设 dp1[i] 表示以 '1' 开头的子序列的数目
+从后往前遍历字符串
+如果当前字符为 '0'，则以 '0' 开头的子序列的数目为 dp0[i] = dp0[i + 1] + dp1[i + 1] + 1, 第 i 个字符可以添加到 '0'/'1' 开头的所有子序列的前面, 也可以单独作为一个新的 '0' 开头的好子序列, 所以加 1
+dp1[i] = dp1[i + 1], 因为 '0' 不能作为 '1' 开头的子序列的前面
+同理, 如果当前字符为 '1', dp1[i] = dp0[i + 1] + dp1[i + 1] + 1, dp0[i] = dp0[i + 1]
+最后返回 (dp1[0] + flag) % MOD, 其中 flag 表示是否存在 '0', 如果存在 '0', 则加 1 表示 '0' 本身也是一个好子序列
+注意到 dp0[i] 和 dp1[i] 只与 dp0[i + 1] 和 dp1[i + 1] 有关, 所以可以使用滚动数组进行优化
+时间复杂度为 O(N), 空间复杂度为 O(1)
 ```
 
 __代码:__
@@ -104,10 +112,22 @@ __代码:__
 __C++__:
 
 ```C++
-class Solution {
+class Solution 
+{
 public:
-    int numberOfUniqueGoodSubsequences(string binary) {
-
+    int numberOfUniqueGoodSubsequences(string binary) 
+    {
+        int n = binary.size(), dp0 = 0, dp1 = 0, MOD = 1e9 + 7, flag = 0;
+        for (int i = n - 1; ~i; i--) 
+        {
+            if (binary[i] == '0') 
+            {
+                flag = 1;
+                dp0 = (dp0 + dp1 + 1) % MOD;
+            }
+            else dp1 = (dp0 + dp1 + 1) % MOD;
+        }
+        return (dp1 + flag) % MOD;
     }
 };
 ```
@@ -117,7 +137,15 @@ __Java__:
 ```Java
 class Solution {
     public int numberOfUniqueGoodSubsequences(String binary) {
-
+        int n = binary.length(), dp0 = 0, dp1 = 0, MOD = 1_000_000_007, flag = 0;
+        for (int i = n - 1; i > -1; i--) {
+            if (binary.charAt(i) == '0') {
+                flag = 1;
+                dp0 = (dp0 + dp1 + 1) % MOD;
+            }
+            else dp1 = (dp0 + dp1 + 1) % MOD;
+        }
+        return (dp1 + flag) % MOD;
     }
 }
 ```
@@ -127,4 +155,11 @@ __Python__:
 ```Python
 class Solution:
     def numberOfUniqueGoodSubsequences(self, binary: str) -> int:
+        n, dp0, dp1, MOD = len(binary), 0, 0, 10 ** 9 + 7
+        for i in range(n - 1, -1, -1):
+            if binary[i] == '0':
+                dp0 = (dp0 + dp1 + 1) % MOD
+            else:
+                dp1 = (dp0 + dp1 + 1) % MOD
+        return (dp1 + ('0' in binary)) % MOD
 ```
