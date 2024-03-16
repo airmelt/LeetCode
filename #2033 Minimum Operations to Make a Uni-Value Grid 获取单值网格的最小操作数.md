@@ -133,7 +133,7 @@ public:
             for (int j = 0; j < n; j++) 
             {
                 if ((grid[i][j] - grid.front().front()) % x) return -1;
-                a[i * m + j] = grid[i][j];
+                a[i * n + j] = grid[i][j];
             }
         }
         sort(a.begin(), a.end());
@@ -152,7 +152,7 @@ class Solution {
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 if ((grid[i][j] - grid[0][0]) % x != 0) return -1;
-                a[i * m + j] = grid[i][j];
+                a[i * n + j] = grid[i][j];
             }
         }
         Arrays.sort(a);
