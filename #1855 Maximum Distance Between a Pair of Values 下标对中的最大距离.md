@@ -150,8 +150,5 @@ __Python__:
 ```Python
 class Solution:
     def maxDistance(self, nums1: List[int], nums2: List[int]) -> int:
-        result, m, n, nums2 = 0, len(nums1), len(nums2), nums2[::-1]
-        for i in range(min(m, n)):
-            result = max(result, n - bisect_left(nums2, nums1[i]) - 1 - i)
-        return result
+        return max([len(nums2) - bisect_left(nums2, nums1[i]) - 1 - i for i in range(min(len(nums1), len(nums2)))] + [0]) if (nums2 := nums2[::-1]) else 0 
 ```
