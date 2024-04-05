@@ -32,12 +32,14 @@ Example 2:
 Input: head = [5,3,1,2,5,1,2]
 Output: [1,3]
 Explanation: There are three critical points:
+```
+
 - [5,3,1,2,5,1,2]: The third node is a local minima because 1 is less than 3 and 2.
 - [5,3,1,2,5,1,2]: The fifth node is a local maxima because 5 is greater than 2 and 1.
 - [5,3,1,2,5,1,2]: The sixth node is a local minima because 1 is less than 5 and 2.
+
 The minimum distance is between the fifth and the sixth node. minDistance = 6 - 5 = 1.
 The maximum distance is between the third and the sixth node. maxDistance = 6 - 3 = 3.
-```
 
 Example 3:
 
@@ -47,12 +49,14 @@ Example 3:
 Input: head = [1,3,2,2,3,2,2,2,7]
 Output: [3,3]
 Explanation: There are two critical points:
+```
+
 - [1,3,2,2,3,2,2,2,7]: The second node is a local maxima because 3 is greater than 1 and 2.
 - [1,3,2,2,3,2,2,2,7]: The fifth node is a local maxima because 3 is greater than 2 and 2.
+
 Both the minimum and maximum distances are between the second and the fifth node.
 Thus, minDistance and maxDistance is 5 - 2 = 3.
 Note that the last node is not considered a local maxima because it does not have a next node.
-```
 
 __Constraints:__
 
@@ -91,12 +95,14 @@ __示例:__
 输入：head = [5,3,1,2,5,1,2]
 输出：[1,3]
 解释：存在三个临界点：
+```
+
 - [5,3,1,2,5,1,2]：第三个节点是一个局部极小值点，因为 1 比 3 和 2 小。
 - [5,3,1,2,5,1,2]：第五个节点是一个局部极大值点，因为 5 比 2 和 1 大。
 - [5,3,1,2,5,1,2]：第六个节点是一个局部极小值点，因为 1 比 5 和 2 小。
+
 第五个节点和第六个节点之间距离最小。minDistance = 6 - 5 = 1 。
 第三个节点和第六个节点之间距离最大。maxDistance = 6 - 3 = 3 。
-```
 
 示例 3：
 
@@ -106,12 +112,14 @@ __示例:__
 输入：head = [1,3,2,2,3,2,2,2,7]
 输出：[3,3]
 解释：存在两个临界点：
+```
+
 - [1,3,2,2,3,2,2,2,7]：第二个节点是一个局部极大值点，因为 3 比 1 和 2 大。
 - [1,3,2,2,3,2,2,2,7]：第五个节点是一个局部极大值点，因为 3 比 2 和 2 大。
+
 最小和最大距离都存在于第二个节点和第五个节点之间。
 因此，minDistance 和 maxDistance 是 5 - 2 = 3 。
 注意，最后一个节点不算一个局部极大值点，因为它之后就没有节点了。
-```
 
 示例 4：
 
@@ -131,8 +139,14 @@ __提示：__
 __思路:__
 
 ```text
-
-时间复杂度为 O(N), 空间复杂度为 O(N)
+模拟
+初始化所有变量为 -1, pos 为当前节点的位置
+记录第一个临界点的位置 first, 最后一个临界点的位置 last
+临界点为大于前一个节点和后一个节点的节点, 或者小于前一个节点和后一个节点的节点
+遍历链表, 第一次遇到临界点时, 更新 first, 如果当前节点是临界点, 则更新 last
+记录 pos - last 的最小值为 a, 最小值一定是两个相邻临界点之间的最小距离
+记录 pos - first 的最大值为 b
+时间复杂度为 O(N), 空间复杂度为 O(1)
 ```
 
 __代码:__
@@ -150,10 +164,28 @@ __C++__:
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
-class Solution {
+class Solution 
+{
 public:
-    vector<int> nodesBetweenCriticalPoints(ListNode* head) {
-        
+    vector<int> nodesBetweenCriticalPoints(ListNode* head) 
+    {
+        int first = -1, last = -1, a = -1, b = -1, pos = -1;
+        while (head -> next -> next) 
+        {
+            ++pos;
+            if ((head -> next -> val > head -> val and head -> next -> val > head -> next -> next -> val) or (head -> next -> val < head -> val and head -> next -> val < head -> next -> next -> val))
+            {
+                if (last != -1) 
+                {
+                    a = a == -1 ? pos - last : min(a, pos - last);
+                    b = max(b, pos - first);
+                }
+                if (first == -1) first = pos;
+                last = pos;
+            }
+            head = head -> next;
+        }
+        return vector<int>{a, b};
     }
 };
 ```
@@ -173,7 +205,20 @@ __Java__:
  */
 class Solution {
     public int[] nodesBetweenCriticalPoints(ListNode head) {
-
+        int first = -1, last = -1, a = -1, b = -1, pos = -1;
+        while (head.next.next != null) {
+            ++pos;
+            if ((head.next.val > head.val && head.next.val > head.next.next.val) || (head.next.val < head.val && head.next.val < head.next.next.val)) {
+                if (last != -1) {
+                    a = a == -1 ? pos - last : Math.min(a, pos - last);
+                    b = Math.max(b, pos - first);
+                }
+                if (first == -1) first = pos;
+                last = pos;
+            }
+            head = head.next;
+        }
+        return new int[]{a, b};
     }
 }
 ```
@@ -188,21 +233,15 @@ __Python__:
 #         self.next = next
 class Solution:
     def nodesBetweenCriticalPoints(self, head: Optional[ListNode]) -> List[int]:
-        minDist = maxDist = -1
-        first = last = -1
-        pos = 0
-        cur = head
-        while cur.next.next:
-            x, y, z = cur.val, cur.next.val, cur.next.next.val
-            if y > max(x, z) or y < min(x, z):
+        a = b = first = last = pos = -1
+        while head.next.next:
+            pos += 1
+            if head.next.val > max(head.val, head.next.next.val) or head.next.val < min(head.val, head.next.next.val):
                 if last != -1:
-                    minDist = (pos - last if minDist == -1 else min(minDist, pos - last))
-                    maxDist = max(maxDist, pos - first)
+                    a, b = (pos - last if a == -1 else min(a, pos - last)), max(b, pos - first)
                 if first == -1:
                     first = pos
                 last = pos
-            cur = cur.next
-            pos += 1
-        
-        return [minDist, maxDist]
+            head = head.next
+        return [a, b]
 ```
