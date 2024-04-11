@@ -137,8 +137,16 @@ __提示：__
 __思路:__
 
 ```text
-
-时间复杂度为 O(N), 空间复杂度为 O(N)
+回溯
+用邻接表记录图的边和权值
+先用 dijkstra 算法求出 0 到其他节点的最短距离
+然后用回溯算法遍历所有合法路径
+如果不能返回 0 节点，提前剪枝
+用 visited 记录访问过的节点
+如果当前节点已经访问过，不用加上节点的价值
+否则加上节点的价值
+最后返回最大路径价值
+时间复杂度为 O(N + M + D ^ K), 空间复杂度为 O(N + M + K), 其中 N 为节点的数量, M 为边的数量即 edges 数组的长度, D 为点的最大度数, K 搜索的最大边数, 这里 K 最大为 maxTime / time <= 10
 ```
 
 __代码:__
@@ -146,10 +154,40 @@ __代码:__
 __C++__:
 
 ```C++
-class Solution {
+class Solution 
+{
 public:
-    int maximalPathQuality(vector<int>& values, vector<vector<int>>& edges, int maxTime) {
-        
+    int maximalPathQuality(vector<int>& values, vector<vector<int>>& edges, int maxTime) 
+    {
+        int n = values.size();
+        vector<vector<pair<int, int>>> graph(n);
+        for (const auto& edge: edges) 
+        {
+            graph[edge[0]].emplace_back(edge[1], edge[2]);
+            graph[edge[1]].emplace_back(edge[0], edge[2]);
+        }
+        vector<bool> visited(n);
+        visited.front() = true;
+        int result = 0;
+        function<void(int, int, int)> dfs = [&](int u, int cur, int value) 
+        {
+            if (!u) result = max(result, value);
+            for (const auto& [v, w]: graph[u]) 
+            {
+                if (cur + w <= maxTime) 
+                {
+                    if (!visited[v]) 
+                    {
+                        visited[v] = true;
+                        dfs(v, cur + w, value + values[v]);
+                        visited[v] = false;
+                    }
+                    else dfs(v, cur + w, value);
+                }
+            }
+        };
+        dfs(0, 0, values.front());
+        return result;
     }
 };
 ```
@@ -158,8 +196,38 @@ __Java__:
 
 ```Java
 class Solution {
-    public int maximalPathQuality(int[] values, int[][] edges, int maxTime) {
+    private int result = 0;
+    private int maxTime;
+    private int[] values;
+    private boolean[] visited;
+    private Map<Integer, List<int[]>> graph = new HashMap<>();
 
+    public int maximalPathQuality(int[] values, int[][] edges, int maxTime) {
+        int n = values.length;
+        this.values = values;
+        this.maxTime = maxTime;
+        visited = new boolean[n];
+        visited[0] = true;
+        for (int i = 0; i < n; i++) graph.put(i, new ArrayList<>());
+        for (int[] edge : edges) {
+            graph.get(edge[0]).add(new int[]{edge[1], edge[2]});
+            graph.get(edge[1]).add(new int[]{edge[0], edge[2]});
+        }
+        dfs(0, 0, values[0]);
+        return result;
+    }
+
+    private void dfs(int u, int cur, int value) {
+        if (u == 0) result = Math.max(result, value);
+        for (int[] next : graph.get(u)) {
+            if (cur + next[1] <= maxTime) {
+                if (!visited[next[0]]) {
+                    visited[next[0]] = true;
+                    dfs(next[0], cur + next[1], value + values[next[0]]);
+                    visited[next[0]] = false;
+                } else dfs(next[0], cur + next[1], value);
+            }
+        }
     }
 }
 ```
@@ -169,7 +237,7 @@ __Python__:
 ```Python
 class Solution:
     def maximalPathQuality(self, values: List[int], edges: List[List[int]], maxTime: int) -> int:
-        graph, dis, heap, visited, s, result = defaultdict(dict), [0] + [inf] * ((n := len(values)) - 1), [(0, 0)], [False] * n, 0, 0
+        graph, dis, heap, visited, result = defaultdict(dict), [0] + [inf] * ((n := len(values)) - 1), [(0, 0)], [True] + [False] * (n - 1), 0
         for u, v, w in edges:
             graph[u][v] = graph[v][u] = w
         while heap:
@@ -184,7 +252,7 @@ class Solution:
                 nonlocal result
                 result = max(result, value) 
             for v, w in graph[u].items():
-                if cur + w <= maxTime:
+                if cur + w + dis[v] <= maxTime:
                     if not visited[v]:
                         visited[v] = True
                         dfs(v, cur + w, value + values[v])
