@@ -156,7 +156,7 @@ class Solution
 public:
     int maxTaskAssign(vector<int>& tasks, vector<int>& workers, int pills, int strength) 
     {
-        int m = tasks.size(), n = workers.size(), left = 1, right = min(m, n), result = 0, mid = 0;
+        int m = tasks.size(), n = workers.size(), left = 0, right = min(m, n), mid = 0;
         sort(tasks.begin(), tasks.end());
         sort(workers.begin(), workers.end());
         auto check = [&](int mid) -> bool 
@@ -177,14 +177,10 @@ public:
         };
         while (left <= right) 
         {
-            if (check(mid = left + ((right - left) >> 1))) 
-            {
-                result = mid;
-                left = mid + 1;
-            }
+            if (check(mid = left + ((right - left) >> 1))) left = mid + 1;
             else right = mid - 1;
         }
-        return result;
+        return right;
     }
 };
 ```
@@ -197,7 +193,7 @@ class Solution {
     private int pills, strength;
 
     public int maxTaskAssign(int[] tasks, int[] workers, int pills, int strength) {
-        int m = tasks.length, n = workers.length, left = 1, right = Math.min(m, n), result = 0, mid = 0;
+        int m = tasks.length, n = workers.length, left = 0, right = Math.min(m, n), mid = 0;
         Arrays.sort(tasks);
         Arrays.sort(workers);
         this.tasks = tasks;
@@ -205,12 +201,10 @@ class Solution {
         this.pills = pills;
         this.strength = strength;
         while (left <= right) {
-            if (check(mid = left + ((right - left) >>> 1))) {
-                result = mid;
-                left = mid + 1;
-            } else right = mid - 1;
+            if (check(mid = left + ((right - left) >>> 1))) left = mid + 1;
+            else right = mid - 1;
         }
-        return result;
+        return right;
     }
 
     private boolean check(int mid) {
