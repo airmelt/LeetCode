@@ -109,8 +109,12 @@ __提示：__
 __思路:__
 
 ```text
-
-时间复杂度为 O(N), 空间复杂度为 O(N)
+快慢指针
+用快慢指针找到中间节点
+以及前一个节点 pre
+将 pre -> next = pre -> next -> next
+返回 head
+时间复杂度为 O(N), 空间复杂度为 O(1)
 ```
 
 __代码:__
@@ -128,10 +132,21 @@ __C++__:
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
-class Solution {
+class Solution 
+{
 public:
-    ListNode* deleteMiddle(ListNode* head) {
-        
+    ListNode* deleteMiddle(ListNode* head) 
+    {
+        if (!head -> next) return head -> next;
+        ListNode *slow = head, *fast = head, *pre = nullptr;
+        while (fast and fast -> next) 
+        {
+            fast = fast -> next -> next;
+            pre = slow;
+            slow = slow -> next;
+        }
+        pre -> next = pre -> next -> next;
+        return head;
     }
 };
 ```
@@ -151,7 +166,16 @@ __Java__:
  */
 class Solution {
     public ListNode deleteMiddle(ListNode head) {
-
+        if (head.next == null) return head.next;
+        ListNode slow = head, fast = head, pre = null;
+        while (fast != null && fast.next != null) 
+        {
+            fast = fast.next.next;
+            pre = slow;
+            slow = slow.next;
+        }
+        pre.next = pre.next.next;
+        return head;
     }
 }
 ```
@@ -170,9 +194,7 @@ class Solution:
             return None
         slow, fast, pre = head, head, None
         while fast and fast.next:
-            fast = fast.next.next
-            pre = slow
-            slow = slow.next
+            fast, pre, slow = fast.next.next, slow, slow.next
         pre.next = pre.next.next
         return head
 ```
