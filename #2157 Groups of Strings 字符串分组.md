@@ -30,12 +30,14 @@ Example 1:
 Input: words = ["a","b","ab","cde"]
 Output: [2,3]
 Explanation:
+```
+
 - words[0] can be used to obtain words[1] (by replacing 'a' with 'b'), and words[2] (by adding 'b'). So words[0] is connected to words[1] and words[2].
 - words[1] can be used to obtain words[0] (by replacing 'b' with 'a'), and words[2] (by adding 'a'). So words[1] is connected to words[0] and words[2].
 - words[2] can be used to obtain words[0] (by deleting 'b'), and words[1] (by deleting 'a'). So words[2] is connected to words[0] and words[1].
 - words[3] is not connected to any string in words.
+
 Thus, words can be divided into 2 groups ["a","b","ab"] and ["cde"]. The size of the largest group is 3.
-```
 
 Example 2:
 
@@ -43,12 +45,14 @@ Example 2:
 Input: words = ["a","ab","abc"]
 Output: [1,3]
 Explanation:
+```
+
 - words[0] is connected to words[1].
 - words[1] is connected to words[0] and words[2].
 - words[2] is connected to words[1].
+
 Since all strings are connected to each other, they should be grouped together.
 Thus, the size of the largest group is 3.
-```
 
 __Constraints:__
 
@@ -84,12 +88,14 @@ __示例:__
 输入：words = ["a","b","ab","cde"]
 输出：[2,3]
 解释：
+```
+
 - words[0] 可以得到 words[1] （将 'a' 替换为 'b'）和 words[2] （添加 'b'）。所以 words[0] 与 words[1] 和 words[2] 关联。
 - words[1] 可以得到 words[0] （将 'b' 替换为 'a'）和 words[2] （添加 'a'）。所以 words[1] 与 words[0] 和 words[2] 关联。
 - words[2] 可以得到 words[0] （删去 'b'）和 words[1] （删去 'a'）。所以 words[2] 与 words[0] 和 words[1] 关联。
 - words[3] 与 words 中其他字符串都不关联。
+
 所以，words 可以分成 2 个组 ["a","b","ab"] 和 ["cde"] 。最大的组大小为 3 。
-```
 
 示例 2：
 
@@ -97,12 +103,14 @@ __示例:__
 输入：words = ["a","ab","abc"]
 输出：[1,3]
 解释：
+```
+
 - words[0] 与 words[1] 关联。
 - words[1] 与 words[0] 和 words[2] 关联。
 - words[2] 与 words[1] 关联。
+
 由于所有字符串与其他字符串都关联，所以它们全部在同一个组内。
 所以最大的组大小为 3 。
-```
 
 __提示：__
 
@@ -114,7 +122,16 @@ __提示：__
 __思路:__
 
 ```text
-
+哈希并查集 ➕ 位运算
+由于字符串由不重复的小写字母组成, 可以将每个字母转换为二进制位, 用一个整数表示
+用哈希表记录每个字符串的字母集合
+初始化并查集, 记录每个集合的大小以及集合的个数
+合并并查集的时候需要修改集合的大小以及集合的个数
+之后先添加或者删除一个字符
+遍历 26 个字母, 将所有位置尝试与 (1 << i) 异或之后合并
+然后修改字符
+需要保证对应位置字符存在, 即 (x >> i) & 1 为真
+遍历 26 个字母, 将所有位置尝试与 (1 << i) 异或之后再和 (1 << j) 或运算之后合并, 这里也需要保证修改后的字符不存在, 即 (x >> j) & 1 为假
 时间复杂度为 O(N), 空间复杂度为 O(N)
 ```
 
@@ -141,8 +158,13 @@ public:
         }
         for (const auto& [x, v] : parent)
         {
-            
+            for (int i = 0; i < 26; i++)
+            {
+                merge(x, x ^ (1 << i));
+                if ((x >> i) & 1) for (int j = 0; j < 26; j++) if (!((x >> j) & 1)) merge(x, x ^ (1 << i) | (1 << j));
+            }
         }
+        return vector<int>{ group, max_size };
     }
 private:
     unordered_map<int, int> parent, weight;
