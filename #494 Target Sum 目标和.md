@@ -77,7 +77,7 @@ public:
     int findTargetSumWays(vector<int>& nums, int S) 
     {
         int sum = accumulate(nums.begin(), nums.end(), 0);
-        if (sum < S or ((sum + S) & 1)) return 0;
+        if (sum < abs(S) or ((sum + S) & 1)) return 0;
         int w = ((sum + S) >> 1);
         vector<int> dp(w + 1);
         dp[0] = 1;
@@ -94,7 +94,7 @@ class Solution {
     public int findTargetSumWays(int[] nums, int S) {
         int sum = 0;
         for (int num : nums) sum += num;
-        if (sum < S || ((sum + S) & 1) != 0) return 0;
+        if (sum < Math.abs(S) || ((sum + S) & 1) != 0) return 0;
         int w = ((sum + S) >>> 1);
         int[] dp = new int[w + 1];
         dp[0] = 1;
@@ -109,7 +109,7 @@ __Python__:
 ```Python
 class Solution:
     def findTargetSumWays(self, nums: List[int], S: int) -> int:
-        if (_sum := sum(nums)) < S or (_sum + S) & 1:
+        if (_sum := sum(nums)) < abs(S) or (_sum + S) & 1:
             return 0
         dp = [1] + [0] * (w := (_sum + S) >> 1)
         for num in nums:
