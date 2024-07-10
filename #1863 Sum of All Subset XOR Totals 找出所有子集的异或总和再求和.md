@@ -161,9 +161,7 @@ class Solution {
 __Python__:
 
 ```Python
-class Solution {
-    public int subsetXORSum(int[] nums) {
-        return Arrays.stream(nums).reduce((a, b) -> a | b).getAsInt() << (nums.length - 1);
-    }
-}
+class Solution:
+    def subsetXORSum(self, nums: List[int]) -> int:
+        return reduce(or_, nums) << (len(nums) - 1)
 ```
