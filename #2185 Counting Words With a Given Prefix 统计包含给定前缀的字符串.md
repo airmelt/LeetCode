@@ -13,7 +13,7 @@ __Example:__
 Example 1:
 
 ```text
-Input:  words = ["pay","attention","practice","attend"], `pref` = "at"
+Input:  words = ["pay","attention","practice","attend"], pref = "at"
 Output:  2
 Explanation:  The 2 strings that contain "at" as a prefix are: "attention" and "attend".
 ```
@@ -45,9 +45,9 @@ __示例:__
 示例 1：
 
 ```text
-输入: words = ["pay","_at_tention","practice","_at_tend"], `pref` = "at"
+输入: words = ["pay","_at_tention","practice","_at_tend"], pref = "at"
 输出: 2
-解释: 以 "at" 作为前缀的字符串有两个，分别是:"_at_tention" 和 "_at_tend" 。
+解释: 以 "at" 作为前缀的字符串有两个，分别是:"attention" 和 "attend" 。
 ```
 
 示例 2：
@@ -92,16 +92,11 @@ public:
 __Java__:
 
 ```Java
-class Solution 
-{
-public:
-    int prefixCount(vector<string>& words, string pref) 
-    {
-        int result = 0;
-        for (const auto& word : words) result += !word.find(pref);
-        return result;
+class Solution {
+    public int prefixCount(String[] words, String pref) {
+        return (int)Arrays.stream(words).filter(s -> s.startsWith(pref)).count();
     }
-};
+}
 ```
 
 __Python__:
