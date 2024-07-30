@@ -92,9 +92,17 @@ __代码:__
 __C++__:
 
 ```C++
-class Solution:
-    def mostFrequent(self, nums: List[int], key: int) -> int:
-        return Counter(nums[i + 1] for i, num in enumerate(nums[:-1]) if num == key).most_common(1)[0][0]
+class Solution 
+{
+public:
+    int mostFrequent(vector<int>& nums, int key) 
+    {
+        int result = 0, m = 0, n = nums.size();
+        vector<int> c(1001);
+        for (int i = 0; i < n - 1; i++) if (nums[i] == key and ++c[nums[i + 1]] > c[result]) result = nums[i + 1];
+        return result; 
+    }
+};
 ```
 
 __Java__:
