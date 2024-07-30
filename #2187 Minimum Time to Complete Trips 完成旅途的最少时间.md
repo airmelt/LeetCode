@@ -143,19 +143,7 @@ public:
 __Python__:
 
 ```Python
-class Solution 
-{
-public:
-    long long minimumTime(vector<int>& time, int totalTrips) 
-    {
-        long long left = (long long)*min_element(time.begin(), time.end()), right = left * totalTrips + 1LL, mid = 0LL;
-        auto check = [](auto mid, auto time) { auto result = 0LL; for (const auto& t : time) result += mid / t; return result; };
-        while (left != right) 
-        {
-            if (check(mid = left + ((right - left) >> 1LL), time) < totalTrips) left = mid + 1;
-            else right = mid;
-        }
-        return left;
-    }
-};
+class Solution:
+    def minimumTime(self, time: List[int], totalTrips: int) -> int:
+        return bisect_left(range(totalTrips * min(time)), totalTrips, lo=min(time), key=lambda x: sum(x // t for t in time))
 ```
