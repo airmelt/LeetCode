@@ -124,29 +124,23 @@ public:
 __Java__:
 
 ```Java
-class Solution 
-{
-public:
-    long long maximumSubsequenceCount(string text, string pattern) 
-    {
-        long long result = 0LL, c1 = 0LL, c2 = 0LL, c = 0LL;
-        if (pattern.front() == pattern.back()) 
-        {
-            for (const auto& t : text) c += t == pattern.front();
+class Solution {
+    public long maximumSubsequenceCount(String text, String pattern) {
+        long result = 0L, c1 = 0L, c2 = 0L, c = 0L;
+        if (pattern.charAt(0) == pattern.charAt(1)) {
+            for (char t : text.toCharArray()) if (t == pattern.charAt(0)) ++c;
             return c * (c + 1) >> 1;
         }
-        for (const auto& t : text) 
-        {
-            if (t == pattern.front()) ++c1;
-            if (t == pattern.back()) 
-            {
+        for (char t : text.toCharArray()) {
+            if (t == pattern.charAt(0)) ++c1;
+            if (t == pattern.charAt(1)) {
                 result += c1;
                 ++c2;
             }
         }
-        return result + max(c1, c2); 
+        return result + Math.max(c1, c2);
     }
-};
+}
 ```
 
 __Python__:
