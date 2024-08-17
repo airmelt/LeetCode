@@ -114,47 +114,66 @@ __代码:__
 __C++__:
 
 ```C++
-class Solution:
-    def longestRepeating(self, s: str, queryCharacters: str, queryIndices: List[int]) -> List[int]:
-        s, pre, suf, mx, result = list(s), [0] * ((n := len(s)) << 2), [0] * (n << 2), [0] * (n << 2), []
+class Solution 
+{
+public:
+    vector<int> longestRepeating(string &s, string &queryCharacters, vector<int> &queryIndices) 
+    {
+        this -> s = s;
+        int n = s.size(), m = queryIndices.size();
+        pre.resize(n << 2);
+        suf.resize(n << 2);
+        mx.resize(n << 2);
+        build(1, 1, n);
+        vector<int> result(m);
+        for (int i = 0; i < m; i++) 
+        {
+            this -> s[queryIndices[i]] = queryCharacters[i];
+            update(1, 1, n, queryIndices[i] + 1);
+            result[i] = mx[1];
+        }
+        return result;
+    }
+private:
+    string s;
+    vector<int> pre, suf, mx;
 
-        def maintain(o: int, l: int, r: int) -> NoReturn:
-            pre[o] = pre[o << 1]
-            suf[o] = suf[o << 1 | 1]
-            mx[o] = max(mx[o << 1], mx[o << 1 | 1])
-            m = (l + r) >> 1
-            if s[m - 1] == s[m]:
-                if suf[o << 1] == m - l + 1:
-                    pre[o] += pre[o << 1 | 1]
-                if pre[o << 1 | 1] == r - m:
-                    suf[o] += suf[o << 1]
-                mx[o] = max(mx[o], suf[o << 1] + pre[o << 1 | 1])
+    void maintain(int o, int l, int r) 
+    {
+        pre[o] = pre[o << 1];
+        suf[o] = suf[o << 1 | 1];
+        mx[o] = max(mx[o << 1], mx[o << 1 | 1]);
+        int m = (l + r) >> 1;
+        if (s[m - 1] == s[m]) 
+        {
+            if (suf[o << 1] == m - l + 1) pre[o] += pre[o << 1 | 1];
+            if (pre[o << 1 | 1] == r - m) suf[o] += suf[o << 1];
+            mx[o] = max(mx[o], suf[o << 1] + pre[o << 1 | 1]);
+        }
+    }
 
-        def build(o: int, l: int, r: int) -> NoReturn:
-            if l == r:
-                pre[o] = suf[o] = mx[o] = 1
-                return
-            m = (l + r) >> 1
-            build(o << 1, l, m)
-            build(o << 1 | 1, m + 1, r)
-            maintain(o, l, r)
+    void build(int o, int l, int r) 
+    {
+        if (l == r) 
+        {
+            pre[o] = suf[o] = mx[o] = 1;
+            return;
+        }
+        int m = (l + r) >> 1;
+        build(o << 1, l, m);
+        build(o << 1 | 1, m + 1, r);
+        maintain(o, l, r);
+    }
 
-        def update(o: int, l: int, r: int, i: int) -> NoReturn:
-            if l == r: 
-                return
-            m = (l + r) >> 1
-            if i <= m:
-                update(o << 1, l, m, i)
-            else:
-                update(o << 1 | 1, m + 1, r, i)
-            maintain(o, l, r)
-
-        build(1, 1, n)
-        for c, i in zip(queryCharacters, queryIndices):
-            s[i] = c
-            update(1, 1, n, i + 1)
-            result.append(mx[1])
-        return result
+    void update(int o, int l, int r, int i) 
+    {
+        if (l == r) return;
+        int m = (l + r) >> 1;
+        if (i <= m) update(o << 1, l, m, i);
+        else update(o << 1 | 1, m + 1, r, i);
+        maintain(o, l, r);
+    }
+};
 ```
 
 __Java__:
@@ -215,54 +234,45 @@ class Solution {
 __Python__:
 
 ```Python
-class Solution {
-    private char[] s;
-    private int[] pre, suf, max;
+class Solution:
+    def longestRepeating(self, s: str, queryCharacters: str, queryIndices: List[int]) -> List[int]:
+        s, pre, suf, mx, result = list(s), [0] * ((n := len(s)) << 2), [0] * (n << 2), [0] * (n << 2), []
 
-    private void maintain(int o, int l, int r) {
-        pre[o] = pre[o << 1];
-        suf[o] = suf[o << 1 | 1];
-        max[o] = Math.max(max[o << 1], max[o << 1 | 1]);
-        var m = (l + r) >>> 1;
-        if (s[m - 1] == s[m]) {
-            if (suf[o << 1] == m - l + 1) pre[o] += pre[o << 1 | 1];
-            if (pre[o << 1 | 1] == r - m) suf[o] += suf[o << 1];
-            max[o] = Math.max(max[o], suf[o << 1] + pre[o << 1 | 1]);
-        }
-    }
+        def maintain(o: int, l: int, r: int) -> NoReturn:
+            pre[o] = pre[o << 1]
+            suf[o] = suf[o << 1 | 1]
+            mx[o] = max(mx[o << 1], mx[o << 1 | 1])
+            m = (l + r) >> 1
+            if s[m - 1] == s[m]:
+                if suf[o << 1] == m - l + 1:
+                    pre[o] += pre[o << 1 | 1]
+                if pre[o << 1 | 1] == r - m:
+                    suf[o] += suf[o << 1]
+                mx[o] = max(mx[o], suf[o << 1] + pre[o << 1 | 1])
 
-    private void build(int o, int l, int r) {
-        if (l == r) {
-            pre[o] = suf[o] = max[o] = 1;
-            return;
-        }
-        var m = (l + r) >>> 1;
-        build(o << 1, l, m);
-        build(o << 1 | 1, m + 1, r);
-        maintain(o, l, r);
-    }
+        def build(o: int, l: int, r: int) -> NoReturn:
+            if l == r:
+                pre[o] = suf[o] = mx[o] = 1
+                return
+            m = (l + r) >> 1
+            build(o << 1, l, m)
+            build(o << 1 | 1, m + 1, r)
+            maintain(o, l, r)
 
-    private void update(int o, int l, int r, int i) {
-        if (l == r) return;
-        var m = (l + r) >>> 1;
-        if (i <= m) update(o << 1, l, m, i);
-        else update(o << 1 | 1, m + 1, r, i);
-        maintain(o, l, r);
-    }
+        def update(o: int, l: int, r: int, i: int) -> NoReturn:
+            if l == r: 
+                return
+            m = (l + r) >> 1
+            if i <= m:
+                update(o << 1, l, m, i)
+            else:
+                update(o << 1 | 1, m + 1, r, i)
+            maintain(o, l, r)
 
-    public int[] longestRepeating(String s, String queryCharacters, int[] queryIndices) {
-        this.s = s.toCharArray();
-        int n = this.s.length, m = queryIndices.length, result[] = new int[m];
-        pre = new int[n << 2];
-        suf = new int[n << 2];
-        max = new int[n << 2];
-        build(1, 1, n);
-        for (var i = 0; i < m; i++) {
-            this.s[queryIndices[i]] = queryCharacters.charAt(i);
-            update(1, 1, n, queryIndices[i] + 1);
-            result[i] = max[1];
-        }
-        return result;
-    }
-}
+        build(1, 1, n)
+        for c, i in zip(queryCharacters, queryIndices):
+            s[i] = c
+            update(1, 1, n, i + 1)
+            result.append(mx[1])
+        return result
 ```
