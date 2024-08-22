@@ -41,10 +41,10 @@ Note that you can cut off the first tree at (0, 0) before making any steps.
 
 __Constraints:__
 
-m == forest.length
-n == forest[i].length
-1 <= m, n <= 50
-0 <= forest[i][j] <= 10^9
+- `m == forest.length`
+- `n == forest[i].length`
+- `1 <= m, n <= 50`
+- `0 <= forest[i][j] <= 10 ^ 9`
 
 __题目描述__:
 你被请来给一个要举办高尔夫比赛的树林砍树。树林由一个 m x n 的矩阵表示， 在这个矩阵中：
@@ -86,10 +86,10 @@ __示例 :__
 
 __提示:__
 
-m == forest.length
-n == forest[i].length
-1 <= m, n <= 50
-0 <= forest[i][j] <= 10^9
+- `m == forest.length`
+- `n == forest[i].length`
+- `1 <= m, n <= 50`
+- `0 <= forest[i][j] <= 10^9`
 
 __思路__:
 
