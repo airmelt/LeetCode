@@ -111,17 +111,21 @@ __代码:__
 __C++__:
 
 ```C++
-class Solution {
-    public long numberOfWays(String s) {
-        long zero = 0L, cur0 = 0L, cur1 = 0L, result = 0L;
-        for (char c : s.toCharArray()) zero += c == '0' ? 1 : 0;
-        for (int i = 0, n = s.length(); i < n; i++) {
-            result += (s.charAt(i) == '1' ? 1 : 0) * cur0 * (zero - cur0) + (s.charAt(i) == '0' ? 1 : 0) * (cur1 = i - cur0) * (n - zero - cur1);
-            cur0 += s.charAt(i) == '0' ? 1 : 0;
+class Solution 
+{
+public:
+    long long numberOfWays(string s) 
+    {
+        long long zero = 0LL, cur0 = 0LL, cur1 = 0LL, result = 0LL;
+        for (const auto& c : s) zero += c == '0';
+        for (int i = 0, n = s.size(); i < n; i++)
+        {
+            result += (s[i] == '1') * cur0 * (zero - cur0) + (s[i] == '0') * (cur1 = i - cur0) * (n - zero - cur1);
+            cur0 += s[i] == '0';
         }
         return result;
     }
-}
+};
 ```
 
 __Java__:
