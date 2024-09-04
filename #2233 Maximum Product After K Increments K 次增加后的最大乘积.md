@@ -73,10 +73,15 @@ __提示：__
 __思路:__
 
 ```text
-贪心
-给 x 增加 1, 乘积增加 1 + 1 / x
+1. 贪心
+给 x 增加 1, 乘积增加 x + 1 / x, 即 1 + 1 / x
 所以每次应该选最小的
-时间复杂度为 O(N), 空间复杂度为 O(N)
+时间复杂度为 O(N + KlogN), 空间复杂度为 O(1), 使用原地堆化可以减少空间复杂度
+2. 数学
+当 k 足够大时, 可以直接计算出最后的结果
+先排序
+然后对每一个最小值同步增加直到 k 用完
+时间复杂度为 O(NlogN), 空间复杂度为 O(logN)
 ```
 
 __代码:__
@@ -84,17 +89,20 @@ __代码:__
 __C++__:
 
 ```C++
-class Solution {
+class Solution 
+{
 public:
-    int maximumProduct(vector<int>& nums, int k) {
-        make_heap(nums.begin(),nums.end(),greater<int>());
-        while(k--){
-            pop_heap(nums.begin(),nums.end(),greater<int>());
-            nums.back() += 1;
-            push_heap(nums.begin(),nums.end(),greater<int>());
+    int maximumProduct(vector<int>& nums, int k) 
+    {
+        make_heap(nums.begin(), nums.end(), greater<int>());
+        while (k--)
+        {
+            pop_heap(nums.begin(), nums.end(), greater<int>());
+            ++nums.back();
+            push_heap(nums.begin(), nums.end(), greater<int>());
         }
         long long result = 1LL, mod = 1e9 + 7;
-        for(int num : nums) result = (result * num) % mod;
+        for(const auto& num : nums) result = (result * num) % mod;
         return result;
     }
 };
