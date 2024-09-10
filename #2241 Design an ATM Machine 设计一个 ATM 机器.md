@@ -122,35 +122,43 @@ __代码:__
 __C++__:
 
 ```C++
-class ATM:
+class ATM 
+{
+public:
+    ATM() 
+    {
+        cash = vector<int>(5);
+        value = {20, 50, 100, 200, 500};
+    }
+    
+    void deposit(vector<int> banknotesCount) 
+    {
+        for (int i = 0; i < 5; i++) cash[i] += banknotesCount[i];
+    }
+    
+    vector<int> withdraw(int amount) 
+    {
+        vector<int> result(5);
+        for (int i = 4; i > -1; i--) 
+        {
+            result[i] += min(cash[i], amount / value[i]);
+            amount -= value[i] * result[i];
+        }
+        if (amount != 0) return {-1};
+        for (int i = 0; i < 5; i++) cash[i] -= result[i];
+        return result;
+    }
+private:
+    vector<int> cash;
+    vector<int> value;
+};
 
-    def __init__(self):
-        self.cash = [0] * 5
-        self.value = [20, 50, 100, 200, 500]
-
-
-    def deposit(self, banknotesCount: List[int]) -> None:
-        for i in range(5):
-            self.cash[i] += banknotesCount[i]
-
-
-    def withdraw(self, amount: int) -> List[int]:
-        result = [0] * 5
-        for i in range(4, -1, -1):
-            result[i] = min(self.cash[i], amount // self.value[i])
-            amount -= result[i] * self.value[i]
-        if amount:
-            return [-1]
-        for i in range(5):
-            self.cash[i] -= result[i]
-        return result
-
-
-
-# Your ATM object will be instantiated and called as such:
-# obj = ATM()
-# obj.deposit(banknotesCount)
-# param_2 = obj.withdraw(amount)
+/**
+ * Your ATM object will be instantiated and called as such:
+ * ATM* obj = new ATM();
+ * obj->deposit(banknotesCount);
+ * vector<int> param_2 = obj->withdraw(amount);
+ */
 ```
 
 __Java__:
