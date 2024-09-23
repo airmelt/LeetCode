@@ -147,33 +147,35 @@ __代码:__
 __C++__:
 
 ```C++
-class Solution {
-    private static final int[][] D = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
-    private static final int INF = 1_000_000_000;
-
-    public int maximumMinutes(int[][] grid) {
-        int m = grid.length, n = grid[0].length, human[] = bfs(grid, new LinkedList(Arrays.asList(new int[]{0, 0}))), fire[] = new int[3], last = 0, noSolution = -1;
-        if (human[0] == INF) return noSolution;
-        Queue<int[]> fires = new LinkedList<>();
-        for (int i = 0; i < m; i++) for (int j = 0; j < n; j++) if (grid[i][j] == 1) fires.offer(new int[]{i, j});
-        fire = bfs(grid, fires);
-        if (fire[0] == INF) return INF;
-        return (last = fire[0] - human[0]) < 0 ? noSolution : ((human[1] != INF && human[1] + last < fire[1]) || (human[2] != INF && human[2] + last < fire[2]) ? last : last - 1);
-    }
-
-    private int[] bfs(int[][] grid, Queue<int[]> q) {
-        int m = grid.length, n = grid[0].length, gridTime[][] = new int[m][n], t = 0, s = q.size(), nx = 0, ny = 0;
-        for (int[] times : gridTime) Arrays.fill(times, INF);
-        for (t = 1; !q.isEmpty(); t++, s = q.size()) {
-            while (s-- > 0) {
-                int pos[] = q.poll(), x = pos[0], y = pos[1];
-                gridTime[x][y] = t;
-                for (int[] dir : D) if (-1 < (nx = x + dir[0]) && nx < m && -1 < (ny = y + dir[1]) && ny < n && gridTime[nx][ny] == INF && grid[nx][ny] == 0) q.offer(new int[]{nx, ny});
+class Solution 
+{
+public:
+    int maximumMinutes(vector<vector<int>>& grid) 
+    {
+        int m = grid.size(), n = grid.front().size(), d[4][2] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}}, INF = 1e9, no_solution = -1, last = 0;
+        auto bfs = [&](queue<pair<int, int>>& q) -> vector<int> 
+        {
+            int t = 0, s = q.size(), nx = 0, ny = 0;
+            vector<vector<int>> grid_time(m, vector<int>(n, INF));
+            for (t = 1; !q.empty(); t++, s = q.size()) 
+            {
+                while (s--) 
+                {
+                    int x = q.front().first, y = q.front().second;
+                    q.pop();
+                    grid_time[x][y] = t;
+                    for (const auto& dir : d) if (-1 < (nx = x + dir[0]) and nx < m and -1 < (ny = y + dir[1]) and ny < n and grid_time[nx][ny] == INF and !grid[nx][ny]) q.push(make_pair(nx, ny));
+                }
             }
-        }
-        return new int[]{gridTime[m - 1][n - 1], gridTime[m - 1][n - 2], gridTime[m - 2][n - 1]};
+            return vector<int>{grid_time.back().back(), grid_time.back()[n - 2], grid_time[m - 2].back()};
+        };
+        queue<pair<int, int>> human_queue, fire_queue;
+        human_queue.push(make_pair(0, 0));
+        for (int i = 0; i < m; i++) for (int j = 0; j < n; j++) if (grid[i][j] == 1) fire_queue.push(make_pair(i, j));
+        vector<int> human = bfs(human_queue), fire = bfs(fire_queue);
+        return human.front() == INF ? no_solution : (fire.front() == INF ? INF : ((last = fire.front() - human.front()) < 0 ? no_solution : last - ((human[1] == INF or human[1] + last >= fire[1]) and (human[2] == INF or human[2] + last >= fire[2]))));
     }
-}
+};
 ```
 
 __Java__:
