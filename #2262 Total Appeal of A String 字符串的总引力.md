@@ -18,13 +18,15 @@ Example 1:
 Input: s = "abbca"
 Output: 28
 Explanation: The following are the substrings of "abbca":
+```
+
 - Substrings of length 1: "a", "b", "b", "c", "a" have an appeal of 1, 1, 1, 1, and 1 respectively. The sum is 5.
 - Substrings of length 2: "ab", "bb", "bc", "ca" have an appeal of 2, 1, 2, and 2 respectively. The sum is 7.
 - Substrings of length 3: "abb", "bbc", "bca" have an appeal of 2, 2, and 3 respectively. The sum is 7.
 - Substrings of length 4: "abbc", "bbca" have an appeal of 3 and 3 respectively. The sum is 6.
 - Substrings of length 5: "abbca" has an appeal of 3. The sum is 3.
+
 The total sum is 5 + 7 + 7 + 6 + 3 = 28.
-```
 
 Example 2:
 
@@ -62,13 +64,15 @@ __示例:__
 输入：s = "abbca"
 输出：28
 解释："abbca" 的子字符串有：
+```
+
 - 长度为 1 的子字符串："a"、"b"、"b"、"c"、"a" 的引力分别为 1、1、1、1、1，总和为 5 。
 - 长度为 2 的子字符串："ab"、"bb"、"bc"、"ca" 的引力分别为 2、1、2、2 ，总和为 7 。
 - 长度为 3 的子字符串："abb"、"bbc"、"bca" 的引力分别为 2、2、3 ，总和为 7 。
 - 长度为 4 的子字符串："abbc"、"bbca" 的引力分别为 3、3 ，总和为 6 。
 - 长度为 5 的子字符串："abbca" 的引力为 3 ，总和为 3 。
+
 引力总和为 5 + 7 + 7 + 6 + 3 = 28 。
-```
 
 示例 2：
 
