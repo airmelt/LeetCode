@@ -111,7 +111,7 @@ __Java__:
 ```Java
 class Solution {
     public int maximumCandies(int[] candies, long k) {
-        int left = 1, right = left + (int)(Arrays.stream(candies).sum() / k);
+        int left = 1, right = left + Arrays.stream(candies).max().getAsInt();
         while (left < right) {
             int mid = left + ((right - left) >>> 1);
             if (check(mid, candies, k)) left = mid + 1;
