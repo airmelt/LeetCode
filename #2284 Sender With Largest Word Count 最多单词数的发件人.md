@@ -126,18 +126,15 @@ public:
 __Java__:
 
 ```Java
-class Solution 
-{
-public:
-    string largestWordCount(vector<string>& messages, vector<string>& senders) 
-    {
-        unordered_map<string, int> m;
-        string result = senders.front();
-        for (int i = 0, n = messages.size(); i < n; i++) m[senders[i]] += count(messages[i].begin(), messages[i].end(), ' ') + 1;
-        for (const auto& [k, v] : m) if (v > m[result] or v == m[result] and k > result) result = k;
+class Solution {
+    public String largestWordCount(String[] messages, String[] senders) {
+        Map<String, Integer> map = new HashMap<>();
+        String result = senders[0];
+        for (int i = 0, n = messages.length; i < n; i++) map.merge(senders[i], (int)messages[i].chars().filter(c -> c == ' ').count() + 1, Integer::sum);
+        for (var entry : map.entrySet()) if (entry.getValue() > map.get(result) || entry.getValue() == map.get(result) && result.compareTo(entry.getKey()) < 0) result = entry.getKey();
         return result;
     }
-};
+}
 ```
 
 __Python__:

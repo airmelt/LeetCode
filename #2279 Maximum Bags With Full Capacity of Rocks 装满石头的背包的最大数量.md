@@ -103,15 +103,23 @@ __代码:__
 __C++__:
 
 ```C++
-class Solution {
-    public int maximumBags(int[] capacity, int[] rocks, int additionalRocks) {
-        int n = rocks.length, diff[] = new int[n], result = 0;
-        for (int i = 0; i < n; i++) diff[i] = capacity[i] - rocks[i];
-        Arrays.sort(diff);
-        for (int i = 0; i < n && additionalRocks > -1; i++) if ((additionalRocks = additionalRocks - diff[i]) > -1) ++result;
-        return result;
+class Solution 
+{
+public:
+    int maximumBags(vector<int>& capacity, vector<int>& rocks, int additionalRocks)
+    {
+        long cur = 0L, n = rocks.size();
+        vector<int> diff(rocks.size());
+        transform(capacity.begin(), capacity.end(), rocks.begin(), diff.begin(), minus<int>{});
+        sort(diff.begin(), diff.end());
+        return count_if(diff.begin(), diff.end(), [&](int d)
+        {
+            cur += d;
+            if (!d or cur <= additionalRocks) return true;
+            return false;
+        });
     }
-}
+};
 ```
 
 __Java__:

@@ -109,18 +109,22 @@ __代码:__
 __C++__:
 
 ```C++
-class Solution {
-    public int minimumLines(int[][] stockPrices) {
-        Arrays.sort(stockPrices, Comparator.comparingInt(a -> a[0]));
-        int result = 0, preY = 1, preX = 0, n = stockPrices.length;
-        for (int i = 1, dy = 0, dx = 0; i < n; i++) {
-            result += (dy = stockPrices[i][1] - stockPrices[i - 1][1]) * preX != (dx = stockPrices[i][0] - stockPrices[i - 1][0]) * preY ? 1 : 0;
-            preY = dy;
-            preX = dx;
+class Solution 
+{
+public:
+    int minimumLines(vector<vector<int>>& stockPrices) 
+    {
+        sort(stockPrices.begin(), stockPrices.end());
+        long long result = 0, pre_dy = 1, pre_dx = 0, n = stockPrices.size();
+        for (int i = 1, dy = 0, dx = 0; i < n; i++) 
+        {
+            result += (dy = stockPrices[i].back() - stockPrices[i - 1].back()) * pre_dx != (dx = stockPrices[i].front() - stockPrices[i - 1].front()) * pre_dy;
+            pre_dy = dy;
+            pre_dx = dx;
         }
         return result;
     }
-}
+};
 ```
 
 __Java__:
