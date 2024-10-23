@@ -140,10 +140,23 @@ public:
 __Java__:
 
 ```Java
-class Solution:
-    def matchReplacement(self, s: str, sub: str, mappings: List[List[str]]) -> bool:
-        return (m := len(s)) and (n := len(sub)) and sub in s or (bool(st := {(x, y) for x, y in mappings}) and any(all(x == y or (x, y) in st for x, y in zip(sub, s[i - len(sub): i])) for i in range(n, m + 1)))
-
+class Solution {
+    public boolean matchReplacement(String s, String sub, char[][] mappings) {
+        boolean[][] mp = new boolean[128][128];
+        for (char[] mapping : mappings) mp[mapping[0]][mapping[1]] = true;
+        for (int m = s.length(), n = sub.length(), i = n; i <= m; i++) {
+            boolean flag = true;
+            for (int start = i - n, j = start; j < i; j++) {
+                if (s.charAt(j) != sub.charAt(j - start) && !mp[sub.charAt(j - start)][s.charAt(j)]) {
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag) return flag;
+        }
+        return false;
+    }
+}
 ```
 
 __Python__:
