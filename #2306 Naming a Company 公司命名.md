@@ -109,12 +109,25 @@ __代码:__
 __C++__:
 
 ```C++
-class Solution:
-    def distinctNames(self, ideas: List[str]) -> int:
-        c, result = defaultdict(set), 0
-        for i in ideas:
-            c[i[0]].add(i[1:])
-        return sum((len(a) - (m := len(a & b))) * (len(b) - m) for a, b in combinations(c.values(), 2)) << 1
+class Solution 
+{
+public:
+    long long distinctNames(vector<string>& ideas) 
+    {
+        unordered_set<string> groups[26];
+        for (const auto& idea : ideas) groups[idea.front() - 'a'].insert(idea.substr(1));
+        long long result = 0;
+        for (int i = 1; i < 26; i++) 
+        {
+            for (int j = 0, m = 0; j < i; j++, m = 0) 
+            {
+                for (const auto& s : groups[i]) m += groups[j].count(s);
+                result += (long long)(groups[i].size() - m) * (groups[j].size() - m);
+            }
+        }
+        return result << 1;
+    }
+};
 ```
 
 __Java__:
