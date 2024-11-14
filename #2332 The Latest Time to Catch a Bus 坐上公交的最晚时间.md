@@ -143,22 +143,24 @@ public:
 __Java__:
 
 ```Java
-class Solution:
-    def latestTimeCatchTheBus(self, buses: List[int], passengers: List[int], capacity: int) -> int:
-        buses.sort()
-        passengers.sort()
-        i, n, m = 0, len(buses), len(passengers)
-        for bus in buses:
-            c = capacity
-            while c and i < m and passengers[i] <= bus:
-                i += 1
-                c -= 1
-        i -= 1
-        result = buses[-1] if c else passengers[i]
-        while i > -1 and result == passengers[i]:
-            result -= 1
-            i -= 1
-        return result
+class Solution {
+    public int latestTimeCatchTheBus(int[] buses, int[] passengers, int capacity) {
+        Arrays.sort(buses);
+        Arrays.sort(passengers);
+        int i = 0, n = buses.length, m = passengers.length, c = 0;
+        for (int bus : buses) {
+            c = capacity;
+            while (c > 0 && i < m && passengers[i] <= bus) {
+                --c;
+                ++i;
+            }
+        }
+        --i;
+        int result = c > 0 ? buses[n - 1] : passengers[i];
+        while (i > -1 && result == passengers[i--]) result--;
+        return result;
+    }
+}
 ```
 
 __Python__:
