@@ -109,17 +109,21 @@ __代码:__
 __C++__:
 
 ```C++
-class Solution {
-    public int[] numberOfPairs(int[] nums) {
-        boolean[] visited = new boolean[101]; 
+class Solution 
+{
+public:
+    vector<int> numberOfPairs(vector<int>& nums) 
+    {
+        vector<bool> visited(101);
         int pairs = 0;
-        for (int num : nums) {
-            if (visited[num]) ++pairs;
+        for (const auto& num : nums) 
+        {
+            pairs += visited[num];
             visited[num] = !visited[num];
         }
-        return new int[]{pairs, nums.length - (pairs << 1)};
+        return vector<int>{pairs, (int)nums.size() - (pairs << 1)};
     }
-}
+};
 ```
 
 __Java__:
