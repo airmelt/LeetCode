@@ -74,6 +74,8 @@ __思路:__
 
 ```text
 贪心
+每次可以让最小的数字归零
+也就是要求出不同非零元素的个数
 时间复杂度为 O(N), 空间复杂度为 O(N)
 ```
 
@@ -82,9 +84,14 @@ __代码:__
 __C++__:
 
 ```C++
-class Solution:
-    def minimumOperations(self, nums: List[int]) -> int:
-        return len(set(nums) - {0})
+class Solution 
+{
+public:
+    int minimumOperations(vector<int>& nums) 
+    {
+        return (set<int> (nums.begin(), nums.end()).size()) - (find(nums.begin(), nums.end(), 0) != nums.end());
+    }
+};
 ```
 
 __Java__:
