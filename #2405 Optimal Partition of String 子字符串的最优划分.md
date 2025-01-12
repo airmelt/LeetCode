@@ -85,15 +85,24 @@ __代码:__
 __C++__:
 
 ```C++
-class Solution:
-    def partitionString(self, s: str) -> int:
-        result, visited = 1, 0
-        for c in s:
-            if visited >> (ord(c) - ord('a')) & 1:
-                visited = 0
-                result += 1
-            visited |= 1 << (ord(c) - ord('a'))
-        return result
+class Solution 
+{
+public:
+    int partitionString(string s) 
+    {
+        int result = 1, visited = 0;
+        for (const auto& c : s) 
+        {
+            if ((visited >> (c - 'a') & 1)) 
+            {
+                visited = 0;
+                ++result;
+            }
+            visited |= 1 << (c - 'a');
+        }
+        return result;
+    }
+};
 ```
 
 __Java__:
