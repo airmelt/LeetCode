@@ -96,17 +96,22 @@ __代码:__
 __C++__:
 
 ```C++
-class Solution {
-    public int minGroups(int[][] intervals) {
-        int N = 1_000_002, count[] = new int[N];
-        for (int[] interval : intervals) {
-            ++count[interval[0]];
-            --count[interval[1] + 1];
+class Solution 
+{
+public:
+    int minGroups(vector<vector<int>>& intervals) 
+    {
+        map<int, int> diff;
+        for (const auto& i : intervals)
+        {
+            ++diff[i.front()];
+            --diff[i.back() + 1];
         }
-        for (int i = 1; i < N; i++) count[i] += count[i - 1];
-        return Arrays.stream(count).max().getAsInt();
+        int result = 0, cur = 0;
+        for (const auto& [_, d] : diff) result = max(result, cur += d);
+        return result;
     }
-}
+};
 ```
 
 __Java__:
