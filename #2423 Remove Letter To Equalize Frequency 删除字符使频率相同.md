@@ -92,22 +92,19 @@ __代码:__
 __C++__:
 
 ```C++
-class Solution {
-    public boolean equalFrequency(String word) {
-        for (int i = 0, n = word.length(); i < n; i++) {
-            Map<Character, Integer> map = new HashMap<>();
-            for (int j = 0; j < n; j++) if (j != i) map.merge(word.charAt(j), 1, Integer::sum);
-            if (helper(map)) return true;
-        }
-        return false;
+class Solution 
+{
+public:
+    bool equalFrequency(string word) 
+    {
+        unordered_map<char, int> char_cnt;
+        for (const auto& c : word) ++char_cnt[c];
+        vector<int> freq_cnt;
+        for (const auto& [_, v] : char_cnt) freq_cnt.emplace_back(v);
+        sort(freq_cnt.begin(), freq_cnt.end());
+        return freq_cnt.size() == 1 or freq_cnt.front() == 1 and equal(freq_cnt.begin() + 2, freq_cnt.end(), freq_cnt.begin() + 1) or freq_cnt.back() == freq_cnt[freq_cnt.size() - 2] + 1 and equal(freq_cnt.begin() + 1, freq_cnt.end() - 1, freq_cnt.begin());
     }
-
-    private boolean helper(Map<Character, Integer> map) {
-        int a = map.entrySet().iterator().next().getValue();
-        for (int c : map.values()) if (c != a) return false;
-        return true;
-    }
-}
+};
 ```
 
 __Java__:
