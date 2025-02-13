@@ -199,39 +199,51 @@ private:
 __Java__:
 
 ```Java
-class Solution:
-    def catMouseGame(self, graph: List[List[int]]) -> int:
-        HOLE, MOUSE_START, CAT_START, MOUSE_TURN, CAT_TURN, DRAW, MOUSE_WIN, CAT_WIN, n = 0, 1, 2, 0, 1, 0, 1, 2, len(graph)
-        turns, dp, q = [[[0, 0] for _ in range(n)] for _ in range(n)], [[[0, 0] for _ in range(n)] for _ in range(n)], deque()
-        for i in range(n):
-            for j in range(1, n):
-                turns[i][j][MOUSE_TURN] = len(graph[i])
-                turns[i][j][CAT_TURN] = len(graph[j])
-        for i in range(n):
-            for j in graph[HOLE]:
-                turns[i][j][CAT_TURN] -= 1
-        for i in range(1, n):
-            dp[HOLE][i][MOUSE_TURN] = dp[HOLE][i][CAT_TURN] = MOUSE_WIN
-            q.append((HOLE, i, MOUSE_TURN))
-            q.append((HOLE, i, CAT_TURN))
-        for i in range(1, n):
-            dp[i][i][MOUSE_TURN] = dp[i][i][CAT_TURN] = CAT_WIN
-            q.append((i, i, MOUSE_TURN))
-            q.append((i, i, CAT_TURN))
-        while q:
-            mouse, cat, turn = q.popleft()
-            cur, pre_states = dp[mouse][cat][turn], [(mouse, pre, CAT_TURN) for pre in graph[cat]] if turn == MOUSE_TURN else [(pre, cat, MOUSE_TURN) for pre in graph[mouse] if cat]
-            for pre_mouse, pre_cat, pre_turn in pre_states:
-                if dp[pre_mouse][pre_cat][pre_turn] == DRAW:
-                    if (cur == MOUSE_WIN and pre_turn == MOUSE_TURN) or (cur == CAT_WIN and pre_turn == CAT_TURN):
-                        dp[pre_mouse][pre_cat][pre_turn] = cur
-                        q.append((pre_mouse, pre_cat, pre_turn))
-                    else:
-                        turns[pre_mouse][pre_cat][pre_turn] -= 1
-                        if not turns[pre_mouse][pre_cat][pre_turn]:
-                            dp[pre_mouse][pre_cat][pre_turn] = CAT_WIN if pre_turn == MOUSE_TURN else MOUSE_WIN
-                            q.append((pre_mouse, pre_cat, pre_turn))
-        return dp[MOUSE_START][CAT_START][MOUSE_TURN]
+class Solution {
+    private static final int MOUSE_WIN = 1, CAT_WIN = 2, DRAW = 0, MOUSE_TURN = 0, CAT_TURN = 1, HOLE = 0, MOUSE_START = 1, CAT_START = 2;
+
+    public int catMouseGame(int[][] graph) {
+        int n = graph.length, turns[][][] = new int[n][n][2], dp[][][] = new int[n][n][2];
+        var queue = new ArrayDeque<int[]>();
+        for (int i = 0; i < n; i++) {
+            for (int j = 1; j < n; j++) {
+                turns[i][j][MOUSE_TURN] = graph[i].length;
+                turns[i][j][CAT_TURN] = graph[j].length;
+            }
+        }
+        for (int i = 0; i < n; i++) for (int j : graph[HOLE]) --turns[i][j][CAT_TURN];
+        for (int i = 1; i < n; i++) {
+            dp[HOLE][i][MOUSE_TURN] = dp[HOLE][i][CAT_TURN] = MOUSE_WIN;
+            queue.offer(new int[]{ HOLE, i, MOUSE_TURN });
+            queue.offer(new int[]{ HOLE, i, CAT_TURN });
+        }
+        for (int i = 1; i < n; i++) {
+            dp[i][i][MOUSE_TURN] = dp[i][i][CAT_TURN] = CAT_WIN;
+            queue.offer(new int[]{ i, i, MOUSE_TURN });
+            queue.offer(new int[]{ i, i, CAT_TURN });
+        }
+        while (!queue.isEmpty()) {
+            int state[] = queue.poll(), mouse = state[0], cat = state[1], turn = state[2], cur = dp[mouse][cat][turn];
+            var preStates = new ArrayList<int[]>();
+            if (turn == CAT_TURN) for (int pre : graph[mouse]) preStates.add(new int[]{ pre, cat, MOUSE_TURN });
+            else for (int pre : graph[cat]) if (pre != 0) preStates.add(new int[]{ mouse, pre, CAT_TURN });
+            for (int[] preState : preStates) {
+                if (dp[preState[0]][preState[1]][preState[2]] == DRAW) {
+                    if ((cur == MOUSE_WIN && preState[2] == MOUSE_TURN) || (cur == CAT_WIN && preState[2] == CAT_TURN)) {
+                        dp[preState[0]][preState[1]][preState[2]] = cur;
+                        queue.offer(preState);
+                    } else {
+                        if (--turns[preState[0]][preState[1]][preState[2]] == 0) {
+                            dp[preState[0]][preState[1]][preState[2]] = preState[2] == MOUSE_TURN ? CAT_WIN : MOUSE_WIN;
+                            queue.offer(preState);
+                        }
+                    }
+                }
+            }
+        }
+        return dp[MOUSE_START][2][MOUSE_TURN];
+    }
+}
 ```
 
 __Python__:
