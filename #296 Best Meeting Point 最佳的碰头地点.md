@@ -49,6 +49,8 @@ __示例:__
 
 示例 1：
 
+![296-2](https://assets.leetcode.com/uploads/2021/03/14/meetingpoint-grid.jpg)
+
 ```text
 输入: grid = [[1,0,0,0,1],[0,0,0,0,0],[0,0,1,0,0]]
 输出: 6 
@@ -68,7 +70,7 @@ __提示：__
 - `m == grid.length`
 - `n == grid[i].length`
 - `1 <= m, n <= 200`
-- `grid[i][j]` is either `0` or `1`.
+- `grid[i][j]` 是 `0` 或 `1`.
 - `grid` 中 __至少__ 有两个朋友
 
 __思路:__
