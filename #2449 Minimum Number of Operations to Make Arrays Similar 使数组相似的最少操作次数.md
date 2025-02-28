@@ -43,7 +43,7 @@ Example 3:
 ```text
 Input: nums = [1,1,1,1,1], target = [1,1,1,1,1]
 Output: 0
-Explanation: The array nums is already similiar to target.
+Explanation: The array nums is already similar to target.
 ```
 
 __Constraints:__
