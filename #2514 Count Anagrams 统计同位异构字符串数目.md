@@ -88,10 +88,31 @@ __代码:__
 __C++__:
 
 ```C++
-class Solution {
+class Solution 
+{
 public:
-    int countAnagrams(string s) {
-        
+    int countAnagrams(string s) 
+    {
+        long long result = 1LL, cur = 1LL, d[26]{0LL}, MOD = 1e9 + 7;
+        for (int i = 0, n = s.size(), j = 0; i < n; i++) 
+        {
+            if (s[i] == ' ') memset(d, 0LL, sizeof(d));
+            j = s[i] == ' ' ? 0 : j + 1;
+            if (s[i] != ' ') cur = cur * ++d[s[i] - 'a'] % MOD;
+            if (s[i] != ' ') result = result * j % MOD;
+        }
+        return result * pow(cur, MOD - 2, MOD) % MOD;
+    }
+private:
+    long pow(long long x, long long a, long long MOD) 
+    {
+        long long result = 1LL;
+        for (; a > 0LL; a >>= 1LL) 
+        {
+            if (a & 1L) result = result * x % MOD;
+            x = x * x % MOD;
+        }
+        return result;
     }
 };
 ```
@@ -101,7 +122,23 @@ __Java__:
 ```Java
 class Solution {
     public int countAnagrams(String s) {
-        
+        long result = 1L, cur = 1L, d[] = new long[26], MOD = 1_000_000_007L;
+        for (int i = 0, n = s.length(), j = 0; i < n; i++) {
+            if (s.charAt(i) == ' ') Arrays.fill(d, 0);
+            j = s.charAt(i) == ' ' ? 0 : j + 1;
+            if (s.charAt(i) != ' ') cur = cur * ++d[s.charAt(i) - 'a'] % MOD;
+            if (s.charAt(i) != ' ') result = result * j % MOD;
+        }
+        return (int)(result * pow(cur, MOD - 2, MOD) % MOD);
+    }
+
+    private long pow(long x, long a, long MOD) {
+        long result = 1L;
+        for (; a > 0L; a >>>= 1L) {
+            if ((a & 1L) == 1L) result = result * x % MOD;
+            x = x * x % MOD;
+        }
+        return result;
     }
 }
 ```
@@ -111,18 +148,5 @@ __Python__:
 ```Python
 class Solution:
     def countAnagrams(self, s: str) -> int:
-        d, result, MOD = defaultdict(int), 1, 10 ** 9 + 7
-        for i in s.split():
-            d[''.join(sorted(list(i)))] += 1
-        for k, v in d.items():
-            cur = defaultdict(int)
-            c = 1
-            for j in k:
-                cur[j] += 1
-            for v2 in cur.values():
-                c *= factorial(v2)
-            p = factorial(len(k))
-            result *= p // c
-            result %= MOD
-        return result
+        return reduce(lambda x, y: x * y % (10 ** 9 + 7), (factorial(len(word)) // reduce(lambda x, y: x * y, (factorial(v) for v in Counter(word).values())) % (10 ** 9 + 7) for word in s.split()))
 ```
