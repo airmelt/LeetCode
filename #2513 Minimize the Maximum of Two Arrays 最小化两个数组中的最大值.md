@@ -149,7 +149,6 @@ __Java__:
 class Solution {
     public int minimizeSet(int divisor1, int divisor2, int uniqueCnt1, int uniqueCnt2) {
         long left = 0L, right = ((uniqueCnt1 + uniqueCnt2) << 1L) - 1L, mid = 0L, t1 = 0L, t2 = 0L, total = 0L, lcm = helper(divisor1, divisor2);
-        System.out.println(lcm);
         while (left < right) {
             mid = left + ((right - left) >> 1L);
             t1 = mid - mid / divisor1;
