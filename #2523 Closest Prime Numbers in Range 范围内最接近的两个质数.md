@@ -112,7 +112,7 @@ public:
         int p = -1, q = -1, i = lower_bound(primes.begin(), primes.end(), left) - primes.begin();
         for (; primes[i + 1] <= right; ++i)
         {
-            if (p < 0 || primes[i + 1] - primes[i] < q - p) 
+            if (p < 0 or primes[i + 1] - primes[i] < q - p) 
             {
                 p = primes[i];
                 q = primes[i + 1];
