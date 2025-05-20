@@ -141,15 +141,13 @@ class Solution {
 __Python__:
 
 ```Python
-class Solution {
-    public int countPartitions(int[] nums, int k) {
-        long s = Arrays.stream(nums).mapToLong(i -> i).sum(), MOD = 1_000_000_007, dp[] = new long[k], result = 1L;
-        if (s < ((long)k << 1L)) return 0;
-        dp[0] = 1;
-        for (int num : nums) for (int i = k - 1; i > num - 1; i--) dp[i] = (dp[i] + dp[i - num]) % MOD;
-        for (int num : nums) result = (result << 1L) % MOD;
-        for (long x : dp) result = (result - (x << 1L) % MOD + MOD) % MOD;
-        return (int)result;
-    }
-}
+class Solution:
+    def countPartitions(self, nums: List[int], k: int) -> int:
+        if (k << 1) > sum(nums):
+            return 0
+        MOD, n, dp = 10 ** 9 + 7, len(nums), [1] + [0] * (k - 1)
+        for num in nums:
+            for i in range(k - 1, num - 1, -1):
+                dp[i] = (dp[i] + dp[i - num]) % MOD
+        return (pow(2, n, MOD) - (sum(dp) << 1)) % MOD
 ```
