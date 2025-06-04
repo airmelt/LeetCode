@@ -111,12 +111,19 @@ containedBoxes[i] 中的值都是互不相同的。
 
 __思路：__
 
-BFS
-从 initialBoxes 中的 box 出发, 搜索所有钥匙
-获得的箱子可以用 status 的高位表示, 获得的钥匙可以用 status 的低位表示
-箱子不用重复获得, 可以用 status 的高位判断
-最后将箱子及钥匙都有的对应糖果数总和返回
-时间复杂度为 O(n), 空间复杂度为 O(n)
+```text
+DFS
+用 status = 1 表示有钥匙, 即可以打开盒子
+再用另一个数组 has_box 来表示是否有盒子
+初始化的时候将 initialBoxes 中的盒子标记为有
+从 initialBoxes 中的 box 出发如果有钥匙且有盒子则进行 DFS
+打开盒子之后加上糖果, 并将盒子置空, 表示已经访问过该盒子
+然后打开钥匙盒中的所有钥匙, 将对应的 status 置为 1
+如果有盒子则进行 DFS
+打开盒子中的所有盒子, 将对应的 has_box 置为 1
+如果有钥匙且有盒子则进行 DFS
+时间复杂度为 O(N), 空间复杂度为 O(N)
+```
 
 __代码__:
 
@@ -128,26 +135,25 @@ class Solution
 public:
     int maxCandies(vector<int>& status, vector<int>& candies, vector<vector<int>>& keys, vector<vector<int>>& containedBoxes, vector<int>& initialBoxes) 
     {
-        queue<int> q;
-        for (const auto& box : initialBoxes)
-        {
-            q.push(box);
-            status[box] |= 0b10;
-        }
-        while (!q.empty())
-        {
-            int cur = q.front();
-            q.pop();
-            for (const auto& box : keys[cur]) status[box] |= 0b01;
-            for (const auto& box : containedBoxes[cur])
-            {
-                if ((status[box] & 0b10) == 0b10) continue;
-                q.push(box);
-                status[box] |= 0b10;
-            }
-        }
         int result = 0, n = status.size();
-        for (int i = 0; i < n; i++) if (status[i] == 0b11) result += candies[i];
+        vector<int> has_box(n);
+        for (const auto& x : initialBoxes) has_box[x] = 1;
+        auto dfs = [&](auto&& dfs, int x) -> void 
+        {
+            result += candies[x];
+            has_box[x] = false;
+            for (int key : keys[x]) 
+            {
+                status[key] = 1;
+                if (has_box[key]) dfs(dfs, key);
+            }
+            for (int box : containedBoxes[x]) 
+            {
+                has_box[box] = true;
+                if (status[box] > 0) dfs(dfs, box);
+            }
+        };
+        for (const auto& x : initialBoxes) if (status[x] and has_box[x]) dfs(dfs, x);
         return result;
     }
 };
@@ -157,24 +163,26 @@ __Java__:
 
 ```Java
 class Solution {
+    private int result = 0;
+    
     public int maxCandies(int[] status, int[] candies, int[][] keys, int[][] containedBoxes, int[] initialBoxes) {
-        Queue<Integer> queue = new LinkedList<>();
-        for (int box : initialBoxes) {
-            queue.offer(box);
-            status[box] |= 0b10;
-        }
-        while (!queue.isEmpty()) {
-            int cur = queue.poll();
-            for (int box : keys[cur]) status[box] |= 0b01;
-            for (int box : containedBoxes[cur]) {
-                if ((status[box] & 0b10) == 0b10) continue;
-                queue.offer(box);
-                status[box] |= 0b10;
-            }
-        }
-        int result = 0, n = status.length;
-        for (int i = 0; i < n; i++) if (status[i] == 0b11) result += candies[i];
+        boolean[] hasBox = new boolean[status.length];
+        for (int x : initialBoxes) hasBox[x] = true;
+        for (int x : initialBoxes) if (status[x] > 0 && hasBox[x]) dfs(x, status, candies, keys, containedBoxes, hasBox);
         return result;
+    }
+
+    private void dfs(int x, int[] status, int[] candies, int[][] keys, int[][] containedBoxes, boolean[] hasBox) {
+        result += candies[x];
+        hasBox[x] = false;
+        for (int key : keys[x]) {
+            status[key] = 1;
+            if (hasBox[key]) dfs(key, status, candies, keys, containedBoxes, hasBox);
+        }
+        for (int box : containedBoxes[x]) {
+            hasBox[box] = true;
+            if (status[box] > 0) dfs(box, status, candies, keys, containedBoxes, hasBox);
+        }
     }
 }
 ```
@@ -184,14 +192,22 @@ __Python__:
 ```Python
 class Solution:
     def maxCandies(self, status: List[int], candies: List[int], keys: List[List[int]], containedBoxes: List[List[int]], initialBoxes: List[int]) -> int:
-        queue, status = deque(initialBoxes), [status[i] | 0b10 if i in set(initialBoxes) else status[i] for i in range(len(status))]
-        while queue:
-            cur = queue.popleft()
-            for box in keys[cur]:
-                status[box] |= 0b01
-            for box in containedBoxes[cur]:
-                if (status[box] & 0b10) != 0b10:
-                    queue.append(box)
-                    status[box] |= 0b10
-        return sum([candies[i] for i in range(len(status)) if status[i] == 0b11])
+        result, has_box = 0, [i in set(initialBoxes) for i in range(len(status))]
+
+        def dfs(x: int) -> NoReturn:
+            nonlocal result
+            result += candies[x]
+            has_box[x] = 0
+            for key in keys[x]:
+                status[key] = 1
+                if has_box[key]:
+                    dfs(key)
+            for box in containedBoxes[x]:
+                has_box[box] = 1
+                if status[box]:
+                    dfs(box)
+        for x in initialBoxes:
+            if status[x] and has_box[x]:
+                dfs(x)
+        return result
 ```
