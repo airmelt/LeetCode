@@ -118,11 +118,7 @@ public:
         unordered_map<int, int> m;
         for (const auto& num : nums) ++m[(num % value + value) % value];
         int result = 0;
-        while (m[result % value])
-        {
-            --m[result % value];
-            ++result;
-        }
+        while (m[result % value]--) ++result;
         return result;
     }
 };
@@ -136,10 +132,7 @@ class Solution {
         var map = new HashMap<Integer, Integer>();
         for (int num : nums) map.merge((num % value + value) % value, 1, Integer::sum);
         int result = 0;
-        while (map.getOrDefault(result % value, 0) > 0) {
-            map.merge(result % value, -1, Integer::sum);
-            ++result;
-        }
+        while (map.merge(result % value, -1, Integer::sum) >= 0) ++result;
         return result;
     }
 }
