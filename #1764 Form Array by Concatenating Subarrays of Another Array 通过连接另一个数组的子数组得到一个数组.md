@@ -43,7 +43,7 @@ __Constraints:__
 
 - `groups.length == n`
 - `1 <= n <= 10 ^ 3`
-- `1 <= groups[i].length, sum(groups[i].length) <= 10 ^ <span style="font-size: 10.8333px;">3</span>`
+- `1 <= groups[i].length, sum(groups[i].length) <= 10 ^ 3`
 - `1 <= nums.length <= 10 ^ 3`
 - `-10 ^ 7 <= groups[i][j], nums[k] <= 10 ^ 7`
 
@@ -90,7 +90,7 @@ __提示：__
 
 - `groups.length == n`
 - `1 <= n <= 10 ^ 3`
-- `1 <= groups[i].length, sum(groups[i].length) <= 10 ^ <span>3</span>`
+- `1 <= groups[i].length, sum(groups[i].length) <= 10 ^ 3`
 - `1 <= nums.length <= 10 ^ 3`
 - `-10 ^ 7 <= groups[i][j], nums[k] <= 10 ^ 7`
 
@@ -104,7 +104,7 @@ __思路:__
 否则 j 自增
 最后检查是否遍历完 groups 数组
 时间复杂度为 O(MN), 空间复杂度为 O(1)
-2. KMP
+1. KMP
 类似于从 nums 数组中找到 groups 数组的子串
 时间复杂度为 O(M + N), 空间复杂度为 O(M)
 ```
