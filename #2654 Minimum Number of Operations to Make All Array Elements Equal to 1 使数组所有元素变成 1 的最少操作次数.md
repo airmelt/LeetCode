@@ -128,63 +128,47 @@ public:
 __Java__:
 
 ```Java
-class Solution 
-{
-public:
-    int minOperations(vector<int>& nums) 
-    {
-        int n = nums.size(), total = 0, cnt1 = 0, mx = n;
-        for (const auto& num : nums) 
-        {
+class Solution {
+    public int minOperations(int[] nums) {
+        int n = nums.length, total = 0, cnt1 = 0, mx = n;
+        for (int num : nums) {
             total = gcd(total, num);
             if (num == 1) ++cnt1;
         }
         if (total > 1) return -1;
         if (cnt1 > 0) return n - cnt1;
-        for (int i = 0; i < n; i++) 
-        {
-            for (int g = 0, j = i; j < n; j++) 
-            {
-                if ((g = gcd(g, nums[j])) == 1) 
-                {
-                    mx = min(mx, j - i);
+        for (int i = 0; i < n; i++) {
+            for (int g = 0, j = i; j < n; j++) {
+                if ((g = gcd(g, nums[j])) == 1) {
+                    mx = Math.min(mx, j - i);
                     break;
                 }
             }
         }
         return mx + n - 1;
     }
-};
+
+    private int gcd(int a, int b) {
+        return b == 0 ? a : gcd(b, a % b);
+    }
+}
 ```
 
 __Python__:
 
 ```Python
-class Solution 
-{
-public:
-    int minOperations(vector<int>& nums) 
-    {
-        int n = nums.size(), total = 0, cnt1 = 0, mx = n;
-        for (const auto& num : nums) 
-        {
-            total = gcd(total, num);
-            if (num == 1) ++cnt1;
-        }
-        if (total > 1) return -1;
-        if (cnt1 > 0) return n - cnt1;
-        for (int i = 0; i < n; i++) 
-        {
-            for (int g = 0, j = i; j < n; j++) 
-            {
-                if ((g = gcd(g, nums[j])) == 1) 
-                {
-                    mx = min(mx, j - i);
-                    break;
-                }
-            }
-        }
-        return mx + n - 1;
-    }
-};
+class Solution:
+    def minOperations(self, nums: List[int]) -> int:
+        if gcd(*nums) > 1:
+            return -1
+        min_size = n = len(nums)
+        if (cnt1 := sum(x == 1 for x in nums)):
+            return n - cnt1
+        for i in range(n):
+            g = 0
+            for j in range(i, n):
+                if (g := gcd(g, nums[j])) == 1:
+                    min_size = min(min_size, j - i)
+                    break
+        return min_size + n - 1
 ```
