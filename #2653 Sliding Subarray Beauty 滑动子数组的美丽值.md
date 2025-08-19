@@ -160,18 +160,13 @@ __Java__:
 
 ```Java
 class Solution {
-public:
-    vector<int> getSubarrayBeauty(vector<int>& nums, int k, int x) {
-        int n = nums.size();
-        vector<int> result(n - k + 1), c(101);
+    public int[] getSubarrayBeauty(int[] nums, int k, int x) {
+        int n = nums.length, result[] = new int[n - k + 1], c[] = new int[101];
         for (int i = 0; i < k - 1; i++) ++c[nums[i] + 50];
-        for (int i = k - 1; i < n; i++) 
-        {
+        for (int i = k - 1; i < n; i++) {
             ++c[nums[i] + 50];
-            for (int j = 0, left = x; j < 50; j++) 
-            {
-                if ((left -= c[j]) <= 0) 
-                {
+            for (int j = 0, left = x; j < 50; j++) {
+                if ((left -= c[j]) <= 0) {
                     result[i - k + 1] = j - 50;
                     break;
                 }
@@ -180,32 +175,18 @@ public:
         }
         return result;
     }
-};
+}
 ```
 
 __Python__:
 
 ```Python
-class Solution {
-public:
-    vector<int> getSubarrayBeauty(vector<int>& nums, int k, int x) {
-        int n = nums.size();
-        vector<int> result(n - k + 1), c(101);
-        for (int i = 0; i < k - 1; i++) ++c[nums[i] + 50];
-        for (int i = k - 1; i < n; i++) 
-        {
-            ++c[nums[i] + 50];
-            for (int j = 0, left = x; j < 50; j++) 
-            {
-                if ((left -= c[j]) <= 0) 
-                {
-                    result[i - k + 1] = j - 50;
-                    break;
-                }
-            }
-            --c[nums[i - k + 1] + 50];
-        }
-        return result;
-    }
-};
+class Solution:
+    def getSubarrayBeauty(self, nums: List[int], k: int, x: int) -> List[int]:
+        l, result = SortedList(nums[:k - 1]), []
+        for i in range(k - 1, len(nums)):
+            l.add(nums[i])
+            result.append(min(0, l[x - 1]))
+            l.remove(nums[i - k + 1])
+        return result
 ```
