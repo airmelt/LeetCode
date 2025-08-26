@@ -6,7 +6,7 @@ You are given an array `start` where `start = [startX, startY]` represents your 
 
 The __cost__ of going from a position `(x1, y1)` to any other position in the space `(x2, y2)` is `|x2 - x1| + |y2 - y1|`.
 
-There are also some __special roads__. You are given a 2D array `specialRoads` where `specialRoads[i] = [x1i, y1i, x2i, y2i, costi]` indicates that the `i ^ th` special road goes in __one direction__ from `(x1i, y1i)` to `(x2i, y2i)` with a cost equal to `costi`. You can use each special road any number of times.
+There are also some __special roads__. You are given a 2D array `specialRoads` where `specialRoads[i] = [x1i, y1i, x2i, y2i, cost_i]` indicates that the `i ^ th` special road goes in __one direction__ from `(x1i, y1i)` to `(x2i, y2i)` with a cost equal to `cost_i`. You can use each special road any number of times.
 
 Return the __minimum__ cost required to go from `(startX, startY)` to `(targetX, targetY)`.
 
@@ -65,7 +65,7 @@ __Constraints:__
 - `specialRoads[i].length == 5`
 - `startX <= x1i, x2i <= targetX`
 - `startY <= y1i, y2i <= targetY`
-- `1 <= costi <= 10 ^ 5`
+- `1 <= cost_i <= 10 ^ 5`
 
 __题目描述:__
 
@@ -73,7 +73,7 @@ __题目描述:__
 
 从位置 `(x1, y1)` 到空间中任一其他位置 `(x2, y2)` 的 __代价__ 是 `|x2 - x1| + |y2 - y1|` 。
 
-给你一个二维数组 `specialRoads` ，表示空间中存在的一些 __特殊路径__。其中 `specialRoads[i] = [x1i, y1i, x2i, y2i, costi]` 表示第 `i` 条特殊路径可以从 `(x1i, y1i)` 到 `(x2i, y2i)` ，但成本等于 `costi` 。你可以使用每条特殊路径任意次数。
+给你一个二维数组 `specialRoads` ，表示空间中存在的一些 __特殊路径__。其中 `specialRoads[i] = [x1i, y1i, x2i, y2i, cost_i]` 表示第 `i` 条特殊路径可以从 `(x1i, y1i)` 到 `(x2i, y2i)` ，但成本等于 `cost_i` 。你可以使用每条特殊路径任意次数。
 
 返回从 `(startX, startY)` 到 `(targetX, targetY)` 所需的 __最小__ 代价。
 
@@ -130,7 +130,7 @@ __提示：__
 - `specialRoads[i].length == 5`
 - `startX <= x1i, x2i <= targetX`
 - `startY <= y1i, y2i <= targetY`
-- `1 <= costi <= 10 ^ 5`
+- `1 <= cost_i <= 10 ^ 5`
 
 __思路:__
 
