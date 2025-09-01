@@ -100,25 +100,17 @@ public:
 __Java__:
 
 ```Java
-class Solution 
-{
-public:
-    int countSeniors(vector<string>& details) 
-    {
-        return count_if(details.begin(), details.end(), [](const auto &s) { return (s[11] - '0') * 10 + (s[12] - '0') > 60; });
+class Solution {
+    public int countSeniors(String[] details) {
+        return (int)Arrays.stream(details).filter(s -> ((s.charAt(11) - '0') * 10 + s.charAt(12) - '0' > 60)).count();
     }
-};
+}
 ```
 
 __Python__:
 
 ```Python
-class Solution 
-{
-public:
-    int countSeniors(vector<string>& details) 
-    {
-        return count_if(details.begin(), details.end(), [](const auto &s) { return (s[11] - '0') * 10 + (s[12] - '0') > 60; });
-    }
-};
+class Solution:
+    def countSeniors(self, details: List[str]) -> int:
+        return sum(int(d[-4:-2]) > 60 for d in details)
 ```
