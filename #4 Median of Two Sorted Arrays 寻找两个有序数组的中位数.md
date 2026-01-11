@@ -11,17 +11,21 @@ __Example:__
 
 Example 1:
 
+```text
 nums1 = [1, 3]
 nums2 = [2]
 
 The median is 2.0
+```
 
 Example 2:
 
+```text
 nums1 = [1, 2]
 nums2 = [3, 4]
 
 The median is (2 + 3)/2 = 2.5
+```
 
 __题目描述__:
 给定两个大小为 m 和 n 的有序数组 nums1 和 nums2。
@@ -34,22 +38,58 @@ __示例 :__
 
 示例 1:
 
+```text
 nums1 = [1, 3]
 nums2 = [2]
 
 则中位数是 2.0
+```
 
 示例 2:
 
+```text
 nums1 = [1, 2]
 nums2 = [3, 4]
 
 则中位数是 (2 + 3)/2 = 2.5
+```
 
 __思路__:
 
-注意到数组为有序数组, 每次找到两个数组中位数比较大小, 将中位数较大的大于中位数的部分(右边)丢弃, 将中位数较小的小于中位数的部分(左边)丢弃, 直到剩下 1(两个数组元素和为奇数)或者2(两个数组元素和为偶数)数组元素, 返回结果的平均值即可
+```text
+二分
+将两个数组中的元素均匀分成两个组
+比如
+nums1 = [1, 3, 5, 7, 9]
+nums2 = [0, 2, 4, 6, 8]
+假定将 nums1, 3 之前的数分给第一组
+由于是均匀分组
+nums2 中的前 3 个数将会自动分给第一组
+此时第一组中最大的数是 max(3, 4) = 4
+而第二组中最小的数是 min(5, 6) = 5
+此时 4 <= 5, 这个分组就是恰好合法的, 中位数为 (4 + 5) / 2.0
+所以从 (-1, m) 上找到一个分界点, 使得 nums1[mid] <= nums2[((m + n - 3) >> 1) - mid] 最大
+((m + n - 3) >> 1) - mid 是因为每个组需要选择 (m + n) >> 1 个数
+如果 nums1 选 mid 个数, 还需要 ((m + n) >> 1) - mid 个数
+当为奇数时, 将多的那个数放入第一组
+那么实际上是 ((m + n + 1) >> 1) - mid
+为了保证这两个数不越界可以都加上 1
+mid + 1 and ((m + n + 1) >> 1) - (mid + 1)
+移动 1 到右边可以得到
+mid, ((m + n - 3) >> 1) - mid
+比较这两个位置的大小选最大值
+最后找到分界点之后
+取 mid1 = left
+那么 mid2 = ((m + n - 3) >> 1) - mid1
+a1 = nums1[mid1], 非法时取 -inf
+b1 = nums2[mid2], 非法时取 -inf
+a2 = nums1[mid1 + 1], 非法时取 inf
+b2 = nums2[mid2 + 1], 非法时取 inf
+max(a1, b1) 即第一组最大值
+min(a2, b2) 即第二组最小值
+按照奇偶性返回结果即可
 时间复杂度O(log(m + n)), 空间复杂度O(1)
+```
 
 __代码__:
 __C++__:
@@ -61,21 +101,13 @@ public:
     double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) 
     {
         if (nums1.size() > nums2.size()) return findMedianSortedArrays(nums2, nums1);
-        int m = nums1.size(), n = nums2.size(), left = 0, right = nums1.size();
-        while (left <= right) 
+        int m = nums1.size(), n = nums2.size(), left = -1, right = m, mid = 0, inf = 0x3f3f3f3f;
+        while (left + 1 < right) 
         {
-            int i = (left + right) >> 1;
-            int j = ((m + n + 1) >> 1) - i;
-            int left_max1 = i == 0 ? INT_MIN : nums1[i - 1], right_min1 = i == m ? INT_MAX : nums1[i], left_max2 = j == 0 ? INT_MIN : nums2[j - 1], right_min2 = j == n ? INT_MAX : nums2[j];
-            if (left_max1 <= right_min2 and left_max2 <= right_min1) 
-            {
-                if ((m + n) & 1) return max(left_max1, left_max2);
-                else return ((max(left_max1, left_max2) + min(right_min1, right_min2))) / 2.0;
-            } 
-            else if (left_max2 > right_min1) left = i + 1;
-            else right = i - 1;
+            if (nums1[mid = left + ((right - left) >> 1)] <= nums2[((m + n - 3) >> 1) - mid + 1]) left = mid;
+            else right = mid;
         }
-        return 0.0;
+        return ((m + n) & 1) == 1 ? max(left > -1 ? nums1[left] : -inf, (mid = ((m + n - 3) >> 1) - left) > -1 ? nums2[mid] : -inf) : (max(left > -1 ? nums1[left] : -inf, (mid = ((m + n - 3) >> 1) - left) > -1 ? nums2[mid] : -inf) + min(left + 1 < m ? nums1[left + 1] : inf, mid + 1 < n ? nums2[mid + 1] : inf)) / 2.0;
     }
 };
 ```
@@ -85,18 +117,13 @@ __Java__:
 ```Java
 class Solution {
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
-        int m = nums1.length, n = nums2.length;
-        int left = (m + n + 1) >>> 1, right = (m + n + 2) >>> 1;
-        return (helper(nums1, 0, nums2, 0, left) + helper(nums1, 0, nums2, 0, right)) / 2.0;
-    }
-    
-    private int helper(int[] nums1, int i, int[] nums2, int j, int k) {
-        if (i + 1 > nums1.length) return nums2[j + k - 1];
-        if (j + 1 > nums2.length) return nums1[i + k - 1];
-        if (k == 1) return Math.min(nums1[i], nums2[j]);
-        int mid1 = (i + (k >>> 1) - 1 < nums1.length) ? nums1[i + (k >>> 1) - 1] : Integer.MAX_VALUE, mid2 = (j + (k >>> 1) - 1 < nums2.length) ? nums2[j + (k >>> 1) - 1] : Integer.MAX_VALUE;
-        if (mid1 < mid2) return helper(nums1, i + (k >>> 1), nums2, j, k - (k >>> 1));
-        else return helper(nums1, i, nums2, j + (k >>> 1), k - (k >>> 1));
+        if (nums1.length > nums2.length) return findMedianSortedArrays(nums2, nums1);
+        int m = nums1.length, n = nums2.length, left = -1, right = m, mid = 0, inf = 0x3f3f3f3f;
+        while (left + 1 < right) {
+            if (nums1[mid = left + ((right - left) >> 1)] <= nums2[((m + n - 3) >> 1) - mid + 1]) left = mid;
+            else right = mid;
+        }
+        return ((m + n) & 1) == 1 ? Math.max(left > -1 ? nums1[left] : -inf, (mid = ((m + n - 3) >> 1) - left) > -1 ? nums2[mid] : -inf) : (Math.max(left > -1 ? nums1[left] : -inf, (mid = ((m + n - 3) >> 1) - left) > -1 ? nums2[mid] : -inf) + Math.min(left + 1 < m ? nums1[left + 1] : inf, mid + 1 < n ? nums2[mid + 1] : inf)) / 2.0;
     }
 }
 ```
