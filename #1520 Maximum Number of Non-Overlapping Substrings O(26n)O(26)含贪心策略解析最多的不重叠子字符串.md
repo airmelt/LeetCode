@@ -1,4 +1,4 @@
-# 1520 Maximum Number of Non-Overlapping Substrings O(26n)O(26)含贪心策略解析最多的不重叠子字符串
+# 1520 Maximum Number of Non-Overlapping Substrings 最多的不重叠子字符串
 
 __Description:__
 
