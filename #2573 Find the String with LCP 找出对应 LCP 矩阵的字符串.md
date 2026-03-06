@@ -155,11 +155,5 @@ class Solution:
             for j in range(i, n):
                 if lcp[i][j]:
                     s[j] = c
-        if None in s:
-            return ""
-        for i in range(n - 1, -1, -1):
-            for j in range(n - 1, -1, -1):
-                if lcp[i][j] != (0 if s[i] != s[j] else 1 if i == n - 1 or j == n - 1 else lcp[i + 1][j + 1] + 1):
-                    return ""
-        return ''.join(s)
+        return "" if None in s or any(lcp[i][j] != (0 if s[i] != s[j] else 1 if i == n - 1 or j == n - 1 else lcp[i + 1][j + 1] + 1) for i in range(n - 1, -1, -1) for j in range(n - 1, -1, -1)) else ''.join(s)
 ```
