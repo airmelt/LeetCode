@@ -69,7 +69,7 @@ __示例:__
 
 示例 1：
 
-![3160-2](https://assets.leetcode.com/uploads/2024/04/17/ezgifcom-crop2.gif)
+![3160-3](https://assets.leetcode.com/uploads/2024/04/17/ezgifcom-crop2.gif)
 
 ```text
 输入：limit = 4, queries = [[1,4],[2,5],[1,3],[3,4]]
@@ -86,7 +86,7 @@ __示例:__
 
 示例 2：
 
-![3149-4](https://assets.leetcode.com/uploads/2024/04/04/example1gif.gif)
+![3149-4](https://assets.leetcode.com/uploads/2024/04/17/ezgifcom-crop2.gif)
 
 ```text
 输入：limit = 4, queries = [[0,1],[1,2],[2,2],[3,4],[4,5]]
