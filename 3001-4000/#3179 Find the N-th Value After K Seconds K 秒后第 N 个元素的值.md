@@ -2,13 +2,13 @@
 
 __Description:__
 
-You are given two integers n and k.
+You are given two integers `n` and `k`.
 
-Initially, you start with an array a of n integers where a[i] = 1 for all 0 <= i <= n - 1. After each second, you simultaneously update each element to be the sum of all its preceding elements plus the element itself. For example, after one second, a[0] remains the same, a[1] becomes a[0] + a[1], a[2] becomes a[0] + a[1] + a[2], and so on.
+Initially, you start with an array `a` of `n` integers where `a[i] = 1` for all `0 <= i <= n - 1`. After each second, you simultaneously update each element to be the sum of all its preceding elements plus the element itself. For example, after one second, `a[0]` remains the same, `a[1]` becomes `a[0] + a[1]`, `a[2]` becomes `a[0] + a[1] + a[2]`, and so on.
 
-Return the value of a[n - 1] after k seconds.
+Return the __value__ of `a[n - 1]` after `k` seconds.
 
-Since the answer may be very large, return it modulo 109 + 7.
+Since the answer may be very large, return it __modulo__ `10 ^ 9 + 7`.
 
 __Example:__
 
@@ -54,13 +54,13 @@ __Constraints:__
 
 __题目描述:__
 
-给你两个整数 n 和 k。
+给你两个整数 `n` 和 `k`。
 
-最初，你有一个长度为 n 的整数数组 a，对所有 0 <= i <= n - 1，都有 a[i] = 1 。每过一秒，你会同时更新每个元素为其前面所有元素的和加上该元素本身。例如，一秒后，a[0] 保持不变，a[1] 变为 a[0] + a[1]，a[2] 变为 a[0] + a[1] + a[2]，以此类推。
+最初，你有一个长度为 `n` 的整数数组 `a`，对所有 `0 <= i <= n - 1`，都有 `a[i] = 1` 。每过一秒，你会同时更新每个元素为其前面所有元素的和加上该元素本身。例如，一秒后，`a[0]` 保持不变，`a[1]` 变为 `a[0] + a[1]`，`a[2]` 变为 `a[0] + a[1] + a[2]`，以此类推。
 
-返回 k 秒后 a[n - 1] 的值。
+返回 `k` 秒后 `a[n - 1]` 的 __值__。
 
-由于答案可能非常大，返回其对 109 + 7 取余 后的结果。
+由于答案可能非常大，返回其对 `10 ^ 9 + 7` __取余__ 后的结果。
 
 __示例:__
 
