@@ -301,50 +301,41 @@ __Python__:
 ```Python
 class Solution:
     def minimumSum(self, grid: List[List[int]]) -> int:
-        def rotate(a: List[List[int]]) -> List[List[int]]:
-            return list(zip(*reversed(a)))
-
+        rotate = lambda a: list(zip(*reversed(a)))
         def helper(a: List[List[int]]) -> int:
             m, n, result = len(a), len(a[0]), inf
 
-            def minimumArea(a: List[List[int]]) -> List[List[int]]:
+            def min_area(a: List[List[int]]) -> List[List[int]]:
                 m, n = len(a), len(a[0])
-                dp, border = [[0] * (n + 1) for _ in range(m + 1)], [(-1, 0, 0)] * n
+                dp, boarder = [[0] * (n + 1) for _ in range(m + 1)], [(-1, 0, 0)] * n
                 for i, row in enumerate(a):
                     left, right = -1, 0
                     for j, val in enumerate(row):
                         if val:
                             left, right = j if left < 0 else left, j
-                        pre_top, pre_left, pre_right = border[j]
-                        if left < 0: 
-                            dp[i + 1][j + 1] = dp[i][j + 1] 
-                        elif pre_top < 0: 
-                            dp[i + 1][j + 1], border[j] = right - left + 1, (i, left, right)
-                        else:  
-                            dp[i + 1][j + 1], border[j] = ((r := max(pre_right, right)) - (l := min(pre_left, left)) + 1) * (i - pre_top + 1), (pre_top, l, r)
+                        pre_top, pre_left, pre_right = boarder[j]
+                        if left < 0:
+                            dp[i + 1][j + 1] = dp[i][j + 1]
+                        elif pre_top < 0:
+                            dp[i + 1][j + 1], boarder[j] = right - left + 1, (i, left, right)
+                        else:
+                            dp[i + 1][j + 1], boarder[j] = ((r := max(right, pre_right)) - (l := min(left, pre_left)) + 1) * (i - pre_top + 1), (pre_top, l, r)
                 return dp
-
-            lr = [None] * m
+            lr, lt, lb, rb, rt = [None] * m, min_area(a), rotate(rotate(rotate(min_area(rotate(a))))), rotate(rotate(min_area(rotate(rotate(a))))), rotate(min_area(rotate(rotate(rotate(a)))))
             for i, row in enumerate(a):
                 left, right = -1, 0
                 for j, val in enumerate(row):
                     if val:
                         left, right = j if left < 0 else left, j
                 lr[i] = (left, right)
-
-            lt = minimumArea(a)
-            lb = rotate(rotate(rotate(minimumArea(a := rotate(a)))))
-            rb = rotate(rotate(minimumArea(a := rotate(a))))
-            rt = rotate(minimumArea(a := rotate(a)))
-            if m >= 3:
+            if m > 2:
                 for i in range(1, m):
                     left, right, top, bottom = n, -1, m, -1
                     for j in range(i + 1, m):
-                        l, r = lr[j - 1]
-                        if l > -1:
-                            left, right, top, bottom = min(left, l), max(right, r), min(top, j - 1), j - 1
+                        if (l := lr[j - 1][0]) > -1:
+                            left, right, top, bottom = min(left, l), max(right, r := lr[j - 1][1]), min(top, j - 1), j - 1
                         result = min(result, lt[i][n] + (right - left + 1) * (bottom - top + 1) + lb[j][n])
-            if m >= 2 and n >= 2:
+            if m > 1 and n > 1:
                 for i in range(1, m):
                     for j in range(1, n):
                         result = min(result, lt[i][n] + lb[i][j] + rb[i][j], lt[i][j] + rt[i][j] + lb[i][n])
