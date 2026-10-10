@@ -299,8 +299,6 @@ class Solution {
 __Python__:
 
 ```Python
-
-
 class Solution:
     def minimumSum(self, grid: List[List[int]]) -> int:
         def rotate(a: List[List[int]]) -> List[List[int]]:
